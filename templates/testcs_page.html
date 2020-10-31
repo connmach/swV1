@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<!--link href="/static/css/main.css" rel="stylesheet"-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/static/js/1.12.4/jquery-ui.js"></script>
+<script src=/static/lib/codemirror.js></script>
+<link rel="icon" href="/static/images/sw.ico">
+<!--link rel=stylesheet href=lib/codemirror.css-->
+
+<script src=/static/lib/xml.js></script>
+<script src=/static/lib/javascript.js></script>
+<script src=/static/lib/css.js></script>
+<script src=/static/lib/closetag.js></script>
+<script src="/static/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.47.0/mode/python/python.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/static/css/oneweb.css">
+<link rel="stylesheet" type="text/css" href="/static/css//Exercise.css">
+
+<style type="text/css">
+    @import url(//fonts.googleapis.com/css?family=Open+Sans:200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic,200,300,400,500,600,700,800);
+</style>
+<style>
+    #articles_h1 {
+
+
+        padding: 2em 30px;
+    }
+
+    #articles_content {
+        padding-top: 30px;
+        padding-left: 30px;
+        padding-right: 30px;
+
+    }
+</style>
+<title>SocialWings</title>
+</head>
+
+<body class="light wide python exercise-screen ScrollAreaConfig--19 ScrollAreaConfig--active">
+    <script>
+        $(document).ready(function () {
+            loadFlag = false;
+            loadQnAns();
+
+            // reading from learning history below details
+            // score, section, exercise   
+            //1. complete all the section which are done by changing class .done
+            // making the tick mark
+            //spinner while submitting the exercise
+
+            $('#courseSummmary').click(function () {
+                $(".main-part").toggleClass("opened");
+
+            })
+            $('#section-1-header').click(function () {
+                let item = $(this).siblings('#section-1-list').first();
+                item.slideToggle();
+            })
+
+            $('#section-2-header').click(function () {
+                let item = $(this).siblings('#section-2-list').first();
+                item.slideToggle();
+            })
+
+            $('#section-3-header').click(function () {
+                let item = $(this).siblings('#section-3-list').first();
+                item.slideToggle();
+            })
+            $('#section-4-header').click(function () {
+                let item = $(this).siblings('#section-4-list').first();
+                item.slideToggle();
+            })
+
+            $('#section-5-header').click(function () {
+                let item = $(this).siblings('#section-5-list').first();
+                item.slideToggle();
+            })
+            $('.articles').click(function () {
+
+
+
+            })
+        })
+
+
+        function loadQnAns() {
+
+
+
+            //check if session exist
+            // check learning history   
+            // make all the sections done
+            // addtotalquestion current question
+            // current course
+
+            qno = 12
+            var qrepo = qRepocall(qno)
+            //console.log("output" + qrepo);
+
+
+        }
+
+        function add_To_Console(text) {
+
+            console.log("add to console" + text);
+            var resultPyOut = document.getElementById("iframewrapper");
+
+            var tag = document.createElement("pre");
+            var textNode = document.createTextNode(text);
+            tag.appendChild(textNode);
+
+            resultPyOut.appendChild(tag);
+
+
+        }
+
+        function runinSandbox(qno) {
+
+            var qnmap = { 2: "CP0101", 3: "CP0102" }
+            var qnrevmap = { "CP0101": 2, "CP0102": 3 }
+            //session should have current question
+            console.log("running inside sandbox")
+            qno = "CP0101"
+
+            // make the question complete
+            // on error show the error in console.
+            // on success move to the next question.
+            // initiate the docker container
+
+            console.log("output- question from db" + qno)
+            port = 8032
+            webServ = "http://46.101.210.184:" + port + "/runPython"
+            // fetch the content from the console
+            var mypre = document.getElementById("editor");
+
+            console.log("start" + mypre);
+            pythonSol = editor.getValue('\n');
+            //session should have employeeId
+            userId = "823903"
+
+            console.log("webservice call grading" + webServ)
+            console.log("webservice- pythonSol" + pythonSol)
+            console.log("webservice- grading UserId" + userId)
+
+            jsonData = JSON.stringify({ "pythonSol": pythonSol, "userId": userId, "qn": qno })
+            // invoke the webservice
+            parameters = ""
+            $.ajax({
+                type: 'POST',
+                url: webServ,
+                data: jsonData,
+                contentType: "application/json"
+            })
+                .done(function (data) {
+                    //
+
+                    if (data.errOut) {
+                        add_To_Console(data.errOut)
+                        console.log("errout" + JSON.stringify(data))
+                    } else {
+                        add_To_Console(data.taskStatus)
+                        add_To_Console(JSON.stringify(data))
+                        add_To_Console(data.result)
+                        add_To_Console(data.resultStatus)
+                        console.log("errout - none")
+                    }
+                    SecNo = 2
+                    qnoRes = qnrevmap[qno]
+                    console.log("stdout" + data.result)
+                    //section-2-exercise-1
+                    console.log("execOut" + data.resultStatus)
+                    console.log("sec sts" + data.SecStatus)
+                    currQn = '#section-' + SecNo + '-exercise-' + qnoRes
+                    console.log("sec sts" + currQn)
+                    $(currQn).addClass('done')
+                    //check section status
+                    currSectn = '#section-' + SecNo
+                    console.log("sec sts" + currSectn)
+
+                    if (data.SecStatus == true)
+                        $(currSectn).addClass('done')
+
+                    // if(data.CrsStatus==true)
+                    // currQn='#section-'+SecNo+'-exercise-'+ qnNo
+                    // $(currQn).addClass('done')
+                    // check course completion
+                    //complete popup success message
+                    NxtQn = '#NxtQn'
+                    if (data.QnExecStatus == true)
+                        $(NxtQn).addClass('enable')
+
+                    // update Ninja Score into session
+
+                    // update question number vs total question into session
+                    //navi-exercise-id
+
+                }).fail(function (data) {
+                    alert("error******** while running the question in sandbox");
+                    add_To_Console("error******** while running the question in sandbox" + JSON.stringify(data))
+                }).always(function () {
+                    //alert( "finished" );
+                    console.log("webservice call finished")
+                });
+
+        }
+
+        function runit() {
+            console.log("running grading environment")
+            out = ""
+            runinSandbox()
+            return
+        }
+        function qRepocall(qno) {
+            qno = 'CP0101'
+            var resultPyOut = document.getElementById("iframewrapper");
+            console.log("output- question from db" + qno)
+            str = "/engine/python/qnRepo/" + qno
+            console.log("webservice call" + str)
+            alert("newload of questions")
+            parameters = ""
+
+            $.ajax({
+                type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                url: str, // the url where we want to POST
+                data: "", // our data object
+                dataType: 'json',
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
+
+                    $('#result').html('<p>status code: ' + jqXHR.status + '</p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div>' + jqXHR.responseText + '</div>');
+                    console.log('jqXHR:');
+                    console.log(jqXHR.responseText);
+                    console.log(jqXHR.status);
+
+
+                    console.log('textStatus:');
+                    console.log(textStatus);
+                    console.log('errorThrown:');
+                    console.log(errorThrown);
+
+                    return false;
+                },
+
+                /**
+                 * A function to be called if the request succeeds.
+                 */
+                success: function (data, textStatus, jqXHR) {
+
+                    $("#courseSummmary").html(data.topicDesc);
+                    alert(data.topicDesc)
+                    $("#instruction_container").html(data.instruction);
+                    $("#content_container").html(data.exercise);
+                    console.log('jqXHR:');
+                    console.log(data.topicDesc);
+                    console.log('textStatus:');
+                    console.log(textStatus);
+                    console.log('data:');
+                    console.log(data);
+                    return false;
+                }
+
+            });
+        }
+
+        function dbacall() {
+            //text= $('input[name="pyout"]').val();
+            //empId=823903 $('input[name="EmployeeId"]').val();
+            //qno=$('input[name="qno"]').val();
+
+            var resultPyOut = document.getElementById("iframewrapper");
+            ans = resultPyOut.innerHTML
+            empId = '823903' + Math.floor(Math.random() * 10)
+
+            console.log("Db out" + empId + " //" + ans)
+            $.post("/engine/python/ass02",
+                {
+                    ans: "text",
+                    EmpId: "empId",
+                    QNo: "qno"
+                },
+                function (data, status) {
+
+
+                    //      console.log("Data: " + data + "\nStatus: " + status);
+                    //    console.log("Success");
+                    return data;
+                });
+
+        }
+
+    </script>
+    <div id="content_wrapper" style="padding-top: 61px;">
+        <div id="content">
+                                                                                                                                                                                                                                                                                                 <link href="/static/css/recurly.css" rel="stylesheet" type="text/css">
+            <div class="main-divs">
+  
+                <!-- some issue in the next div-->
+                <div class="hdivider ui-draggable ui-draggable-handle" id="hdivider" style="left: 796px;">
+                    <div></div>
+                </div>
+                <div class="at-west" style="max-width:70%">
+                    <div class="center" id="center-panel">
+                        <div class="ConsoleEditor" style="max-height:100%;">
+                            <div class="console-div" style="max-height: 40%; height: 390px;">
+                                <div class="content">
+                                    <div class="tabs">
+                                        <div class="header">
+                                            <span class="tab selected">
+                                                <span>
+                                                    <span>Code
+                                                        editor</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="content">
+                                            <textarea id="editor" placeholder="Your code..."
+                                                onchange=' console.log("change")'># input source code</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <div class="buttons">
+                                        <a class="button primary" title="Control+Enter" onclick="runit()"> Run and check
+                                            code </a>
+                                        <a class="button minor" title="Alt+R"> Reset </a>
+                                        <a style="margin-left: 450px; display:none" class="button nextEx primary"
+                                            title="Next Exercise" onclick="loadNextQn()"> Next exercise </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="divider ui-draggable ui-draggable-handle" style="top: 452px;">
+                                <div></div>
+                            </div>
+
+                <div class="loader-wrapper">
+                    <img src="static/images/ajax-loader.gif">
+                </div>
+            </div>
+        </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+                 </div>
+
+          </div>
+
+       </div>
+    </div>
+  
+    <div id="footer_wrapper">
+        <div id="footer"></div>
+    </div>
+
+</body>
+<script>
+    loadFlag = false;
+    console.log("start flag" + loadFlag);
+    if (loadFlag == false) {
+        var mypre = document.getElementById("editor");
+        console.log("start" + mypre);
+        mypre.innerHTML = ""
+        var editor = new CodeMirror.fromTextArea(document.getElementById("editor"), {
+            lineNumbers: true,
+            mode: 'python',
+            theme: "dracula",
+            lineWrapping: false
+
+        })
+        loadFlag = true;
+
+        var setheight = $(".console-div").height() > "500" ? "380x" : "380px";
+        $('.console-div').css({
+            height: setheight
+        });
+        var setheight = $(".result-div").height() > "500" ? "590px" : "590px";
+        $('.result-div').css({
+            height: setheight
+        });
+    } </script>
+
+</html>
