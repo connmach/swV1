@@ -219,7 +219,7 @@ function qRepocall(qno) {
    console.log("output- question from db" + qno)
    str = "/engine/python/qnRepo/" + qno
    console.log("webservice call" + str)
-   alert("newload of questions")
+ //  alert("newload of questions")
    parameters=""
 
    $.ajax({
@@ -250,7 +250,7 @@ function qRepocall(qno) {
     success: function(data, textStatus, jqXHR) {
 
                 $("#courseSummmary").html(data.topicDesc);
-                alert(data.topicDesc)
+              //  alert(data.topicDesc)
                 $("#instruction_container").html(data.instruction);
                 $("#content_container").html(data.exercise);
                 console.log('jqXHR:');
@@ -304,7 +304,7 @@ function dbacall() {
 							<div class="header__top">
 								<div class="hmenu mainmenu">
 									<div class="hmenu_item">
-										<img src="/static/images/sw.png" alt="Socialwings" height=40px>
+										<img src="/static/images/EdN-180x180.png" alt="Socialwings" height=40px>
 										</div>
 									</div>
 									<div class="profile">
@@ -344,7 +344,7 @@ function dbacall() {
 																		</li>
 																		<li></li>
 																		<li>
-																			<a id="btn46">
+																			<a id="btn46" href="/logout">
 																				<span>Log out</span>
 																			</a>
 																		</li>
