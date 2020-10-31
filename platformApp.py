@@ -4,9 +4,10 @@ from flask import Flask, render_template, redirect, url_for, request, session
 import pymysql
 import os
 app = Flask(__name__)
+app.secret_key = 'eduninja'
 logging.basicConfig(level=logging.DEBUG)
 
-@app.route('/login')
+@app.route('/login_old')
 def authentication():
 
    return render_template('index.html')
@@ -14,13 +15,42 @@ def authentication():
 @app.route('/')
 def index():
     error = None
-    return render_template('index.html')
+    return render_template('login.html')
 @app.route('/courses')
 def courses():
     error = None
+
     return render_template('Courses _ Catalog.html')
+
+@app.route('/eduninja')
+def courseLogin():
+    error = None
+    return render_template('login.html')
+@app.route('/logout')
+def logout():
+      session.pop('userid', None)
+ 
+      return redirect(url_for('courseLogin'))
+ 
+@app.route('/loginsubmit' ,methods = ['POST'])
+def courseLoginSubmit():
+    error = None
+    userid=request.form['email'];
+    password=request.form['password'];
+    print(userid)
+    session['userid'] = userid
+ 
+    if userid=="guest@eduninja.com" and password=="guest":
+       return render_template('Courses _ Catalog.html')
+    else:
+       return render_template('login.html')
+
 @app.route('/course/python')
 def coursePython():
+    if 'userid' in session:
+      username = session['userid']
+    else:
+      return redirect(url_for('courseLogin'))
     error = None
     return render_template('python1.html')
 @app.route('/course/cs001', methods = ['POST', 'GET'])
