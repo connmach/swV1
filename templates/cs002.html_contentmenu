@@ -1,0 +1,373 @@
+<link rel="stylesheet" href="/static/css/styles.7f228a69.chunk.css">
+{% extends 'layout.html' %}
+
+{% block content %}
+    
+ 	  <div class="layout__content">
+          
+		<div class="catalog-search-bar">
+		<h1 class="catalog-search-bar__title">Program Catalog</h1>
+		<div><label class="sr-only" for="catalog-search-input">Search</label>
+		  <div class="catalog-search-bar__input-container"><input type="search" id="catalog-search-input" placeholder="Search" value=""></div>
+		</div>
+	  </div>
+			  <div class="catalog-page__content">
+	
+		  <main>
+		  <div class="catalog-filter-mobile">
+			<div class="catalog-filter-mobile__action-buttons-container"><button class="catalog-filter-mobile__toggle">Filters</button><button class="catalog-filter-mobile__close catalog-filter-mobile__close--inactive" aria-label="close filters menu"></button></div>
+			<div class="catalog-filter-mobile__menu">
+			  <fieldset class="catalog-filters">
+				<legend class="section-title">Filter by</legend>
+				<div class="drop-select-component"><button aria-controls="5" aria-haspopup="true" class="drop-select-component__button"><span class="drop-select-component__button__label">Select Program Details</span></button>
+				  <div id="5" class="drop-select-component__menu drop-select-component__menu--hidden" aria-hidden="true" aria-expanded="false" role="menu">
+					<div class="filter-menu">
+					  <fieldset>
+						<legend class="section-title">Type</legend>
+						<div class="checkbox-component"><input type="checkbox" data-from="type" name="programs" id="type-programs-4" class="checkbox-component__input"><label class="checkbox-component__label" for="type-programs-4">Programs</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="type" name="free courses" id="type-free-courses-4" class="checkbox-component__input"><label class="checkbox-component__label" for="type-free-courses-4">Free Courses</label></div>
+					  </fieldset>
+					  <fieldset>
+						<legend class="section-title">Skill Level</legend>
+						<div class="checkbox-component"><input type="checkbox" data-from="level" name="beginner" id="level-beginner-4" class="checkbox-component__input"><label class="checkbox-component__label" for="level-beginner-4">Beginner</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="level" name="intermediate" id="level-intermediate-4" class="checkbox-component__input"><label class="checkbox-component__label" for="level-intermediate-4">Intermediate</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="level" name="advanced" id="level-advanced-4" class="checkbox-component__input"><label class="checkbox-component__label" for="level-advanced-4">Advanced</label></div>
+					  </fieldset>
+					  <fieldset>
+						<legend class="section-title">Estimated Duration</legend>
+						<div class="checkbox-component"><input type="checkbox" data-from="duration" name="<1 Month" id="duration-lessThanAMonth-4" class="checkbox-component__input"><label class="checkbox-component__label" for="duration-lessThanAMonth-4">&lt;1 Month</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="duration" name="1 - 3 Months" id="duration-oneToThreeMonths-4" class="checkbox-component__input"><label class="checkbox-component__label" for="duration-oneToThreeMonths-4">1 - 3 Months</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="duration" name="3+ Months" id="duration-threeOrMoreMonths-4" class="checkbox-component__input"><label class="checkbox-component__label" for="duration-threeOrMoreMonths-4">3+ Months</label></div>
+					  </fieldset>
+					</div>
+				  </div>
+				</div>
+				<div class="drop-select-component"><button aria-controls="6" aria-haspopup="true" class="drop-select-component__button"><span class="drop-select-component__button__label">Industry Skills</span></button>
+				  <div id="6" class="drop-select-component__menu drop-select-component__menu--hidden" aria-hidden="true" aria-expanded="false" role="menu">
+					<div class="filter-menu">
+					  <fieldset>
+						<legend class="section-title">Skills</legend>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Android" id="skill-Android-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Android-4">Android</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Android Development" id="skill-Android Development-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Android Development-4">Android Development</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Artificial Intelligence" id="skill-Artificial Intelligence-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Artificial Intelligence-4">Artificial Intelligence</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Business Strategy" id="skill-Business Strategy-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Business Strategy-4">Business Strategy</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Career Advancement" id="skill-Career Advancement-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Career Advancement-4">Career Advancement</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Computer Vision" id="skill-Computer Vision-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Computer Vision-4">Computer Vision</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Control Flow" id="skill-Control Flow-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Control Flow-4">Control Flow</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="CSS" id="skill-CSS-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-CSS-4">CSS</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Data Analysis" id="skill-Data Analysis-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Data Analysis-4">Data Analysis</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Data Modeling" id="skill-Data Modeling-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Data Modeling-4">Data Modeling</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Data Visualization" id="skill-Data Visualization-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Data Visualization-4">Data Visualization</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Data Wrangling" id="skill-Data Wrangling-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Data Wrangling-4">Data Wrangling</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Debugging" id="skill-Debugging-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Debugging-4">Debugging</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Deep Learning" id="skill-Deep Learning-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Deep Learning-4">Deep Learning</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Docker" id="skill-Docker-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Docker-4">Docker</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Flask" id="skill-Flask-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Flask-4">Flask</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Functions" id="skill-Functions-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Functions-4">Functions</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="HTML" id="skill-HTML-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-HTML-4">HTML</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Interview practice" id="skill-Interview practice-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Interview practice-4">Interview practice</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="iOS" id="skill-iOS-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-iOS-4">iOS</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Java" id="skill-Java-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Java-4">Java</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="JavaScript" id="skill-JavaScript-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-JavaScript-4">JavaScript</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Kubernetes" id="skill-Kubernetes-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Kubernetes-4">Kubernetes</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Localization" id="skill-Localization-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Localization-4">Localization</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Machine Learning" id="skill-Machine Learning-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Machine Learning-4">Machine Learning</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Networking" id="skill-Networking-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Networking-4">Networking</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Neural Networks" id="skill-Neural Networks-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Neural Networks-4">Neural Networks</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Object Oriented Programming" id="skill-Object Oriented Programming-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Object Oriented Programming-4">Object Oriented Programming</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Probability" id="skill-Probability-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Probability-4">Probability</label>
+						</div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Product Design" id="skill-Product Design-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Product Design-4">Product Design</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Product Management" id="skill-Product Management-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Product Management-4">Product Management</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Prototyping" id="skill-Prototyping-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Prototyping-4">Prototyping</label>
+						</div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Python" id="skill-Python-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Python-4">Python</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="R" id="skill-R-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-R-4">R</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Spark" id="skill-Spark-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Spark-4">Spark</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="SQL" id="skill-SQL-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-SQL-4">SQL</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Supervised Learning" id="skill-Supervised Learning-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Supervised Learning-4">Supervised Learning</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Swift" id="skill-Swift-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Swift-4">Swift</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Unsupervised Learning" id="skill-Unsupervised Learning-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Unsupervised Learning-4">Unsupervised Learning</label></div>
+						<div class="checkbox-component"><input type="checkbox" data-from="skill" name="Whiteboarding" id="skill-Whiteboarding-4" class="checkbox-component__input"><label class="checkbox-component__label" for="skill-Whiteboarding-4">Whiteboarding</label></div>
+					  </fieldset>
+					</div>
+				  </div>
+				</div>
+				<div class="drop-select-component"><button aria-controls="7" aria-haspopup="true" class="drop-select-component__button"><span class="drop-select-component__button__label">All</span></button>
+				  <div id="7" class="drop-select-component__menu drop-select-component__menu--hidden" aria-hidden="true" aria-expanded="false" role="menu">
+					<div class="drop-select">
+					  <ul class="list">
+						<li><span class="main-option">All</span>
+						  <ul class="list"></ul>
+						</li>
+						<li><span class="main-option">Artificial Intelligence</span>
+						  <ul class="list">
+							<li>AI for Business Leaders</li>
+							<li>AI for Healthcare</li>
+							<li>AI Product Manager</li>
+							<li>AI Programming with Python</li>
+							<li>Artificial Intelligence</li>
+							<li>Artificial Intelligence for Trading</li>
+							<li>Computer Vision</li>
+							<li>Deep Learning</li>
+							<li>Deep Reinforcement Learning</li>
+							<li>Intel® Edge AI for IoT Developers</li>
+							<li>Intro to Machine Learning with PyTorch</li>
+							<li>Intro to Machine Learning with TensorFlow</li>
+							<li>Machine Learning Engineer</li>
+							<li>Natural Language Processing</li>
+						  </ul>
+						</li>
+						<li><span class="main-option">Autonomous Systems</span>
+						  <ul class="list">
+							<li>C++</li>
+							<li>Flying Car and Autonomous Flight Engineer</li>
+							<li>Intro to Self-Driving Cars</li>
+							<li>Machine Learning Engineer</li>
+							<li>Robotics Software Engineer</li>
+							<li>Self Driving Car Engineer</li>
+							<li>Sensor Fusion Engineer</li>
+						  </ul>
+						</li>
+						<li><span class="main-option">Business</span>
+						  <ul class="list">
+							<li>AI for Business Leaders</li>
+							<li>Business Analytics</li>
+							<li>Data Product Manager</li>
+							<li>Data Science for Business Leaders</li>
+							<li>Digital Marketing</li>
+							<li>Growth Product Manager</li>
+							<li>Marketing Analytics</li>
+							<li>Monetization Strategy</li>
+							<li>Predictive Analytics For Business</li>
+							<li>Product Manager</li>
+							<li>SQL</li>
+							<li>UX Designer</li>
+						  </ul>
+						</li>
+						<li><span class="main-option">Cloud Computing</span>
+						  <ul class="list">
+							<li>AWS Cloud Architect</li>
+							<li>Cloud Developer</li>
+							<li>Cloud DevOps Engineer</li>
+							<li>DevOps Engineer for Microsoft Azure</li>
+						  </ul>
+						</li>
+						<li><span class="main-option">Data Science</span>
+						  <ul class="list">
+							<li>Business Analytics</li>
+							<li>Data Analyst</li>
+							<li>Data Engineer</li>
+							<li>Data Product Manager</li>
+							<li>Data Science for Business Leaders</li>
+							<li>Data Scientist</li>
+							<li>Data Streaming</li>
+							<li>Data Visualization</li>
+							<li>Monetization Strategy</li>
+							<li>Predictive Analytics For Business</li>
+							<li>Programming for Data Science with Python</li>
+							<li>Programming for Data Science with R</li>
+							<li>SQL</li>
+						  </ul>
+						</li>
+						<li><span class="main-option">Programming &amp; Development</span>
+						  <ul class="list">
+							<li>Android Basics</li>
+							<li>Android Developer</li>
+							<li>Blockchain Developer</li>
+							<li>C++</li>
+							<li>Cloud Developer</li>
+							<li>Cloud DevOps Engineer</li>
+							<li>Data Engineer</li>
+							<li>Data Structures and Algorithms</li>
+							<li>Front End Web Developer</li>
+							<li>Full Stack Web Developer</li>
+							<li>Intermediate JavaScript</li>
+							<li>Introduction to Cybersecurity</li>
+							<li>Introduction to Programming</li>
+							<li>iOS Developer</li>
+							<li>Java Developer</li>
+							<li>React</li>
+						  </ul>
+						</li>
+						<li><span class="main-option">Career</span>
+						  <ul class="list">
+							<li>Applying to Jobs</li>
+							<li>Interviewing</li>
+						  </ul>
+						</li>
+					  </ul>
+					</div>
+				  </div>
+				</div>
+			  </fieldset>
+			  <div class="catalog-filter-mobile__apply-filter-container"><button class="button btn button--primary">Apply Filters</button></div>
+			</div>
+		  </div>
+		  <div class="catalog-cards">
+			<div class="catalog-cards__active-filters"><b>Results (240)</b>
+			  <ul></ul>
+			</div>
+			<ul class="catalog-cards__list">
+			  <li class="catalog-cards__list__item">
+				<article class="catalog-component">
+				  <div class="catalog-component__card"><span class="catalog-card-tag--mobile">New
+					  Program!</span><a class="card__top" href="/course/python" aria-label="Data Science for Business Leaders">
+					  <div class="card__image-container">
+						<div class="card__image-wrapper">
+						  <div data-catalogtype="nanodegree" class="card__image-overlay"></div>
+						  <div class="card__image" style="background-image: url(&quot;https://d20vrrgs8k4bvw.cloudfront.net/images/course-catalog/en-us/nd045-catalog-card.jpg&quot;);">
+						  </div>
+						</div>
+					  </div>
+					  <div class="card__title-container"><span class="catalog-card-tag--desktop">New</span>
+						<h3 class="card__title__school greyed">Technology</h3>
+						<h2 class="card__title__nd-name">Python Fundamentals</h2>
+					  </div>
+					  <div class="card__text-content">
+						<section>
+						  <h4 class="text-content__text greyed">Skills Covered</h4>
+						  <p class="text-content__text"> Data Science, Machine Learning, programming</p>
+						</section>
+
+					  </div>
+					</a>
+
+				  </div>
+				  <div id="nd045-expandable-content" class="catalog-component__details" aria-hidden="true">
+					<div class="details__layout">
+					  <p>Master the people, platforms, and processes required to leverage the power of Data
+						Science in your business.</p>
+					  <div class="layout__button-container">
+						<div class="reviews"></div><a href="https://www.udacity.com/course/data-science-for-business-leaders--nd045" tabindex="-1" class="button btn button--primary">Learn More</a>
+					  </div>
+					</div>
+				  </div>
+				</article>
+			  </li>
+			  <li class="catalog-cards__list__item">
+				<article class="catalog-component">
+				  <div class="catalog-component__card"><span class="catalog-card-tag--mobile">New
+					  Program!</span><a class="card__top" href="/course/cs002" aria-label="DevOps Engineer for Microsoft Azure">
+					  <div class="card__image-container">
+						<div class="card__image-wrapper">
+						  <div data-catalogtype="nanodegree" class="card__image-overlay"></div>
+						  <div class="card__image" style="background-image: url(&quot;https://d20vrrgs8k4bvw.cloudfront.net/images/course-catalog/en-us/cloud-network.jpg&quot;);">
+						  </div>
+						</div>
+					  </div>
+					  <div class="card__title-container"><span class="catalog-card-tag--desktop">New</span>
+						<h3 class="card__title__school greyed">Technology </h3>
+						<h2 class="card__title__nd-name">SQL fundamentals</h2>
+					  </div>
+					  <div class="card__text-content">
+						<section>
+						  <h4 class="text-content__text greyed">Skills Covered</h4>
+						  <p class="text-content__text">Programming
+						  </p>
+						</section>
+					  </div>
+					</a>
+					<div class="card__bottom">
+					  <div class="difficulty">
+						<div data-level="intermediate" aria-label="intermediate level"></div><small aria-hidden="true">intermediate</small>
+					  </div>
+					</div>
+				  </div>
+
+				</article>
+			  </li>
+			  <li class="catalog-cards__list__item">
+				<article class="catalog-component">
+				  <div class="catalog-component__card"><span class="catalog-card-tag--mobile">New
+					  Program!</span><a class="card__top" href="/course/cs003" aria-label="Introduction to Cybersecurity">
+					  <div class="card__image-container">
+						<div class="card__image-wrapper">
+						  <div data-catalogtype="nanodegree" class="card__image-overlay"></div>
+						  <div class="card__image" style="background-image: url(&quot;https://d20vrrgs8k4bvw.cloudfront.net/images/degrees/nd545/catalog+image+nd545.jpg&quot;);">
+						  </div>
+						</div>
+					  </div>
+					  <div class="card__title-container"><span class="catalog-card-tag--desktop">New</span>
+						<h3 class="card__title__school greyed">Technology</h3>
+						<h2 class="card__title__nd-name">Introduction to IoT</h2>
+					  </div>
+					  <div class="card__text-content">
+						<section>
+						  <h4 class="text-content__text greyed">Skills Covered</h4>
+						  <p class="text-content__text"> IoT</p>
+						</section>
+					  </div>
+					</a>
+					<div class="card__bottom">
+					  <div class="difficulty">
+						<div data-level="beginner" aria-label="beginner level"></div><small aria-hidden="true">beginner</small>
+					  </div>
+					</div>
+				  </div>
+				  <div id="nd545-expandable-content" class="catalog-component__details" aria-hidden="true">
+					<div class="details__layout">
+					  <p>Get your start in the high growth field of Cybersecurity by building foundational
+						skills in how to evaluate, maintain, and monitor the security of computer systems.</p>
+					  <div class="layout__button-container">
+						<div class="reviews"></div><a href="https://www.udacity.com/course/intro-to-cybersecurity-nanodegree--nd545" tabindex="-1" class="button btn button--primary">Learn More</a>
+					  </div>
+					</div>
+				  </div>
+				</article>
+			  </li>
+			  <li class="catalog-cards__list__item">
+				<article class="catalog-component">
+				  <div class="catalog-component__card"><span class="catalog-card-tag--mobile">New
+					  Program!</span><a class="card__top" href="https://www.udacity.com/course/intermediate-javascript-nanodegree--nd032" aria-label="Intermediate JavaScript">
+					  <div class="card__image-container">
+						<div class="card__image-wrapper">
+						  <div data-catalogtype="nanodegree" class="card__image-overlay"></div>
+						  <div class="card__image" style="background-image: url(&quot;https://d20vrrgs8k4bvw.cloudfront.net/images/degrees/nd032/catalog+image+nd032.jpg&quot;);">
+						  </div>
+						</div>
+					  </div>
+					  <div class="card__title-container"><span class="catalog-card-tag--desktop">New</span>
+						<h3 class="card__title__school greyed">School of Programming &amp; Development</h3>
+						<h2 class="card__title__nd-name">Intermediate JavaScript</h2>
+					  </div>
+					  <div class="card__text-content">
+						<section>
+						  <h4 class="text-content__text greyed">Skills Covered</h4>
+						  <p class="text-content__text">Functional Programming, DOM, Data Structures,
+							Asynchronous Programming, Synchronous Programming</p>
+						</section>
+					  </div>
+					</a>
+					<div class="card__bottom"><button aria-expanded="false" class="card__bottom__button" aria-controls="nd032-expandable-content">Program Details</button>
+					  <div class="difficulty">
+						<div data-level="intermediate" aria-label="intermediate level"></div><small aria-hidden="true">intermediate</small>
+					  </div>
+					</div>
+				  </div>
+				  <div id="nd032-expandable-content" class="catalog-component__details" aria-hidden="true">
+					<div class="details__layout">
+					  <p>Master JavaScript, the most popular programming language in the world. Be equipped for
+						advanced roles in web development, server-side application development, and desktop
+						development.</p>
+					  <div class="layout__button-container">
+						<div class="reviews"></div><a href="https://www.udacity.com/course/intermediate-javascript-nanodegree--nd032" tabindex="-1" class="button btn button--primary">Learn More</a>
+					  </div>
+					</div>
+				  </div>
+				</article>
+			  </li>
+
+
+
+			</ul>
+		  </div>
+		</main>
+
+	 </div> 
+
+
+	  </div> 
+
+
+{% endblock %}

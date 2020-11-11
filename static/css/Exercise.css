@@ -4184,7 +4184,7 @@ body {
   overflow: hidden;
 }
 #header_wrapper {
-  position: absolute;
+//  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -4197,6 +4197,7 @@ BODY.light #header {
   border-bottom-color: #e4e4e6;
   background: #eeeef0;
   color: #969696;
+  background: linear-gradient(42deg, #c045a0 0%, #c045a0 30%, #8622c2 80%);
 }
 BODY.light #header .navi-return-div A {
   color: #969696;
@@ -4211,6 +4212,7 @@ BODY.dark #header {
   border-bottom-color: #49494b;
   background: #3c3c40;
   color: #969696;
+ 
 }
 BODY.dark #header .navi-return-div A {
   color: #969696;
@@ -4242,8 +4244,9 @@ BODY.dark #header .hmenu .hmenu_item > A {
 }
 #header .header__all {
   padding: 10px 40px 0 10px;
-  min-height: 83px;
+  min-height: 63px;
   background: none;
+  background: linear-gradient(42deg, #c045a0 0%, #c045a0 30%, #8622c2 80%);
 }
 #header .hmenu .hmenu_item > A.title {
   margin: 0;
@@ -4267,6 +4270,7 @@ BODY.light #header .hmenu .hmenu_item > A.title {
 }
 #header .header__top {
   padding: 0;
+  
 }
 #header .header__top::after {
   content: none;

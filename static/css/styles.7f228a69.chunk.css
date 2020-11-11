@@ -2246,7 +2246,7 @@
     background-color: #fff;
     display: flex;
     flex-direction: column;
-    min-height: 300px;
+    min-height: 200px;
     border-radius: .357rem;
     box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
     position: relative;
@@ -2655,7 +2655,7 @@
   }
 
   .catalog-cards {
-    margin: 1476 1rem 3rem;
+    margin:16 1rem 3rem;
   }
 
   .catalog-cards--inactive {

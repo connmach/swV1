@@ -74,7 +74,10 @@ def tutorial():
 def article():
     error = None
     return render_template('art001.html')
-
+@app.route('/test')
+def test():
+    error = None
+    return render_template('cs002.html')
 
 @app.route('/blog')
 def articles():

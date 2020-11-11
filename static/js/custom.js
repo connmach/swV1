@@ -1,4 +1,108 @@
 
+function runinSandbox(qno) {
+    
+     var qnmap ={2:"CP0101",3:"CP0102"}
+     var qnrevmap={"CP0101":2,"CP0102":3}
+    //session should have current question
+    console.log("running inside sandbox")
+    qno="CP0101"
+     
+     // make the question complete
+     // on error show the error in console.
+     // on success move to the next question.
+     // initiate the docker container
+   
+    console.log("output- question from db" + qno)
+    port=8032
+    webServ = "http://46.101.210.184:"+ port+"/runPython"
+    // fetch the content from the console
+    var mypre = document.getElementById("editor");
+    
+    console.log("start" + mypre);
+    pythonSol=editor.getValue('\n');
+    //session should have employeeId
+    userId ="823903"  
+    
+    console.log("webservice call grading" + webServ )
+    console.log("webservice- pythonSol" + pythonSol)
+    console.log("webservice- grading UserId" + userId)
+       
+    jsonData= JSON.stringify({"pythonSol": pythonSol,"userId":userId ,"qn":qno}	)
+    // invoke the webservice
+    parameters=""
+    $.ajax({
+    type        : 'POST',  
+    url         : webServ ,  
+    data        : jsonData,    
+    contentType: "application/json" 
+     })
+    .done(function(data) {
+      //
+  
+  if(data.errOut)
+    { add_To_Console(data.errOut)
+     console.log("errout" + JSON.stringify(data) )
+ } else
+{   
+   add_To_Console(data.taskStatus)
+  add_To_Console(JSON.stringify(data))
+add_To_Console(data.result)
+add_To_Console(data.resultStatus )
+     console.log("errout - none")}
+  SecNo=2
+  qnoRes=qnrevmap[qno]
+    console.log("stdout"  + data.result)
+  //section-2-exercise-1
+  console.log("execOut"  + data.resultStatus )
+  console.log("sec sts" + data.SecStatus)
+  currQn='#section-'+SecNo+'-exercise-'+ qnoRes
+  console.log("sec sts" + currQn)
+  $(currQn).addClass('done')
+  //check section status
+   currSectn='#section-'+SecNo
+   console.log("sec sts" + currSectn)
+
+  if(data.SecStatus==true)
+     $(currSectn).addClass('done')
+  
+   // if(data.CrsStatus==true)
+   // currQn='#section-'+SecNo+'-exercise-'+ qnNo
+   // $(currQn).addClass('done')
+   // check course completion
+    //complete popup success message
+     NxtQn='#NxtQn'
+  if(data.QnExecStatus==true)
+      $( NxtQn).addClass('enable')
+
+  // update Ninja Score into session
+ 
+  // update question number vs total question into session
+  //navi-exercise-id
+ 
+  }).fail(function(data) {
+    alert( "error******** while running the question in sandbox" );
+	add_To_Console("error******** while running the question in sandbox" +JSON.stringify(data))
+  }).always(function() {
+    //alert( "finished" );
+    	console.log("webservice call finished" )
+  });
+
+}
+
+function runit() {
+    console.log("running grading environment")
+    out = ""
+    runinSandbox()
+    return
+}
+
+
+
+
+
+
+/*--------------*/
+
 /*
    function builtinRead(x) {
 

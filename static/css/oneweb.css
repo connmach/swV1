@@ -1105,6 +1105,11 @@ body.theme_seven #header .header__all {
   margin: 0 auto;
   padding-bottom: 0.5em;
 }
+
+ /*.section {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}*/
 #content > .section {
   padding-top: 2em;
   padding-bottom: 2em;
