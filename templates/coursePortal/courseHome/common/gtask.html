@@ -1,0 +1,245 @@
+{% extends "coursePortal/courseHome/common/baseTaskTemp.html" %}
+ 
+
+{% block body %}
+
+<script>
+    language= "{{language}}";
+</script>
+
+{% if language == "react" %}
+
+    <link rel="stylesheet" href="https://codemirror.net/lib/codemirror.css" />
+    <link rel="stylesheet" href="https://codemirror.net/theme/3024-day.css" />
+    <script src="https://codemirror.net/lib/codemirror.js"></script>
+    <script src="https://codemirror.net/addon/edit/matchbrackets.js"></script>
+    <script src="https://codemirror.net/addon/edit/continuecomment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.21.0/addon/runmode/colorize.min.js"></script>
+    <script src="https://codemirror.net/mode/xml/xml.js"></script>
+    <script src="https://codemirror.net/mode/javascript/javascript.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.21.0/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://codemirror.net/addon/hint/show-hint.js"></script>
+    <script src="https://codemirror.net/addon/hint/javascript-hint.js "></script>
+    <script src="/static/codemirror/lib/xml.js"></script>
+    <script src="/static/codemirror/lib/javascript.js"></script>
+    <script src="/static/codemirror/lib/css.js"></script>
+    <script src="/static/codemirror/lib/closetag.js"></script>
+
+    <link rel="stylesheet" href="https://codemirror.net/addon/hint/show-hint.css" />
+    <link rel="stylesheet" href="https://codemirror.net/addon/hint/show-hint.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/dracula.min.css" />
+    <link rel="stylesheet" href="static/codemirror/python/css/dracula.css" />
+    <link rel="stylesheet" href="/static/codemirror/lib/twilight.css" />
+{% endif %}
+
+{% if language == "python" %}
+    <link rel="stylesheet" href="https://codemirror.net/lib/codemirror.css" />
+    <link rel="stylesheet" href="https://codemirror.net/theme/3024-day.css" />
+    <script src="https://codemirror.net/lib/codemirror.js"></script>
+    <script src="https://codemirror.net/addon/edit/matchbrackets.js"></script>
+    <script src="https://codemirror.net/addon/edit/continuecomment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.21.0/addon/runmode/colorize.min.js"></script>
+    <script src="https://codemirror.net/mode/xml/xml.js"></script>
+    <script src="https://codemirror.net/mode/javascript/javascript.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.21.0/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://codemirror.net/addon/hint/show-hint.js"></script>
+    <script src="https://codemirror.net/addon/hint/javascript-hint.js "></script>
+    <script src="/static/codemirror/lib/xml.js"></script>
+    <script src="/static/codemirror/lib/javascript.js"></script>
+    <script src="/static/codemirror/lib/css.js"></script>
+    <script src="/course/static/codemirror/lib/closetag.js"></script>
+
+    <link rel="stylesheet" href="https://codemirror.net/addon/hint/show-hint.css" />
+    <link rel="stylesheet" href="https://codemirror.net/addon/hint/show-hint.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/dracula.min.css" />
+    <link rel="stylesheet" href="static/codemirror/python/css/dracula.css" />
+
+{% endif %}
+
+<div class="center" id="center-panel">
+    <div class="ConsoleEditor" style="max-height: 100%;">
+        <div class="console-div" style="height: 90%;">
+            <div class="content">
+                <div class="tabs">
+                    <div class="header">
+                        <span class="tab selected">
+                            <span>
+                                <span>Code editor</span>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="content">
+                        <textarea id="editor" placeholder="Your code..." onchange=' console.log("change")' style="display: none;"></textarea>
+                    </div>
+                </div>
+            </div>
+ 
+        {% include 'coursePortal/courseHome/common/courseTaskToolbar.html' %}
+        </div>
+        <!--div id="customInput" class="Result result-div" style="display:none;">
+        <div id="customInputContent" class="content">
+            <div class="tabs">
+                <textarea id="customInputData"> </textarea>
+            </div>
+        </div>
+    </div-->
+    <div class="Result result-div" style="display: none;">
+        <div class="content">
+            <div class="tabs">
+                <div class="header">
+                    <span id="console" class="selected tab">
+                        <span>
+                            <span>console</span>
+                        </span>
+                    </span>
+                    <span id="testResult" class=" tab">
+                        ConsoleOutput
+                    </span>
+                </div>
+                <div class="content">
+                    <div id="ConsoleOutput" class="Result__data"></div>
+                    <div id="TestResultOutput" class="Result__data"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div >
+
+<script> 
+
+let editor = null;
+
+function htmlDecode(input) {
+    var doc = new DOMParser().parseFromString(input, "text/html");
+    return doc.documentElement.textContent;
+}
+// probably load flag need to be deleted
+loadFlag = false;
+console.log("start flag" + loadFlag);
+var mime = "text/x-mysql";
+if (loadFlag == false) {
+    var mypre = document.getElementById("editor");
+    console.log("start" + mypre);
+    mypre.innerHTML = "";
+
+    lang = "{{language}}";
+    console.log("Language :-" + lang);
+    if (lang == "python") {
+        editor = new CodeMirror.fromTextArea(document.getElementById("editor"), {
+            mode: {
+                name: "python",
+                version: 3,
+                singleLineStringErrors: false,
+            },
+            lineWrapping: false,
+            parserfile: ["/static/codemirror/python/js/parsepython.js"],
+            stylesheet: "/static/codemirror/python/css/pythoncolors.css",
+            textWrapping: false,
+            path: "/static/codemirror/js/",
+            lineNumbers: true,
+            textWrapping: false,
+            indentUnit: 4,
+            indentWithTabs: true,
+            smartIndent: true,
+            matchBrackets: true,
+            autofocus: true,
+            extraKeys: {
+                "Ctrl-Space": "autocomplete"
+            },
+
+        });
+    } else if (lang == "react") {
+        editor = new CodeMirror.fromTextArea(document.getElementById("editor"), {
+            mode: "javascript",
+            theme: "twilight",
+            lineWrapping: false,
+            path: "/static/js/",
+            lineNumbers: true,
+            textWrapping: false,
+            indentUnit: 2,
+            indentWithTabs: true,
+            smartIndent: true,
+            matchBrackets: true,
+            autofocus: true,
+            extraKeys: {
+                "Ctrl-Space": "autocomplete"
+            },
+        });
+    }
+
+    loadFlag = true;
+    inputcode = `{{code}}`;
+    console.log(htmlDecode(inputcode));
+    editor.setValue(htmlDecode(inputcode));
+    editor.on("blur", function() {
+        $(".CodeMirror-cursors").css("visibility", "visible");
+    });
+    editor.focus();
+    editor.setCursor({
+        line: 1,
+        ch: 5
+    });
+    var setheight = $(".console-div").height() > "500" ? "380x" : "380px";
+    $(".console-div").css({
+        height: setheight,
+    });
+    var setheight = $(".result-div").height() > "500" ? "590px" : "590px";
+    $(".result-div").css({
+        height: setheight,
+    });
+}
+
+</script> 
+
+<script src = "/static/web/js/webtask.js" > < /script> 
+<script type = "text/javascript">
+    window.onload = function() {
+        console.log("loading filetree " + "{{userId}}" + "/ / " + "{{courseId}}")
+    };
+
+var count = 1;
+var src = ["app.js"]
+var public = ["index.html"]
+var static = ["app.css"]
+var root = new TreeNode("Project");
+var n1 = new TreeNode("public");
+var n11 = new TreeNode("index.html");
+var n2 = new TreeNode("static");
+var n3 = new TreeNode("src");
+var n4 = new TreeNode("package.json");
+var n31 = new TreeNode("app.css");
+
+
+var n33 = new TreeNode("app.js");
+
+root.addChild(n1);
+root.addChild(n2);
+root.addChild(n3);
+root.addChild(n4);
+n1.addChild(n11);
+n2.addChild(n31);
+n3.addChild(n33);
+//n3.setEnabled(false);
+
+var view = new TreeView(root, "#container", editor, "{{userId}}", "{{courseId}}");
+changeIcons() 
+
+</script> 
+
+<style>
+    .resizer {
+        background-color: #cbd5e0;
+        cursor: ew-resize;
+        height: 100%;
+        width: 2px;
+    }
+</style>
+
+{% endblock body %}

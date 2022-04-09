@@ -1,0 +1,582 @@
+<html>
+
+<head>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/static/js/1.12.4/jquery-ui.js"></script>
+
+    <link rel="icon" href="/static/images/sw.ico">
+
+
+    <script src="/static/lib/xml.js"></script>
+    <script src="/static/lib/javascript.js"></script>
+    <script src="/static/lib/css.js"></script>
+    <script src="/static/lib/closetag.js"></script>
+    <script src="/static/js/custom.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="/static/css/oneweb.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/Exercise.css">
+
+    <style type="text/css">
+        @import url(//fonts.googleapis.com/css?family=Open+Sans:200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic,200,300,400,500,600,700,800);
+    </style>
+    <style>
+        #articles_h1 {
+            padding: 2em 30px;
+        }
+
+        #articles_content {
+            padding-top: 30px;
+            padding-left: 30px;
+            padding-right: 30px;
+
+        }
+    </style>
+    <title>SocialWings</title>
+</head>
+
+<body class="light wide python exercise-screen ScrollAreaConfig--19 ScrollAreaConfig--active">
+    <script>
+
+        function getPlatformServiceHost() {
+            hostip = "http://143.110.252.14"
+            delim_period = ":"
+            delim_slash = "/"
+
+            port = "5000"
+            hostname = hostip + delim_period + port + delim_slash
+            return hostname
+        }
+        $(document).ready(function () {
+            loadFlag = false;
+      
+          
+        //    var myObj={{json| safe}};
+        //    $("#currentQn").html(myObj.TaskId) 
+        //    NxtQn =myObj.NxtQn
+        //    NxtQnURL="/course/cs003/module/M001/" + NxtQn
+           // $("#nextEx").attr("href", NxtQnURL) 
+          //  $("#courseSummmary").html(myObj.topicDesc)
+            $("#instruction_container").html("SQL Quiz");
+            $("#content_container").html("SQL Quiz");
+             loadQuiz()
+            // reading from learning history below details
+            // score, section, exercise   
+            //1. complete all the section which are done by changing class .done
+            // making the tick mark
+            //spinner while submitting the exercise
+
+            $('#courseSummmary').click(function () {
+                $(".main-part").toggleClass("opened");
+
+            })
+            $('#section-1-header').click(function () {
+                let item = $(this).siblings('#section-1-list').first();
+                item.slideToggle();
+            })
+
+            $('#section-2-header').click(function () {
+                let item = $(this).siblings('#section-2-list').first();
+                item.slideToggle();
+            })
+
+            $('#section-3-header').click(function () {
+                let item = $(this).siblings('#section-3-list').first();
+                item.slideToggle();
+            })
+            $('#section-4-header').click(function () {
+                let item = $(this).siblings('#section-4-list').first();
+                item.slideToggle();
+            })
+
+            $('#section-5-header').click(function () {
+                let item = $(this).siblings('#section-5-list').first();
+                item.slideToggle();
+            })
+            $('.articles').click(function () {
+
+
+
+            })
+
+        });
+        function loadQuiz() {
+
+
+
+            //check if session exist
+            // check learning history   
+            // make all the sections done
+            // addtotalquestion current question
+            // current course
+
+            qno = 'CP0101'
+            var qrepo = qRepocall(qno)
+            // console.log("***********reloadoutput" + qrepo);
+
+
+        }
+    
+
+
+        function add_To_Console(text) {
+
+            console.log("add to console " + text);
+            var resultPyOut = document.getElementById("iframewrapper");
+
+            var tag = document.createElement("pre");
+            for (i = 0; i < text.length; i++) {
+                var textNode = document.createTextNode(text[i]);
+                tag.appendChild(textNode);
+                console.log("add to console " + text[i]);
+            }
+            resultPyOut.appendChild(tag);
+
+
+        }
+
+
+        function qRepocall(qno) {
+
+
+            //  alert("************"+qno)
+            var resultPyOut = document.getElementById("iframewrapper");
+            console.log("output- question from db" + qno)
+
+
+            hostname = getPlatformServiceHost()
+            serviceURL = hostname + "engine/python/qnRepo/"
+            console.log("webservice call" + serviceURL)
+            //  alert("newload of questions")
+            parameters = ""
+            jsonData = JSON.stringify({ "TaskId": qno, "courseId": "CP0102" })
+
+            $.ajax({
+                type: 'POST',
+                url: serviceURL,
+                data: jsonData,
+                contentType: "application/json",
+
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
+
+                    $('#result').html('<p>status code: ' + jqXHR.status + '</p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div>' + jqXHR.responseText + '</div>');
+                    console.log('jqXHR:');
+                    console.log(jqXHR.responseText);
+                    console.log(jqXHR.status);
+
+
+                    console.log('textStatus:');
+                    console.log(textStatus);
+                    console.log('errorThrown:');
+                    console.log(errorThrown);
+
+                    return false;
+                },
+
+                /**
+                 * A function to be called if the request succeeds.
+                 */
+                success: function (data, textStatus, jqXHR) {
+
+                    var myObj = JSON.parse(data);
+
+                    $("#courseSummmary").html(myObj.topicDesc);
+                    // alert( myObj.topicDesc)
+                    $("#instruction_container").html(myObj.instruction);
+                    $("#content_container").html(myObj.exercise);
+
+                    console.log(myObj.topicDesc);
+
+
+                    console.log('data:');
+                    console.log(data);
+
+                    return false;
+                }
+
+            });
+        }
+
+
+    </script>
+    <div id="header_wrapper">
+        <div id="header">
+            <div class="header__decor">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="header__all">
+                <div class="header__content">
+                    <div class="header__top">
+                        <div class="hmenu mainmenu">
+                            <div class="hmenu_item"><a class="title" href=""></a> </div>
+                        </div>
+                        <div class="profile">
+                            <button class="hamburger">Menu</button>
+                            <div class="hmenu">
+                                <ul>
+                                    <li class="hmenu_item">
+                                        <div class="hmenu">
+
+                                        </div>
+                                    </li>
+                                    <li class="hmenu_item my_profile">
+                                        <div class="hmenu">
+                                            <ul>
+                                                <li class="hmenu_item hmenu_item--isDropdownMenu"><span><span
+                                                            class="imgWrapper"><span class="img"><img alt=""
+                                                                    src="/static/images/user.png&quot;"></span></span><span
+                                                            class="text"><span class="commonText">My profile
+                                                            </span><span class="fullName">Guest</span></span>
+                                                    </span>
+                                                    <div class="menu">
+                                                        <ul>
+                                                            <li><a id="recommend_app_id"><span>Recommend us</span></a>
+                                                                <script type="text/javascript">
+                                                                    //	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","recommend_app_id","epoint.ow.Utils.buttonDefaultsHandler",null);},90,null);
+                                                                </script>
+                                                                <script type="text/javascript">
+                                                                    //	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","recommend_app_id","SqlAcademy.Modals.openAppRecommendationModal");epoint.ow.Utils.bindEvent("click","recommend_app_id","SqlAcademy.Util.clickTrack","Recommendation form");},null,null);
+                                                                </script>
+                                                            </li>
+                                                            <li><a href="  my-profile" id="btn13"><span>My
+                                                                        Profile</span></a>
+                                                                <script type="text/javascript">
+                                                                    //	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","btn13","epoint.ow.Utils.buttonDefaultsHandler",null);},90,null);
+                                                                </script>
+                                                            </li>
+                                                            <li><a href="  my-courses" id="btn14"><span>My
+                                                                        courses</span></a>
+                                                                <script type="text/javascript">
+                                                                    //	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","btn14","epoint.ow.Utils.buttonDefaultsHandler",null);},90,null);
+                                                                </script>
+                                                            </li>
+                                                            <li><a href="  change-email-notifications"
+                                                                    id="btn15"><span>Email notifications</span></a>
+                                                                <script type="text/javascript">
+                                                                    //	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","btn15","epoint.ow.Utils.buttonDefaultsHandler",null);},90,null);
+                                                                </script>
+                                                            </li>
+                                                            <li><a href="  purchase-history" id="btn16"><span>Purchase
+                                                                        history</span></a>
+                                                                <script type="text/javascript">
+                                                                    //	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","btn16","epoint.ow.Utils.buttonDefaultsHandler",null);},90,null);
+                                                                </script>
+                                                            </li>
+                                                            <li></li>
+                                                            <li><a id="btn17" href="/logout"><span>Log out</span></a>
+                                                                <script type="text/javascript">
+                                                                    //	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","btn17","epoint.ow.Utils.buttonDefaultsHandler",null);},90,null);
+                                                                </script>
+                                                                <script type="text/javascript">
+                                                                    //	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","btn17","SqlAcademy.Util.clearSessionStorageAndLogout");},null,null);
+                                                                </script>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header__main">
+                        <div class="exercise-header">
+                            <div class="navi-return-div">
+                                <a href="/course/python">Back to
+                                    course details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="content_wrapper" style="padding-top: 81px;">
+        <div id="content">
+
+            <link href="/static/css/recurly.css" rel="stylesheet" type="text/css">
+            <div class="main-divs">
+                <div class="west" style="width: 796px;">
+                    <div class="main-part">
+                        <div class="navi-exercise-num-div" id="navi-exercise-id" title="input() function">
+                            <span id="num" class="num">11/22 </span>
+                            <span id="courseSummmary" class="name">SQL Basic Quiz</span>
+                        </div>
+                        <div class="content">
+                            <div id="sections-div" class="ScrollArea">
+                                <div class="ScrollArea__wrapper">
+                                    <div class="ScrollArea__content">
+                                        <div class="section" id="section-1">
+                                        </div>
+                                        <div class="section" id="section-2">
+                                            <div class="header" id="section-2-header">The print function</div>
+                                            <div class="section-exercise-list" id="section-2-list">
+                                                <div class="section-exercise done" id="section-2-exercise-1">
+                                                    <a href="" onclick="qRepocall('CP0101')">
+                                                        <span>2.
+                                                            Hello World</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-2-exercise-2">
+                                                    <a href="" onclick="qRepocall('12')">
+                                                        <span>3.
+                                                            Hello World explained</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-2-exercise-3">
+                                                    <a href="" onclick="qRepocall('13')">
+                                                        <span>4.
+                                                            Escaping single quotation marks and apostrophes</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-2-exercise-4">
+                                                    <a href="" onclick="qRepocall('14')">
+                                                        <span>5.
+                                                            Printing numbers</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-2-exercise-5">
+                                                    <a href="" onclick="qRepocall('15')">
+                                                        <span>6.
+                                                            Printing strings and numbers together</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-2-exercise-6">
+                                                    <a href="" onclick="qRepocall(16)">
+                                                        <span>7.
+                                                            Multiple statements in Python</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="section" id="section-3">
+                                            <div class="header" id="section-3-header">Variables</div>
+                                            <div class="section-exercise-list" id="section-3-list">
+                                                <div class="section-exercise" id="section-3-exercise-1">
+                                                    <a href="" onclick=" ">
+                                                        <span>8.
+                                                            Creating variables</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-3-exercise-2">
+                                                    <a href="" onclick="qRepocall('18')">
+                                                        <span>9.
+                                                            Assigning new values to variables</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-3-exercise-3">
+                                                    <a href="" onclick="qRepocall('19')">
+                                                        <span>10.
+                                                            Undefined variables</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-3-exercise-4">
+                                                    <a href="">
+                                                        <span>11.
+                                                            Integers, strings, and floats</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="section" id="section-4">
+                                            <div class="header" id="section-4-header">Math in Python</div>
+                                            <div class="section-exercise-list" id="section-4-list">
+                                                <div class="section-exercise" id="section-4-exercise-1">
+                                                    <a href="" onclick="qRepocall('21')">12</a>
+                                                </div>
+                                                <div class="section-exercise" id="section-4-exercise-2">
+                                                    <a href="" onclick="qRepocall('22')">
+                                                        <span>13.
+                                                            Multiplying and dividing numbers</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-4-exercise-3">
+                                                    <a href="" onclick="qRepocall('23')">
+                                                        <span>14.
+                                                            Floor division operation</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-4-exercise-4">
+                                                    <a href="" onclick="qRepocall('24')">
+                                                        <span>15.
+                                                            Power operator</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-4-exercise-5">
+                                                    <a href="" onclick="qRepocall('25')">
+                                                        <span>16.
+                                                            Modulo operation</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-4-exercise-6">
+                                                    <a href="" onclick="qRepocall('26')">
+                                                        <span>17.
+                                                            Parentheses in mathematical operations</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="section opened" id="section-5">
+                                            <div class="header" id="section-5-header">The input function</div>
+                                            <div class="current-section-exercise-list" id="section-5-list">
+                                                <div class="section-exercise selected" id="section-5-exercise-1">
+                                                    <a href="" onclick="qRepocall('27')">
+                                                        <span>18. input() function</span>
+                                                    </a>
+                                                </div>
+
+
+                                                <div class="section-exercise" id="section-5-exercise-2">
+                                                    <a href="" onclick="qRepocall('27')">
+                                                        <span>19.
+                                                            Convert between types</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="section" id="section-6">
+                                            <div class="header" id="section-6-header">Summary</div>
+                                            <div class="section-exercise-list" id="section-6-list">
+                                                <div class="section-exercise" id="section-6-exercise-1">
+                                                    <a href="" onclick="qRepocall('28')">
+                                                        <span>20.
+                                                            Summary</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-6-exercise-2">
+                                                    <a href="" onclick="qRepocall('29')">
+                                                        <span>21.
+                                                            Question</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-6-exercise-3">
+                                                    <a href="" onclick="qRepocall('congraturlations')">
+                                                        <span>
+                                                            <span>22.
+                                                                Congratulations</span>
+                                                        </span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="scroll hscroll">
+                                        <span class="scroll__thumb" style="left: 0%; width: 100%;"></span>
+                                    </div>
+                                    <div class="scroll vscroll">
+                                        <span class="scroll__thumb" style="top: 0%; height: 100.106%;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="left-div" class="ScrollArea">
+                                <div class="ScrollArea__wrapper">
+                                    <div class="ScrollArea__content">
+                                        <div class="instruction-div">
+                                            <div class="header">
+                                                <h2>Instruction</h2>
+                                            </div>
+                                            <div class="content formatted" id="instruction_container"></div>
+                                        </div>
+                                        <div class="content-hints-div">
+                                            <div class="header">
+                                                <h2>Exercise</h2>
+                                            </div>
+                                            <div class="content formatted">
+                                                <div id="content_container"></div>
+                                                <div class="hints-div">
+                                                    <div class="header" id="hints-id">
+                                                        <h3>Stuck? Here's a hint!</h3>
+                                                    </div>
+                                                    <div class="content" id="hint_container">Use
+                                                        <code>input(...)</code> to get the values from the user.
+                                                        Finally, use
+                                                        <code>print</code> to show the following sentence:
+
+                                                        <p></p>
+                                                        <pre>Hello {name}</pre>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="scroll hscroll">
+                                        <span class="scroll__thumb" style="left: 0%; width: 100%;"></span>
+                                    </div>
+                                    <div class="scroll vscroll">
+                                        <span class="scroll__thumb" style="top: 0%; height: 100.106%;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner-part"></div>
+                </div>
+                <!-- some issue in the next div-->
+                <div class="hdivider ui-draggable ui-draggable-handle" id="hdivider" style="left: 796px;">
+                    <div></div>
+                </div>
+                <div class="at-west" style="max-width:70%">
+                    <div class="center" id="center-panel">
+
+                        {% block body %}
+                        {% endblock %}
+                    </div>
+ 
+                    <div class="east" id="east-panel" max-width="30%">
+                        <div class="side-bar">
+                            <ul class="header">
+                                <li class="discuss">
+                                    <span>
+                                        <span class="img"></span>Discuss
+                                    </span>
+                                </li>
+                                <li class="articles">
+                                    <span>
+                                        <span class="img"></span>Related articles
+                                    </span>
+                                </li>
+                                <li class="datasets">
+                                    <span>
+                                        <span class="img"></span>Datasets
+                                    </span>
+                                </li>
+                            </ul>
+                            <div class="section" id="articles" style="display: flex;">
+                                <div class="header">
+                                    <h2 id="articles_h1">Related articles</h2>
+                                </div>
+                              
+                        </div>
+                    </div>
+       
+                </div>
+                <div class="loader-wrapper">
+                    <img src="static/images/ajax-loader.gif">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer_wrapper">
+        <div id="footer"></div>
+    </div>
+
+
+
+    <script src="quiz.js"></script>
+    <script>
+        $(function () {
+            //         $('#quiz').quiz("unicorns.json");
+        });
+    </script>
+
+
+
+</body>
+
+</html>

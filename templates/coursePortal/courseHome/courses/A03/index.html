@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>SQL Basics. Part 1 </title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <link rel="stylesheet" type="text/css" href="/static/css/oneweb.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/python-basics-part-1(1)">
+  <link rel="stylesheet" type="text/css" href="/static/css/course.css">
+  <script src="/static/js/1.12.4/jquery.min.js"></script>
+  <script src="/static/js/1.12.4/jquery-ui.js"></script>
+
+  <!-- @app.route('/course/<cid>/modules/<mid>'-->
+  <script>
+    function moduleCall(no) {
+      alert("module call" + no)
+      location.href = '/course/A03/modules/M00' + no;
+    }
+  </script>
+</head>
+
+<body class="light theme_one">
+  <div id="header_wrapper">
+ 
+    <div id="header">
+ 
+      <div class="header__all">
+        <div class="header__content">
+          <div class="header__top">
+            <div class="profile">
+              <button class="hamburger">Menu</button>
+              <div class="hmenu">
+                <ul>
+                  <li class="hmenu_item">
+                    <div class="hmenu">
+                      <ul>
+                        <li class="hmenu_item"><a href="/courses">Courses</a> </li>
+                        <li class="hmenu_item"><a href=" ">For Business</a> </li>
+                        <li class="hmenu_item"><a href=" ">How it works</a> </li>
+                        <li class="hmenu_item"><a href=" ">Blog</a> </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="hmenu_item my_profile">
+                    <div class="hmenu">
+                      <ul>
+                        <li class="hmenu_item hmenu_item--isDropdownMenu"><span><span class="imgWrapper"><span
+                                class="img"><img alt="" src=/static/images/user.png"></span></span><span
+                              class="text"><span class="commonText">My profile
+                              </span><span class="fullName">Guest</span></span>
+                          </span>
+                          <div class="menu">
+                            <ul>
+                              <li><a id="recommend_app_id"><span>Recommend us</span></a>
+                               </li>
+                              <li><a href="  my-profile" id="btn13"><span>My
+                                    Profile</span></a>
+                               </li>
+                              <li><a href="  my-courses" id="btn14"><span>My
+                                    courses</span></a>
+                               </li>
+                              <li><a href="  change-email-notifications" id="btn15"><span>Email notifications</span></a>
+                               </li>
+                              <li><a href="  purchase-history" id="btn16"><span>Purchase
+                                    history</span></a>
+                               </li>
+                              <li></li>
+                              <li><a id="btn17" href="/logout"><span>Log out</span></a>
+                                <script type="text/javascript">
+																//	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","btn17","epoint.ow.Utils.buttonDefaultsHandler",null);},90,null);
+                                </script>
+                                <script type="text/javascript">
+																//	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","btn17","SqlAcademy.Util.clearSessionStorageAndLogout");},null,null);
+                                </script>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="header__main">
+            <div class="header-layout theme_one">
+
+              <div class="header-layout__main ">
+                <div class="header-slogan ">
+                  <h1>SQL Basics. Part 1</h1>
+                  <p class="lead ">Learn the basics of SQL, show off your new skills on your
+                    resume, and accelerate your career!</p>
+                  <div class="buttons " onclick="moduleCall(1)">
+                    <span onclick="moduleCall(1)" class=" button start-continue-competed-btn">
+                      Start
+                    </span>
+                    <span class="progress ">
+                      <span class="label ">Progress: </span><span class="bar "><span class="bar__percent "
+                          style="width: 0% "></span><span class="bar__free " style="width: 30% "></span></span> <span
+                        class="percentage partial "><span class="percentage__progress ">0</span>% completed</span>
+                      <span>0
+                        of 95 exercises done</span></span>
+                  </div>
+                  <div class="buttons "><span data-purchase-type="course "
+                      class="link2 course_purchase_section_btn ">Start</span><span class="link2 "
+                      id="toc-div-id "><span>Table of
+                        contents</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="content_wrapper">
+    <div id="content">
+      <div class="section">
+        <div class="section__content">
+          <div class="row ">
+            <div class="col_8 "></div>
+            <div class="col_4 ">
+              <div class="floatingElement " style="margin-top: -1507px; width: 302px; ">
+                <div class="box floatingMenuBox "></div>
+              </div>
+              <div id="marketing-slots-div-id "></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section section--dark">
+        <div class="section__content">
+          <div class="row ">
+            <div class="col_8 ">
+              <div class="table-of-content-div " id="parts-div-id ">
+                <h2>Table of contents</h2>
+              </div>
+              <div class="box box--progress ">
+                <div>
+                  <div class="content">
+                    <div><span class="progress "><span class="label ">Progress: </span><span class="bar "><span
+                            class="bar__percent " style="width: 4% "></span></span> <span
+                          class="percentage partial "><span class="percentage__progress ">0</span>% completed</span>
+                        <span>0 of 95 exercises done</span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="box box--course-part " id="part-1 ">
+                <div>
+                  <div class="content">
+                    <div>
+                      <div class="part ">
+                        <div class="content" id="part-pointer-1 ">
+                          <h3>1.  Introduction to SQL Basics</h3>
+                          <p class="description ">Take your first step into the world of
+                            programming.</p>
+                        </div>
+                        <div class="manage ">
+                          <div class="buttons " onclick="moduleCall(1) "><span
+                              class="go-to-exercise-btn button flat ">Start</span>
+                          </div>
+                          <div id="progress-part-1000115-div-id ">
+                            <p class="percentage_completed "><span class="percentage partial "><span
+                                  class="percentage__progress ">0%</span>%
+                                completed</span> <span>0 of 2 exercises </span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="box box--course-part " id="part-2 ">
+                <div>
+                  <div class="content">
+                    <div>
+                      <div class="part ">
+                        <div class="content" id="part-pointer-2">
+                          <h3>2. Filtering rows</h3>
+                          <p class="description ">Discover how to write filter data.</p>
+                        </div>
+
+                        <div class="manage ">
+                          <div class="buttons " onclick="moduleCall(5) "><span
+                              class="go-to-exercise-btn button flat ">Start</span>
+                          </div>
+                          <div id="progress-part-1000115-div-id ">
+                            <p class="percentage_completed "><span class="percentage partial "><span
+                                  class="percentage__progress ">0%</span>%
+                                completed</span> <span>0 of 3 exercises </span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="box box--course-part " id="part-3 ">
+                <div>
+                  <div class="content">
+                    <div>
+                      <div class="part ">
+                        <div class="content" id="part-pointer-2 ">
+                          <h3>3. Aggregate Functions</h3>
+                          <p class="description ">Writing Aggregare Functions</p>
+                        </div>
+                        <div class="manage ">
+                          <div class="buttons " onclick="moduleCall(3) "><span
+                              class="go-to-exercise-btn button flat ">Start</span>
+                          </div>
+                          <div id="progress-part-1000115-div-id ">
+                            <p class="percentage_completed "><span class="percentage partial "><span
+                                  class="percentage__progress ">0%</span>%
+                                completed</span> <span>0 of 3 exercises </span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="box box--course-part " id="part-4">
+                <div>
+                  <div class="content">
+                    <div>
+                      <div class="part ">
+                        <div class="content" id="part-pointer-2 ">
+                          <h3>4. Sorting and grouping</h3>
+                          <p class="description "> Writing SQL queries to sort and group data!</p>
+                        </div>
+                        <div class="manage ">
+                          <div class="buttons " onclick="moduleCall(4) "><span
+                              class="go-to-exercise-btn button flat ">Start</span>
+                          </div>
+                          <div id="progress-part-1000115-div-id ">
+                            <p class="percentage_completed "><span class="percentage partial "><span
+                                  class="percentage__progress ">0%</span>%
+                                completed</span> <span>0 of 3 exercises </span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="box box--course-part " id="part-5 ">
+                <div>
+                  <div class="content">
+                    <div>
+                      <div class="part ">
+                        <div class="content" id="part-pointer-2 ">
+                          <h3>5. Quiz</h3>
+                          <p class="description ">Check your knowledge in this final part
+                            of the course!</p>
+                        </div>
+                        <div class="manage ">
+                          <div class="buttons " onclick="moduleCall(3) "><span
+                              class="go-to-exercise-btn button flat ">Start</span>
+                          </div>
+                          <div id="progress-part-1000115-div-id ">
+                            <p class="percentage_completed "><span class="percentage partial "><span
+                                  class="percentage__progress ">0%</span>%
+                                completed</span> <span>0 of 3 exercises </span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

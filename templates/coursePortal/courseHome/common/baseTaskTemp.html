@@ -1,0 +1,401 @@
+ <html>
+    <head>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <link rel="icon" href="/static/images/sw.ico" />
+        <!-- Bootstrap CSS -->
+
+        <link href="fontawesome/css/all.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/static/common/css/components.css"/>
+        <link rel="stylesheet" href="/static/common/css/style.css"/>
+        <link rel="stylesheet" href="/static/common/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/static/common/css/dialog.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/css/course/oneweb.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/common/css/course.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/css/course/Exercise.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/css/quiz.css"/>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="/static/common/js/popper.min.js"></script> 
+        <script src="/static/common/js/bootstrap.min.js"></script>
+        <script src="/static/js/1.12.4/jquery-ui.js"></script>
+        <script src="/static/js/custom.js"></script>
+         <script src="/static/js/resultFormatting.js"></script>
+        <style type="text/css">
+            @import url(//fonts.googleapis.com/css?family=Open + Sans:200italic, 300italic, 400italic, 500italic, 600italic, 700italic, 800italic, 900italic, 200, 300, 400, 500, 600, 700, 800);
+        </style>
+        <title>SocialWings</title>
+    </head>
+
+   <body class="light wide python exercise-screen ScrollAreaConfig--19 ScrollAreaConfig--active"></body>
+    <script>
+    var myObj = {{ json | safe}}
+    var mdObj = {{mdDetails| safe}}
+    var lhObj = {{status| safe}}
+    var userId= '{{userId}}' 
+    var language='{{language}}'                         
+    function inject(iframe, html_string) {
+        var iframedoc = iframe.document;
+        if (iframe.contentDocument)
+            iframedoc = iframe.contentDocument;
+        else if (iframe.contentWindow)
+            iframedoc = iframe.contentWindow.document;
+
+        if (iframedoc) {
+            // Put the content in the iframe
+            iframedoc.open();
+            iframedoc.writeln(html_string);
+            iframedoc.close();
+        } else {
+            //just in case of browsers that don't support the above 3 properties.
+            //fortunately we don't come across such case so far.
+            alert('Cannot inject dynamic contents into iframe.');
+        }
+    }
+
+    function runit(action) {
+        alert(language)
+        if (language == "web") {
+            id = document.getElementById("frameID")
+            var mypre = document.getElementById("editor");
+            code = editor.getValue('\n');
+            alert(code)
+            inject(id, code)
+        }
+        console.log(myObj.gradeType);
+        console.log("invoke grading" + '{{courseId}}' + "//" + '{{taskId}}' + "//" + '{{mid}}' + "UpdateTaskX" + "//" + myObj.gradeType + "//" + '{{userId}}')
+        updateLH('{{userId}}', '{{courseId}}', '{{taskId}}', '{{mid}}', "UpdateTaskX", "done")
+
+        //write task to userscratchpad  
+        run(action, '{{courseId}}', '{{mid}}', '{{taskId}}', '{{userId}}',"Task")
+    }
+
+    function nextEx(taskId,) {
+        alert("next qn")
+
+    }
+
+    function successDialog() {
+        alert("success")
+        var dialogP = document.querySelector('#dialogWin .dialog-p');
+        var dialogContent = '';
+        dialogContent = "Successful";
+        dialogP.textContent = dialogContent;
+        showDialog('dialogWin');
+    };
+    function showDialog(id) {
+        var dialog = document.getElementById(id);
+        var layer = document.getElementsByClassName('layer')[0];
+        dialog.style.display = 'block';
+        layer.style.display = 'block';
+    };
+
+    function hideDialog(id) {
+        var dialog = document.getElementById(id);
+        var layer = document.getElementsByClassName('layer')[0];
+        dialog.style.display = 'none';
+        layer.style.display = 'none';
+    }
+
+        $(document).ready(function () {
+
+            console.log("update LH" + '{{userId}}','{{courseId}}',myObj.TaskId, myObj.ModuleId,"Update","inprogress")
+            console.log("add to console " + '{{fileTreeNavigation}}');
+            console.log("Task page" + '{{courseId}}' + "//" + '{{taskId}}' + "//" + myObj.ModuleId + "//" + myObj.gradeType + "//" + '{{userId}}')
+
+            updateLH('{{userId}}','{{cid}}', myObj.TaskId, '{{moduleId}}',"Update","inprogress")
+                
+            $("section-1").addClass('done')
+            loadFlag = false;
+            discussState = true;
+            articlesState = true;
+            $("#currentQn").html(myObj.TaskId)
+
+            NxtQn = myObj.NxtQn
+            NxtQnURL = "/course/A01/module/M001/" + NxtQn
+            $("#nextEx").attr("href", NxtQnURL)
+            $("#courseSummmary").html(myObj.topicDesc)
+            $("#instruction_container").html(myObj.instruction);
+            $("#content_container").html(myObj.exercise);
+ 
+            $('.west').show();
+                 if ("{{taskType}}"=="assgn"||"{{taskType}}"=="Video" || "{{taskType}}"=="Quiz" || "{{taskType}}"=="Tutorial" || "{{taskType}}"=="pdf_tut" ){
+                        $(".main-part").toggleClass("opened")
+                    }
+
+            $('#window').click(function () {
+
+                if (discussState == true) {
+                   if ("{{taskType}}"=="Video" || "{{taskType}}"=="Quiz" || "{{taskType}}"=="Tutorial" || "{{taskType}}"=="pdf_tut" ){
+ 
+                 //      $(".main-part").toggleClass("opened")
+                    }
+ 
+                    $('.west').show();
+   
+                    discussState = !discussState
+                } else {
+
+                    discussState = !discussState
+
+                   if ("{{taskType}}"=="Video" || "{{taskType}}"=="Quiz" ){
+ 
+
+ 
+                    //   $(".main-part").toggleClass("opened")
+
+                    }
+ 
+                    $('.west').hide();
+          
+                 }
+               $('.west').css({
+                    width: "496px"
+                });
+            })
+            $('.discuss').click(function () {
+                if (discussState == true) {
+                   if ("{{taskType}}"=="Video" || "{{taskType}}"=="Quiz" || "{{taskType}}"=="Tutorial" || "{{taskType}}"=="pdf_tut" ){
+                       $(".main-part").toggleClass("opened")
+                    }
+                    $('.west').show();   
+                    discussState = !discussState
+                } else {
+                   discussState = !discussState
+                   if ("{{taskType}}"=="Video" || "{{taskType}}"=="Quiz" || "{{taskType}}"=="Tutorial" || "{{taskType}}"=="pdf_tut" ){
+                       $(".main-part").toggleClass("opened")
+                    }
+                    $('.west').hide();
+                 }
+               $('.west').css({
+                    width: "496px"
+                });
+               })
+             $('#courseSummmary').click(function () {
+                $(".main-part").toggleClass("opened");
+            })
+            $('#section-1-header').click(function () {
+                let item = $(this).siblings('#section-1-list').first();
+                item.slideToggle();
+            })
+            $('#section-2-header').click(function () {
+                let item = $(this).siblings('#section-2-list').first();
+                item.slideToggle();
+            })
+            $('#section-3-header').click(function () {
+                let item = $(this).siblings('#section-3-list').first();
+                item.slideToggle();
+            })
+            $('#section-4-header').click(function () {
+                let item = $(this).siblings('#section-4-list').first();
+                item.slideToggle();
+            })
+            $('#section-5-header').click(function () {
+                let item = $(this).siblings('#section-5-list').first();
+                item.slideToggle();
+            })
+
+            $(".tab").toggleClass("selected");
+            $('#console').click(function() {
+              $(".tab").toggleClass("selected");
+              $('#TestResultOutput').hide();
+              $('#ConsoleOutput').show();
+            })
+           $('#testResult').click(function() {
+             $(".tab").toggleClass("selected");
+             $('#TestResultOutput').show();
+             $('#ConsoleOutput').hide();
+          })
+ 
+        $('#replayTask').click(function () {
+
+             next('{{userId}}','{{courseId}}', '{{taskId}}', '{{mid}}')
+
+          });    
+          $('#nextTask').click(function () {
+
+             next('{{userId}}','{{courseId}}', '{{taskId}}', '{{mid}}')
+
+          });  
+
+          $('#submit').click(function () {
+             console.log('{{userId}}','{{courseId}}', '{{taskId}}', '{{moduleId}}')
+             // learninghistory.next
+             alert("2 successs")
+             successDialog()
+          })
+
+        });
+
+    </script>
+
+
+    {% include 'coursePortal/courseHome/common/headerCourse.html' %}
+    <div id="content_wrapper" class="mt-80" style="padding-top: 10px;">
+        <div id="content">
+
+<div class="container-fluid p-0">
+   <div class="m-0 main-divs row">
+
+    <div class="col-lg-3 col-12 west slideClose" style="display: none;">
+     <div class="main-part">
+        <div class="navi-exercise-num-div" id="navi-exercise-id" title="input() function">
+            <span id="num" class="num"> </span>
+            <span id="courseSummmary" class="name">Basic Python</span>
+        </div>
+        <div class="content">
+            <!--test -->
+
+            {% set modulePath = courseModulePath %} 
+            {% include modulePath %}
+
+            <div id="left-div" class="ScrollArea">
+                <div class="ScrollArea__wrapper">
+                    <div class="ScrollArea__content">
+                        <div class="instruction-div">
+                            <div class="header">
+                                <h2>Instruction</h2>
+                            </div>
+                            <div class="content formatted" id="instruction_container"></div>
+                        </div>
+                        <div class="content-hints-div">
+                            <div class="header">
+                                <h2>Exercise</h2>
+                            </div>
+                            <div class="content formatted">
+                                <div id="content_container"></div>
+                                <div class="hints-div">
+                                    <div class="header" id="hints-id">
+                                        <h3>Stuck? Here's a hint!</h3>
+                                    </div>
+                                    <div class="content" id="hint_container">
+                                        Use <code>input(...)</code> to get the values from the user. Finally, use <code>print</code> to show the following sentence:
+                                        <p></p>
+                                        <pre>Hello {name}</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scroll hscroll"><span class="scroll__thumb" style="left: 0%; width: 100%;"></span></div>
+                    <div class="scroll vscroll"><span class="scroll__thumb" style="top: 0%; height: 100.106%;"></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner-part"></div>
+</div>
+
+{% if fileTreeNavigation == True %} {% include 'coursePortal/courseHome/common/filetree.html' %} {% endif %}
+
+<!-- some issue in the next div-->
+
+<div class="col-lg col-12">
+    <style>
+        #window {
+            background-position: -5px -54px;
+            margin-top: 15px;
+            background-repeat: no-repeat;
+            background-image: url(/static/images/sprite-exercise.png);
+            overflow: hidden;
+            display: inline-block;
+            width: 15px;
+            height: 11px;
+        }
+    </style>
+    
+                    {% block body %}
+
+
+                    {% endblock %}
+
+      </div>
+    </div>
+
+
+                <div class="col-12 col-lg-1 east p-0" id="east-panel"    >
+                    <div class="side-bar">
+                        <ul class="header">
+                            <li class="discuss"> <span>
+                                    <span class="img1"></span>Discuss</span>
+                            </li>
+                            <li class="articles"> <span>
+                                    <span class="img1"></span>Related articles</span>
+                            </li>
+                            <li class="datasets"> <span>
+                                    <span class="img1"></span>Datasets</span>
+                            </li>
+                        </ul>
+                        <div class="section" id="articles" style="display: none;">
+                            <div class="header">
+                                <h2 id="articles_h1">Related articles</h2>
+                            </div>
+                            <div id="articles_content" class="content">
+                                <div>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="side-bar"></div>
+            </div>
+          </div>
+		<div id="dialogCode" class="dialog">
+			<img src="/static/blocks/img/dialog1.jpg">
+			<div class="dialog-div">
+				<h6 class="dialog-h">代码</h6>
+				<pre class="dialog-p">dsf</pre>
+				<button id="dialogCodeBtn" class="dialog-btn dialog-btn-small">确定</button>
+			</div>
+		</div>
+		<!-- Dialog for game tip -->
+		<div id="dialogTip" class="dialog">
+			<img src="/static/blocks/img/dialog2.jpg">
+			<h6 class="dialog-h"></h6>
+			<!-- <p class="dialog-p">fffffffffffff</p> -->
+			<button class="dialog-btn dialog-btn-big">确定</button>
+		</div>
+		<!-- Dialog for game success -->
+		<div id="dialogWin" class="dialog">
+			<img src="/static/common/img/dialog/dialog2.jpg">
+			<h6 class="dialog-h"></h6>
+			<p class="dialog-p"></p>
+			<button id="replayTask" class="dialog-btn dialog-btn-small dialog-btn-left">Replay</button>
+			<button id="nextTask" class="dialog-btn dialog-btn-small dialog-btn-right">Next</button>
+		</div>
+		<div class="layer"></div>
+
+		<div id="popover" class="popover">
+			<img src="/static/blocks/img/carrot.png">
+			<p>提示</p>
+			<button>降低难度</button>
+		</div>
+
+            <div class="loader-wrapper">
+                <img src="static/images/ajax-loader.gif">
+            </div>
+        </div>
+    </div>
+
+    <div id="footer_wrapper">
+        <div id="footer"></div>
+    </div>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/common/css/bootstrap.min.css">
+    <link href="/static/fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/common/css/components.css">
+    <link rel="stylesheet" href="/static/common/css/style.css">
+   // grading related items
+    <script src="/static/js/gd.js"></script>
+    <script src="/static/js/lh.js"></script>
+
+
+
+    <script src="/static/js/playground.js"></script>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="/static/common/js/popper.min.js"></script>
+  </body>
+</html>

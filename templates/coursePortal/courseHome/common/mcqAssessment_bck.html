@@ -1,0 +1,361 @@
+ {% extends "coursePortal/courseHome/common/base_quizAssessment.html" %}
+{% block title %} the_title {% endblock %}
+
+{% block body %}
+ <script>
+totalsec=10
+   function starttime() {
+      showtime();
+       }
+
+    function showtime() {
+    
+    // 1 seconde eraf
+    totalsec--;
+    
+    var min = parseInt(totalsec / 60, 10);
+    var sec = totalsec - (min * 60);
+    
+    
+     console.log(min + ' :' + sec)
+      if (parseInt(sec) > 0) {
+        document.getElementById("showtime").innerHTML = "Your Left Time is :" + min + " Minutes :" + sec + " Seconds";
+        tim = setTimeout("showtime()", 1000);
+      } else {
+        if (parseInt(sec) == 0) {
+          document.getElementById("showtime").innerHTML = "Your Left Time is :" + min + " Minutes :" + sec + " Seconds";
+          if (parseInt(min) == 0) {
+            clearTimeout(tim);
+            alert("Time Up");
+
+ 
+
+ 
+          } else {
+            document.getElementById("showtime").innerHTML = "Your Left Time is :" + min + " Minutes :" + sec + " Seconds";
+            tim = setTimeout("showtime()", 1000);
+          }
+        }
+
+      }
+    }
+    function EndExam() {
+
+      location.href = "Loginpage.htm";
+    }
+</script>
+   
+<div class="row h-100">
+
+  <div class="col-4 pr-0 h-100 overflow-scroll">
+      <div class="west">
+          <div class="main-part opened">
+              <div class="navi-exercise-num-div" id="navi-exercise-id" title="input() function"><span id="num" class="num"> </span>
+                  <span id="courseSummmary" class="name">Basic Python</span></div>
+              <div class="content">
+                  <div id="sections-div" class="ScrollArea">
+                      <div class="">
+                          <div class="">
+                              <!--                                            removed class ScrollArea__content-->
+                              <div class="section" id="section-1">
+                                  <div class="header" id="section-1-header">Python</div>
+                                  <div class="section-exercise-list" id="section-1-list" style="display: block;">
+                                      <div class="section-exercise" id="section-1-exercise-1">
+
+                                          <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_2">
+                                              <span>1.Python_1 </span>
+                                          </a>
+                                      </div>
+                                      <div class="section-exercise" id="section-1-exercise-2">
+                                          <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_3">
+                                              <span>2.Python_2</span>
+                                          </a>
+                                      </div>
+                                      <div class="section-exercise" id="section-1-exercise-3">
+                                          <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_4">
+                                              <span>3.Python_3</span>
+                                          </a>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="section" id="section-2">
+                                  <div class="header" id="section-2-header">Unix</div>
+                                  <div class="section-exercise-list" id="section-2-list" style="display: block;">
+                                      <div class="section-exercise done" id="section-2-exercise-1">
+                                          <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_2">
+                                              <span>1.Unix_1 </span>
+                                          </a>
+                                      </div>
+                                      <div class="section-exercise" id="section-2-exercise-2">
+                                          <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_3">
+                                              <span>2.Unix_2</span>
+                                          </a>
+                                      </div>
+                                      <div class="section-exercise" id="section-2-exercise-3">
+                                          <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_4">
+                                              <span>3.Unix_3</span>
+                                          </a>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="section" id="section-3">
+                                  <div class="header" id="section-3-header">HTML_CSS</div>
+                                  <div class="section-exercise-list" id="section-3-list" style="display: block;">
+                                      <div class="section-exercise" id="section-3-exercise-1">
+                                          <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_5">
+                                              <span>1. HTML_CSS_1 </span>
+                                          </a>
+                                      </div>
+                                      <div class="section-exercise" id="section-3-exercise-2">
+                                          <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_6">
+                                              <span>2. HTML_CSS_2</span>
+                                          </a>
+                                      </div>
+                                      <div class="section-exercise" id="section-3-exercise-3">
+                                          <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_7">
+                                              <span>3. HTML_CSS_3</span>
+                                          </a>
+                                      </div>
+                                      <div class="section-exercise" id="section-3-exercise-4">
+                                          <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_8">
+                                              <span>4. HTML_CSS_4</span>
+                                          </a>
+                                      </div>
+                                      <div class="section-exercise" id="section-3-exercise-4">
+                                          <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_9">
+                                              <span>5. HTML_CSS_5</span>
+                                          </a>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="section" id="section-4">
+                              <div class="header" id="section-3-header">ReactJs</div>
+                              <div class="section-exercise-list" id="section-3-list" style="display: block;">
+                                  <div class="section-exercise" id="section-3-exercise-1">
+                                      <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_5">
+                                          <span>1. ReactJs_1 </span>
+                                      </a>
+                                  </div>
+                                  <div class="section-exercise" id="section-3-exercise-2">
+                                      <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_6">
+                                          <span>2. ReactJs_2</span>
+                                      </a>
+                                  </div>
+                                  <div class="section-exercise" id="section-3-exercise-3">
+                                      <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_7">
+                                          <span>3. ReactJs_3</span>
+                                      </a>
+                                  </div>
+                                  <div class="section-exercise" id="section-3-exercise-4">
+                                      <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_8">
+                                          <span>4. ReactJs_4</span>
+                                      </a>
+                                  </div>
+                                  <div class="section-exercise" id="section-3-exercise-4">
+                                      <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_9">
+                                          <span>5. ReactJs_5</span>
+                                      </a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="scroll hscroll"><span class="scroll__thumb" style="left: 0%; width: 100%;"></span></div>
+                      <div class="scroll vscroll"><span class="scroll__thumb" style="top: 0%; height: 100.106%;"></span></div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+
+   <div class="col-8 pl-0 h-100 pb-5 overflow-scroll position-relative">
+
+                    <div class="p-3">
+                        <div class="bg-light p-3">
+                            <div class="text-center">
+                                <h5 class="my-3">PLEASE ANSWER QUESTIONS BELOW</h5>
+                            </div>
+                            <div class="card py-4 mb-4">
+                                <div class="px-4 border-bottom">
+                                    <p>The string "word" is defined as follows word="Power" The "word" can be printed in
+                                       all uppercase letters by?</p>
+                                </div>
+                                <div class="px-4 pt-3">
+                                    <div class="form-check mb-3">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="optradio">Option 1
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-3">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="optradio">Option 2
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-3">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="optradio">Option 3
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card py-4 mb-4">
+                                <div class="px-4 border-bottom">
+                                    <p>The string "word" is defined as follows word="Power" The "word" can be printed in
+                                       all uppercase letters by?</p>
+                                </div>
+                                <div class="px-4 pt-3">
+                                    <div class="form-check mb-3">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="optradio">Option 1
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-3">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="optradio">Option 2
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-3">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="optradio">Option 3
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+ 
+                            <div class="card py-4 mb-4">
+                                <div class="px-4 border-bottom">
+                                    <p>The string "word" is defined as follows word="Power" The "word" can be printed in
+                                       all uppercase letters by?</p>
+                                </div>
+                                <div class="px-4 pt-3">
+                                    <div class="form-check mb-3">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="optradio">Option 1
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-3">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="optradio">Option 2
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-3">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="optradio">Option 3
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 button-container">
+                        <style>
+                            .button-container {
+                                position: fixed;
+                                bottom: 0;
+                                background: white;
+                                padding: 10px;
+                                box-shadow: 0px 0px 15px -3px #00000054;
+                                width: inherit;
+                                max-width: inherit;
+                                display: flex;
+                                justify-content: flex-end;
+                            }
+                        </style>
+                        <button class="btn btn-dark">Submit</button>
+                    </div>
+
+                    <!--                    <div class="ConsoleEditor row h-100">-->
+
+                    <!--                        <div class="west col-5 h-100" style="/*! width: 80%; */">-->
+                    <!--                            <div class="main-part h-100 overflow-scroll">-->
+                    <!--                                <div class="navi-exercise-num-div" id="navi-exercise-id" title="input() function"><span-->
+                    <!--                                        id="num"-->
+                    <!--                                        class="num"> </span>-->
+                    <!--                                </div>-->
+                    <!--                                <div class="content">-->
+
+                    <!--                                    <div id="left-div" class="ScrollArea">-->
+                    <!--                                        <div class="ScrollArea__wrapper">-->
+                    <!--                                            <div class="">-->
+                    <!--                                                &lt;!&ndash;                                                removed class ScrollArea__content&ndash;&gt;-->
+                    <!--                                                <div class="instruction-div">-->
+                    <!--                                                    <div class="header">-->
+                    <!--                                                        <h2>Instruction</h2></div>-->
+                    <!--                                                    <div class="content formatted" id="instruction_container">The string-->
+                    <!--                                                        "word"-->
+                    <!--                                                        is defined as follows word="Power"<br>The "word" can be printed-->
+                    <!--                                                        in-->
+                    <!--                                                        all-->
+                    <!--                                                        uppercase letters by?-->
+                    <!--                                                    </div>-->
+
+                    <!--                                                </div>-->
+                    <!--                                            </div>-->
+                    <!--                                            <div class="scroll hscroll"><span class="scroll__thumb"-->
+                    <!--                                                                              style="left: 0%; width: 100%;"></span>-->
+                    <!--                                            </div>-->
+                    <!--                                            <div class="scroll vscroll"><span class="scroll__thumb"-->
+                    <!--                                                                              style="top: 0%; height: 100.106%;"></span>-->
+                    <!--                                            </div>-->
+                    <!--                                        </div>-->
+                    <!--                                    </div>-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+
+                    <!--                        <div style="padding-left:50px;padding-top:1px;border: black;border-width: 10px;align: left;float: LEFT;display: block;"-->
+                    <!--                             class="instruction-div col-7">-->
+                    <!--                            <div class="console-div"-->
+                    <!--                                 style="max-height: 60%;height: 650px;/* padding-left:50px; */padding-top:2px;">-->
+                    <!--                                <div id="quizContent" class="content">-->
+                    <!--                                    <div id="frame" role="content">-->
+
+                    <!--                                        <table id="choice-block">-->
+                    <!--                                            <tbody>-->
+                    <!--                                            <tr>-->
+                    <!--                                                <td data-index="0" class="choice choice-box">-->
+                    <!--                                                    <input type="checkbox" id="12" value="chkboxValue">-->
+                    <!--                                                </td>-->
+                    <!--                                                <td id="Tag0">print(word.uppercase())</td>-->
+                    <!--                                            </tr>-->
+                    <!--                                            <tr>-->
+                    <!--                                                <td data-index="1" class="choice choice-box"-->
+                    <!--                                                    style="background-color: rgb(255, 255, 255);">-->
+                    <!--                                                    <input type="checkbox" id="12" value="chkboxValue">-->
+                    <!--                                                </td>-->
+                    <!--                                                <td id="Tag1">print(word.upper())</td>-->
+                    <!--                                            </tr>-->
+                    <!--                                            <tr>-->
+                    <!--                                                <td data-index="2" class="choice choice-box">-->
+                    <!--                                                    <input type="checkbox" id="12" value="chkboxValue">-->
+                    <!--                                                </td>-->
+                    <!--                                                <td id="Tag2">print(upper(word))</td>-->
+                    <!--                                            </tr>-->
+                    <!--                                            <tr>-->
+                    <!--                                                <td data-index="3" class="choice choice-box">-->
+                    <!--                                                    <input type="checkbox" id="12" value="chkboxValue">-->
+                    <!--                                                </td>-->
+                    <!--                                                <td id="Tag3">None of these</td>-->
+                    <!--                                            </tr>-->
+                    <!--                                            </tbody>-->
+                    <!--                                        </table>-->
+
+                    <!--                                    </div>-->
+                    <!--                                </div>-->
+
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+
+                    <!--                    </div>-->
+                </div>
+
+  <div class="banner-part"></div>
+
+</div>
+
+ <div class="loader-wrapper"> <img src="static/images/ajax-loader.gif"> </div>
+  
+
+{% endblock %}

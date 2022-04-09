@@ -1,0 +1,544 @@
+<html>
+
+<head>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/static/js/1.12.4/jquery-ui.js"></script>
+    <link rel="icon" href="/static/images/sw.ico">
+    <link rel="stylesheet" href="http://codemirror.net/addon/hint/show-hint.css">
+    <link rel="stylesheet" href="http://codemirror.net/lib/codemirror.css">
+    <link rel="stylesheet" href="http://codemirror.net/addon/hint/show-hint.css">
+    <script src="http://codemirror.net/lib/codemirror.js"></script>
+    <script src="http://codemirror.net/addon/edit/matchbrackets.js"></script>
+    <script src="http://codemirror.net/addon/edit/continuecomment.js"></script>
+    <script src="http://codemirror.net/mode/sql/sql.js"></script>
+    <script src="http://codemirror.net/addon/hint/show-hint.js"></script>
+    <script src="http://codemirror.net/addon/hint/sql-hint.js"></script>
+    <script src="/static/lib/xml.js"></script>
+    <script src="/static/lib/javascript.js"></script>
+    <script src="/static/lib/css.js"></script>
+    <script src="/static/lib/closetag.js"></script>
+    <script src="/static/js/custom.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/oneweb.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/Exercise.css">
+    <style type="text/css">
+        @import url(//fonts.googleapis.com/css?family=Open+Sans:200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic,200,300,400,500,600,700,800);
+    </style>
+    <style>
+        #articles_h1 {
+            padding: 2em 30px;
+        }
+
+        #articles_content {
+            padding-top: 30px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    </style>
+    <title>SocialWings</title>
+</head>
+
+<body class="light wide python exercise-screen ScrollAreaConfig--19 ScrollAreaConfig--active"
+    data-new-gr-c-s-check-loaded="14.996.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="14.996.0">
+    <script>
+        var myObj = {{ json | safe}}
+
+        function run() {
+            alert(myObj.ModuleId)
+
+            runit('{{courseId}}', '{{taskId}}', myObj.ModuleId, '{{userId}}')
+        }
+        $(document).ready(function () {
+            $("section-1").addClass('done')
+            loadFlag = false;
+
+
+            //jsonData = JSON.stringify({ "courseId":courseId, "completedQn":"1" })
+            //action="update"
+            //  learningHistoryServices(userId,courseId,action,jsonData )
+
+
+            console.log("add to console ");
+            discussState = true;
+            //var myObj = { "status": "OK", "TaskId": "A11_2", "NxtQn": "not linked", "topicDesc": "We need to select studentId from students table", "instruction": "<p>Good! Let's move on to selection of specific data from a table. <b>Students</b></p> \n<p>Students table sample data as belwo .</p> \n<pre>Students Id , Students Name, Students marks<br/> A12 Jacob Geroge 450<br/> A13 Paula  Geroge 150<br/> A14 Guru murthy 530</pre> \n<p>This line of code:</p> \n \n<p>The  below statement select the students name from the students table <code>select students name from students</code> :</p> \n< ", "exercise": "\n<p>Modify the query to select students Id from students table:</p>\n<pre>A12<br/>A13<br/>A14<br/></pre>", "section": "Python Basics" };
+            $("#currentQn").html(myObj.TaskId)
+
+
+
+            NxtQn = myObj.NxtQn
+            NxtQnURL = "/course/A01/module/M001/" + NxtQn
+            $("#nextEx").attr("href", NxtQnURL)
+            $("#courseSummmary").html(myObj.topicDesc)
+            $("#instruction_container").html(myObj.instruction);
+            $("#content_container").html(myObj.exercise);
+            $('.discuss').click(function () {
+                //$(".main-part").toggleClass("opened
+                if (discussState == true) {
+                    $('.west').show();
+                    discussState = !discussState
+                } else {
+                    discussState = !discussState
+                    $('.west').hide();
+                }
+                $('.west').css({
+                    width: "796px"
+                });
+                // $('.west').toggleClass("slideClose");
+            })
+            editor.setValue("");
+            console.log("add to console " + myObj.topicDesc);
+
+            // reading from learning history below details
+            // score, section, exercise   
+            //1. complete all the section which are done by changing class .done
+            // making the tick mark
+            //spinner while submitting the exercise
+            $('#courseSummmary').click(function () {
+                $(".main-part").toggleClass("opened");
+            })
+            $('#section-1-header').click(function () {
+                let item = $(this).siblings('#section-1-list').first();
+                item.slideToggle();
+            })
+            $('#section-2-header').click(function () {
+                let item = $(this).siblings('#section-2-list').first();
+                item.slideToggle();
+            })
+            $('#section-3-header').click(function () {
+                let item = $(this).siblings('#section-3-list').first();
+                item.slideToggle();
+            })
+            $('#section-4-header').click(function () {
+                let item = $(this).siblings('#section-4-list').first();
+                item.slideToggle();
+            })
+            $('#section-5-header').click(function () {
+                let item = $(this).siblings('#section-5-list').first();
+                item.slideToggle();
+            })
+
+
+            // updateStatusFlags()
+            //  load the question 	
+
+        });
+
+        function loadQnAns() {
+            //check if session exist
+            // check learning history   
+            // make all the sections done
+            // addtotalquestion current question
+            // current course
+            qno = 'A01_2'
+            alert("load question")
+            // var qrepo = qRepocall(qno)
+            // console.log("***********reloadoutput" + qrepo);
+            editor.setValue('Print("Hello world")');
+        }
+    </script>
+    <div id="header_wrapper">
+        <div id="header">
+            <div class="header__decor"> <span id="courseId"></span> <span id="currentQn"></span> <span
+                    id="nxtQn"></span>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="header__all">
+                <div class="header__content">
+                    <div class="header__top">
+                        <div class="hmenu mainmenu">
+                            <div class="hmenu_item">
+                                <a class="title" href=""></a>
+                            </div>
+                        </div>
+                        <div class="profile">
+                            <button class="hamburger">Menu</button>
+                            <div class="hmenu">
+                                <ul>
+                                    <li class="hmenu_item">
+                                        <div class="hmenu"></div>
+                                    </li>
+                                    <li class="hmenu_item my_profile">
+                                        <div class="hmenu">
+                                            <ul>
+                                                <li class="hmenu_item hmenu_item--isDropdownMenu"><span><span
+                                                            class="imgWrapper"><span class="img"><img alt=""
+                                                                    src="/static/images/user.png&quot;"></span></span><span
+                                                            class="text"><span class="commonText">My profile
+                                                            </span><span id="name"
+                                                                class="fullName">{{userId}}</span></span>
+                                                    </span>
+                                                    <div class="menu">
+                                                        <ul>
+                                                            <li><a id="recommend_app_id"><span>Recommend us</span></a>
+                                                                <script type="text/javascript">
+                                                                </script>
+                                                                <script type="text/javascript">
+                                                                </script>
+                                                            </li>
+                                                            <li><a href="  my-profile" id="btn13"><span>My
+                                                                        Profile</span></a>
+                                                                <script type="text/javascript">
+                                                                </script>
+                                                            </li>
+                                                            <li><a href="  my-courses" id="btn14"><span>My
+                                                                        courses</span></a>
+                                                                <script type="text/javascript">
+                                                                </script>
+                                                            </li>
+                                                            <li><a href="  change-email-notifications"
+                                                                    id="btn15"><span>Email notifications</span></a>
+                                                                <script type="text/javascript">
+                                                                </script>
+                                                            </li>
+                                                            <li><a href="  purchase-history" id="btn16"><span>Purchase
+                                                                        history</span></a>
+                                                                <script type="text/javascript">
+                                                                </script>
+                                                            </li>
+                                                            <li></li>
+                                                            <li><a id="btn17" href="/logout"><span>Log out</span></a>
+                                                                <script type="text/javascript">
+                                                                </script>
+                                                                <script type="text/javascript">
+                                                                </script>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header__main">
+                        <div class="exercise-header">
+                            <div class="navi-return-div"> <a href="/course/A01">Back to course details</a> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="content_wrapper" style="padding-top: 11px;">
+        <div id="content">
+            <link href="/static/css/recurly.css" rel="stylesheet" type="text/css">
+            <div class="main-divs">
+                <div class="east" id="east-panel" max-width="30%">
+                    <div class="side-bar">
+                        <ul class="header">
+                            <li class="discuss"> <span>
+                                    <span class="img"></span>Questions</span>
+                            </li>
+                            <li class="articles"> <span>
+                                    <span class="img"></span>File Tree</span>
+                            </li>
+                            <li class="datasets"> <span>
+                                    <span class="img"></span>MyCourses</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="west slideClose" style="width: 31px;display:none">
+                    <div class="main-part">
+                        <div class="navi-exercise-num-div" id="navi-exercise-id" title="{{title}}"> <span id="num"
+                                class="num"> </span> <span id="courseSummmary" class="name">Basic Python</span> </div>
+                        <div class="content">
+                            <div id="sections-div" class="ScrollArea">
+                                <div class="ScrollArea__wrapper">
+                                    <div class="ScrollArea__content">
+                                        <div class="section" id="section-1">
+                                            <div class="header" id="section-1-header">Introduction</div>
+                                            <div class="section-exercise-list" id="section-1-list">
+                                                <div class="section-exercise" id="section-1-exercise-1">
+                                                    <a href="/course/A01/module/M001/A01_16"> <span>1.
+                                                            Introduction to List</span> </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="section" id="section-2">
+                                            <div class="header" id="section-2-header">List Operations</div>
+                                            <div class="section-exercise-list" id="section-2-list">
+                                                <div class="section-exercise done" id="section-2-exercise-1">
+                                                    <a href="/course/A01/module/M001/A01_17">
+                                                        <span>2.Create a List</span> </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-2-exercise-2">
+                                                    <a href="/course/A01/module/M001/A01_18"> <span>3. read from List
+                                                            explained</span> </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-2-exercise-3">
+                                                    <a href="/course/A01/module/M001/A01_19"> <span>4. remove element
+                                                            from list</span> </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-2-exercise-3">
+                                                    <a href="/course/A01/module/M001/A01_20"> <span>5. slice first two
+                                                            elements </span> </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="section" id="section-3">
+                                            <div class="header" id="section-3-header">Variables</div>
+                                            <div class="section-exercise-list" id="section-3-list">
+                                                <div class="section-exercise" id="section-3-exercise-1">
+                                                    <a href="/course/A01/module/M001/A01_15"> <span>5. Creating
+                                                            variables</span> </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-3-exercise-2">
+                                                    <a href="/course/A01/module/M001/A01_16"> <span>6. Assigning new
+                                                            values to variables</span> </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-3-exercise-3">
+                                                    <a href="/course/A01/module/M001/A01_17"> <span>7. Undefined
+                                                            variables</span> </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-3-exercise-4">
+                                                    <a href="/course/A01/module/M001/A01_18"> <span>8. Integers,
+                                                            strings, and floats</span> </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-3-exercise-4">
+                                                    <a href="/course/A01/module/M001/A01_19"> <span>9. quiz</span> </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="scroll hscroll"> <span class="scroll__thumb"
+                                            style="left: 0%; width: 100%;"></span> </div>
+                                    <div class="scroll vscroll"> <span class="scroll__thumb"
+                                            style="top: 0%; height: 100.106%;"></span> </div>
+                                </div>
+                            </div>
+                            <div id="left-div" class="ScrollArea">
+                                <div class="ScrollArea__wrapper">
+                                    <div class="ScrollArea__content">
+                                        <div class="instruction-div">
+                                            <div class="header">
+                                                <h2>Instruction</h2>
+                                            </div>
+                                            <div class="content formatted" id="instruction_container"> </div>
+                                        </div>
+                                        <div class="content-hints-div">
+                                            <div class="header">
+                                                <h2>Exercise</h2>
+                                            </div>
+                                            <div class="content formatted">
+                                                <div id="content_container"> </div>
+                                                <div class="hints-div">
+                                                    <div class="header" id="hints-id">
+                                                        <h3>Stuck? Here's a hint!</h3>
+                                                    </div>
+                                                    <div class="content" id="hint_container">Use <code>input(...)</code>
+                                                        to get the values from the user. Finally, use <code>print</code>
+                                                        to show the following sentence:
+                                                        <p></p>
+                                                        <pre>Hello {name}</pre>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="scroll hscroll"> <span class="scroll__thumb"
+                                            style="left: 0%; width: 100%;"></span> </div>
+                                    <div class="scroll vscroll"> <span class="scroll__thumb"
+                                            style="top: 0%; height: 100.106%;"></span> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner-part"></div>
+                </div>
+                <!-- some issue in the next div-->
+                <div class="hdivider ui-draggable ui-draggable-handle" id="hdivider" style="left: 796px;">
+                    <div></div>
+                </div>
+                <div class="at-west" style="max-width:90%;width:1200px">
+                    <div class="center" id="center-panel">
+                        <div class="ConsoleEditor" style="max-height:100%;">
+                            <div class="console-div" style="max-height: 40%; height: 380px;">
+                                <div class="content">
+                                    <div class="tabs">
+                                        <div class="header"> <span class="tab selected">
+                                                <span>
+                                                    <span>Code
+                                                        editor</span> </span>
+                                            </span>
+                                        </div>
+                                        <div class="content">
+                                            <textarea id="editor" placeholder="Your code..."
+                                                onchange=" console.log(&quot;change&quot;)"
+                                                style="display: none;"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <div class="loader" style="margin-left: 450px; display:visible"></div>
+                                    <div class="buttons">
+                                        <a class="button primary" title="Control+Enter" onclick="run()"> Run andcheck
+                                            code </a>
+                                        <a class="button primary" title="Alt+R" onclick="clearConsole()"> Reset </a>
+                                        <a style="margin-left: 450px; display:none" class="button nextEx primary"
+                                            title="Next Exercise" id="nextEx" href="/course/A01/module/M001/not linked">
+                                            Next exercise </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="divider ui-draggable ui-draggable-handle" style="top: 378px;cursor:row-resize">
+                                <div></div>
+                            </div>
+                            <div class="Result result-div" style="max-height: 55%; height: 590px;">
+                                <div class="content">
+                                    <div class="tabs">
+                                        <div class="header"> <span class="selected tab">
+                                                <span>
+                                                    <span>console</span> </span>
+                                            </span>
+                                        </div>
+                                        <div class="content">
+                                            <div class="Result__data">
+                                                <div id="codemirror-console" style="padding-top: 10px;">
+                                                    <textarea style="display: none;"></textarea>
+                                                    <div class="CodeMirror cm-s-default" style="width: 100%;">
+                                                        <div
+                                                            style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 50.673px; left: 3.99304px;">
+                                                            <textarea id="out1" autocorrect="off" autocapitalize="off"
+                                                                spellcheck="false"
+                                                                style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"
+                                                                tabindex="0"></textarea>
+                                                        </div>
+                                                        <div class="CodeMirror-vscrollbar" cm-not-content="true">
+                                                            <div style="min-width: 1px; height: 0px;"></div>
+                                                        </div>
+                                                        <div class="CodeMirror-hscrollbar" cm-not-content="true">
+                                                            <div style="height: 100%; min-height: 1px; width: 0px;">
+                                                            </div>
+                                                        </div>
+                                                        <div class="CodeMirror-scrollbar-filler" cm-not-content="true">
+                                                        </div>
+                                                        <div class="CodeMirror-gutter-filler" cm-not-content="true">
+                                                        </div>
+                                                        <div class="CodeMirror-scroll" tabindex="-1">
+                                                            <div class="CodeMirror-sizer"
+                                                                style="margin-left: 0px; margin-bottom: -19px; border-right-width: 11px; min-height: 70px; min-width: 333.451px; padding-right: 0px; padding-bottom: 0px;">
+                                                                <div style="position: relative; top: 0px;">
+                                                                    <div class="CodeMirror-lines" role="presentation">
+                                                                        <div role="presentation"
+                                                                            style="position: relative; outline: none;">
+                                                                            <div class="CodeMirror-measure"></div>
+                                                                            <div class="CodeMirror-measure"></div>
+                                                                            <div
+                                                                                style="position: relative; z-index: 1;">
+                                                                            </div>
+                                                                            <div class="CodeMirror-cursors"
+                                                                                style="visibility:  ;">
+                                                                                <div class="CodeMirror-cursor"
+                                                                                    style="left: 3.99304px; top: 46.68px; height: 15.5556px;">
+                                                                                    &nbsp;</div>
+                                                                            </div>
+                                                                            <div id="iframewrapper"
+                                                                                class="CodeMirror-code"
+                                                                                role="presentation">
+                                                                                <pre class=" CodeMirror-line "
+                                                                                    role="presentation"></pre>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div
+                                                                style="position: absolute; height: 11px; width: 1px; border-bottom: 0px solid transparent; top: 70px;">
+                                                            </div>
+                                                            <div class="CodeMirror-gutters"
+                                                                style="display: none; height: 81px;"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hdivider ui-draggable ui-draggable-handle" id="hdivider2"
+                        style="display: none; left: 1552.99px;">
+                        <div></div>
+                    </div>
+                </div>
+                <div class="east" id="east-panel" max-width="30%" style="width:171px;">
+                    <div class="side-bar">
+                        <ul class="header">
+                            <li class="discuss"> <span>
+                                    <span class="img"></span>Discuss</span>
+                            </li>
+                            <li class="articles"> <span>
+                                    <span class="img"></span>Related articles</span>
+                            </li>
+                            <li class="datasets"> <span>
+                                    <span class="img"></span>Datasets</span>
+                            </li>
+                        </ul>
+                        <div class="section" id="articles" style="display: none;">
+                            <div class="header">
+                                <h2 id="articles_h1">Related articles</h2>
+                            </div>
+                            <div id="articles_content" class="content">
+                                <div>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="side-bar"></div>
+            </div>
+            <div class="loader-wrapper"> <img src="static/images/ajax-loader.gif"> </div>
+        </div>
+    </div>
+    <div id="footer_wrapper">
+        <div id="footer"></div>
+    </div>
+    <script>
+        // probably load flag need to be deleted
+        loadFlag = false;
+        console.log("start flag" + loadFlag);
+        var mime = 'text/x-mysql';
+        if (loadFlag == false) {
+            var mypre = document.getElementById("editor");
+            console.log("start" + mypre);
+            mypre.innerHTML = ''
+            var editor = new CodeMirror.fromTextArea(document.getElementById("editor"), {
+                mode: mime,
+                theme: "dracula",
+                lineWrapping: false,
+                path: "/static/js/",
+                lineNumbers: true,
+                textWrapping: false,
+                indentUnit: 4,
+                indentWithTabs: true,
+                smartIndent: true,
+                matchBrackets: true,
+                autofocus: true,
+                extraKeys: {
+                    "Ctrl-Space": "autocomplete"
+                },
+            })
+            loadFlag = true;
+            var setheight = $(".console-div").height() > "500" ? "380x" : "380px";
+            $('.console-div').css({
+                height: setheight
+            });
+            var setheight = $(".result-div").height() > "500" ? "590px" : "590px";
+            $('.result-div').css({
+                height: setheight
+            });
+        }
+    </script>
+</body>
+
+</html>

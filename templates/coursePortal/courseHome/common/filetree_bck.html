@@ -1,0 +1,187 @@
+                <div class="west" id="fileTree" style="width:200px;display:visible">
+                    <style>
+
+                       div#fileTree {
+                           border: solid 1px;
+                           border-color: #e4e4e6;
+                       }
+
+                    </style> 
+       <script src="/static/web/js/webtask.js"></script>
+        <script src="/static/web/js/file-tree.js"></script>
+ 
+<ul id="file-tree" class="file-tree">
+  <li>
+    <span class="folder-name">Project</span>
+    <ul>
+      <li>
+        <span class="folder-name">public</span>
+        <ul>
+          <li><span id="indexfile">index.html</span></li>
+        </ul>
+      </li>
+      <li>
+        <span class="folder-name">src</span>
+        <ul>
+          <li><span>index.js</span></li>
+        </ul>          
+      </li>
+      <li>
+          <span>package.json</span>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<script type="text/javascript">
+  window.onload = function() {
+        $('#indexfile').click(function () {
+          currentFile="public/index.html"
+          loadFileFromScratchpad(editor,currentFile,"{{userId}}","{{courseId}}")
+    });
+    // passing the id of parent UL element
+    fileTree('file-tree',editor,"{{userId}}","{{courseId}}");
+    console.log("loading filetree " + "{{userId}}" +"/ / "+"{{courseId}}")   
+  };
+</script>
+
+                    <div class="main-part" style="display:none">
+                        <div class="navi-exercise-num-div" id="navi-exercise-id" title="input() function">
+                            <span id="num" class="num">18/22 </span>
+                            <span id="courseSummmary" class="name">We need to select studentId from students
+                                table</span>
+                        </div>
+                        <div class="content">
+                            <div id="sections-div" class="ScrollArea">
+                                <div class="ScrollArea__wrapper">
+                                    <div class="ScrollArea__content">
+                                        <div class="section" id="section-1">
+                                            <div class="header" id="section-1-header">Introduction</div>
+                                            <div class="section-exercise-list" id="section-1-list">
+                                                <div class="section-exercise" id="section-1-exercise-1">
+                                                    <a href="/course/cs003/module/M001/video/A11_1">
+                                                        <span>1.
+                                                            Welcome to our course</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="section" id="section-2">
+                                            <div class="header" id="section-2-header">The Selection Table operation
+                                            </div>
+                                            <div class="section-exercise-list" id="section-2-list">
+                                                <div class="section-exercise done" id="section-2-exercise-1">
+                                                    <a href="/course/cs003/module/M001/qn/A11_2">
+                                                        <span>2.SELECTing single columns</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-2-exercise-2">
+                                                    <a href="/course/cs003/module/M001/qn/A11_3">
+                                                        <span>3.SELECTing mulitple columns </span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-2-exercise-3">
+                                                    <a href="/course/cs003/module/M001/qn/A11_4">
+                                                        <span>4.Select DISTINCT columns</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="section" id="section-3">
+                                            <div class="header" id="section-3-header">Filtering rows</div>
+                                            <div class="section-exercise-list" id="section-3-list">
+                                                <div class="section-exercise" id="section-3-exercise-1">
+                                                    <a href="/course/cs003/module/M001/qn/A11_5">
+                                                        <span>5.simple filtering of rows</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-3-exercise-2">
+                                                    <a href="/course/cs003/module/M001/qn/A11_6">
+                                                        <span>6. simple filtering of text</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-3-exercise-3">
+                                                    <a href="/course/cs003/module/M001/qn/A11_7">
+                                                        <span>7. where AND</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-3-exercise-4">
+                                                    <a href="/course/cs003/module/M001/qn/A11_8">
+                                                        <span>8. where AND OR</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-3-exercise-4">
+                                                    <a href="/course/cs003/module/M001/quiz/A11_1">
+                                                        <span>9. quiz</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="scroll hscroll">
+                                        <span class="scroll__thumb" style="left: 0%; width: 100%;"></span>
+                                    </div>
+                                    <div class="scroll vscroll">
+                                        <span class="scroll__thumb" style="top: 0%; height: 100.106%;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="left-div" class="ScrollArea">
+                                <div class="ScrollArea__wrapper">
+                                    <div class="ScrollArea__content">
+                                        <div class="instruction-div">
+                                            <div class="header">
+                                                <h2>Instruction</h2>
+                                            </div>
+                                            <div class="content formatted" id="instruction_container">
+                                                <p>Good! Let's move on to selection of specific data from a table.
+                                                    <b>Students</b>
+                                                </p>
+                                                <p>Students table sample data as belwo .</p>
+                                                <pre>Students Id , Students Name, Students marks<br> A12 Jacob Geroge 450<br> A13 Paula  Geroge 150<br> A14 Guru murthy 530</pre>
+                                                <p>This line of code:</p>
+
+                                                <p>The below statement select the students name from the students table
+                                                    <code>select students name from students</code> :
+                                                </p>
+                                                &lt;
+                                            </div>
+                                        </div>
+                                        <div class="content-hints-div">
+                                            <div class="header">
+                                                <h2>Exercise</h2>
+                                            </div>
+                                            <div class="content formatted">
+                                                <div id="content_container">
+                                                    <p>Modify the query to select students Id from students table:</p>
+                                                    <pre>A12<br>A13<br>A14<br></pre>
+                                                </div>
+                                                <div class="hints-div">
+                                                    <div class="header" id="hints-id">
+                                                        <h3>Stuck? Here's a hint!</h3>
+                                                    </div>
+                                                    <div class="content" id="hint_container">Use
+                                                        <code>input(...)</code> to get the values from the user.
+                                                        Finally, use
+                                                        <code>print</code> to show the following sentence:
+
+                                                        <p></p>
+                                                        <pre>Hello {name}</pre>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="scroll hscroll">
+                                        <span class="scroll__thumb" style="left: 0%; width: 100%;"></span>
+                                    </div>
+                                    <div class="scroll vscroll">
+                                        <span class="scroll__thumb" style="top: 0%; height: 100.106%;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner-part"></div>
+                </div>

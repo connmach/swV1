@@ -1,0 +1,30 @@
+{% extends "courseHome/courses/A03/modules/base_M001.html" %}
+{% block title %} the_title {% endblock %}
+
+{% block body %}
+
+ <div class="ConsoleEditor" style="max-height: 100%;">
+    <div class="console-div" style="max-height: 60%; height: 650px;">
+        <div class="content">
+            <p>which is the best option?</p>
+            <p style="padding-top: 20px;">
+                <input type="radio" name="answer_python" id="r1" value="option1" /> <label for="r1" style="border: 2px solid #ccc; border-style: groove; padding: 10px;">option1</label> <br />
+                <br />
+                <br />
+                <br />
+
+            </p>
+        </div>
+        <div class="footer">
+            <div class="buttons" style="padding-top: 125px;">
+                <a style="display: visible;" class="button nextEx primary" title="Next Exercise" onclick="loadNextQn()"> Next Qn </a>
+                <a style="display: visible;" class="button nextEx primary" title="Next Exercise" onclick="loadNextQn()"> Prev Qn </a>
+                <span style="padding-right: 425px;"> </span>
+                <a class="button primary" title="Control+Enter" onclick="runit()"> Submit </a>
+            </div>
+        </div>
+    </div>
+    <div class="Result result-div" style="max-height: 40%; height: 590px;"></div>
+</div>
+
+{% endblock %}

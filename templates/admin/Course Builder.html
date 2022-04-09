@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style class="vjs-styles-defaults">
+		.video-js {
+		        width: 300px;
+		        height: 150px;
+		      }
+		
+		      .vjs-fluid {
+		        padding-top: 56.25%
+		      }
+	</style>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Course Builder</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" type="image/icon" href="https://eduninja.eduninja.com/admin/products/pool-questions/4068" id="school-favicon">
+	<link href="./Course Builder_files/css" rel="stylesheet" type="text/css">
+	<link href="/static/admin/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/static/admin/css/eduninjaredactor.css">
+	<link rel="stylesheet" href="/static/admin/css/lplayerMax.css">
+	<!-- Dropbox app integration script -->
+	<script type="text/javascript" async="" src="/static/admin/css/ld90ekxs"></script>
+	<script type="text/javascript" id="www-widgetapi-script" src="/static/admin/js/www-widgetapi.js.download" async=""></script>
+	<script src="./Course Builder_files/iframe_api"></script>
+	<script type="text/javascript" src="/static/admin/js/dropins.js.download" id="dropboxjs" data-app-key="rd6hn74wo9heg0a"></script>
+	<style type="text/css">
+		@-webkit-keyframes rotate {
+		    from  { -webkit-transform: rotate(0deg); }
+		    to   { -webkit-transform: rotate(360deg); }
+		  }
+		
+		  @keyframes rotate {
+		    from  { transform: rotate(0deg); }
+		    to   { transform: rotate(360deg); }
+		  }
+		
+		    .dropbox-dropin-btn, .dropbox-dropin-btn:link, .dropbox-dropin-btn:hover {
+		      display: inline-block;
+		      height: 14px;
+		      font-family: "Lucida Grande", "Segoe UI", "Tahoma", "Helvetica Neue", "Helvetica", sans-serif;
+		      font-size: 11px;
+		      font-weight: 600;
+		      color: #636363;
+		      text-decoration: none;
+		      padding: 1px 7px 5px 3px;
+		      border: 1px solid #ebebeb;
+		      border-radius: 2px;
+		      border-bottom-color: #d4d4d4;
+		        background: #fcfcfc;
+		  background: -moz-linear-gradient(top, #fcfcfc 0%, #f5f5f5 100%);
+		  background: -webkit-linear-gradient(top, #fcfcfc 0%, #f5f5f5 100%);
+		  background: linear-gradient(to bottom, #fcfcfc 0%, #f5f5f5 100%);
+		  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f5f5f5',GradientType=0);  
+		    }
+		
+		    .dropbox-dropin-default:hover, .dropbox-dropin-error:hover {
+		      border-color: #dedede;
+		      border-bottom-color: #cacaca;
+		        background: #fdfdfd;
+		  background: -moz-linear-gradient(top, #fdfdfd 0%, #f5f5f5 100%);
+		  background: -webkit-linear-gradient(top, #fdfdfd 0%, #f5f5f5 100%);
+		  background: linear-gradient(to bottom, #fdfdfd 0%, #f5f5f5 100%);
+		  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdfdfd', endColorstr='#f5f5f5',GradientType=0);  
+		    }
+		
+		    .dropbox-dropin-default:active, .dropbox-dropin-error:active {
+		      border-color: #d1d1d1;
+		      box-shadow: inset 0 1px 1px rgba(0,0,0,0.1);
+		    }
+		
+		    .dropbox-dropin-btn .dropin-btn-status {
+		      display: inline-block;
+		      width: 15px;
+		      height: 14px;
+		      vertical-align: bottom;
+		      margin: 0 5px 0 2px;
+		      background: transparent url('https://www.dropbox.com/static/images/widgets/dbx-saver-status.png') no-repeat;
+		      position: relative;
+		      top: 2px;
+		    }
+		
+		    .dropbox-dropin-default .dropin-btn-status {
+		      background-position: 0px 0px;
+		    }
+		
+		    .dropbox-dropin-progress .dropin-btn-status {
+		      width: 18px;
+		      margin: 0 4px 0 0;
+		      background: url('https://www.dropbox.com/static/images/widgets/dbx-progress.png') no-repeat center center;
+		        -webkit-animation-name: rotate;
+		        -webkit-animation-duration: 1.7s;
+		        -webkit-animation-iteration-count: infinite;
+		        -webkit-animation-timing-function: linear;
+		      animation-name: rotate;
+		      animation-duration: 1.7s;
+		      animation-iteration-count: infinite;
+		      animation-timing-function: linear;
+		    }
+		
+		    .dropbox-dropin-success .dropin-btn-status {
+		      background-position: -15px 0px;
+		    }
+		
+		    .dropbox-dropin-disabled {
+		      background: #e0e0e0;
+		      border: 1px #dadada solid;
+		      border-bottom: 1px solid #ccc;
+		      box-shadow: none;
+		    }
+		
+		    .dropbox-dropin-disabled .dropin-btn-status {
+		      background-position: -30px 0px;
+		    }
+		
+		    .dropbox-dropin-error .dropin-btn-status {
+		      background-position: -45px 0px;
+		    }
+		
+		  @media only screen and (-webkit-min-device-pixel-ratio: 1.4) {
+		      .dropbox-dropin-btn .dropin-btn-status {
+		        background-image: url('https://www.dropbox.com/static/images/widgets/dbx-saver-status-2x.png');
+		        background-size: 60px 14px;
+		          -webkit-background-size: 60px 14px;
+		      }
+		
+		      .dropbox-dropin-progress .dropin-btn-status {
+		        background: url('https://www.dropbox.com/static/images/widgets/dbx-progress-2x.png') no-repeat center center;
+		        background-size: 20px 20px;
+		          -webkit-background-size: 20px 20px;
+		      }
+		  }
+		
+		    .dropbox-saver:hover, .dropbox-chooser:hover {
+		      text-decoration: none;
+		      cursor: pointer;
+		    }
+		
+		    .dropbox-chooser, .dropbox-dropin-btn {
+		      line-height: 11px !important;
+		      text-decoration: none !important;
+		      box-sizing: content-box !important;
+		        -webkit-box-sizing: content-box !important;
+		        -moz-box-sizing: content-box !important;
+		    }
+	</style>
+	<link rel="stylesheet" href="/static/admin/css/mediamanager.css">
+	<link rel="stylesheet" href="/static/admin/css/mediamanagervendor.css">
+	<link rel="stylesheet" href="/static/admin/css/vendor.css">
+	<link rel="stylesheet" href="/static/admin/css/mainadmin.css">
+	<script src="/static/admin/js/firebase-app.js.download"></script>
+	<script src="/static/admin/js/firebase-database.js.download"></script>
+	<script type="text/javascript">
+		window.pro = 1; //for production
+		      window.dev = 0;
+		      window.stag = 0;
+	</script>
+	<script type="text/x-mathjax-config;executed=true">
+		MathJax.Hub.Config({
+		        showProcessingMessages: false,
+		        tex2jax: {
+		          inlineMath: [ ["\\(","\\)"] ],
+		          displayMath: [ ["\\[","\\]"] ],
+		          processEscapes: true
+		        }
+		      });
+	</script>
+	<script type="text/javascript" src="/static/admin/js/MathJax.js.download"></script>
+	<!-- Google analytics code -->
+	<script type="text/javascript">
+		if(window.productionMode){
+		        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-47775675-1', 'auto');ga('send', 'pageview');
+		      }
+	</script>
+	<script>
+		var APP_ID = 'ld90ekxs';
+		     (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/'+ APP_ID;var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+	</script>
+	<style type="text/css">
+		.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+		.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+		.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+		.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+		.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+	</style>
+	<style type="text/css">
+		#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+		#MathJax_About.MathJax_MousePost {outline: none}
+		.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+		.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+		.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+		.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+		.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+		.MathJax_MenuCheck {position: absolute; left: .7em}
+		.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+		.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+		.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+		.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+		.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+		.MathJax_MenuDisabled {color: GrayText}
+		.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+		.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+		.MathJax_ContextMenu:focus {outline: none}
+		.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+		#MathJax_AboutClose {top: .2em; right: .2em}
+		.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+		.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+		.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+		.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+		.MathJax_MenuClose:hover span {background-color: #CCC!important}
+		.MathJax_MenuClose:hover:focus {outline: none}
+	</style>
+	<style type="text/css">
+		.MathJax_Preview .MJXf-math {color: inherit!important}
+	</style>
+	<style type="text/css">
+		.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+		.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+	</style>
+	<style type="text/css">
+		#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+		#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+		#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+		#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+	</style>
+	<style type="text/css">
+		.MathJax_Preview {color: #888}
+		#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+		#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+		.MathJax_Error {color: #CC0000; font-style: italic}
+	</style>
+	<style type="text/css">
+		.vjs-youtube .vjs-iframe-blocker { display: none; }.vjs-youtube.vjs-user-inactive .vjs-iframe-blocker { display: block; }.vjs-youtube .vjs-poster { background-size: cover; }.vjs-youtube-mobile .vjs-big-play-button { display: none; }
+	</style>
+	<style type="text/css">
+		.vjs-vimeo .vjs-iframe-blocker { display: none; }.vjs-vimeo.vjs-user-inactive .vjs-iframe-blocker { display: block; }.vjs-vimeo .vjs-poster { background-size: cover; }.vjs-vimeo { height:100%; }.vimeoplayer { width:100%; height:100%; position:absolute; left:0; top:0; }
+	</style>
+	<style type="text/css">
+		.MJXp-script {font-size: .8em}
+		.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+		.MJXp-bold {font-weight: bold}
+		.MJXp-italic {font-style: italic}
+		.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+		.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+		.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+		.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+		.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+		.MJXp-largeop {font-size: 150%}
+		.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+		.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+		.MJXp-display {display: block; text-align: center; margin: 1em 0}
+		.MJXp-math span {display: inline-block}
+		.MJXp-box {display: block!important; text-align: center}
+		.MJXp-box:after {content: " "}
+		.MJXp-rule {display: block!important; margin-top: .1em}
+		.MJXp-char {display: block!important}
+		.MJXp-mo {margin: 0 .15em}
+		.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+		.MJXp-denom {display: inline-table!important; width: 100%}
+		.MJXp-denom > * {display: table-row!important}
+		.MJXp-surd {vertical-align: top}
+		.MJXp-surd > * {display: block!important}
+		.MJXp-script-box > *  {display: table!important; height: 50%}
+		.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+		.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+		.MJXp-script-box > * > * > * {display: block!important}
+		.MJXp-mphantom {visibility: hidden}
+		.MJXp-munderover {display: inline-table!important}
+		.MJXp-over {display: inline-block!important; text-align: center}
+		.MJXp-over > * {display: block!important}
+		.MJXp-munderover > * {display: table-row!important}
+		.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+		.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+		.MJXp-mtr {display: table-row!important}
+		.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+		.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+		.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+		.MJXp-mlabeledtr {display: table-row!important}
+		.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+		.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+		.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+		.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+		.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+		.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+		.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+		.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+		.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+		.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+		.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+		.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+		.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+		.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+	</style>
+</head>
+
+<body onerror="" data-new-gr-c-s-check-loaded="14.988.0" data-gr-ext-installed="">
+	<div id="MathJax_Message" style="display: none;"></div>
+	<div id="mediaManagerV1" class="mediamanager-modal">
+		<!-- Modal div on top of page As suggested in bootstrap documentation -->
+	</div>
+	<!-- uplaod redactor images -->
+	<input type="file" style="display:none" id="redactor-image-chooser" accept="image/jpeg, image/jpg, image/png">
+	<div class="modal fade" id="js-fileupload-model">
+		<div class="modal-dialog lastQustion-modal-dialog-custom">
+			<div class="modal-content lastQustion-modal-content-custom" style="width: 500px">
+				<div class="modal-body lastQustion-modal-body-custom">
+					<p class="noActionModal-msg" style="text-align: start; color: #47506e; font-weight: 600" id="js-uploading-fileTitle"></p>
+				</div>
+				<div class="progress js-progress" style="margin: 0 15px 20px">
+					<div class="progress-bar progress-bar-info js-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div>
+				</div>
+				<div>
+					<p class="noActionModal-msg" style="text-align: start; padding-top: 0px; margin: 0 15px 20px" id="js-uploading-status-msg"></p>
+				</div>
+				<div class="modal-footer lastQustion-modal-footer-custom">
+					<center>
+						<button type="button" class="btn btn-success" data-dismiss="modal" id="js-uploading-modal-ok" style="padding: 6px 18px">ok</button>
+					</center>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="wrap">
+		<div id="courseBuilderBanner"></div>
+		<div id="courseDesky">
+			<div>
+				<div class="">
+					<nav class="navbar navbar-default navbar-fixed-top setting-navbar">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse"> <span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<div class="navbar-new-back" id="js-pool-questions-back" style="">
+								<img src="/static/admin/images/cb_back.svg" alt="" style="">
+								<p class="settings-title">Python</p>
+							</div>
+						</div>
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse">
+							<ul class="nav navbar-nav navbar-right navbar-course-indication">
+								<a href="http://support.eduninja.com/manage-your-course" target="_blank" class="support-link-img">
+									<img class="">
+								</a>
+							</ul>
+						</div>
+					</nav>
+					<div class="pool-dashboard-view" style="">
+						<div class="pool-title-div" style="">
+							<table class="create-action-table">
+								<tbody>
+									<tr>
+										<td class="header-title" style="width: 104px;">Python</td>
+										<td>
+											<hr>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="pool-question-table-view" style="">
+							<div class="empty-pool-actions-div">
+								<div>
+									<img class="questions-create-img" src="/static/admin/images/cb_create.png" style="">
+								</div>
+								<button id="js-add-question" type="button" class="btn lr-small-btn-template lr-btn-info-new">Create New Course</button>
+							</div>
+							<div class="empty-divider">
+								<div>
+									<p><span></span>
+									</p>
+									<p><span></span>
+									</p>
+									<p><span></span>
+									</p>
+									<p><span></span>
+									</p>
+									<p><span></span>
+									</p>
+									<p><span></span>
+									</p>
+								</div>
+								<div class="label-text">OR</div>
+								<div>
+									<p><span></span>
+									</p>
+									<p><span></span>
+									</p>
+									<p><span></span>
+									</p>
+									<p><span></span>
+									</p>
+									<p><span></span>
+									</p>
+									<p><span></span>
+									</p>
+								</div>
+							</div>
+							<div class="empty-pool-actions-div">
+								<div>
+									<img class="questions-create-img" src="/static/admin/images/cb_import.png" style="">
+								</div>
+								
+								<form action="upload" method="POST" enctype="multipart/form-data">
+									<input type="file" name="file" />
+                                                                                                                                              
+
+									<button id="js-import-btn" type="submit" class="btn lr-small-btn-template lr-btn-info-new">Import Course</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal fade js-create-QModal">
+					<div class="modal-dialog setting-modal-dialog">
+						<div class="modal-content lr-modal-content">
+							<div class="modal-header setting-modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+								</button>
+								<h4 class="modal-title">Create New Question</h4>
+							</div>
+							<div class="modal-body setting-modal-body">
+								<p class="select-type-text" style="">Select Question Type</p>
+								<div class="radio-div">
+									<div class="radio">
+										<label class="radio-btn">
+											<input type="radio" name="question-type" value="1">Multiple Choice</label>
+									</div>
+									<div class="radio">
+										<label class="radio-btn">
+											<input type="radio" name="question-type" value="2">Numerical</label>
+									</div>
+									<div class="radio">
+										<label class="radio-btn">
+											<input type="radio" name="question-type" value="3">Essay</label>
+									</div>
+									<div class="radio">
+										<label class="radio-btn">
+											<input type="radio" name="question-type" value="5">Fill In The Blanks</label>
+									</div>
+								</div>
+								<p class="js-question-create-error" style="color:#f56161; font-weight: 600; margin: 0;"></p>
+							</div>
+							<div class="modal-footer setting-modal-footer">
+								<button style="" type="button" data-dismiss="modal" class="btn lr-small-btn-template setting-modal-cancle-btn ">Cancel</button>
+								<button type="button" id="js-create-question" class="btn lr-small-btn-template lr-btn-error setting-modal-conform-btn" data-loading-text="Creating...">Create</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/static/admin/js/vendor.js.download"></script>
+	<script src="/static/admin/js/quiz_template_data.js.download"></script>
+	<!-- <script src="scripts/quiz_template_data.js?version=2012170715"></script> -->
+	<script src="/static/admin/js/controller.js.download"></script>
+	<!-- <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.27.min.js?version=2012170715"></script> -->
+	<script src="/static/admin/js/aws-sdk-2.421.0.min.js.download"></script>
+	<script src="/static/admin/js/mediamanager.js.download"></script>
+	<script src="/static/admin/js/eduninjaredactor.js.download"></script>
+	<!-- <script src="lib/redactor/scripts/eduninjaredactor.js?version=2012170715"></script> -->
+	<script src="/static/admin/js/lplayerMax.js.download"></script>
+	<script src="/static/admin/js/firebaseManager.js.download"></script>
+	<script>
+		if (!window.config.SERVERURL) {
+		          window.config.SERVERURL = "https://api.eduninja.com";
+		        }
+	</script>
+	<div id="ecrypt"></div>
+	<link rel="stylesheet" href="/static/admin/css/main.css">
+	<script src="/static/admin/js/main.js.download"></script>
+	<iframe id="intercom-frame" style="position: absolute !important; opacity: 0 !important; width: 1px !important; height: 1px !important; top: 0 !important; left: 0 !important; border: none !important; display: block !important; z-index: -1 !important; pointer-events: none;" aria-hidden="true" tabindex="-1" title="Intercom" src="./Course Builder_files/saved_resource.html"></iframe>
+	<div class="intercom-lightweight-app" aria-live="polite">
+		<div class="intercom-lightweight-app-launcher intercom-launcher" role="button" tabindex="0" aria-label="Open Intercom Messenger">
+			<div class="intercom-lightweight-app-launcher-icon intercom-lightweight-app-launcher-icon-open">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 32">
+					<path d="M28 32s-4.714-1.855-8.527-3.34H3.437C1.54 28.66 0 27.026 0 25.013V3.644C0 1.633 1.54 0 3.437 0h21.125c1.898 0 3.437 1.632 3.437 3.645v18.404H28V32zm-4.139-11.982a.88.88 0 00-1.292-.105c-.03.026-3.015 2.681-8.57 2.681-5.486 0-8.517-2.636-8.571-2.684a.88.88 0 00-1.29.107 1.01 1.01 0 00-.219.708.992.992 0 00.318.664c.142.128 3.537 3.15 9.762 3.15 6.226 0 9.621-3.022 9.763-3.15a.992.992 0 00.317-.664 1.01 1.01 0 00-.218-.707z"></path>
+				</svg>
+			</div>
+			<div class="intercom-lightweight-app-launcher-icon intercom-lightweight-app-launcher-icon-minimize">
+				<svg viewBox="0 0 16 14" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M.116 4.884l1.768-1.768L8 9.232l6.116-6.116 1.768 1.768L8 12.768.116 4.884z"></path>
+				</svg>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

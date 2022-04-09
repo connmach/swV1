@@ -1,0 +1,1746 @@
+<html lang="en" dir="ltr"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Digital Skills for Everyone | Learn to Earn!</title>
+  <!--<base href="/">-->
+  <base href=".">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+  <link rel="stylesheet" href="/static/sw/styles.53f50266d5c26a68a985.css">
+  <style type="text/css" id="s./node_modules/css-loader/index.rs!./node_modules/sass-loader/lib/loader.rs!./package/src/animation.scss-0">
+    /**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+    .eva-animation {
+      animation-duration: 1s;
+      animation-fill-mode: both;
+    }
+
+    .eva-infinite {
+      animation-iteration-count: infinite;
+    }
+
+    .eva-icon-shake {
+      animation-name: eva-shake;
+    }
+
+    .eva-icon-zoom {
+      animation-name: eva-zoomIn;
+    }
+
+    .eva-icon-pulse {
+      animation-name: eva-pulse;
+    }
+
+    .eva-icon-flip {
+      animation-name: eva-flipInY;
+    }
+
+    .eva-hover {
+      display: inline-block;
+    }
+
+    .eva-hover:hover .eva-icon-hover-shake,
+    .eva-parent-hover:hover .eva-icon-hover-shake {
+      animation-name: eva-shake;
+    }
+
+    .eva-hover:hover .eva-icon-hover-zoom,
+    .eva-parent-hover:hover .eva-icon-hover-zoom {
+      animation-name: eva-zoomIn;
+    }
+
+    .eva-hover:hover .eva-icon-hover-pulse,
+    .eva-parent-hover:hover .eva-icon-hover-pulse {
+      animation-name: eva-pulse;
+    }
+
+    .eva-hover:hover .eva-icon-hover-flip,
+    .eva-parent-hover:hover .eva-icon-hover-flip {
+      animation-name: eva-flipInY;
+    }
+
+    @keyframes eva-flipInY {
+      from {
+        transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+        animation-timing-function: ease-in;
+        opacity: 0;
+      }
+
+      40% {
+        transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+        animation-timing-function: ease-in;
+      }
+
+      60% {
+        transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+        opacity: 1;
+      }
+
+      80% {
+        transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+      }
+
+      to {
+        transform: perspective(400px);
+      }
+    }
+
+    @keyframes eva-shake {
+
+      from,
+      to {
+        transform: translate3d(0, 0, 0);
+      }
+
+      10%,
+      30%,
+      50%,
+      70%,
+      90% {
+        transform: translate3d(-3px, 0, 0);
+      }
+
+      20%,
+      40%,
+      60%,
+      80% {
+        transform: translate3d(3px, 0, 0);
+      }
+    }
+
+    @keyframes eva-pulse {
+      from {
+        transform: scale3d(1, 1, 1);
+      }
+
+      50% {
+        transform: scale3d(1.2, 1.2, 1.2);
+      }
+
+      to {
+        transform: scale3d(1, 1, 1);
+      }
+    }
+
+    @keyframes eva-zoomIn {
+      from {
+        opacity: 1;
+        transform: scale3d(0.5, 0.5, 0.5);
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+  </style>
+ 
+  <style></style>
+  <style>
+    nb-layout[_ngcontent-got-c49] {
+      background-color: initial !important
+    }
+
+    nb-layout[_ngcontent-got-c49] .layout {
+      background-color: initial;
+      color: inherit;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit
+    }
+
+    nb-layout-column[_ngcontent-got-c49] {
+      padding: 0 !important
+    }
+  </style>
+  <style>
+    .nav[_ngcontent-got-c47] {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0;
+      position: absolute;
+      width: calc(100vw - 100px);
+      height: 49px;
+      left: 50px;
+      top: 32px
+    }
+
+    .nav[_ngcontent-got-c47] .logo[_ngcontent-got-c47] {
+      height: 51px;
+      cursor: pointer
+    }
+
+    @media (max-width:767px) {
+      .nav[_ngcontent-got-c47] {
+        width: calc(100vw - 20px);
+        left: 10px
+      }
+    }
+
+    .nav[_ngcontent-got-c47] .nav-menu-container[_ngcontent-got-c47] {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      height: 70px;
+      flex: 1;
+      padding: 0 50px
+    }
+
+    @media (max-width:1300px) {
+      .nav[_ngcontent-got-c47] .nav-menu-container[_ngcontent-got-c47] {
+        padding: 0 10px
+      }
+    }
+
+    .nav[_ngcontent-got-c47] .nav-group[_ngcontent-got-c47] {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 14px 30px;
+      background: hsla(0, 0%, 100%, .74);
+      border: 1px solid #333;
+      border-radius: 23px;
+      list-style: none
+    }
+
+    @media (max-width:1200px) {
+      .nav[_ngcontent-got-c47] .nav-group[_ngcontent-got-c47] {
+        padding: 10px 15px
+      }
+    }
+
+    .nav[_ngcontent-got-c47] .nav-group[_ngcontent-got-c47] li[_ngcontent-got-c47]:not(:last-child) {
+      margin-right: 18px
+    }
+
+    .nav[_ngcontent-got-c47] .nav-group[_ngcontent-got-c47] li[_ngcontent-got-c47] a[_ngcontent-got-c47] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+      color: #333;
+      text-decoration: none
+    }
+
+    .nav[_ngcontent-got-c47] .nav-group[_ngcontent-got-c47] li[_ngcontent-got-c47] a.active-link[_ngcontent-got-c47],
+    .nav[_ngcontent-got-c47] .nav-group[_ngcontent-got-c47] li[_ngcontent-got-c47] a[_ngcontent-got-c47]:hover {
+      color: #7891c0
+    }
+
+    .nav[_ngcontent-got-c47] .apps-menu-btn[_ngcontent-got-c47] {
+      display: flex;
+      padding: 10px;
+      width: 53px;
+      height: 53px;
+      background: linear-gradient(0deg, #c3ffe8, #f0fff4 99.73%);
+      border: 2px solid #333;
+      box-sizing: border-box;
+      border-radius: 17px;
+      cursor: pointer
+    }
+
+    .nav[_ngcontent-got-c47] .sm-menu-container[_ngcontent-got-c47] {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      flex: 1;
+      padding-right: 30px
+    }
+
+    @media (max-width:575px) {
+      .nav[_ngcontent-got-c47] .sm-menu-container[_ngcontent-got-c47] {
+        padding-right: 15px
+      }
+    }
+
+    .nav[_ngcontent-got-c47] .dropdown-container[_ngcontent-got-c47] {
+      padding: 0;
+      border: 0;
+      background: transparent;
+      outline: none;
+      box-shadow: none;
+      display: block;
+      position: relative
+    }
+
+    .nav[_ngcontent-got-c47] .dropdown-container[_ngcontent-got-c47] .burger-menu[_ngcontent-got-c47] {
+      width: 50px;
+      height: 50px;
+      border: 2px solid #333;
+      color: #333;
+      background-image: linear-gradient(0deg, #c3ffe8, #f0fff4 99.73%);
+      border-radius: 8px;
+      padding: 0;
+      margin-right: 10px;
+      outline: none
+    }
+
+    @media (max-width:767px) {
+      .nav[_ngcontent-got-c47] .dropdown-container[_ngcontent-got-c47] .burger-menu[_ngcontent-got-c47] {
+        width: 40px;
+        height: 40px;
+        margin-right: 5px
+      }
+    }
+
+    .nav[_ngcontent-got-c47] .dropdown-container[_ngcontent-got-c47] .burger-menu[_ngcontent-got-c47] nb-icon[_ngcontent-got-c47] {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center
+    }
+
+    .nav[_ngcontent-got-c47] .dropdown-container[_ngcontent-got-c47] .burger-menu.active[_ngcontent-got-c47] {
+      background-color: #f2f2f2;
+      color: #333
+    }
+
+    .nav[_ngcontent-got-c47] .dropdown-container[_ngcontent-got-c47] .text-menu[_ngcontent-got-c47] {
+      height: 50px;
+      border: 2px solid #333;
+      color: #333;
+      background-image: linear-gradient(0deg, #c3ffe8, #f0fff4 99.73%);
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .16);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      outline: none;
+      min-width: 150px
+    }
+
+    .nav[_ngcontent-got-c47] .dropdown-container[_ngcontent-got-c47] .text-menu[_ngcontent-got-c47] nb-icon[_ngcontent-got-c47] {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px
+    }
+
+    .nav[_ngcontent-got-c47] .dropdown-container[_ngcontent-got-c47] .text-menu[_ngcontent-got-c47] span[_ngcontent-got-c47] {
+      padding: 0 10px
+    }
+
+    .nav[_ngcontent-got-c47] .dropdown-container[_ngcontent-got-c47] .dropdown[_ngcontent-got-c47] {
+      position: absolute;
+      width: 100%;
+      min-width: 250px;
+      right: 0;
+      top: 100%;
+      padding: 0;
+      border: none;
+      background-color: initial;
+      outline: none;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .16);
+      z-index: 99
+    }
+  </style>
+  <style>
+    [_nghost-got-c34] {
+      -webkit-font-smoothing: antialiased
+    }
+
+    [dir=ltr] [_nghost-got-c34] {
+      text-align: left
+    }
+
+    [dir=rtl] [_nghost-got-c34] {
+      text-align: right
+    }
+
+    [_nghost-got-c34] .layout[_ngcontent-got-c34] {
+      display: flex;
+      flex-direction: column
+    }
+
+    [_nghost-got-c34] nb-layout-header {
+      display: block
+    }
+
+    [_nghost-got-c34] nb-layout-header nav {
+      align-items: center;
+      justify-content: flex-start;
+      display: flex
+    }
+
+    [_nghost-got-c34] nb-layout-header.fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1040
+    }
+
+    [_nghost-got-c34] .layout-container[_ngcontent-got-c34] {
+      display: flex;
+      flex: 1;
+      -ms-flex: 1 1 auto;
+      flex-direction: row
+    }
+
+    [dir=ltr] [_nghost-got-c34] .layout-container[_ngcontent-got-c34] nb-sidebar.left {
+      order: 0
+    }
+
+    [dir=rtl] [_nghost-got-c34] .layout-container[_ngcontent-got-c34] nb-sidebar.left {
+      order: 2
+    }
+
+    [dir=ltr] [_nghost-got-c34] .layout-container[_ngcontent-got-c34] nb-sidebar.right {
+      order: 2
+    }
+
+    [dir=rtl] [_nghost-got-c34] .layout-container[_ngcontent-got-c34] nb-sidebar.right {
+      order: 0
+    }
+
+    [_nghost-got-c34] .layout-container[_ngcontent-got-c34] nb-sidebar.end {
+      order: 2
+    }
+
+    [_nghost-got-c34] .layout-container[_ngcontent-got-c34] nb-sidebar .fixed {
+      position: fixed;
+      width: 100%;
+      overflow-y: auto;
+      height: 100%
+    }
+
+    [_nghost-got-c34] .layout-container[_ngcontent-got-c34] .content[_ngcontent-got-c34] {
+      display: flex;
+      flex: 1;
+      -ms-flex: 1 1 auto;
+      flex-direction: column;
+      min-width: 0
+    }
+
+    [_nghost-got-c34] .layout-container[_ngcontent-got-c34] .content.center[_ngcontent-got-c34] {
+      max-width: 100%;
+      position: relative;
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    [_nghost-got-c34] .layout-container[_ngcontent-got-c34] .content[_ngcontent-got-c34] .columns[_ngcontent-got-c34] {
+      display: flex;
+      flex: 1;
+      -ms-flex: 1 1 auto;
+      flex-direction: row;
+      width: 100%
+    }
+
+    [_nghost-got-c34] .layout-container[_ngcontent-got-c34] .content[_ngcontent-got-c34] .columns[_ngcontent-got-c34] nb-layout-column {
+      order: 1;
+      flex: 1 0;
+      min-width: 0
+    }
+
+    [dir=ltr] [_nghost-got-c34] .layout-container[_ngcontent-got-c34] .content[_ngcontent-got-c34] .columns[_ngcontent-got-c34] nb-layout-column.left {
+      order: 0
+    }
+
+    [dir=rtl] [_nghost-got-c34] .layout-container[_ngcontent-got-c34] .content[_ngcontent-got-c34] .columns[_ngcontent-got-c34] nb-layout-column.left {
+      order: 2
+    }
+
+    [_nghost-got-c34] .layout-container[_ngcontent-got-c34] .content[_ngcontent-got-c34] .columns[_ngcontent-got-c34] nb-layout-column.start {
+      order: 0
+    }
+
+    [_nghost-got-c34] .layout-container[_ngcontent-got-c34] .content[_ngcontent-got-c34] nb-layout-footer {
+      display: block;
+      margin-top: auto
+    }
+
+    [_nghost-got-c34] .layout-container[_ngcontent-got-c34] .content[_ngcontent-got-c34] nb-layout-footer nav {
+      justify-content: center;
+      display: flex
+    }
+  </style>
+  <style>
+    .rg-footer[_ngcontent-got-c48] {
+      background-image: url(/static/sw/logo.png);
+      background-repeat: no-repeat;
+      background-position-y: bottom;
+      background-position-x: center;
+      background-size: cover;
+      font-family: Spoof !important;
+      padding: 80px 35px 50px
+    }
+
+    .rg-footer[_ngcontent-got-c48] .footer-nav-list[_ngcontent-got-c48] {
+      list-style: none;
+      padding: 0
+    }
+
+    .rg-footer[_ngcontent-got-c48] .footer-nav-list[_ngcontent-got-c48] li[_ngcontent-got-c48] {
+      font-weight: 500;
+      color: #64a175;
+      font-style: normal;
+      font-size: 16px;
+      line-height: 21px;
+      margin-bottom: 16px
+    }
+
+    .rg-footer[_ngcontent-got-c48] .footer-nav-list[_ngcontent-got-c48] li[_ngcontent-got-c48] a[_ngcontent-got-c48] {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 21px;
+      color: #000;
+      text-decoration: none
+    }
+
+    .rg-footer[_ngcontent-got-c48] .links-row[_ngcontent-got-c48] {
+      margin-bottom: 60px
+    }
+
+    .rg-footer[_ngcontent-got-c48] .social[_ngcontent-got-c48] .footer-logo[_ngcontent-got-c48] {
+      margin-bottom: 30px
+    }
+
+    .rg-footer[_ngcontent-got-c48] .social[_ngcontent-got-c48] .vision[_ngcontent-got-c48] {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 26px;
+      line-height: 34px;
+      color: #000;
+      margin-bottom: 35px
+    }
+
+    @media (max-width:767px) {
+      .rg-footer[_ngcontent-got-c48] .social[_ngcontent-got-c48] .vision[_ngcontent-got-c48] {
+        font-size: 22px;
+        line-height: 28px;
+        margin-bottom: 20px
+      }
+    }
+
+    .rg-footer[_ngcontent-got-c48] .social[_ngcontent-got-c48] .links[_ngcontent-got-c48] {
+      display: flex;
+      flex-direction: row;
+      padding: 0 10%;
+      justify-content: space-between;
+      list-style: none
+    }
+
+    @media (max-width:767px) {
+      .rg-footer[_ngcontent-got-c48] .social[_ngcontent-got-c48] .links[_ngcontent-got-c48] {
+        padding: 0
+      }
+    }
+
+    .rg-footer[_ngcontent-got-c48] .social[_ngcontent-got-c48] .links[_ngcontent-got-c48] a[_ngcontent-got-c48],
+    .rg-footer[_ngcontent-got-c48] .social[_ngcontent-got-c48] .links[_ngcontent-got-c48] li[_ngcontent-got-c48] {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+      text-decoration: none;
+      color: #000
+    }
+
+    .rg-footer[_ngcontent-got-c48] .social[_ngcontent-got-c48] .social-links[_ngcontent-got-c48] {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      padding: 0
+    }
+
+    .rg-footer[_ngcontent-got-c48] .social[_ngcontent-got-c48] .social-links[_ngcontent-got-c48] li[_ngcontent-got-c48] {
+      margin-right: 10px
+    }
+  </style>
+  <style>
+    [_nghost-got-c33] {
+      display: inline-block
+    }
+  </style>
+  <style>
+    .dropdown-container[_ngcontent-got-c45] {
+      border-bottom: 2px solid #c2c2c2
+    }
+
+    .dropdown-container[_ngcontent-got-c45] .dropdown-item[_ngcontent-got-c45] {
+      padding: 0;
+      background-color: #fff;
+      border-bottom: 2px solid #c2c2c2
+    }
+
+    .dropdown-container[_ngcontent-got-c45] .dropdown-item[_ngcontent-got-c45] .link[_ngcontent-got-c45],
+    .dropdown-container[_ngcontent-got-c45] .dropdown-item[_ngcontent-got-c45] a[_ngcontent-got-c45] {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 40px;
+      padding: 0 10px;
+      text-decoration: none;
+      text-transform: capitalize;
+      border: none;
+      background-color: initial;
+      width: 100%;
+      outline: none;
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+      color: #333
+    }
+
+    .dropdown-container[_ngcontent-got-c45] .dropdown-item[_ngcontent-got-c45] .link.active-link[_ngcontent-got-c45],
+    .dropdown-container[_ngcontent-got-c45] .dropdown-item[_ngcontent-got-c45] .link[_ngcontent-got-c45]:hover,
+    .dropdown-container[_ngcontent-got-c45] .dropdown-item[_ngcontent-got-c45] a.active-link[_ngcontent-got-c45],
+    .dropdown-container[_ngcontent-got-c45] .dropdown-item[_ngcontent-got-c45] a[_ngcontent-got-c45]:hover {
+      color: #7891c0
+    }
+
+    .dropdown-container[_ngcontent-got-c45] .dropdown-item[_ngcontent-got-c45] .link[_ngcontent-got-c45] nb-icon[_ngcontent-got-c45],
+    .dropdown-container[_ngcontent-got-c45] .dropdown-item[_ngcontent-got-c45] a[_ngcontent-got-c45] nb-icon[_ngcontent-got-c45] {
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center
+    }
+  </style>
+  <style>
+    .flex-col[_ngcontent-got-c55] {
+      display: flex;
+      flex-direction: row;
+      justify-content: center
+    }
+
+    img[_ngcontent-got-c55] {
+      max-width: 100%
+    }
+
+    .home-1[_ngcontent-got-c55] {
+      padding-top: 160px;
+      padding-bottom: 65px;
+      padding-left: 70px;
+      background: linear-gradient(207.42deg, hsla(0, 0%, 100%, .52) 15.63%, #fff 64.15%);
+      background-image: url(/static/sw/images/homepage-section-1.svg);
+      background-size: cover;
+      background-repeat: no-repeat
+    }
+
+    @media (max-width:767px) {
+      .home-1[_ngcontent-got-c55] {
+        padding-left: 15px;
+        padding-top: 130px;
+        padding-bottom: 40px
+      }
+    }
+
+    .home-1[_ngcontent-got-c55] .home-1-header[_ngcontent-got-c55] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 78px;
+      line-height: 88px;
+      text-transform: uppercase;
+      color: #333
+    }
+
+    @media (max-width:767px) {
+      .home-1[_ngcontent-got-c55] .home-1-header[_ngcontent-got-c55] {
+        font-size: 64px;
+        line-height: 76px
+      }
+    }
+
+    @media (max-width:575px) {
+      .home-1[_ngcontent-got-c55] .home-1-header[_ngcontent-got-c55] {
+        font-size: 54px;
+        line-height: 66px
+      }
+    }
+
+    .home-1[_ngcontent-got-c55] .home-1-sub-header[_ngcontent-got-c55] {
+      font-family: Palmer Lake Print;
+      font-size: 96px;
+      line-height: 57px;
+      background-image: linear-gradient(0deg, #00b59c, #9cffac);
+      background-size: 100%;
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -moz-text-fill-color: transparent;
+      margin-bottom: 33px
+    }
+
+    @media (max-width:575px) {
+      .home-1[_ngcontent-got-c55] .home-1-sub-header[_ngcontent-got-c55] {
+        font-size: 75px;
+        line-height: 40px
+      }
+    }
+
+    .home-1[_ngcontent-got-c55] .home-1-description[_ngcontent-got-c55] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 25px;
+      color: #4f4f4f;
+      margin-bottom: 33px
+    }
+
+    @media (max-width:767px) {
+      .home-1[_ngcontent-got-c55] .home-1-description[_ngcontent-got-c55] {
+        font-size: 16px
+      }
+    }
+
+    .home-1[_ngcontent-got-c55] .home-1-actions[_ngcontent-got-c55] {
+      display: flex
+    }
+
+    .home-1[_ngcontent-got-c55] .home-1-actions[_ngcontent-got-c55] .explore[_ngcontent-got-c55] span[_ngcontent-got-c55],
+    .home-1[_ngcontent-got-c55] .home-1-actions[_ngcontent-got-c55] a[_ngcontent-got-c55] {
+      text-decoration: none;
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 22px;
+      color: #4f4f4f
+    }
+
+    .home-1[_ngcontent-got-c55] .home-1-actions[_ngcontent-got-c55] .explore[_ngcontent-got-c55] {
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 7px 14px;
+      background: linear-gradient(0deg, #c3ffe8, #f0fff4 99.73%);
+      border: 2px solid #4f4f4f;
+      box-sizing: border-box;
+      border-radius: 7px;
+      margin-right: 18px
+    }
+
+    .home-1[_ngcontent-got-c55] .home-1-actions[_ngcontent-got-c55] .explore[_ngcontent-got-c55] span[_ngcontent-got-c55] {
+      margin-right: 8px
+    }
+
+    .home-1[_ngcontent-got-c55] .home-1-actions[_ngcontent-got-c55] .about-us[_ngcontent-got-c55] {
+      padding: 14px;
+      border: 2px solid #4f4f4f;
+      box-sizing: border-box;
+      border-radius: 7px
+    }
+
+    .home-2[_ngcontent-got-c55] {
+      padding: 86px 80px;
+      background-color: #fff
+    }
+
+    @media (max-width:767px) {
+      .home-2[_ngcontent-got-c55] {
+        padding: 40px 30px
+      }
+    }
+
+    .home-2[_ngcontent-got-c55] .home-2-header[_ngcontent-got-c55] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 84px;
+      color: #333
+    }
+
+    @media (max-width:1050px) {
+      .home-2[_ngcontent-got-c55] .home-2-header[_ngcontent-got-c55] {
+        font-size: 54px;
+        line-height: 70px
+      }
+    }
+
+    @media (max-width:575px) {
+      .home-2[_ngcontent-got-c55] .home-2-header[_ngcontent-got-c55] {
+        font-size: 51px;
+        line-height: 65px
+      }
+    }
+
+    .home-2[_ngcontent-got-c55] .home-2-sub-header[_ngcontent-got-c55] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 63px;
+      background-image: linear-gradient(88.87deg, #498ae3 7.07%, #9dc6fb 76.53%);
+      background-size: 100%;
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -moz-text-fill-color: transparent;
+      margin-bottom: 10px
+    }
+
+    @media (max-width:1050px) {
+      .home-2[_ngcontent-got-c55] .home-2-sub-header[_ngcontent-got-c55] {
+        font-size: 40px;
+        line-height: 54px
+      }
+    }
+
+    @media (max-width:575px) {
+      .home-2[_ngcontent-got-c55] .home-2-sub-header[_ngcontent-got-c55] {
+        font-size: 38px;
+        line-height: 50px
+      }
+    }
+
+    .home-2[_ngcontent-got-c55] .home-2-desc-1[_ngcontent-got-c55] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 31px;
+      font-feature-settings: "ss06"on, "zero"on;
+      color: #4f4f4f
+    }
+
+    @media (max-width:1050px) {
+      .home-2[_ngcontent-got-c55] .home-2-desc-1[_ngcontent-got-c55] {
+        font-size: 20px;
+        line-height: 27px
+      }
+    }
+
+    @media (max-width:575px) {
+      .home-2[_ngcontent-got-c55] .home-2-desc-1[_ngcontent-got-c55] {
+        font-size: 16px;
+        line-height: 24px
+      }
+    }
+
+    .home-2[_ngcontent-got-c55] .home-2-desc-2[_ngcontent-got-c55] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 24px;
+      font-feature-settings: "ss06"on, "zero"on;
+      color: #4f4f4f
+    }
+
+    @media (max-width:1050px) {
+      .home-2[_ngcontent-got-c55] .home-2-desc-2[_ngcontent-got-c55] {
+        font-size: 15px;
+        line-height: 21px
+      }
+    }
+
+    @media (max-width:575px) {
+      .home-2[_ngcontent-got-c55] .home-2-desc-2[_ngcontent-got-c55] {
+        font-size: 13px;
+        line-height: 18px
+      }
+    }
+
+    .home-2[_ngcontent-got-c55] .right-section[_ngcontent-got-c55] {
+      padding-left: 50px
+    }
+
+    .home-2[_ngcontent-got-c55] .right-section[_ngcontent-got-c55] img[_ngcontent-got-c55] {
+      margin-bottom: 10px
+    }
+
+    @media (max-width:1050px) {
+      .home-2[_ngcontent-got-c55] .right-section[_ngcontent-got-c55] img[_ngcontent-got-c55] {
+        width: 90px
+      }
+    }
+
+    @media (max-width:767px) {
+      .home-2[_ngcontent-got-c55] .right-section[_ngcontent-got-c55] {
+        padding-left: 0
+      }
+    }
+
+    .home-3[_ngcontent-got-c55] {
+      padding: 64px 95px 79px;
+      background-color: #fff
+    }
+
+    @media (max-width:991px) {
+      .home-3[_ngcontent-got-c55] {
+        padding: 40px 30px
+      }
+    }
+
+    .home-3[_ngcontent-got-c55] .home-3-header[_ngcontent-got-c55] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 31px;
+      color: #4f4f4f
+    }
+
+    @media (max-width:767px) {
+      .home-3[_ngcontent-got-c55] .home-3-header[_ngcontent-got-c55] {
+        font-size: 20px;
+        line-height: 28px
+      }
+    }
+
+    @media (max-width:575px) {
+      .home-3[_ngcontent-got-c55] .home-3-header[_ngcontent-got-c55] {
+        font-size: 16px;
+        line-height: 24px
+      }
+    }
+
+    .home-3[_ngcontent-got-c55] .home-3-sub-header[_ngcontent-got-c55] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 63px;
+      color: #828282;
+      padding-bottom: 33px;
+      border-bottom: 1px solid #c4b69d
+    }
+
+    .home-3[_ngcontent-got-c55] .home-3-sub-header[_ngcontent-got-c55] span[_ngcontent-got-c55] {
+      background-image: linear-gradient(0deg, #00b59c, #9cffac);
+      background-size: 100%;
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -moz-text-fill-color: transparent
+    }
+
+    @media (max-width:767px) {
+      .home-3[_ngcontent-got-c55] .home-3-sub-header[_ngcontent-got-c55] {
+        font-size: 42px;
+        line-height: 58px;
+        padding-bottom: 22px
+      }
+    }
+
+    @media (max-width:575px) {
+      .home-3[_ngcontent-got-c55] .home-3-sub-header[_ngcontent-got-c55] {
+        font-size: 34px;
+        line-height: 48px
+      }
+    }
+
+    .home-3[_ngcontent-got-c55] .solutions-row[_ngcontent-got-c55] {
+      margin-top: 70px
+    }
+
+    @media (max-width:991px) {
+      .home-3[_ngcontent-got-c55] .solutions-row[_ngcontent-got-c55] {
+        margin-top: 30px
+      }
+    }
+
+    .home-3[_ngcontent-got-c55] app-solution-card:not(.row-last) .solution-card {
+      margin-right: 20px;
+      margin-bottom: 30px
+    }
+
+    .home-4[_ngcontent-got-c55] {
+      padding: 70px 50px;
+      background: linear-gradient(180deg, #f0f2ff, hsla(0, 0%, 98.4%, 0))
+    }
+
+    @media (max-width:767px) {
+      .home-4[_ngcontent-got-c55] {
+        padding: 40px 30px
+      }
+    }
+
+    .home-4[_ngcontent-got-c55] .header[_ngcontent-got-c55] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 63px;
+      color: #4f4f4f;
+      margin-bottom: 14px
+    }
+
+    .home-4[_ngcontent-got-c55] .header[_ngcontent-got-c55] .gredient[_ngcontent-got-c55] {
+      background-image: linear-gradient(0deg, #00b59c, #9cffac);
+      background-size: 100%;
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -moz-text-fill-color: transparent
+    }
+
+    .home-4[_ngcontent-got-c55] .description[_ngcontent-got-c55] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 31px;
+      display: flex;
+      align-items: center;
+      color: #4f4f4f;
+      margin-bottom: 90px
+    }
+
+    .home-5[_ngcontent-got-c55] {
+      padding: 40px 30px
+    }
+
+    .home-5[_ngcontent-got-c55] .flex-col-2[_ngcontent-got-c55] {
+      padding: 0 78px 0 111px
+    }
+
+    .home-5[_ngcontent-got-c55] .title[_ngcontent-got-c55] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 63px;
+      color: #333
+    }
+
+    @media (max-width:1200px) and (min-width:991px) {
+      .home-5[_ngcontent-got-c55] .title[_ngcontent-got-c55] {
+        font-size: 40px;
+        line-height: 60px
+      }
+    }
+
+    @media (max-width:575px) {
+      .home-5[_ngcontent-got-c55] .title[_ngcontent-got-c55] {
+        font-size: 36px;
+        line-height: 44px
+      }
+    }
+
+    .home-5[_ngcontent-got-c55] .description[_ngcontent-got-c55] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 25px;
+      color: #758173
+    }
+
+    @media (max-width:1200px) and (min-width:991px) {
+      .home-5[_ngcontent-got-c55] .description[_ngcontent-got-c55] {
+        font-size: 18px;
+        line-height: 22px
+      }
+    }
+
+    @media (max-width:575px) {
+      .home-5[_ngcontent-got-c55] .description[_ngcontent-got-c55] {
+        font-size: 16px;
+        line-height: 20px
+      }
+    }
+
+    .home-5[_ngcontent-got-c55] .wave-img-warpper[_ngcontent-got-c55] {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 10px
+    }
+
+    .home-5[_ngcontent-got-c55] .left-box-content[_ngcontent-got-c55] {
+      height: 263px;
+      padding-right: 24px
+    }
+
+    @media (max-width:575px) {
+      .home-5[_ngcontent-got-c55] .left-box-content[_ngcontent-got-c55] {
+        height: auto;
+        padding-right: 15px
+      }
+    }
+
+    .home-5[_ngcontent-got-c55] .left-box-content[_ngcontent-got-c55] .description[_ngcontent-got-c55] {
+      font-size: 18px
+    }
+
+    .home-5[_ngcontent-got-c55] .right-box[_ngcontent-got-c55] {
+      margin-top: 32px;
+      padding: 2px;
+      height: 341px;
+      background: linear-gradient(270deg, #d1f6f1, rgba(0, 196, 208, 0) 94.7%);
+      border-radius: 26px
+    }
+
+    @media (max-width:575px) {
+      .home-5[_ngcontent-got-c55] .right-box[_ngcontent-got-c55] {
+        height: auto
+      }
+    }
+
+    .home-5[_ngcontent-got-c55] .right-box[_ngcontent-got-c55] .right-box-content[_ngcontent-got-c55] {
+      background: #fff;
+      height: 100%;
+      border-radius: 26px;
+      padding: 38px 26px 32px 37px
+    }
+
+    @media (max-width:575px) {
+      .home-5[_ngcontent-got-c55] .right-box[_ngcontent-got-c55] .right-box-content[_ngcontent-got-c55] {
+        padding: 15px
+      }
+    }
+
+    .home-5[_ngcontent-got-c55] .right-box[_ngcontent-got-c55] .right-box-content[_ngcontent-got-c55] .actions[_ngcontent-got-c55] {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between
+    }
+
+    .home-5[_ngcontent-got-c55] .right-box[_ngcontent-got-c55] .right-box-content[_ngcontent-got-c55] .actions[_ngcontent-got-c55] a[_ngcontent-got-c55] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 25px;
+      color: #7891c0;
+      text-decoration: none
+    }
+
+    .home-7[_ngcontent-got-c55] {
+      background: #fff;
+      padding: 107px 70px 120px
+    }
+
+    @media (max-width:767px) {
+      .home-7[_ngcontent-got-c55] {
+        padding: 40px 30px
+      }
+    }
+
+    .home-7[_ngcontent-got-c55] .title[_ngcontent-got-c55] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 51px;
+      line-height: 67px;
+      color: #4f4f4f;
+      margin-bottom: 16px;
+      text-align: center
+    }
+
+    .home-7[_ngcontent-got-c55] .title[_ngcontent-got-c55] .gredient[_ngcontent-got-c55] {
+      background-image: linear-gradient(0deg, #00b59c, #9cffac);
+      background-size: 100%;
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -moz-text-fill-color: transparent
+    }
+
+    @media (max-width:767px) {
+      .home-7[_ngcontent-got-c55] .title[_ngcontent-got-c55] {
+        font-size: 40px;
+        line-height: 54px
+      }
+    }
+
+    @media (max-width:400px) {
+      .home-7[_ngcontent-got-c55] .title[_ngcontent-got-c55] {
+        font-size: 32px;
+        line-height: 42px
+      }
+    }
+
+    .home-7[_ngcontent-got-c55] .description[_ngcontent-got-c55] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 42px;
+      text-align: center;
+      font-feature-settings: "ss02"on;
+      margin-bottom: 36px;
+      color: #828282
+    }
+
+    @media (max-width:767px) {
+      .home-7[_ngcontent-got-c55] .description[_ngcontent-got-c55] {
+        font-size: 24px;
+        line-height: 34px
+      }
+    }
+
+    @media (max-width:400px) {
+      .home-7[_ngcontent-got-c55] .description[_ngcontent-got-c55] {
+        font-size: 20px;
+        line-height: 28px
+      }
+    }
+
+    .home-7[_ngcontent-got-c55] .logos[_ngcontent-got-c55] {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap
+    }
+
+    .home-7[_ngcontent-got-c55] .logos[_ngcontent-got-c55] img[_ngcontent-got-c55] {
+      margin-right: 15px;
+      margin-bottom: 40px
+    }
+
+    .home-7[_ngcontent-got-c55] .more[_ngcontent-got-c55] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 34px;
+      color: #bdbdbd;
+      margin-top: 10px;
+      text-align: center
+    }
+
+    .home-8[_ngcontent-got-c55] {
+      background: linear-gradient(180deg, #000, #010101 6.67%, #020202 13.33%, #060606 20%, #0a0a0a 26.67%, #101010 33.33%, #171717 40%, #1f1f1f 46.67%, #272727 53.33%, #2f2f2f 60%, #363636 66.67%, #3c3c3c 73.33%, #404040 80%, #444 86.67%, #464646 93.33%, #464646);
+      padding: 0 92px 100px 77px
+    }
+
+    @media (max-width:575px) {
+      .home-8[_ngcontent-got-c55] {
+        padding: 0 30px 40px
+      }
+    }
+
+    .home-8[_ngcontent-got-c55] .light-box[_ngcontent-got-c55] {
+      height: auto;
+      border: 1px solid #fff;
+      box-sizing: border-box;
+      border-radius: 0 0 95px 0;
+      margin-top: 74px;
+      position: relative;
+      padding: 18px 37px
+    }
+
+    .home-8[_ngcontent-got-c55] .light-box[_ngcontent-got-c55] .header[_ngcontent-got-c55] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 46px;
+      line-height: 46px;
+      color: #fff;
+      margin-bottom: 17px
+    }
+
+    @media (max-width:575px) {
+      .home-8[_ngcontent-got-c55] .light-box[_ngcontent-got-c55] .header[_ngcontent-got-c55] {
+        font-size: 34px;
+        line-height: 40px
+      }
+    }
+
+    .home-8[_ngcontent-got-c55] .light-box[_ngcontent-got-c55] .description[_ngcontent-got-c55] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 25px;
+      color: #f7f4ef
+    }
+
+    @media (max-width:575px) {
+      .home-8[_ngcontent-got-c55] .light-box[_ngcontent-got-c55] .description[_ngcontent-got-c55] {
+        font-size: 14px;
+        line-height: 22px
+      }
+    }
+
+    .home-8[_ngcontent-got-c55] .light-box[_ngcontent-got-c55] .read-more[_ngcontent-got-c55] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 25px;
+      -webkit-text-decoration-line: underline;
+      text-decoration-line: underline;
+      color: #fce6b1
+    }
+
+    .home-8[_ngcontent-got-c55] .light-box[_ngcontent-got-c55] .light-big[_ngcontent-got-c55],
+    .home-8[_ngcontent-got-c55] .light-box[_ngcontent-got-c55] .light-small[_ngcontent-got-c55] {
+      position: absolute
+    }
+
+    .home-8[_ngcontent-got-c55] .light-box[_ngcontent-got-c55] .light-small[_ngcontent-got-c55] {
+      top: -42px;
+      left: -42px
+    }
+
+    .home-8[_ngcontent-got-c55] .light-box[_ngcontent-got-c55] .light-big[_ngcontent-got-c55] {
+      bottom: 60px;
+      right: -80px
+    }
+
+    .home-8[_ngcontent-got-c55] img.left[_ngcontent-got-c55] {
+      margin-right: 15px
+    }
+  </style>
+  <style>
+    .solution-card[_ngcontent-got-c53] {
+      padding: 16px 14px 50px;
+      width: 100%;
+      height: 280px;
+      display: block;
+      text-decoration: none;
+      background: #fff;
+      border: 2px solid #7891c0;
+      border-radius: 9px;
+      cursor: pointer;
+      position: relative
+    }
+
+    @media (max-width:1200px) {
+      .solution-card[_ngcontent-got-c53] {
+        height: 250px
+      }
+    }
+
+    .solution-card[_ngcontent-got-c53] .card-title[_ngcontent-got-c53] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 23px;
+      line-height: 31px;
+      color: #7891c0
+    }
+
+    .solution-card[_ngcontent-got-c53] .card-description[_ngcontent-got-c53] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 26px;
+      color: #4f4f4f
+    }
+
+    @media (max-width:1200px) {
+      .solution-card[_ngcontent-got-c53] .card-description[_ngcontent-got-c53] {
+        font-size: 16px;
+        line-height: 22px
+      }
+    }
+
+    .solution-card[_ngcontent-got-c53] .arrow[_ngcontent-got-c53] {
+      position: absolute;
+      bottom: 12px
+    }
+  </style>
+  <style>
+    .card-container[_ngcontent-got-c54] {
+      width: 100%
+    }
+
+    .card-container[_ngcontent-got-c54] .card-img[_ngcontent-got-c54] {
+      max-width: 100%
+    }
+
+    .card-container[_ngcontent-got-c54] .card-body[_ngcontent-got-c54] {
+      padding: 0 27px;
+      margin-top: 40px
+    }
+
+    @media (max-width:575px) {
+      .card-container[_ngcontent-got-c54] .card-body[_ngcontent-got-c54] {
+        padding: 0 10px
+      }
+    }
+
+    .card-container[_ngcontent-got-c54] .card-body[_ngcontent-got-c54] .label[_ngcontent-got-c54] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 34px;
+      color: #7891c0;
+      margin-bottom: 7px
+    }
+
+    .card-container[_ngcontent-got-c54] .card-body[_ngcontent-got-c54] .description[_ngcontent-got-c54] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 24px;
+      color: #333;
+      margin-bottom: 20px
+    }
+
+    .card-container[_ngcontent-got-c54] .card-body[_ngcontent-got-c54] .card-links[_ngcontent-got-c54] {
+      list-style: none;
+      padding: 0
+    }
+
+    .card-container[_ngcontent-got-c54] .card-body[_ngcontent-got-c54] .card-links[_ngcontent-got-c54] li[_ngcontent-got-c54] {
+      margin-bottom: 15px
+    }
+
+    .card-container[_ngcontent-got-c54] .card-body[_ngcontent-got-c54] .card-links[_ngcontent-got-c54] li[_ngcontent-got-c54] a[_ngcontent-got-c54] {
+      font-family: Spoof;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 21px;
+      color: #7891c0;
+      text-decoration: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between
+    }
+
+    @media (max-width:991px) and (min-width:768px) {
+      .card-container[_ngcontent-got-c54] .card-body[_ngcontent-got-c54] {
+        padding: 0 10px;
+        margin-top: 15px
+      }
+
+      .card-container[_ngcontent-got-c54] .card-body[_ngcontent-got-c54] .label[_ngcontent-got-c54] {
+        font-size: 22px;
+        line-height: 28px
+      }
+
+      .card-container[_ngcontent-got-c54] .card-body[_ngcontent-got-c54] .description[_ngcontent-got-c54] {
+        font-size: 16px;
+        line-height: 18px;
+        margin-bottom: 10px
+      }
+
+      .card-container[_ngcontent-got-c54] .card-body[_ngcontent-got-c54] .card-links[_ngcontent-got-c54] li[_ngcontent-got-c54] {
+        margin-bottom: 10px
+      }
+
+      .card-container[_ngcontent-got-c54] .card-body[_ngcontent-got-c54] .card-links[_ngcontent-got-c54] li[_ngcontent-got-c54] a[_ngcontent-got-c54] {
+        font-size: 14px;
+        line-height: 18px
+      }
+    }
+  </style>
+</head>
+
+<body class="nb-theme-default" data-new-gr-c-s-check-loaded="14.1040.0" data-gr-ext-installed="">
+  <rg-root ng-version="11.1.2">
+    <router-outlet></router-outlet>
+    <rg-website _nghost-got-c56="">
+      <rg-corp-layout _ngcontent-got-c56="" _nghost-got-c49="">
+        <rg-corp-nav _ngcontent-got-c49="" _nghost-got-c47="">
+          <div _ngcontent-got-c47="" class="nav"><img style="height:181px"_ngcontent-got-c47="" routerlink="/" src="/static/sw/logo.png" alt="SocialWing Logo" class="logo d-none d-sm-block" tabindex="0"><img _ngcontent-got-c47="" routerlink="/" src="/static/sw/RG_logo_compact.svg" alt="SocialWing Logo" class="logo d-block d-sm-none" tabindex="0">
+            <div _ngcontent-got-c47="" class="nav-menu-container d-none d-lg-flex">
+              
+              
+              <ul _ngcontent-got-c47="" class="nav-group">
+                
+                <li _ngcontent-got-c47=""><a _ngcontent-got-c47="""></a></li>
+              </ul>
+            </div>
+            <div _ngcontent-got-c47="" class="sm-menu-container d-flex d-lg-none"><button _ngcontent-got-c47="" class="dropdown-container"></button><button _ngcontent-got-c47="" class="text-menu"><span _ngcontent-got-c47="" translate="">Solutions</span>
+                  <nb-icon _ngcontent-got-c47="" icon="chevron-down-outline" _nghost-got-c33=""><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" class="eva eva-chevron-down-outline" fill="currentColor">
+                      <g data-name="Layer 2">
+                        <g data-name="chevron-down">
+                          <rect width="24" height="24" opacity="0"></rect>
+                          <path d="M12 15.5a1 1 0 0 1-.71-.29l-4-4a1 1 0 1 1 1.42-1.42L12 13.1l3.3-3.18a1 1 0 1 1 1.38 1.44l-4 3.86a1 1 0 0 1-.68.28z">
+                          </path>
+                        </g>
+                      </g>
+                    </svg></nb-icon>
+                </button><button _ngcontent-got-c47="" class="dropdown d-none">
+                  <rg-nav-dropdown _ngcontent-got-c47="" _nghost-got-c45="">
+                    <div _ngcontent-got-c45="" class="dropdown-container">
+                      <ul _ngcontent-got-c45="" class="list-unstyled m-0">
+                        <li _ngcontent-got-c45="" class="dropdown-item"><a _ngcontent-got-c45="" routerlink="/parents" routerlinkactive="active-link" href="https://socialwing.in/parents"><span _ngcontent-got-c45="" translate="" class="m-0">Parents</span></a><a _ngcontent-got-c45="" href="https://pd.socialwing.in/" target="_blank"><span _ngcontent-got-c45="" translate="" class="m-0">Educators</span></a><a _ngcontent-got-c45="" href="https://playground.socialwing.in/coding-in-schools" target="_blank"><span _ngcontent-got-c45="" translate="" class="m-0">Schools</span></a></li>
+                        <li _ngcontent-got-c45="" class="dropdown-item"><a _ngcontent-got-c45="" href="https://socialwing.in/university/landing.html"><span _ngcontent-got-c45="" translate="" class="m-0">University</span></a><a _ngcontent-got-c45="" routerlink="/professional-continuing-studies" routerlinkactive="active-link" href="https://socialwing.in/professional-continuing-studies"><span _ngcontent-got-c45="" translate="" class="m-0">Professional &amp; Continuing Studies</span></a></li>
+                        <li _ngcontent-got-c45="" class="dropdown-item"><a _ngcontent-got-c45="" href="https://socialwing.in/companies/landing.html"><span _ngcontent-got-c45="" translate="" class="m-0">Companies</span></a><a _ngcontent-got-c45="" href="https://socialwing.in/resellers/landing.html"><span _ngcontent-got-c45="" translate="" class="m-0">Resellers</span></a></li>
+                      </ul>
+                    </div>
+                  </rg-nav-dropdown>
+                </button></div>
+            
+          </div>
+        </rg-corp-nav>
+        <nb-layout _ngcontent-got-c49="" _nghost-got-c34="">
+          <div _ngcontent-got-c34="" class="scrollable-container">
+            <div _ngcontent-got-c34="" class="layout">
+              <div _ngcontent-got-c34="" class="layout-container">
+                <div _ngcontent-got-c34="" class="content">
+                  <div _ngcontent-got-c34="" class="columns">
+                    <nb-layout-column _ngcontent-got-c49="">
+                      <div _ngcontent-got-c49="" class="container-fluid p-0 overflow-hidden">
+                        <router-outlet _ngcontent-got-c56=""></router-outlet>
+                        <rg-home-page _nghost-got-c55="">
+                          <section _ngcontent-got-c55="" class="container-fluid home-1">
+                            <div _ngcontent-got-c55="" class="row">
+                              <div _ngcontent-got-c55="" class="col-lg-6 col-md-9 col-12">
+                                <h1 _ngcontent-got-c55="" class="home-1-header">Digital Skills</h1>
+                                <h1 _ngcontent-got-c55="" class="home-1-sub-header">For Everyone</h1>
+                                <p _ngcontent-got-c55="" class="home-1-description"> We prepare young talent for the future
+                                  needs of technology through our Edutech social platform which is powerd by AI and analytics. </p>
+                                <div _ngcontent-got-c55="" class="home-1-actions">
+                                  <div _ngcontent-got-c55="" class="explore"><span _ngcontent-got-c55=""><a href="/course">Explore Our
+                                      platform</a></span><img _ngcontent-got-c55="" src="/static/sw/arrow-right.svg"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                          <section _ngcontent-got-c55="" class="container-fluid home-2">
+                            <div _ngcontent-got-c55="" class="row">
+                              <div _ngcontent-got-c55="" class="col-md-6 col-12"><img _ngcontent-got-c55="" src="/static/sw/homepage-section-2.svg" alt=""></div>
+                              <div _ngcontent-got-c55="" class="col-md-6 col-12 right-section"><img _ngcontent-got-c55="" src="/static/sw/cloud.svg" alt="">
+                                <h1 _ngcontent-got-c55="" class="home-2-header"> One-Stop </h1>
+                                <h2 _ngcontent-got-c55="" class="home-2-sub-header"> Cloud Publisher </h2>
+                                <p _ngcontent-got-c55="" class="home-2-desc-1"><span _ngcontent-got-c55="" class="font-bold">#1</span> AI-based company for future revolutionary education with
+                                  a platform trusted by over <span _ngcontent-got-c55="" class="font-bold">400,000</span> educators &amp; learners. </p>
+                                
+                              </div>
+                            </div>
+                          </section>
+                          <section _ngcontent-got-c55="" class="container-fluid home-3">
+                            <div _ngcontent-got-c55="" class="row">
+                              <div _ngcontent-got-c55="" class="col-12">
+                                <h1 _ngcontent-got-c55="" class="home-3-header">Explore SocialWings</h1>
+                                <h1 _ngcontent-got-c55="" class="home-3-sub-header">All your <span _ngcontent-got-c55="">learning needs</span> are available</h1>
+                              </div>
+                            </div>
+                            <div _ngcontent-got-c55="" class="row solutions-row">
+                              <div _ngcontent-got-c55="" class="col-xl-3 col-lg-4 col-md-6 col-12">
+                                <app-solution-card _ngcontent-got-c55="" _nghost-got-c53=""><a _ngcontent-got-c53="" class="solution-card" href="https://socialwing.in/parents">
+                                    <h5 _ngcontent-got-c53="" class="card-title">Hello world</h5>
+                                    <p _ngcontent-got-c53="" class="card-description">First step to the world of digital.<br>
+We take young students who are just finishing with school, newly hatched, and show them the ways of the ‘tech’ world
+The aim is to build their understanding of the environment and try to create a sense of interest in them
+Even if they do not wish to pursue this further, we hope to have given them enough to not feel like an alien
+Understand the world of tech - its applications and potential
+
+
+</p><img _ngcontent-got-c53="" src="/static/sw/arrow-circle.svg" alt="" class="arrow">
+                                  </a>
+                                  <!---->
+                                  <!---->
+                                </app-solution-card>
+                              </div>
+                              <div _ngcontent-got-c55="" class="col-xl-3 col-lg-4 col-md-6 col-12">
+                                <app-solution-card _ngcontent-got-c55="" _nghost-got-c53=""><a _ngcontent-got-c53="" class="solution-card" href="https://socialwing.in/professional-continuing-studies">
+                                    <h5 _ngcontent-got-c53="" class="card-title">	Learn to run</h5>
+                                    <p _ngcontent-got-c53="" class="card-description"> This is where they go beyond the theory and learn to run programmes and figure out the basics of coding. </p><img _ngcontent-got-c53="" src="/static/sw/arrow-circle.svg" alt="" class="arrow">
+                                  </a>
+                                  <!---->
+                                  <!---->
+                                </app-solution-card>
+                              </div>
+                              <div _ngcontent-got-c55="" class="col-xl-3 col-lg-4 col-md-6 col-12">
+                                <app-solution-card _ngcontent-got-c55="" _nghost-got-c53="">
+                                  <!----><a _ngcontent-got-c53="" target="_blank" class="solution-card" href="https://pd.socialwing.in/">
+                                    <h5 _ngcontent-got-c53="" class="card-title">Start to fly</h5>
+                                    <p _ngcontent-got-c53="" class="card-description">Slightly more detailed understanding of the world of programming with a few technical systems</p><img _ngcontent-got-c53="" src="/static/sw/arrow-circle.svg" alt="" class="arrow">
+                                  </a>
+                                  <!---->
+                                </app-solution-card>
+                              </div>
+                              <div _ngcontent-got-c55="" class="col-xl-3 col-lg-4 col-md-6 col-12 row-last">
+                                <app-solution-card _ngcontent-got-c55="" _nghost-got-c53="">
+                                  <!----><a _ngcontent-got-c53="" target="_blank" class="solution-card" href="https://playground.socialwing.in/coding-in-schools">
+                                    <h5 _ngcontent-got-c53="" class="card-title">Beyond Horizon</h5>
+                                    <p _ngcontent-got-c53="" class="card-description">With this section we hope to remove the assumed horizon that is in every student and parent’s mind
+We hope to encourage our students to understand that there is really no end point when it comes to technology and that the scope is endless
+</p><img _ngcontent-got-c53="" src="/static/sw/arrow-circle.svg" alt="" class="arrow">
+                                  </a>
+                                  <!---->
+                                </app-solution-card>
+                              </div>
+                              
+                              
+                              
+                              
+                              <!---->
+                            </div>
+                          </section>
+                          <section _ngcontent-got-c55="" class="container-fluid home-4">
+                            <div _ngcontent-got-c55="" class="row">
+                              <div _ngcontent-got-c55="" class="col-lg-8 col-12">
+                                <h1 _ngcontent-got-c55="" class="header">Explore how it works <span _ngcontent-got-c55="" class="gredient">for you.</span></h1>
+                                <p _ngcontent-got-c55="" class="description"> Our main goal is to bridge the gap between
+                                  the differnet class to have right to platform like junior and the lack of the needed tech skills,
+                                  which explains why our main objective is “Learn to Earn”! </p>
+                              </div>
+                            </div>
+                            <div _ngcontent-got-c55="" class="row">
+                              <div _ngcontent-got-c55="" class="col-md-4 col-12">
+                                <rg-become-card _ngcontent-got-c55="" _nghost-got-c54="">
+                                  <div _ngcontent-got-c54="" class="card-container"><img _ngcontent-got-c54="" alt="" class="card-img" src="/static/sw/teacher-card.svg">
+                                    <div _ngcontent-got-c54="" class="card-body">
+                                      <h1 _ngcontent-got-c54="" class="label">Teach with SocialWings</h1>
+                                      <p _ngcontent-got-c54="" class="description">The perfect opportunity to get your
+                                        students excited about coding while teaching them some foundational skills.</p>
+                                      <p _ngcontent-got-c54="" class="description">The best part is, you don't need to
+                                        have prior coding experience or knowledge to help your class conquer the
+                                        challenge!</p>
+                                      <!---->
+                                      <ul _ngcontent-got-c54="" class="card-links">
+                                        <li _ngcontent-got-c54=""><a _ngcontent-got-c54="" href="https://socialwing.in/"><span _ngcontent-got-c54="">Set up classrooms
+                                              and assign coding missions</span><img _ngcontent-got-c54="" src="/static/sw/blue-right-arrow.svg" alt=""></a></li>
+                                        <li _ngcontent-got-c54=""><a _ngcontent-got-c54="" href="https://socialwing.in/"><span _ngcontent-got-c54="">Take mentorship
+                                              role in seasonal contests</span><img _ngcontent-got-c54="" src="/static/sw/blue-right-arrow.svg" alt=""></a></li>
+                                        <li _ngcontent-got-c54=""><a _ngcontent-got-c54="" href="https://socialwing.in/"><span _ngcontent-got-c54="">Get SocialWing’s
+                                              instructor certification</span><img _ngcontent-got-c54="" src="/static/sw/blue-right-arrow.svg" alt=""></a></li>
+                                        <!---->
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </rg-become-card>
+                              </div>
+                              <div _ngcontent-got-c55="" class="col-md-4 col-12">
+                                <rg-become-card _ngcontent-got-c55="" _nghost-got-c54="">
+                                  <div _ngcontent-got-c54="" class="card-container"><img _ngcontent-got-c54="" alt="" class="card-img" src="/static/sw/reseller-card.svg">
+                                    <div _ngcontent-got-c54="" class="card-body">
+                                      <h1 _ngcontent-got-c54="" class="label">Become A Community Mentor</h1>
+                                      <p _ngcontent-got-c54="" class="description">As a SocialWing community mentor, 
+                                        you will be positioned at the forefront of a community to motivate the youngster by conducting
+                                        hackathon and webinars. Also conducting bootcamps during holidays. This should be able to bring 
+                                        more people into the platform.</p>
+                                      
+                                      <!---->
+                                      <ul _ngcontent-got-c54="" class="card-links">
+                                        <li _ngcontent-got-c54=""><a _ngcontent-got-c54="" href="https://socialwing.in/"><span _ngcontent-got-c54="">Join us</span><img _ngcontent-got-c54="" src="/static/sw/blue-right-arrow.svg" alt=""></a></li>
+                                        
+                                        
+                                        <!---->
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </rg-become-card>
+                              </div>
+                              <div _ngcontent-got-c55="" class="col-md-4 col-12">
+                                <rg-become-card _ngcontent-got-c55="" _nghost-got-c54="">
+                                  <div _ngcontent-got-c54="" class="card-container"><img _ngcontent-got-c54="" alt="" class="card-img" src="/static/sw/bootcamps-card.svg">
+                                    <div _ngcontent-got-c54="" class="card-body">
+                                      <h1 _ngcontent-got-c54="" class="label">Host a Bootcamp</h1>
+                                      <p _ngcontent-got-c54="" class="description">Successful partnerships with local communicty school
+                                        and conducting monthly bootcamp to create interest into technolgies.</p>
+                                      <p _ngcontent-got-c54="" class="description">Universities trust SocialWing because
+                                        we share these values and have a commitment to “Students First” in everything we
+                                        do.</p>
+                                      <!---->
+                                      <ul _ngcontent-got-c54="" class="card-links">
+                                        <li _ngcontent-got-c54=""><a _ngcontent-got-c54="" href="https://socialwing.in/"><span _ngcontent-got-c54="">Part time
+                                              bootcamp</span><img _ngcontent-got-c54="" src="/static/sw/blue-right-arrow.svg" alt=""></a></li>
+                                        <li _ngcontent-got-c54=""><a _ngcontent-got-c54="" href="https://socialwing.in/"><span _ngcontent-got-c54="">Full time
+                                              bootcamp</span><img _ngcontent-got-c54="" src="/static/sw/blue-right-arrow.svg" alt=""></a></li>
+                                        <li _ngcontent-got-c54=""><a _ngcontent-got-c54="" href="https://socialwing.in/"><span _ngcontent-got-c54="">Micro-credentials
+                                              bootcamp</span><img _ngcontent-got-c54="" src="/static/sw/blue-right-arrow.svg" alt=""></a></li>
+                                        <!---->
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </rg-become-card>
+                              </div>
+                              <!---->
+                            </div>
+                          </section>
+                          <section _ngcontent-got-c55="" class="container-fluid home-5">
+                            <div _ngcontent-got-c55="" class="row pb-5">
+                              <div _ngcontent-got-c55="" class="col-lg-6 col-12 text-center"><img _ngcontent-got-c55="" src="/static/sw/homepage-section-5-1.svg" alt=""></div>
+                              <div _ngcontent-got-c55="" class="col-lg-6 col-12">
+                                <div _ngcontent-got-c55="" class="right-box">
+                                  <div _ngcontent-got-c55="" class="right-box-content">
+                                    <h1 _ngcontent-got-c55="" class="title">Why SocialWing</h1>
+                                    <p _ngcontent-got-c55="" class="description"> SocialWing
+                                      is&nbsp;a&nbsp;forward-looking, one-stop cloud-based publisher that uses
+                                      artificial intelligence, interactive, game-based learning to&nbsp;develop content;
+                                      empowering teachers/instructors and helping with the teaching/training
+                                      of&nbsp;students when it comes to the&nbsp;future skills. SocialWing programs
+                                      support the creation of&nbsp;a&nbsp;pool of&nbsp;digitally skilled developers,
+                                      digitally literate citizens, and digitally savvy entrepreneurs. </p>
+                                    <div _ngcontent-got-c55="" class="actions"><a _ngcontent-got-c55="" routerlink="/" class="hidden d-none" href="https://socialwing.in/">Read Our Story <img _ngcontent-got-c55="" src="/static/sw/blue-right-arrow-1.svg" alt=""></a><img _ngcontent-got-c55="" src="/static/sw/small-toolbar.svg" alt=""></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div _ngcontent-got-c55="" class="row">
+                              <div _ngcontent-got-c55="" class="col-lg-6 col-12">
+                                <div _ngcontent-got-c55="" class="left-box">
+                                  <div _ngcontent-got-c55="" class="wave-img-warpper"><img _ngcontent-got-c55="" src="/static/sw/wave.svg" alt=""></div>
+                                  <div _ngcontent-got-c55="" class="left-box-content">
+                                    <h1 _ngcontent-got-c55="" class="title">Disruptive Technolgy</h1>
+                                    <p _ngcontent-got-c55="" class="description"> SocialWing disrupts the educational
+                                      technology sector with an&nbsp;intelligent engine that applies user data
+                                      to&nbsp;optimize the educational experience; building future educational models.
+                                      SocialWing’s&nbsp;two main product lines are K-12 and adult learners. </p><img _ngcontent-got-c55="" src="/static/sw/full-toolbar.svg" alt="">
+                                  </div>
+                                </div>
+                              </div>
+                              <div _ngcontent-got-c55="" class="col-lg-6 col-12 text-center"><img _ngcontent-got-c55="" src="/static/sw/homepage-section-5-2.svg" alt=""></div>
+                            </div>
+                          </section>
+                          
+                          <section _ngcontent-got-c55="" class="container-fluid home-8">
+                            <div _ngcontent-got-c55="" class="row">
+                              <div _ngcontent-got-c55="" class="col-lg-6 col-12 text-center"><img _ngcontent-got-c55="" src="/static/sw/homepage-section-8.svg" alt="" class="left"></div>
+                              <div _ngcontent-got-c55="" class="col-lg-6 col-12">
+                                <div _ngcontent-got-c55="" class="light-box">
+                                  <h1 _ngcontent-got-c55="" class="header">We are on a Mission</h1>
+                                  <p _ngcontent-got-c55="" class="description">To offer educational products for kids
+                                    and adults in order to improve their tech skills and make them the perfect fit for
+                                    the future in-demand jobs. We want to make screen time more effective and less
+                                    complicated in order to build inquirers, thinkers, communicators, risk takers, and
+                                    open minded people.</p><a _ngcontent-got-c55="" routerlink="/" class="read-more hidden" href="https://socialwing.in/">Read our Full Story <img _ngcontent-got-c55="" src="/static/sw/r-arrow.svg" alt=""></a><img _ngcontent-got-c55="" src="/static/sw/light-small.svg" alt="" class="light-small"><img _ngcontent-got-c55="" src="/static/sw/light-big.svg" alt="" class="light-big">
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </rg-home-page>
+                        <!---->
+                      </div>
+                    </nb-layout-column>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nb-layout>
+        <rg-corp-footer _ngcontent-got-c49="" _nghost-got-c48="">
+          <div _ngcontent-got-c48="" class="rg-footer container-fluid">
+            
+            <section _ngcontent-got-c48="" class="social">
+              <div _ngcontent-got-c48="" class="row">
+                <div _ngcontent-got-c48="" class="col-lg-3 col-sm-5 col-12 text-center"><img _ngcontent-got-c48="" src="/static/sw/footer-logo.png" alt="SocialWing logo" class="footer-logo">
+                  
+                </div>
+                <div _ngcontent-got-c48="" class="col-sm-9 col-lg-7 col-12">
+                  <p _ngcontent-got-c48="" class="vision">At SocialWing, we believe in giving learners the opportunity
+                    to take an active role in their education.</p>
+                  <ul _ngcontent-got-c48="" class="links">
+                    <li _ngcontent-got-c48=""><span _ngcontent-got-c48="">©&nbsp;2021</span>&nbsp;<span _ngcontent-got-c48=""><strong _ngcontent-got-c48="">SocialBlocks Inc.&nbsp;</strong></span>&nbsp;&nbsp;
+                    </li>
+                    
+                    
+                  </ul>
+                </div>
+              </div>
+            </section>
+          </div>
+        </rg-corp-footer>
+      </rg-corp-layout>
+    </rg-website>
+    <!---->
+  </rg-root>
+  
+
+
+ 
+
+</body></html>

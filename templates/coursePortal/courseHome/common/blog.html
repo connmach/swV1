@@ -1,0 +1,26 @@
+{% extends "coursePortal/courseHome/common/baseBlog.html" %}
+
+{% block contents %}
+  
+            <div class="row">
+
+                {% for post in posts %}
+              <div class="col-md-12">
+                <article class="media content-section bg-white my-2">
+                    <div class="media-body card p-3">
+                        <div class="article-metadata d-flex justify-content-between mb-3">
+                        <a class="mr-2" href="#">{{ post.author }}</a>
+                        <small class="text-muted">{{ post.date_posted  }}</small>
+                        </div>
+                        <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+                        <p class="article-content">{{ post.content }}</p>
+                    </div>
+                </article>
+             </div>
+                {% endfor %}
+ 
+     
+            </div>
+         
+
+{% endblock contents %}

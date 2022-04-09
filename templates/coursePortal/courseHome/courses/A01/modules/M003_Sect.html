@@ -1,0 +1,109 @@
+ 
+
+
+	         <div id="sections-div" class="ScrollArea">
+                                <div class="ScrollArea__wrapper">
+                                    <div id="modContent" class="ScrollArea__content">
+                    
+                                    </div>
+                                    <div class="scroll hscroll"> <span class="scroll__thumb"
+                                            style="left: 0%; width: 100%;"></span>
+                                    </div>
+                                    <div class="scroll vscroll"> <span class="scroll__thumb"
+                                            style="top: 0%; height: 100.106%;"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+<script>
+ 
+mod=[]
+var qnStr="" 
+var space=" "
+var sectiontot=""
+var qnStatusflag= false
+for (let i=0; i< mdObj.Sections.length;i++){ 
+   console.log(mdObj.Sections[i].sectionid)
+   
+   console.log(mdObj.Sections[i].secDesc)
+   section_no=i+1
+   section_str="section-"+section_no
+   section_header=section_str+"-header"
+   seciont_header_desc=mdObj.Sections[i].SecDesc
+   var secStatus=""
+
+//bug1
+//   if( i < lhObj.modules[0].sections[0].id && lhObj.modules[0].sections[0].status=="done")
+  // if( i+1 < lhObj.modules[0].sections[0].id  )
+    /// if( i+1 < lhObj['A01_head'][3]  )
+      secStatus="done"
+   var section='<div class="section'+space + secStatus+'"'+ 'id="'
+               + section_no +'"><div class="header" id="'
+               + section_header+'">'
+               + seciont_header_desc+'</div>'
+   secStatus=""
+
+
+   console.log(mod.toString(" "))
+   qnStr="" 
+   var section_list_no=section_str+"-list"
+   qnStr=qnStr+ '<div class="section-exercise-list" id="'
+                             + section_list_no+'">'
+   var qnStatus=" "
+   for (let j=0; j< mdObj.Sections[i].Questions.length;j++){ 
+   //    if( j < lhObj.modules[0].sections[0].Questions[0].id && lhObj.modules[0].sections[0].Questions[0].status=="done")
+//       if( i+1 < lhObj.modules[0].sections[0].id || j+1 < lhObj.modules[0].sections[0].Questions[0].id && lhObj.modules[0].sections[0].Questions[0].status=="done")
+       if(qnStatusflag==true){ 
+         qnStatus="lock"
+        console.log("lock tasks")
+         }  
+       else if(qnStatusflag==false){ 
+         qnStatus="done"
+         console.log("lock tasks")  
+// module {mid}
+ 
+            console.log(mdObj.Sections[i].Questions[j].id, lhObj.Modules['M001_head'][9])
+
+//         if( mdObj.Sections[i].Questions[j].id == lhObj['M001_head'][3] || mdObj.Sections[i].Questions[j].id ==lhObj['A01_head'][7] && (lhObj['M001_head'][9]=="pending"||lhObj['M001_head'][9]=="progress"))
+        
+          if( mdObj.Sections[i].Questions[j].id == lhObj.Modules['M001_head'][3] && (lhObj['M001_head'][9]=="pending"||lhObj.Modules['M001_head'][9]=="progress"))
+            qnStatusflag=true
+            qnStatus="pending"
+            console.log("task pending")  
+            console.log(mdObj.Sections[i].Questions[j].id, lhObj.Modules['M001_head'][9])
+          //  console.log(mdObj.Sections[i].Questions[j].id,lhObj[ 'M001_head'][7])
+         }else{
+            console.log("task done")  
+            console.log(mdObj.Sections[i].Questions[j].id, lhObj.Modules['M001_head'][3])
+            console.log(mdObj.Sections[i].Questions[j].id,lhObj.Modules['M001_head'][7])
+
+           }  
+        
+       var ex_no=j+1
+
+      //  var section_exercise_no=section_str+"-exercise-"+ ex_no
+        var section_exercise_no= "exercise-"+ mdObj.Sections[i].Questions[j].id
+
+       // var template="course/"+A01+/module/"+M001+"/"+A01_3+"?"+"gradeType=A1" 
+        var link=mdObj.Sections[i].Questions[j].link
+
+        var desc= mdObj.Sections[i].Questions[j].desc  
+        qnStr=qnStr+ '<div class="section-exercise' +space + qnStatus+'"'+' id="'
+                             + section_exercise_no+'">'
+                             + '<a href="'+link+'"><span>'
+                             +ex_no+ space+desc +'</span></div>'
+
+     qnStatus=" "
+     console.log(mdObj.Sections[i].Questions[j].id)
+     console.log(mdObj.Sections[i].Questions[j].desc)
+     console.log(mdObj.Sections[i].Questions[j].link)
+   }
+   qnStr=qnStr+ '</div></div>'
+   console.log( qnStr)
+   sectiontot=sectiontot +  section + qnStr
+}
+  console.log( sectiontot)
+  $("#modContent").html(sectiontot)
+
+</script>
+

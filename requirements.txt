@@ -1,2 +1,6 @@
 flask
 pymysql
+requests
+github-flask
+authlib
+authlib.client

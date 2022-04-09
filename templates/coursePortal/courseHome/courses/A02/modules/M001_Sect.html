@@ -1,0 +1,69 @@
+ 
+
+
+	         <div id="sections-div" class="ScrollArea">
+                                <div class="ScrollArea__wrapper">
+                                    <div id="modContent" class="ScrollArea__content">
+                    
+                                    </div>
+                                    <div class="scroll hscroll"> <span class="scroll__thumb"
+                                            style="left: 0%; width: 100%;"></span>
+                                    </div>
+                                    <div class="scroll vscroll"> <span class="scroll__thumb"
+                                            style="top: 0%; height: 100.106%;"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+<script>
+ 
+mod=[]
+var qnStr="" 
+var space=" "
+var sectiontot=""
+var qnStatusflag= false
+for (let i=0; i< mdObj.Sections.length;i++){ 
+   console.log(mdObj.Sections[i].sectionid)
+   
+   console.log(mdObj.Sections[i].secDesc)
+   section_no=i+1
+   section_str="section-"+section_no
+   section_header=section_str+"-header"
+   seciont_header_desc=mdObj.Sections[i].SecDesc
+   var secStatus=""
+   secStatus="done"
+   var section='<div class="section'+space + secStatus+'"'+ 'id="'
+               + section_no +'"><div class="header" id="'
+               + section_header+'">'
+               + seciont_header_desc+'</div>'
+   secStatus=""
+   console.log(mod.toString(" "))
+   qnStr="" 
+   var section_list_no=section_str+"-list"
+   qnStr=qnStr+ '<div class="section-exercise-list" id="'
+                             + section_list_no+'">'
+   var qnStatus=" "
+   for (let j=0; j< mdObj.Sections[i].Questions.length;j++){ 
+            console.log(mdObj.Sections[i].Questions[j].id, lhObj.Modules.length)
+        var ex_no=j+1
+        var section_exercise_no= "exercise-"+ mdObj.Sections[i].Questions[j].id
+        var link=mdObj.Sections[i].Questions[j].link
+        var desc= mdObj.Sections[i].Questions[j].desc  
+        qnStr=qnStr+ '<div class="section-exercise' +space + qnStatus+'"'+' id="'
+                             + section_exercise_no+'">'
+                             + '<a href="'+link+'"><span>'
+                             +ex_no+ space+desc +'</span></div>'
+        qnStatus=" "
+        console.log(mdObj.Sections[i].Questions[j].id)
+        console.log(mdObj.Sections[i].Questions[j].desc)
+        console.log(mdObj.Sections[i].Questions[j].link)
+   }
+   qnStr=qnStr+ '</div></div>'
+   console.log( qnStr)
+   sectiontot=sectiontot +  section + qnStr
+}
+  console.log( sectiontot)
+  $("#modContent").html(sectiontot)
+
+</script>
+

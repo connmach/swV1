@@ -1,0 +1,229 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Python Basics. Part 1</title>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+
+ 
+ 
+
+        <link rel="stylesheet" type="text/css" href="/static/common/css/oneweb.css" />
+        <script src="/static/common/js/jquery-3.2.1.slim.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/static/common/css/course.css" />
+ 
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="/static/common/css/bootstrap.min.css">
+        <link href="fontawesome/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="/static/common/css/components.css">
+        <link rel="stylesheet" href="/static/common/css/style.css">
+        <!-- @app.route('/course/<cid>/modules/<mid>'-->
+        <script>
+
+
+
+
+            function moduleCall(no,type) {
+                
+               if(type=='Course'){ 
+                 location.href = "/course/A01/modules/M00" + no;
+               }else if(type=='Quiz')
+                 location.href = "/course/A01/quiz/qz00" + no;
+                 
+            }
+        </script>
+        <script>
+            //(12) ["guest", "A01", "M001", "SC01", "A01_2", 30, "link1", "04", 3, "inprogress", 30, 20]
+
+
+            $(document).ready(function() {
+
+            var courseDetails = {{courseDetails | safe}}
+            var courseHistoryDetails= {{courseHistoryDetails| safe}} 
+            var pageStatus= "{{pageStatus| safe}}"
+            alert(pageStatus)
+            if (pageStatus=="True"){
+               $('#btn1').click()
+               $($("#myModal").data("target")).modal("show");
+              // $("#msg").style()
+               // $("#msg").removeClass("fade")
+
+
+                }
+ 
+
+
+                 mod=[]  ,                   mod1=[] 
+                  progress="20"
+                  cid="A01"
+                  status="pending" 
+                  curExeStatus=5
+                  totExeStatus=10
+                  percentage=30 
+                 console.log(" module number started")   
+     
+                  console.log(courseDetails["courseId"])   
+ 
+ 
+                  console.log(courseDetails.Modules.length) 
+                    mod.push( '<span class="_cprogress"><span class="label">Progress: </span><span class="bar"><span class="bar__percent" style="width: '
+                             +'14'+'%;"></span></span><span class="percentage partial"><span class="percentage__progress">'
+                             +'4'+'</span>% completed</span> <span>'
+                             +'4' +' of '+ '95' +'exercises'+ '</span></span>')
+
+                   $("#_cprogress").html( mod.toString())
+
+                  for (let i=0; i< courseDetails.Modules.length;i++){ 
+                   var module=courseDetails.Modules[i]
+                   var part_no = "part-"+i
+                   var part_pointer_no = "part-pointer-"+i
+                   var mno=i+1
+                   var type="\'"+module.MType+"\'"
+                   module.status="Start"
+                   console.log(module.Mid) 
+                   console.log(module.MHead) 
+                   console.log(module.MType)                     
+                   console.log(module.status) 
+                   console.log(courseDetails.Modules ) 
+
+
+                   mod1.push('<div class="box box--course-part" id="'
+                             + part_no +'"><div><div class="content"><div><div class="part"><div class="content" id="'
+                             + part_pointer_no + '"><h3>' +  mno + '. '
+                             + module.MHead+'</h3><p class="description">'
+                             + module.MDesc+'</p></div><div class="manage"><div class="buttons" onclick="moduleCall('
+                             + mno +','+type+')"><span class="go-to-exercise-btn button flat">'
+                             + module.status+ '</span></div><div id="progress-part-1000115-div-id"><p class="percentage_completed"><span class="percentage partial"><span class="percentage__progress">'
+                             + module.percentage + '</span>% completed</span> <span>'
+                             + module.totalExercises+' of ' + module.completedExercises+' exercises</span></p></div></div></div></div></div></div></div>')
+   
+                    }
+                    console.log( mod1.toString())
+                    $("#partAA").html( mod1.toString())
+                 //   $("#currentQn").html(myObj.TaskId)
+                  //  completedQnCnt = myObj[8]
+
+            });
+
+        </script>
+    </head>
+
+    <body class="light theme_one"  >
+
+
+
+
+
+        <div id="header_wrapper">
+            <div id="header">
+                <div class="header__all">
+                        <div class="header_custom" style="color:black	">
+                  {% include 'coursePortal/courseHome/common/headerCourse.html' %}
+                   </div>
+                    <div class="header__content">
+ 
+                        <div class="header__main">
+                            <div class="header-layout theme_one">
+                                <div class="header-layout__main">
+                                    <div class="header-slogan">
+                                        <h1>Python Basics. Part 1</h1>
+                                        <p class="lead">Learn the basics of Python, show off your new skills on your resume, and accelerate your career!</p>
+                                        <div class="buttons" onclick="moduleCall(1)">
+                                            <span class="_cprogress">
+                                                <span class="label">Progress: </span><span class="bar"><span class="bar__percent" style="width: 0%;"></span>
+                                                      <span class="bar__free" style="width: 30%;">
+                                                      </span>
+                                                </span>
+                                                <span class="percentage partial"><span class="percentage__progress">0</span>% completed</span>
+                                                 <span>{{courseDetails[8]}} of 95 exercises done</span>
+                                            </span>
+                                        </div>
+                                        <div class="buttons">
+                                            <span data-purchase-type="course " class="link2 course_purchase_section_btn">Start</span><span class="link2" id="toc-div-id "><span>Table of contents</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Module Completed</h4>
+      </div>
+      <div class="modal-body">    
+        <span>
+          <p id="userMsg">Congratulation Module completed Successfully!</p>
+        </span>
+      </div>
+      <div class="modal-footer">
+        <button id="closeBtn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+
+  </div>
+
+  </div>
+  <button style="display:none" id="btn1" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+        <div id="content_wrapper">
+            <div id="content">
+                <div class="section">
+                    <div class="section__content">
+                        <div class="row">
+                            <div class="col_8"></div>
+                            <div class="col_4">
+                                <div class="floatingElement" style="margin-top: -1507px; width: 302px;">
+                                    <div class="box floatingMenuBox"></div>
+                                </div>
+                                <div id="marketing-slots-div-id "></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--dark">
+                    <div class="section__content">
+                        <div class="row">
+                            <div class="col_8">
+                                <div class="table-of-content-div" id="parts-div-id ">
+                                    <h2>Table of contents</h2>
+                                </div>
+                                <div class="box box--progress">
+                                    <div>
+                                        <div class="content">
+                                            <div id="_cprogress">
+
+ 
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="" id="partAA">
+                                
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+
+<!-- Bootstrap JavaScript -->
+
+<script src="/static/common/js/popper.min.js"></script>
+<script src="/static/common/js/bootstrap.min.js"></script> 
+
+    </body>
+</html>

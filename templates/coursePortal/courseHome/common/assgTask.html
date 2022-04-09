@@ -1,0 +1,48 @@
+{% extends "coursePortal/courseHome/common/baseTaskTemp.html" %}
+{% block title %} the_title {% endblock %}
+
+
+ 
+        {% block body %}
+
+ <div class="w3-main w3-light-grey" id="belowtopnav" style="margin-left: 60px;padding-top: 44px;width:100%">
+  <div class="w3-row w3-white">
+                                  <form action = "/course/{{courseId}}/{{mid}}/{{taskId}}/upload" id="myform" method = "POST" 
+                                      enctype = "multipart/form-data">
+                                     <input id="file" type = "file" name = "file" />
+                                     <input type = "submit"  />
+                                     
+
+                                   </form>
+ </div>
+
+  <div class="w3-row w3-white">
+       
+
+    <div id="leftmenuinnerinner" style="background-color:#E7E9EB;">   
+ 
+        {% if pgStatus == True %}
+           <p> {{msg}}</p> 
+       <a class="button primary" title="Control+Enter" onclick="next('{{userId}}', '{{courseId}}', '{{taskId}}','{{mid}}' )"> Next Question </a>
+        {% endif %}
+        {% if pgStatus == False %}
+           <embed src="/static/pdf/assgn.pdf" width="100%" height="875">
+        {% endif %}
+
+ 
+       </div>
+ </div>
+
+
+                              <div  class="card py-4 mb-4" id= "assgnContainer" style="margin-left:35px;margin-top:56px">  	
+
+						
+                              </div> 
+                              <button id="submit" class="btn btn-dark">Submit</button>
+                        </div>
+
+</div> 
+         {% endblock %}  
+      
+   
+

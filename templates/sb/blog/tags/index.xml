@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Tags on KCC Blog </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>/blog/tags/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Fri, 10 Nov 2017 08:22:12 -0700</updated>
+    
+    <item>
+      <title>Education</title>
+      <link>/blog/tags/education/</link>
+      <pubDate>Fri, 10 Nov 2017 08:22:12 -0700</pubDate>
+      
+      <guid>/blog/tags/education/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gamedev</title>
+      <link>/blog/tags/gamedev/</link>
+      <pubDate>Sat, 23 Mar 2019 05:22:12 PDT</pubDate>
+      
+      <guid>/blog/tags/gamedev/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gamification</title>
+      <link>/blog/tags/gamification/</link>
+      <pubDate>Sun, 23 Aug 2015 20:38:26 PDT</pubDate>
+      
+      <guid>/blog/tags/gamification/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Godot</title>
+      <link>/blog/tags/godot/</link>
+      <pubDate>Sat, 23 Mar 2019 05:22:12 PDT</pubDate>
+      
+      <guid>/blog/tags/godot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Procgen</title>
+      <link>/blog/tags/procgen/</link>
+      <pubDate>Tue, 18 Dec 2018 09:14:12 -0700</pubDate>
+      
+      <guid>/blog/tags/procgen/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pygame</title>
+      <link>/blog/tags/pygame/</link>
+      <pubDate>Sat, 12 Nov 2016 05:22:12 -0700</pubDate>
+      
+      <guid>/blog/tags/pygame/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>/blog/tags/python/</link>
+      <pubDate>Sat, 12 Nov 2016 05:22:12 -0700</pubDate>
+      
+      <guid>/blog/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shaders</title>
+      <link>/blog/tags/shaders/</link>
+      <pubDate>Sun, 06 Aug 2017 15:22:12 PDT</pubDate>
+      
+      <guid>/blog/tags/shaders/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Teaching</title>
+      <link>/blog/tags/teaching/</link>
+      <pubDate>Fri, 10 Nov 2017 08:22:12 -0700</pubDate>
+      
+      <guid>/blog/tags/teaching/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorial</title>
+      <link>/blog/tags/tutorial/</link>
+      <pubDate>Sat, 23 Mar 2019 05:22:12 PDT</pubDate>
+      
+      <guid>/blog/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

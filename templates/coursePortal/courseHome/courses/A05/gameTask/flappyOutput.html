@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+  <script src="https://kaboomjs.com/lib/0.5.1/kaboom.js"></script>
+</head>
+<body>
+<script>
+ kaboom({
+  global: true, // import all functions into global namespace
+  fullscreen: true, // render across entire browser window
+})
+loadRoot("https://socialblocks.in/static/game/sprites/")
+loadSprite("bird", "bird.png") 
+loadSprite("bg", "ocean.jpg") 
+scene("main", () => {
+
+  layers([
+    "game",
+    "ui",
+  ], "game")
+  const bg = add([
+    sprite("bg"),
+ 
+    pos(10, 80)
+  ])
+
+var count=3
+for(var i=0; i<count;  i++)  {
+  add([
+    sprite("bird"),
+    scale(0.08),
+    pos(80+10*i, 80) 
+  ])
+  
+}
+})
+
+ 
+
+// initiate game to the scene named "main"
+start("main")
+</script>
+</body>
+</ html>

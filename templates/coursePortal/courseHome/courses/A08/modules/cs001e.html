@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<!--link href="/static/css/main.css" rel="stylesheet"-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/static/js/1.12.4/jquery-ui.js"></script>
+<script src=/static/lib/codemirror.js></script>
+<link rel="icon" href="/static/images/sw.ico">
+<script src="http://www.skulpt.org/js/skulpt.min.js" type="text/javascript"></script>
+<script src="http://www.skulpt.org/js/skulpt-stdlib.js" type="text/javascript"></script>
+<!--link rel=stylesheet href=lib/codemirror.css-->
+
+<script src=/static/lib/xml.js></script>
+<script src=/static/lib/javascript.js></script>
+<script src=/static/lib/css.js></script>
+<script src=/static/lib/closetag.js></script>
+<script src="/static/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.47.0/mode/python/python.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/static/css/oneweb.css">
+<link rel="stylesheet" type="text/css" href="/static/css/Exercise.css">
+
+<style type="text/css">
+    @import url(//fonts.googleapis.com/css?family=Open+Sans:200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic,200,300,400,500,600,700,800);
+</style>
+<style>
+    #articles_h1 {
+
+
+        padding: 2em 30px;
+    }
+
+    #articles_content {
+        padding-top: 30px;
+        padding-left: 30px;
+        padding-right: 30px;
+
+    }
+</style>
+<title>SocialWings</title>
+</head>
+
+<body class="light wide python exercise-screen ScrollAreaConfig--19 ScrollAreaConfig--active">
+    <script>
+        $(document).ready(function () {
+            loadFlag = false;
+            loadQnAns();
+
+            // reading from learning history below details
+            // score, section, exercise   
+            //1. complete all the section which are done by changing class .done
+            // making the tick mark
+            //spinner while submitting the exercise
+
+            $('#courseSummmary').click(function () {
+                $(".main-part").toggleClass("opened");
+
+            })
+            $('#section-1-header').click(function () {
+                let item = $(this).siblings('#section-1-list').first();
+                item.slideToggle();
+            })
+
+            $('#section-2-header').click(function () {
+                let item = $(this).siblings('#section-2-list').first();
+                item.slideToggle();
+            })
+
+            $('#section-3-header').click(function () {
+                let item = $(this).siblings('#section-3-list').first();
+                item.slideToggle();
+            })
+            $('#section-4-header').click(function () {
+                let item = $(this).siblings('#section-4-list').first();
+                item.slideToggle();
+            })
+
+            $('#section-5-header').click(function () {
+                let item = $(this).siblings('#section-5-list').first();
+                item.slideToggle();
+            })
+            $('.articles').click(function () {
+
+
+
+            })
+$("#section-3-exercise-1").click(function(e){
+   e.preventDefault();
+    
+exercise_click("CP0102")
+})
+$("#section-3-exercise-4").click(function(e){
+   e.preventDefault();
+ 
+exercise_click("CP0113")    
+        })
+ 
+
+$("#section-2-exercise-1").click(function(e){
+   e.preventDefault();
+ 
+exercise_click("CP0101")    
+        })
+    });
+        function loadQnAns() {
+
+
+
+            //check if session exist
+            // check learning history   
+            // make all the sections done
+            // addtotalquestion current question
+            // current course
+
+            qno = 'CP0102'
+           var qrepo = qRepocall(qno)
+           // console.log("***********reloadoutput" + qrepo);
+
+
+        }
+    function exercise_click(qno) {
+   str = "http://46.101.210.184:5000/engine/python/qnRepo/"
+            console.log("webservice call" + str)
+            //  alert("newload of questions")
+            parameters = ""
+    
+            jsonData = JSON.stringify({ "TaskId": qno, "courseId": "CP0102" })
+
+
+  $.ajax({
+                type: 'POST',
+                url: str,
+                data: jsonData,
+                contentType: "application/json",
+                error: function(jqXHR, textStatus, errorThrown) {
+                 alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
+
+                 $('#result').html('<p>status code: '+jqXHR.status+'</p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div>'+jqXHR.responseText + '</div>');
+                 console.log('jqXHR:');
+                 console.log(jqXHR.responseText);
+                 console.log(jqXHR.status);
+
+
+                 console.log('textStatus:');
+                 console.log(textStatus);
+                 console.log('errorThrown:');
+                 console.log(errorThrown);
+
+                 return false;
+               },
+               success: function(result){
+               var myObj = JSON.parse(result);
+             //  alert(result)
+                        $("#courseSummmary").html(myObj.topicDesc);
+                       // alert( myObj.topicDesc)
+                        $("#instruction_container").html(myObj.instruction);
+                        $("#content_container").html(myObj.exercise);
+           
+                        console.log(myObj.topicDesc);
+        
+ 
+                  
+  
+                $(".main-part").toggleClass("opened");
+
+          
+
+                return false;
+
+       }
+  
+  });}
+ 
+ 
+        function add_To_Console(text) {
+
+            console.log("add to console" + text);
+            var resultPyOut = document.getElementById("iframewrapper");
+
+            var tag = document.createElement("pre");
+            var textNode = document.createTextNode(text);
+            tag.appendChild(textNode);
+
+            resultPyOut.appendChild(tag);
+
+
+        }
+
+
+ 
+        function qRepocall(qno) {
+
+            
+            alert("************"+qno)
+            var resultPyOut = document.getElementById("iframewrapper");
+            console.log("output- question from db" + qno)
+            str = "http://46.101.210.184:5000/engine/python/qnRepo/"
+            console.log("webservice call" + str)
+            //  alert("newload of questions")
+            parameters = ""
+            jsonData = JSON.stringify({ "TaskId": qno, "courseId": "CP0102" })
+
+            $.ajax({
+                type: 'POST',
+                url: str,
+                data: jsonData,
+                contentType: "application/json",
+                
+             error: function(jqXHR, textStatus, errorThrown) {
+                alert('An error occurred... Look at the console (F12 or Ctrl+Shift+I, Console tab) for more information!');
+
+                $('#result').html('<p>status code: '+jqXHR.status+'</p><p>errorThrown: ' + errorThrown + '</p><p>jqXHR.responseText:</p><div>'+jqXHR.responseText + '</div>');
+                console.log('jqXHR:');
+                console.log(jqXHR.responseText);
+                console.log(jqXHR.status);
+
+
+                console.log('textStatus:');
+                console.log(textStatus);
+                console.log('errorThrown:');
+                console.log(errorThrown);
+
+                return false;
+            },
+
+            /**
+             * A function to be called if the request succeeds.
+             */
+    success: function(data, textStatus, jqXHR) {
+
+               var myObj = JSON.parse(data);
+
+                        $("#courseSummmary").html(myObj.topicDesc);
+                        alert( myObj.topicDesc)
+                        $("#instruction_container").html(myObj.instruction);
+                        $("#content_container").html(myObj.exercise);
+           
+                        console.log(myObj.topicDesc);
+        
+ 
+                        console.log('data:');
+                        console.log(data);
+
+                return false;
+            }
+
+  });
+}
+               
+
+        function dbacall() {
+            //text= $('input[name="pyout"]').val();
+            //empId=823903 $('input[name="EmployeeId"]').val();
+            //qno=$('input[name="qno"]').val();
+
+            var resultPyOut = document.getElementById("iframewrapper");
+            ans = resultPyOut.innerHTML
+            empId = '823903' + Math.floor(Math.random() * 10)
+
+            console.log("Db out" + empId + " //" + ans)
+            $.post("/engine/python/ass02",
+                {
+                    ans: "text",
+                    EmpId: "empId",
+                    QNo: "qno"
+                },
+                function (data, status) {
+
+
+                    //      console.log("Data: " + data + "\nStatus: " + status);
+                    //    console.log("Success");
+                    return data;
+                });
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    <div id="header_wrapper">
+        <div id="header">
+            <div class="header__decor">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="header__all">
+                <div class="header__content">
+                    <div class="header__top">
+                        <div class="hmenu mainmenu">
+                            <div class="hmenu_item"><a class="title" href=""></a> </div>
+                        </div>
+                        <div class="profile">
+                            <button class="hamburger">Menu</button>
+                            <div class="hmenu">
+                                <ul>
+                                    <li class="hmenu_item">
+                                        <div class="hmenu">
+
+                                        </div>
+                                    </li>
+                                    <li class="hmenu_item my_profile">
+                                        <div class="hmenu">
+                                            <ul>
+                                                <li class="hmenu_item hmenu_item--isDropdownMenu"><span><span
+                                                            class="imgWrapper"><span class="img"><img alt=""
+                                                                    src="/static/images/user.png&quot;"></span></span><span
+                                                            class="text"><span class="commonText">My profile
+                                                            </span><span class="fullName">Guest</span></span>
+                                                    </span>
+                                                    <div class="menu">
+                                                        <ul>
+                                                            <li><a id="recommend_app_id"><span>Recommend us</span></a>
+                                                                <script type="text/javascript">
+																//	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","recommend_app_id","epoint.ow.Utils.buttonDefaultsHandler",null);},90,null);
+                                                                </script>
+                                                                <script type="text/javascript">
+																//	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","recommend_app_id","SqlAcademy.Modals.openAppRecommendationModal");epoint.ow.Utils.bindEvent("click","recommend_app_id","SqlAcademy.Util.clickTrack","Recommendation form");},null,null);
+                                                                </script>
+                                                            </li>
+                                                            <li><a href="  my-profile" id="btn13"><span>My
+                                                                        Profile</span></a>
+                                                                <script type="text/javascript">
+																//	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","btn13","epoint.ow.Utils.buttonDefaultsHandler",null);},90,null);
+                                                                </script>
+                                                            </li>
+                                                            <li><a href="  my-courses" id="btn14"><span>My
+                                                                        courses</span></a>
+                                                                <script type="text/javascript">
+																//	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","btn14","epoint.ow.Utils.buttonDefaultsHandler",null);},90,null);
+                                                                </script>
+                                                            </li>
+                                                            <li><a href="  change-email-notifications"
+                                                                    id="btn15"><span>Email notifications</span></a>
+                                                                <script type="text/javascript">
+																//	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","btn15","epoint.ow.Utils.buttonDefaultsHandler",null);},90,null);
+                                                                </script>
+                                                            </li>
+                                                            <li><a href="  purchase-history" id="btn16"><span>Purchase
+                                                                        history</span></a>
+                                                                <script type="text/javascript">
+																//	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","btn16","epoint.ow.Utils.buttonDefaultsHandler",null);},90,null);
+                                                                </script>
+                                                            </li>
+                                                            <li></li>
+                                                            <li><a id="btn17" href="/logout"><span>Log out</span></a>
+                                                                <script type="text/javascript">
+																//	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","btn17","epoint.ow.Utils.buttonDefaultsHandler",null);},90,null);
+                                                                </script>
+                                                                <script type="text/javascript">
+																//	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","btn17","SqlAcademy.Util.clearSessionStorageAndLogout");},null,null);
+                                                                </script>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header__main">
+                        <div class="exercise-header">
+                            <div class="navi-return-div">
+                                <a href="/course/python">Back to
+                                    course details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="content_wrapper" style="padding-top: 61px;">
+        <div id="content">
+
+            <link href="/static/css/recurly.css" rel="stylesheet" type="text/css">
+            <div class="main-divs">
+                <div class="west" style="width: 796px;">
+                    <div class="main-part">
+                        <div class="navi-exercise-num-div" id="navi-exercise-id" title="input() function">
+                            <span class="num">18/22 </span>
+                            <span id="courseSummmary" class="name">Python Basic course</span>
+                        </div>
+                        <div class="content">
+                            <div id="sections-div" class="ScrollArea">
+                                <div class="ScrollArea__wrapper">
+                                    <div class="ScrollArea__content">
+                                        <div class="section" id="section-1">
+                                            <div class="header" id="section-1-header">Introduction</div>
+                                            <div class="section-exercise-list" id="section-1-list">
+                                                <div class="section-exercise" id="section-1-exercise-1">
+                                                    <a href=" ">
+                                                        <span>1.
+                                                            Welcome to our course</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="section" id="section-2">
+                                            <div class="header" id="section-2-header">The print function</div>
+                                            <div class="section-exercise-list" id="section-2-list">
+                                                <div class="section-exercise done" id="section-2-exercise-1">
+                                                    <a href="" onclick="qRepocall('CP0101')">
+                                                        <span>2.
+                                                            Hello World</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-2-exercise-2">
+                                                    <a href="" onclick="qRepocall('12')">
+                                                        <span>3.
+                                                            Hello World explained</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-2-exercise-3">
+                                                    <a href="" onclick="qRepocall('13')">
+                                                        <span>4.
+                                                            Escaping single quotation marks and apostrophes</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-2-exercise-4">
+                                                    <a href="" onclick="qRepocall('14')">
+                                                        <span>5.
+                                                            Printing numbers</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-2-exercise-5">
+                                                    <a href="" onclick="qRepocall('15')">
+                                                        <span>6.
+                                                            Printing strings and numbers together</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-2-exercise-6">
+                                                    <a href="" onclick="qRepocall(16)">
+                                                        <span>7.
+                                                            Multiple statements in Python</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="section" id="section-3">
+                                            <div class="header" id="section-3-header">Variables</div>
+                                            <div class="section-exercise-list" id="section-3-list">
+                                                <div class="section-exercise" id="section-3-exercise-1">
+                                                    <a href="" onclick=" ">
+                                                        <span>8.
+                                                            Creating variables</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-3-exercise-2">
+                                                    <a href="" onclick="qRepocall('18')">
+                                                        <span>9.
+                                                            Assigning new values to variables</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-3-exercise-3">
+                                                    <a href="" onclick="qRepocall('19')">
+                                                        <span>10.
+                                                            Undefined variables</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-3-exercise-4">
+                                                    <a href="" >
+                                                        <span>11.
+                                                            Integers, strings, and floats</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="section" id="section-4">
+                                            <div class="header" id="section-4-header">Math in Python</div>
+                                            <div class="section-exercise-list" id="section-4-list">
+                                                <div class="section-exercise" id="section-4-exercise-1">
+                                                    <a href="" onclick="qRepocall('21')">12</a>
+                                                </div>
+                                                <div class="section-exercise" id="section-4-exercise-2">
+                                                    <a href="" onclick="qRepocall('22')">
+                                                        <span>13.
+                                                            Multiplying and dividing numbers</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-4-exercise-3">
+                                                    <a href="" onclick="qRepocall('23')">
+                                                        <span>14.
+                                                            Floor division operation</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-4-exercise-4">
+                                                    <a href="" onclick="qRepocall('24')">
+                                                        <span>15.
+                                                            Power operator</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-4-exercise-5">
+                                                    <a href="" onclick="qRepocall('25')">
+                                                        <span>16.
+                                                            Modulo operation</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-4-exercise-6">
+                                                    <a href="" onclick="qRepocall('26')">
+                                                        <span>17.
+                                                            Parentheses in mathematical operations</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="section opened" id="section-5">
+                                            <div class="header" id="section-5-header">The input function</div>
+                                            <div class="current-section-exercise-list" id="section-5-list">
+                                                <div class="section-exercise selected" id="section-5-exercise-1">
+                                                    <a href="" onclick="qRepocall('27')">
+                                                        <span>18. input() function</span>
+                                                    </a>
+                                                </div>
+
+
+                                                <div class="section-exercise" id="section-5-exercise-2">
+                                                    <a href="" onclick="qRepocall('27')">
+                                                        <span>19.
+                                                            Convert between types</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="section" id="section-6">
+                                            <div class="header" id="section-6-header">Summary</div>
+                                            <div class="section-exercise-list" id="section-6-list">
+                                                <div class="section-exercise" id="section-6-exercise-1">
+                                                    <a href="" onclick="qRepocall('28')">
+                                                        <span>20.
+                                                            Summary</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-6-exercise-2">
+                                                    <a href="" onclick="qRepocall('29')">
+                                                        <span>21.
+                                                            Question</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-6-exercise-3">
+                                                    <a href="" onclick="qRepocall('congraturlations')">
+                                                        <span>
+                                                            <span>22.
+                                                                Congratulations</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="scroll hscroll">
+                                        <span class="scroll__thumb" style="left: 0%; width: 100%;"></span>
+                                    </div>
+                                    <div class="scroll vscroll">
+                                        <span class="scroll__thumb" style="top: 0%; height: 100.106%;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="left-div" class="ScrollArea">
+                                <div class="ScrollArea__wrapper">
+                                    <div class="ScrollArea__content">
+                                        <div class="instruction-div">
+                                            <div class="header">
+                                                <h2>Instruction</h2>
+                                            </div>
+                                            <div class="content formatted" id="instruction_container"></div>
+                                        </div>
+                                        <div class="content-hints-div">
+                                            <div class="header">
+                                                <h2>Exercise</h2>
+                                            </div>
+                                            <div class="content formatted">
+                                                <div id="content_container"></div>
+                                                <div class="hints-div">
+                                                    <div class="header" id="hints-id">
+                                                        <h3>Stuck? Here's a hint!</h3>
+                                                    </div>
+                                                    <div class="content" id="hint_container">Use
+                                                        <code>input(...)</code> to get the values from the user.
+                                                        Finally, use
+                                                        <code>print</code> to show the following sentence:
+
+                                                        <p></p>
+                                                        <pre>Hello {name}</pre>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="scroll hscroll">
+                                        <span class="scroll__thumb" style="left: 0%; width: 100%;"></span>
+                                    </div>
+                                    <div class="scroll vscroll">
+                                        <span class="scroll__thumb" style="top: 0%; height: 100.106%;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner-part"></div>
+                </div>
+                <!-- some issue in the next div-->
+                <div class="hdivider ui-draggable ui-draggable-handle" id="hdivider" style="left: 796px;">
+                    <div></div>
+                </div>
+                <div class="at-west" style="max-width:70%">
+                    <div class="center" id="center-panel">
+                        <div class="ConsoleEditor" style="max-height:100%;">
+                            <div class="console-div" style="max-height: 40%; height: 390px;">
+                                <div class="content">
+                                    <div class="tabs">
+                                        <div class="header">
+                                            <span class="tab selected">
+                                                <span>
+                                                    <span>Code
+                                                        editor</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="content">
+                                            <textarea id="editor" placeholder="Your code..."
+                                                onchange=' console.log("change")'># input source code</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <div class="buttons">
+                                        <a class="button primary" title="Control+Enter" onclick="runit()"> Run and check
+                                            code </a>
+                                        <a class="button minor" title="Alt+R"> Reset </a>
+                                        <a style="margin-left: 450px; display:none" class="button nextEx primary"
+                                            title="Next Exercise" onclick="loadNextQn()"> Next exercise </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="divider ui-draggable ui-draggable-handle" style="top: 452px;">
+                                <div></div>
+                            </div>
+                            <div class="Result result-div" style="max-height: 55%; height: 590px;">
+                                <div class="content">
+                                    <div class="tabs">
+                                        <div class="header">
+                                            <span class="selected tab">
+                                                <span>
+                                                    <span>console</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="content">
+                                            <div class="Result__data">
+                                                <div id="codemirror-console" style="padding-top: 10px;">
+                                                    <textarea style="display: none;"></textarea>
+                                                    <div class="CodeMirror cm-s-default" style="width: 100%;">
+                                                        <div
+                                                            style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 50.673px; left: 3.99304px;">
+                                                            <textarea id="out1" autocorrect="off" autocapitalize="off"
+                                                                spellcheck="false"
+                                                                style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"
+                                                                tabindex="0"></textarea>
+                                                        </div>
+                                                        <div class="CodeMirror-vscrollbar" cm-not-content="true">
+                                                            <div style="min-width: 1px; height: 0px;"></div>
+                                                        </div>
+                                                        <div class="CodeMirror-hscrollbar" cm-not-content="true">
+                                                            <div style="height: 100%; min-height: 1px; width: 0px;">
+                                                            </div>
+                                                        </div>
+                                                        <div class="CodeMirror-scrollbar-filler" cm-not-content="true">
+                                                        </div>
+                                                        <div class="CodeMirror-gutter-filler" cm-not-content="true">
+                                                        </div>
+                                                        <div class="CodeMirror-scroll" tabindex="-1">
+                                                            <div class="CodeMirror-sizer"
+                                                                style="margin-left: 0px; margin-bottom: -19px; border-right-width: 11px; min-height: 70px; min-width: 333.451px; padding-right: 0px; padding-bottom: 0px;">
+                                                                <div style="position: relative; top: 0px;">
+                                                                    <div class="CodeMirror-lines" role="presentation">
+                                                                        <div role="presentation"
+                                                                            style="position: relative; outline: none;">
+                                                                            <div class="CodeMirror-measure"></div>
+                                                                            <div class="CodeMirror-measure"></div>
+                                                                            <div
+                                                                                style="position: relative; z-index: 1;">
+                                                                            </div>
+                                                                            <div class="CodeMirror-cursors"
+                                                                                style="visibility:  ;">
+                                                                                <div class="CodeMirror-cursor"
+                                                                                    style="left: 3.99304px; top: 46.68px; height: 15.5556px;">
+                                                                                    &nbsp;</div>
+                                                                            </div>
+                                                                            <div id="iframewrapper"
+                                                                                class="CodeMirror-code"
+                                                                                role="presentation">
+                                                                                <pre class=" CodeMirror-line "
+                                                                                    role="presentation"></pre>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div
+                                                                style="position: absolute; height: 11px; width: 1px; border-bottom: 0px solid transparent; top: 70px;">
+                                                            </div>
+                                                            <div class="CodeMirror-gutters"
+                                                                style="display: none; height: 81px;"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hdivider ui-draggable ui-draggable-handle" id="hdivider2"
+                        style="display: none; left: 1552.99px;">
+                        <div></div>
+                    </div>
+                    <div class="east" id="east-panel" max-width="30%">
+                        <div class="side-bar">
+                            <ul class="header">
+                                <li class="discuss">
+                                    <span>
+                                        <span class="img"></span>Discuss
+                                    </span>
+                                </li>
+                                <li class="articles">
+                                    <span>
+                                        <span class="img"></span>Related articles
+                                    </span>
+                                </li>
+                                <li class="datasets">
+                                    <span>
+                                        <span class="img"></span>Datasets
+                                    </span>
+                                </li>
+                            </ul>
+                            <div class="section" id="articles" style="display: flex;">
+                                <div class="header">
+                                    <h2 id="articles_h1">Related articles</h2>
+                                </div>
+                                <div id="articles_content" class="content">
+                                    <div>
+                                        <p></p>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-bar"></div>
+                </div>
+                <div class="loader-wrapper">
+                    <img src="static/images/ajax-loader.gif">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer_wrapper">
+        <div id="footer"></div>
+    </div>
+
+</body>
+<script>
+    loadFlag = false;
+    console.log("start flag" + loadFlag);
+    if (loadFlag == false) {
+        var mypre = document.getElementById("editor");
+        console.log("start" + mypre);
+        mypre.innerHTML = ""
+        var editor = new CodeMirror.fromTextArea(document.getElementById("editor"), {
+       
+            mode: 'python',
+            theme: "dracula",
+            lineWrapping: false,
+        parserfile: ["/static/js/parsepython.js"],
+        stylesheet: "/static/css/pythoncolors.css",
+        path: "/static/js/",
+        lineNumbers: true,
+        textWrapping: false,
+        indentUnit: 4,
+        parserConfig: {'pythonVersion': 3, 'strictErrors': true}
+
+
+        })
+        loadFlag = true;
+
+        var setheight = $(".console-div").height() > "500" ? "380x" : "380px";
+        $('.console-div').css({
+            height: setheight
+        });
+        var setheight = $(".result-div").height() > "500" ? "590px" : "590px";
+        $('.result-div').css({
+            height: setheight
+        });
+    } </script>
+
+</html>

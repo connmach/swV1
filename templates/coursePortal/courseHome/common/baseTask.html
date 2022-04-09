@@ -1,0 +1,305 @@
+<html>
+
+<head>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <script src="/static/js/custom.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/static/js/1.12.4/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/common/css/oneweb.css">
+    <link rel="stylesheet" type="text/css" href="/static/common/css/Exercise.css">
+    <link rel="stylesheet" type="text/css" href="/static/mcqv2.0/css/style.css">
+    <style type="text/css">
+        @import url(//fonts.googleapis.com/css?family=Open+Sans:200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic,200,300,400,500,600,700,800);
+    </style>
+
+    <title>SocialWings</title>
+</head>
+<!--> needs to be optimizd<-->
+<body class="light wide python exercise-screen ScrollAreaConfig--19 ScrollAreaConfig--active"
+    data-new-gr-c-s-check-loaded="14.996.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="14.996.0">
+
+
+    <script>
+        var myObj = {{ json | safe}}
+ 
+        function run(action, taskType) {
+
+            console.log(myObj.gradeType);
+            console.log("invoke grading" + '{{courseId}}' + "//" + '{{taskId}}' + "//" + myObj.ModuleId + "//" + myObj.gradeType + "//" + '{{userId}}')
+            runit('{{courseId}}', '{{taskId}}', myObj.ModuleId, myObj.gradeType, '{{userId}}', action, taskType)
+            updateTask('{{courseId}}', myObj.ModuleId,'{{userId}}','{{taskId}}') 
+        }
+
+        function nextTask(){
+            console.log("next Task Id");
+        }
+
+        $(document).ready(function () {
+          var mdObj = {{mdDetails| safe}}
+          console.log("mdDetails obj")
+          console.log(mdObj )
+          console.log(myObj.gradeType);
+
+
+            $("section-1").addClass('done')
+            loadFlag = false;
+
+            console.log("add to console " + '{{fileTreeNavigation}}');
+            console.log("Task page" + '{{courseId}}' + "//" + '{{taskId}}' + "//" + myObj.ModuleId + "//" + myObj.gradeType + "//" + '{{userId}}')
+
+            discussState = true;
+            articlesState = true;
+            //var myObj = { "status": "OK", "TaskId": "A11_2", "NxtQn": "not linked", "topicDesc": "We need to select studentId from students table", "instruction": "<p>Good! Let's move on to selection of specific data from a table. <b>Students</b></p> \n<p>Students table sample data as belwo .</p> \n<pre>Students Id , Students Name, Students marks<br/> A12 Jacob Geroge 450<br/> A13 Paula  Geroge 150<br/> A14 Guru murthy 530</pre> \n<p>This line of code:</p> \n \n<p>The  below statement select the students name from the students table <code>select students name from students</code> :</p> \n< ", "exercise": "\n<p>Modify the query to select students Id from students table:</p>\n<pre>A12<br/>A13<br/>A14<br/></pre>", "section": "Python Basics" };
+            $("#currentQn").html(myObj.TaskId)
+
+
+
+            NxtQn = myObj.NxtQn
+            NxtQnURL = "/course/A01/module/M001/" + NxtQn
+            $("#nextEx").attr("href", NxtQnURL)
+            $("#courseSummmary").html(myObj.topicDesc)
+            $("#instruction_container").html(myObj.instruction);
+            $("#content_container").html(myObj.exercise);
+            //      
+            $(".main-part").addClass('opened') 
+            // $(".main-part").toggleClass("opened")
+            $('.west').show();
+ 
+
+            $('#window').click(function () {
+
+                if (discussState == true) {
+                    if ("{{taskType}}" == "Video" || "{{taskType}}" == "Quiz") {
+
+                        //      $(".main-part").toggleClass("opened")
+                    }
+                    $('.west').hide();
+
+
+                    discussState = !discussState
+                } else {
+
+                    discussState = !discussState
+
+                    if ("{{taskType}}" == "Video" || "{{taskType}}" == "Quiz") {
+
+
+
+                        //   $(".main-part").toggleClass("opened")
+
+                    }
+                    $('.west').show();
+
+
+                }
+                $('.west').css({
+                    width: "496px"
+                });
+
+                // $('.west').toggleClass("slideClose");
+
+
+            })
+
+            $('.articles').click(function () {
+                alert("articles")
+                //$(".main-part").toggleClass("opened
+                if (articlesState == true) {
+                    $('#articles').show();
+                    $('.side-bar').addClass('expanded')
+
+                    $('.at-west').css({ width: "196px" });
+                    articlesState = !articlesState
+                } else {
+                    articlesState = !articlesState
+                    $('#articles').hide();
+                    $('.ConsoleEditor').css({ width: "496px" });
+                }
+
+
+            })
+
+
+
+            //editor.setValue("print('Hello, World!')");
+            console.log("add to console " + myObj.topicDesc);
+
+            // reading from learning history below details
+            // score, section, exercise   
+            //1. complete all the section which are done by changing class .done
+            // making the tick mark
+            //spinner while submitting the exercise
+            $(".main-part").toggleClass("opened");
+
+            $('#courseSummmary').click(function () {
+                $(".main-part").toggleClass("opened");
+            })
+            $('#section-1-header').click(function () {
+                let item = $(this).siblings('#section-1-list').first();
+                item.slideToggle();
+            })
+            $('#section-2-header').click(function () {
+                let item = $(this).siblings('#section-2-list').first();
+                item.slideToggle();
+            })
+            $('#section-3-header').click(function () {
+                let item = $(this).siblings('#section-3-list').first();
+                item.slideToggle();
+            })
+            $('#section-4-header').click(function () {
+                let item = $(this).siblings('#section-4-list').first();
+                item.slideToggle();
+            })
+            $('#section-5-header').click(function () {
+                let item = $(this).siblings('#section-5-list').first();
+                item.slideToggle();
+            })
+
+        });
+    </script>
+
+    {% include 'coursePortal/courseHome/common/headerCourse.html' %}
+
+    <div id="content_wrapper" class="mt-80" style="padding-top: 10px;">
+        <div id="content">
+            <div class="container-fluid p-0">
+                <div class="m-0 main-divs row">
+                    <div class="col-lg-3 col-12 west slideClose" style="display:none">
+                        <div class="main-part">
+                            <div class="navi-exercise-num-div" id="navi-exercise-id" title="input() function">
+                                <span id="num" class="num"> </span>
+                                <span id="courseSummmary" class="name">Basic Python</span>
+                            </div>
+                            <div class="content">
+                                <!--test -->
+
+                                {% set modulePath = courseModulePath %}
+                                {% include modulePath %}
+
+                                <div id="left-div" class="ScrollArea">
+                                    <div class="ScrollArea__wrapper">
+                                        <div class="ScrollArea__content">
+                                            <div class="instruction-div">
+                                                <div class="header">
+                                                    <h2>Instruction</h2>
+                                                </div>
+                                                <div class="content formatted" id="instruction_container">
+
+                                                </div>
+                                            </div>
+                                            <div class="content-hints-div">
+                                                <div class="header">
+                                                    <h2>Exercise</h2>
+                                                </div>
+                                                <div class="content formatted">
+                                                    <div id="content_container">
+
+                                                    </div>
+                                                    <div class="hints-div">
+                                                        <div class="header" id="hints-id">
+                                                            <h3>Stuck? Here's a hint!</h3>
+                                                        </div>
+                                                        <div class="content" id="hint_container">Use
+                                                            <code>input(...)</code>
+                                                            to get the values from
+                                                            the user. Finally, use <code>print</code> to show the
+                                                            following
+                                                            sentence:
+                                                            <p></p>
+                                                            <pre>Hello {name}</pre>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="scroll hscroll"> <span class="scroll__thumb"
+                                                style="left: 0%; width: 100%;"></span>
+                                        </div>
+                                        <div class="scroll vscroll"> <span class="scroll__thumb"
+                                                style="top: 0%; height: 100.106%;"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="banner-part"></div>
+                    </div>
+
+                    {% if fileTreeNavigation == True %}
+                    {% include 'coursePortal/courseHome/common/filetree.html' %}
+                    {% endif %}
+
+                    <!-- some issue in the next div-->
+
+                    <div class="col-lg col-12 ">
+                        <style>
+                            #window {
+                                background-position: -5px -54px;
+                                margin-top: 15px;
+                                background-repeat: no-repeat;
+                                background-image: url(/static/images/sprite-exercise.png);
+                                overflow: hidden;
+                                display: inline-block;
+                                width: 15px;
+                                height: 11px;
+                            }
+                        </style>
+                        <!--span id="window" class="name"></span-->
+                        {% block body %}
+
+
+                        {% endblock %}
+                    </div>
+
+
+                    <div class="col-12 col-lg-1 east p-0" id="east-panel">
+                        <div class="side-bar">
+                            <ul class="header">
+                                <li class="discuss"> <span>
+                                        <span class="img1"></span>Discuss</span>
+                                </li>
+                                <li class="articles"> <span>
+                                        <span class="img1"></span>Related articles</span>
+                                </li>
+                                <li class="datasets"> <span>
+                                        <span class="img1"></span>Datasets</span>
+                                </li>
+                            </ul>
+                            <div class="section" id="articles" style="display: none;">
+                                <div class="header">
+                                    <h2 id="articles_h1">Related articles</h2>
+                                </div>
+                                <div id="articles_content" class="content">
+                                    <div>
+                                        <p></p>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-bar"></div>
+                </div>
+            </div>
+
+
+            <div class="loader-wrapper">
+                <img src="static/images/ajax-loader.gif">
+            </div>
+        </div>
+    </div>
+
+    <div id="footer_wrapper">
+        <div id="footer"></div>
+    </div>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/common/css/bootstrap.min.css">
+    <link href="fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/common/css/components.css">
+    <link rel="stylesheet" href="/static/common/css/style.css">
+    <link href="/static/css/recurly.css" rel="stylesheet" type="text/css">
+    <script src="/static/js/grading.js"></script>
+</body>
+
+</html>

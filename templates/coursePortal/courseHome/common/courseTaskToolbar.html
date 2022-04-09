@@ -1,0 +1,38 @@
+<script>
+    language= "{{language}}";
+</script>
+
+{% if language == "react" %}
+ 
+{% endif %}
+
+{% if language == "python" %}
+
+{% endif %}
+<div class="footer">
+    <div id="run-loader" style="display: none;" class="loader1">
+        <img src="/static/images/loader.gif" />
+        <p>In Progress</p>
+    </div>
+
+    <div class="buttons">
+        <a id="Testresult" class="" title="Control+Enter" onclick="" style="font-weight: bold;"> ConsoleOutput </a>
+        <a style="font-weight: bold;" id="Custom inputs" class="" title="Control+Enter" onclick="takeInput()"> Custom
+            inputs </a>
+        <span style="margin-right: 452px;"> </span>
+        <a class="button primary" title="Control+Enter" onclick="runit('compile')"> Run and check code </a>
+        <!--a id="submit" class="button primary" title="Control+Enter" onclick="next('{{userId}}', '{{courseId}}', '{{taskId}}','{{mid}}' )"> Submit </a-->
+         <a id="submit" class="button primary" title="Control+Enter" > Submit </a>
+
+    </div>
+</div>
+
+<!--div id="customInput" class="Result result-div" style="display:none;">
+<div id="customInputContent" class="content">
+<div class="tabs">
+    <textarea id="customInputData"> </textarea>
+</div>
+</div>
+</div-->
+ 
+ 

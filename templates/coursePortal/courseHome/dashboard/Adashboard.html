@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WDR5ZL6');</script>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+        <script src="/bootstrap.min.js"></script>
+    <script src="/static/js/1.12.4/jquery-ui.js"></script>
+    <script>
+            var userDetails = {{ details | safe}}
+            var _webinarHistory = {{ webinarHistory | safe}}
+            var temp= {{ courseHistory | safe}}
+//#need to be fixed
+            var recCourseList=temp.courseHistory
+            var _testHistory = {{ testHistory | safe}}
+            var items = `{{ activities| safe}}`
+            console.log(typeof recCourseList)
+            console.log(userDetails.learningPathCrnt)
+            console.log(userDetails.learningPathNxt)
+
+            courseList=[]
+            for (let i=0; i< recCourseList.length;i++){ 
+
+            var courseId=recCourseList[i].courseId
+            var courseTitle=recCourseList[i].courseDesc
+            var moduleId=recCourseList[i].courseId
+            var moduleDesc=recCourseList[i].moduleDesc
+            var courseLink="/course/"+moduleId
+            var progress = recCourseList[i].progress
+            var status= recCourseList[i].status
+
+//            console.debug(module.Mid)
+  //          console.debug(module.MHead)
+    //        console.debug(module.MType)
+
+
+            courseList.push('<div class="col-12 col-md-6 col-lg-3 mb-3">'
+                + '<div class="c-card-1 d-flex flex-column align-items-start">'
+                    + '<p class="fs-4 font-weight-bold">'+courseTitle + '</p>'
+                    + '<p class="mt-auto">'+ moduleDesc + '</p>'
+                    +'<div class="w-100 mb-3 c-progress-bar">'
+                        +'<div class="progress">'
+                            +'<div class="progress-bar" style="width: 75%"></div></div></div>'
+                    +'<a href='+courseLink +' class="btn c-btn-3">'+ status+'</a></div></div>' )
+   
+            }
+ 
+             
+           console.log(courseList.toString())
+
+    </script>
+
+    <!-- End Google Tag Manager -->
+    <title>SocialWing</title>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WDR5ZL6" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    {% include 'coursePortal/courseHome/common/headerCourse.html' %}
+
+    <section class="mt-80">
+        <div class="container-fluid">
+            <div class="dash-details px-5 py-4 bg-c-1">
+                <div class="row">
+                    <div class="col-12 col-lg-7 d-flex align-items-center">
+                        <div class="row">
+                            <div class="col-auto d-flex align-items-center">
+                                <a href="/course/profile/p01">
+                                    <img src="/static/common/img/profile.png" class="img-fluid profile-img" alt="#">
+                                </a>
+                            </div>
+                            <div class="col">
+                                <p class="fs-5 font-weight-bold mb-1">Hello, {{userId}}</p>
+                                <p class="fs--1 mb-0 text-gray">Your Ninja Score</p>
+                                <p id="ninjaScore" class="mb-0 fs-3 font-weight-bold"> </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-3 d-flex align-items-center">
+                        <div>
+                            <p class="fs--1 mb-0 text-gray">Learning Path</p>
+                            <p class="fs-4">You are a <span class="font-weight-bold"><a id="learningPathCrnt"
+                                        href="/course/MyLearningPath"> </a></span></p>
+                            <p class="text-c">Next level is <span id="nxtLevel" class="font-weight-bold"></span></p>
+                            <p id="activitiesId" class="activites-label">Activities to do <span id="activitiesCnt"
+                                    class="ml-3 font-weight-bold">1</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-1 d-flex align-items-center">
+                        <div>
+
+
+
+                            <p class="fs-3 my-2 font-weight-bold">Badges</p>
+                            <div id="badgesList">
+
+                                <img src="/static/common/img/badge.png" class="img-fluid badge-img" alt="#">
+                                <img src="/static/common/img/badge.png" class="img-fluid badge-img" alt="#">
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-1 d-flex align-items-center">
+                        <div>
+                            <p class="fs--1 mb-0 text-gray">Learning Path</p>
+                            <p id="qnCompleted" class="fs-3 my-2 font-weight-bold"></p>
+                            <p class="fs--1 mb-0 text-gray">Course</p>
+                            <p id="courseCompleted" class="fs-3 my-2 font-weight-bold"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="activity" class="activity slideClose">
+        <div class="container-fluid my-4">
+            <div class="d-flex justify-content-between mb-3">
+                <h2 id="articles_h1">Related Tasks</h2>
+                <a href="#" class="fs--1 text-b">VIEW ALL</a>
+            </div>
+            <div style="width:100%" class="row mb-5">
+
+                <div style="width:100%" class=" ">
+                    <div style="width:100%" class=" flex-column align-items-start">
+                        <div class="container">
+                            <h2> </h2>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Topic</th>
+                                        <th>Category</th>
+                                        <th>Users</th>
+                                        <th>Activity</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="activity__body">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section >
+        <div class="container-fluid my-4">
+            <div class="d-flex justify-content-between mb-3">
+                <h3>Continue Learning</h3>
+                <a href="/course/MyCourses" class="fs--1 text-b">VIEW ALL</a>
+            </div>
+            <div id="recentCourses" class="row mb-5">
+
+    
+            </div>
+    </section>
+
+
+    <section>
+        <div class="container-fluid my-4">
+            <div class="d-flex justify-content-between mb-3">
+                <h3>Webinars</h3>
+                <a href="#" class="fs--1 text-b">VIEW ALL</a>
+            </div>
+            <div class="row mb-5">
+                <div class="col-12 col-md-6 col-lg-3 mb-3">
+                    <div class="c-card-1 d-flex flex-column align-items-start">
+                        <p class="fs-4 font-weight-bold">Team Connect</p>
+                        <p class="mt-auto">*</p>
+                        <a href="https://us05web.zoom.us/j/8149968398?pwd=OHlGVTZRa3d3YW0ydW1Qay9lL2lrQT09"
+                            class="btn c-btn-3">Continue</a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mb-3">
+                    <div class="c-card-1 d-flex flex-column align-items-start">
+                        <p class="fs-4 font-weight-bold"> San Connect </p>
+                        <p class="mt-auto">*</p>
+                        <a href="/course/hackathon/hk003" class="btn c-btn-3" style="pointer-events: none">Start</a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 mb-3">
+                    <div class="c-card-1 d-flex flex-column align-items-start">
+                        <p class="fs-4 font-weight-bold">Mentor Connect</p>
+                        <p class="mt-auto">*</p>
+                        <a href="/course/hackathon/hk004" class="btn c-btn-3" style="pointer-events: none">Start</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container-fluid my-4">
+            <div class="d-flex justify-content-between mb-3">
+                <h3>Test / Certifications</h3>
+                <a href="#" class="fs--1 text-b">VIEW ALL</a>
+            </div>
+            <div class="row mb-5">
+                <div class="col-12 col-md-6 col-lg-3 mb-3">
+                    <div class="c-card-1 d-flex flex-column align-items-start">
+                        <p class="fs-4 font-weight-bold">Social<br> Wings foundations</p>
+                        <p class="mt-auto"></p>
+                        <a href="/course/hackathon/hk001" class="btn c-btn-3" style="pointer-events: none">Start</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+
+            document.getElementById("learningPathCrnt").innerHTML = userDetails.learningPathCrnt;
+            document.getElementById("nxtLevel").innerHTML = userDetails.learningPathNxt;
+            document.getElementById("ninjaScore").innerHTML = userDetails.ninjaScore;
+            document.getElementById("activitiesCnt").innerHTML = userDetails.activitiesCnt;
+            document.getElementById("qnCompleted").innerHTML = userDetails.totQnCompletedCnt+"/20 Completed" ;
+            document.getElementById("courseCompleted").innerHTML = userDetails.completedCourse+"/20 Completed" ;
+
+            var res = {{ result | safe}}
+
+            console.log("learning history")
+
+
+
+    </script>
+
+    <footer>
+        <div class="container-fluid py-3">
+            <p class="mb-0 fs--1 text-gray">Copyright Socialblocks.in <span class="px-2">|</span> Privacy Staements</p>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="/static/common//static/common/js/jquery-3.2.1.slim.min.js"></script>
+    <script src="/static/common/js/popper.min.js"></script>
+    <script src="/static/common/js/bootstrap.min.js"></script>
+    <script>
+       $(document).ready(function () {      
+            var activityState = false;
+            $('#activity').hide();
+            $("#activitiesCnt").html({{ activtiesCnt }})
+
+
+            $('#activitiesId').click(function () {
+            if (activityState == false) {
+                $('#activity').show();
+            activityState = !activityState
+            } else {
+                activityState = !activityState
+                    $('#activity').hide();
+                   }
+           })
+           $("#activity__body").html(items)
+         })
+        $("#recentCourses").html(courseList.toString())
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,712 @@
+<html lang="en">
+
+<head>
+
+
+
+    <title>Dashboard | LearnPython.com</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" as="style" type="text/css" href="/static/css/dashboard/Dashboard.css">
+
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1001.0" data-gr-ext-installed="">
+<script>
+      $(document).ready(function () {
+
+          $('#MycoursesLinkA').click(function () {
+               $('#MycoursesLinkA').addClass('active-link') 
+               $('#MytracksLinkA').removeClass('active-link') 
+               $('.MyTracks').hide()
+               $('.MyCourses').show()      
+     
+ 
+         })
+               $('#MytracksLinkA').click(function () {
+               $('#MytracksLinkA').addClass('active-link') 
+               $('#MycoursesLinkA').removeClass('active-link') 
+               $('.MyTracks').show()  
+
+               $('.MyCourses').hide()  
+ 
+ 
+         })
+      });
+
+</script>
+    <div id="info-block"
+        style="padding: 1em; background-color: black;  text-align: center;  color: white; font-weight: bold; display: none;">
+        Ad-blocking extension has been detected. Please disable it. It may cause problems.
+    </div>
+
+    <header class="site-header">
+        <nav role="navigation">
+            <div class="site-navigation">
+                <a href="/" class="site-logo" aria-label="Mainpage LearnPython">
+                    <svg role="img" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        class="icon icon--logo">
+
+                        <use xlink:href="/lpy/21.2.0/img/sprite.svg#logo"></use>
+                    </svg>
+                </a>
+                <div id="skip-navigation">
+                    <button class="button--ghost">Skip navigation</button>
+                </div>
+                <ul class="main-menu">
+                    <li class="main-menu__item main-menu__item--courses">
+                        <a href="/#learnpy-path-section" title="Courses">Courses</a>
+                    </li>
+                    <li class="main-menu__item main-menu__item--blog">
+                        <a href="/blog" title="Blog">blog</a>
+                    </li>
+                    <div class="main-menu__item main-menu__item--logout" tabindex="0" role="button"
+                        aria-label="Show user menu">
+                        <img class="logout__avatar avatar" src="/static/images/user.png" alt="avatar">
+                        <p class="logout__full-name">eduninja LLP</p>
+                        <svg role="img" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            class="icon icon--ico_arrow_small_bottom">
+
+                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_arrow_small_bottom"></use>
+                        </svg>
+                    </div>
+                    <div class="logout-modal modal" aria-modal="true" role="dialog" aria-labelledby="User Profile Menu"
+                        aria-describedby="User eduninja LLP">
+                        <div class="logout-modal__layer modal__layer"></div>
+                        <div class="logout-modal__window modal__window" aria-label="" tabindex="-1">
+                            <div class="logout-modal__intro">
+                                <img class="logout-modal__avatar avatar" src="/static/images/user.png" alt="avatar">
+                                <div class="logout-modal__name">eduninja LLP</div>
+                            </div>
+                            <div class="logout-modal__link">
+                                <a href="/dashboard">Dashboard</a>
+                            </div>
+                            <div class="logout-modal__link">
+                                <a href="/dashboard/my-profile">My Profile</a>
+                            </div>
+                            <div class="logout-modal__link">
+                                <a href="/dashboard/payment-billing">Payment &amp; Billing</a>
+                            </div>
+                            <div class="logout-modal__separator-border"></div>
+                            <div class="logout-modal__link logout-modal__link--logout">
+                                <a id="layout-logout-button" tabindex="0" rel="nofollow">Log out
+                                    <svg role="img" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" class="icon icon--ico_logout">
+
+                                        <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_logout"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+                <div class="site-header-home-navigation-layer-menu pages">
+                    <span class="site-header-home-navigation-layer-menu-cover">MENU</span>
+                    <span class="site-header-home-navigation-layer-menu-cover-active">CLOSE</span>
+                    <div class="site-header-home-navigation-layer-menu-icon pages" role="button" tabindex="0"
+                        aria-label="Toggle menu">
+                        <div class="site-header-home-navigation-layer-menu-icon top"></div>
+                        <div class="site-header-home-navigation-layer-menu-icon middle"></div>
+                        <div class="site-header-home-navigation-layer-menu-icon bottom"></div>
+                    </div>
+                    <div class="site-header-home-navigation-hamburger-wrapper pages hide">
+                        <div class="site-header-home-navigation-hamburger-layout">
+                            <ul class="site-header-home-navigation-hamburger isLogged">
+                                <li class="site-header-home-navigation-hamburger-item pages">
+                                    <a class="site-header-home-navigation-hamburger-link"
+                                        href="/#analytical-path-section" title="Courses page">Courses</a>
+                                </li>
+                                <li class="site-header-home-navigation-hamburger-item">
+                                    <a class="site-header-home-navigation-hamburger-link" href="/blog"
+                                        title="Blog">Blog</a>
+                                </li>
+                                <li class="site-header-home-navigation-hamburger-item">
+                                    <a class="site-header-home-navigation-hamburger-link"
+                                        href="/dashboard">Dashboard</a>
+                                </li>
+                                <li class="site-header-home-navigation-hamburger-item">
+                                    <a class="site-header-home-navigation-hamburger-link"
+                                        href="/dashboard/my-profile">My Profile</a>
+                                </li>
+                                <li class="site-header-home-navigation-hamburger-item">
+                                    <a class="site-header-home-navigation-hamburger-link"
+                                        href="/dashboard/payment-billing">Payment &amp;
+                                        Billing</a>
+                                </li>
+                            </ul>
+                            <ul class="site-header-home-navigation-below">
+                                <li class="site-header-home-navigation-below-item">
+                                    <a class="site-header-home-navigation-below-item-link button--link"
+                                        id="hamburger-logout-button" tabindex="0" rel="nofollow">Log out
+                                        <svg role="img" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" class="icon icon--ico_logout">
+
+                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_logout"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="container site-content academy">
+        <div id="root">
+            <div class="ToastContainer"></div>
+            <div>
+                <div class="dashboard-navigation sticky"><a
+                        class="dashboard-navigation__item dashboard-navigation__item--active" aria-current="page"
+                        href="/dashboard/">Dashboard</a><a class="dashboard-navigation__item"
+                        href="/dashboard/my-profile">My
+                        profile</a><a class="dashboard-navigation__item" href="/dashboard/payment-billing">Payment &amp;
+                        Billing</a>
+                </div>
+                <div>
+                    <div class="learning-section LearningDetails">
+                        <div class="choose-site">
+                             <a id="MytracksLinkA" class="active-link choose-site__link" >My
+                                tracks<span id="Mytracks" class="active-content">My tracks</span></a>
+                             <a id="MycoursesLinkA"class="choose-site__link"
+                                >My courses<span  id="Mycourses" class="active-content">My
+                                    courses</span></a>
+                             <a class="choose-site__link" href="">New <span
+                                    class="choose-site__badge badge--discount-yellow">0</span><span
+                                    class="active-content">New <span
+                                        class="choose-site__badge badge--discount-yellow">0</span></span></a></div>
+                        <div class="dashboard-content">
+
+                            <div class="MyTracks" >
+                                <div class="MyTracks__item"><button class="MyTracks__heading"><svg role="img"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            class="MyTracks__heading-icon icon icon--ico_arrow_small_bottom">
+                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_arrow_small_bottom"></use>
+                                        </svg>My tracks&nbsp;<span class="MyTracks__heading--gray">(1)</span></button>
+                                    <div class="">
+
+                                        <div class="TrackInfo">
+                                            <div class="TrackInfo__left-wing">
+                                                <p class="TrackInfo__name">Learn Programming with Python</p>
+                                                <p class="TrackInfo__start-date">Started: 2021-03-29 10:32</p>
+                                                <div class="ProgressBar">
+                                                    <div class="ProgressBar__inner">
+                                                        <div class="ProgressBar__part">
+                                                            <div class="ProgressBar__part-inner">
+                                                                <div class="ProgressBar__progress" style="width: 0%;">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="TrackInfo__right-side-wrapper">
+                                                <div class="TrackInfo__actions"><button
+                                                        class="TrackInfo__actions-item small-link"><svg role="img"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            class=" icon icon--ico_star_empty">
+                                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_star_empty">
+                                                            </use>
+                                                        </svg>&nbsp; Rate</button><button
+                                                        class="TrackInfo__actions-item small-link"><svg role="img"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            class=" icon icon--ico_thumb-up">
+                                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_thumb-up">
+                                                            </use>
+                                                        </svg>&nbsp; Recommend</button><button
+                                                        class="TrackInfo__actions-item small-link"><svg role="img"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            class=" icon icon--ico_reset">
+                                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_reset">
+                                                            </use>
+                                                        </svg>&nbsp; Reset this track</button></div>
+                                                <div class="TrackInfo__right-wing"><button
+                                                        class="TrackInfo__certificate-button button--ghost"
+                                                        disabled="">get certificate</button>
+                                                    <div class="ProgressCircle">
+                                                        <div class="ProgressCircle__progress-container">
+                                                            <div class="ProgressCircle__wrapper">
+                                                                <div class="ProgressCircle__half-circle left-side"
+                                                                    style="transform: rotate(0deg);">
+                                                                </div>
+                                                                <div class="ProgressCircle__half-circle right-side"
+                                                                    style="display: none;"></div>
+                                                            </div><span class="ProgressCircle__text">0%</span>
+                                                        </div>
+                                                        <p class="ProgressCircle__label">Completed</p>
+                                                    </div>
+                                                    <div class="ProgressCircle">
+                                                        <div class="ProgressCircle__progress-container">
+                                                            <div class="ProgressCircle__wrapper">
+                                                                <div class="ProgressCircle__half-circle left-side"
+                                                                    style="transform: rotate(0.869565deg);"></div>
+                                                                <div class="ProgressCircle__half-circle right-side"
+                                                                    style="display: none;"></div>
+                                                            </div><span class="ProgressCircle__text">1/414</span>
+                                                        </div>
+                                                        <p class="ProgressCircle__label">Exercises done</p>
+                                                    </div><a class="TrackInfo__details" href="/course/A01">Track
+                                                        details</a><a class="TrackInfo__continue-button button--primary"
+                                                        href="/course/A01" tabindex="0">Continue</a>
+                                                    <div style="display: none;"><span>FIXME</span><a
+                                                            class="button--primary">Buy now</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="TrackInfo">
+                                            <div class="TrackInfo__left-wing">
+                                                <p class="TrackInfo__name">Learn Programming with SQL</p>
+                                                <p class="TrackInfo__start-date">Started: 2021-03-29 10:32</p>
+                                                <div class="ProgressBar">
+                                                    <div class="ProgressBar__inner">
+                                                        <div class="ProgressBar__part">
+                                                            <div class="ProgressBar__part-inner">
+                                                                <div class="ProgressBar__progress" style="width: 0%;">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="TrackInfo__right-side-wrapper">
+                                                <div class="TrackInfo__actions"><button
+                                                        class="TrackInfo__actions-item small-link"><svg role="img"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            class=" icon icon--ico_star_empty">
+                                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_star_empty">
+                                                            </use>
+                                                        </svg>&nbsp; Rate</button><button
+                                                        class="TrackInfo__actions-item small-link"><svg role="img"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            class=" icon icon--ico_thumb-up">
+                                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_thumb-up">
+                                                            </use>
+                                                        </svg>&nbsp; Recommend</button><button
+                                                        class="TrackInfo__actions-item small-link"><svg role="img"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            class=" icon icon--ico_reset">
+                                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_reset">
+                                                            </use>
+                                                        </svg>&nbsp; Reset this track</button></div>
+                                                <div class="TrackInfo__right-wing"><button
+                                                        class="TrackInfo__certificate-button button--ghost"
+                                                        disabled="">get certificate</button>
+                                                    <div class="ProgressCircle">
+                                                        <div class="ProgressCircle__progress-container">
+                                                            <div class="ProgressCircle__wrapper">
+                                                                <div class="ProgressCircle__half-circle left-side"
+                                                                    style="transform: rotate(0deg);">
+                                                                </div>
+                                                                <div class="ProgressCircle__half-circle right-side"
+                                                                    style="display: none;"></div>
+                                                            </div><span class="ProgressCircle__text">0%</span>
+                                                        </div>
+                                                        <p class="ProgressCircle__label">Completed</p>
+                                                    </div>
+                                                    <div class="ProgressCircle">
+                                                        <div class="ProgressCircle__progress-container">
+                                                            <div class="ProgressCircle__wrapper">
+                                                                <div class="ProgressCircle__half-circle left-side"
+                                                                    style="transform: rotate(0.869565deg);"></div>
+                                                                <div class="ProgressCircle__half-circle right-side"
+                                                                    style="display: none;"></div>
+                                                            </div><span class="ProgressCircle__text">1/414</span>
+                                                        </div>
+                                                        <p class="ProgressCircle__label">Exercises done</p>
+                                                    </div><a class="TrackInfo__details" href="/course/A03">Track
+                                                        details</a><a class="TrackInfo__continue-button button--primary"
+                                                        href="/course/A03" tabindex="0">Continue</a>
+                                                    <div style="display: none;"><span>FIXME</span><a
+                                                            class="button--primary">Buy now</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="TrackInfo">
+                                            <div class="TrackInfo__left-wing">
+                                                <p class="TrackInfo__name">Learn Basics of HTML</p>
+                                                <p class="TrackInfo__start-date">Started: 2021-03-29 10:32</p>
+                                                <div class="ProgressBar">
+                                                    <div class="ProgressBar__inner">
+                                                        <div class="ProgressBar__part">
+                                                            <div class="ProgressBar__part-inner">
+                                                                <div class="ProgressBar__progress" style="width: 0%;">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="TrackInfo__right-side-wrapper">
+                                                <div class="TrackInfo__actions"><button
+                                                        class="TrackInfo__actions-item small-link"><svg role="img"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            class=" icon icon--ico_star_empty">
+                                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_star_empty">
+                                                            </use>
+                                                        </svg>&nbsp; Rate</button><button
+                                                        class="TrackInfo__actions-item small-link"><svg role="img"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            class=" icon icon--ico_thumb-up">
+                                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_thumb-up">
+                                                            </use>
+                                                        </svg>&nbsp; Recommend</button><button
+                                                        class="TrackInfo__actions-item small-link"><svg role="img"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            class=" icon icon--ico_reset">
+                                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_reset">
+                                                            </use>
+                                                        </svg>&nbsp; Reset this track</button></div>
+                                                <div class="TrackInfo__right-wing"><button
+                                                        class="TrackInfo__certificate-button button--ghost"
+                                                        disabled="">get certificate</button>
+                                                    <div class="ProgressCircle">
+                                                        <div class="ProgressCircle__progress-container">
+                                                            <div class="ProgressCircle__wrapper">
+                                                                <div class="ProgressCircle__half-circle left-side"
+                                                                    style="transform: rotate(0deg);">
+                                                                </div>
+                                                                <div class="ProgressCircle__half-circle right-side"
+                                                                    style="display: none;"></div>
+                                                            </div><span class="ProgressCircle__text">0%</span>
+                                                        </div>
+                                                        <p class="ProgressCircle__label">Completed</p>
+                                                    </div>
+                                                    <div class="ProgressCircle">
+                                                        <div class="ProgressCircle__progress-container">
+                                                            <div class="ProgressCircle__wrapper">
+                                                                <div class="ProgressCircle__half-circle left-side"
+                                                                    style="transform: rotate(0.869565deg);"></div>
+                                                                <div class="ProgressCircle__half-circle right-side"
+                                                                    style="display: none;"></div>
+                                                            </div><span class="ProgressCircle__text">1/414</span>
+                                                        </div>
+                                                        <p class="ProgressCircle__label">Exercises done</p>
+                                                    </div><a class="TrackInfo__details" href="/course/A05">Track
+                                                        details</a><a class="TrackInfo__continue-button button--primary"
+                                                        href="/course/A05" tabindex="0">Continue</a>
+                                                    <div style="display: none;"><span>FIXME</span><a
+                                                            class="button--primary">Buy now</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="TrackInfo">
+                                            <div class="TrackInfo__left-wing">
+                                                <p class="TrackInfo__name">Learn Basics of Data Science</p>
+                                                <p class="TrackInfo__start-date">Started: 2021-03-29 10:32</p>
+                                                <div class="ProgressBar">
+                                                    <div class="ProgressBar__inner">
+                                                        <div class="ProgressBar__part">
+                                                            <div class="ProgressBar__part-inner">
+                                                                <div class="ProgressBar__progress" style="width: 0%;">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="TrackInfo__right-side-wrapper">
+                                                <div class="TrackInfo__actions"><button
+                                                        class="TrackInfo__actions-item small-link"><svg role="img"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            class=" icon icon--ico_star_empty">
+                                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_star_empty">
+                                                            </use>
+                                                        </svg>&nbsp; Rate</button><button
+                                                        class="TrackInfo__actions-item small-link"><svg role="img"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            class=" icon icon--ico_thumb-up">
+                                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_thumb-up">
+                                                            </use>
+                                                        </svg>&nbsp; Recommend</button><button
+                                                        class="TrackInfo__actions-item small-link"><svg role="img"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            class=" icon icon--ico_reset">
+                                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_reset">
+                                                            </use>
+                                                        </svg>&nbsp; Reset this track</button></div>
+                                                <div class="TrackInfo__right-wing"><button
+                                                        class="TrackInfo__certificate-button button--ghost"
+                                                        disabled="">get certificate</button>
+                                                    <div class="ProgressCircle">
+                                                        <div class="ProgressCircle__progress-container">
+                                                            <div class="ProgressCircle__wrapper">
+                                                                <div class="ProgressCircle__half-circle left-side"
+                                                                    style="transform: rotate(0deg);">
+                                                                </div>
+                                                                <div class="ProgressCircle__half-circle right-side"
+                                                                    style="display: none;"></div>
+                                                            </div><span class="ProgressCircle__text">0%</span>
+                                                        </div>
+                                                        <p class="ProgressCircle__label">Completed</p>
+                                                    </div>
+                                                    <div class="ProgressCircle">
+                                                        <div class="ProgressCircle__progress-container">
+                                                            <div class="ProgressCircle__wrapper">
+                                                                <div class="ProgressCircle__half-circle left-side"
+                                                                    style="transform: rotate(0.869565deg);"></div>
+                                                                <div class="ProgressCircle__half-circle right-side"
+                                                                    style="display: none;"></div>
+                                                            </div><span class="ProgressCircle__text">1/414</span>
+                                                        </div>
+                                                        <p class="ProgressCircle__label">Exercises done</p>
+                                                    </div><a class="TrackInfo__details" href="/course/A12">Track
+                                                        details</a><a class="TrackInfo__continue-button button--primary"
+                                                        href="/course/A12" tabindex="0">Continue</a>
+                                                    <div style="display: none;"><span>FIXME</span><a
+                                                            class="button--primary">Buy now</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="TrackInfo">
+                                            <div class="TrackInfo__left-wing">
+                                                <p class="TrackInfo__name">Learn DevOps</p>
+                                                <p class="TrackInfo__start-date">Started: 2021-03-29 10:32</p>
+                                                <div class="ProgressBar">
+                                                    <div class="ProgressBar__inner">
+                                                        <div class="ProgressBar__part">
+                                                            <div class="ProgressBar__part-inner">
+                                                                <div class="ProgressBar__progress" style="width: 0%;">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="TrackInfo__right-side-wrapper">
+                                                <div class="TrackInfo__actions"><button
+                                                        class="TrackInfo__actions-item small-link"><svg role="img"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            class=" icon icon--ico_star_empty">
+                                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_star_empty">
+                                                            </use>
+                                                        </svg>&nbsp; Rate</button><button
+                                                        class="TrackInfo__actions-item small-link"><svg role="img"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            class=" icon icon--ico_thumb-up">
+                                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_thumb-up">
+                                                            </use>
+                                                        </svg>&nbsp; Recommend</button><button
+                                                        class="TrackInfo__actions-item small-link"><svg role="img"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            class=" icon icon--ico_reset">
+                                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_reset">
+                                                            </use>
+                                                        </svg>&nbsp; Reset this track</button></div>
+                                                <div class="TrackInfo__right-wing"><button
+                                                        class="TrackInfo__certificate-button button--ghost"
+                                                        disabled="">get certificate</button>
+                                                    <div class="ProgressCircle">
+                                                        <div class="ProgressCircle__progress-container">
+                                                            <div class="ProgressCircle__wrapper">
+                                                                <div class="ProgressCircle__half-circle left-side"
+                                                                    style="transform: rotate(0deg);">
+                                                                </div>
+                                                                <div class="ProgressCircle__half-circle right-side"
+                                                                    style="display: none;"></div>
+                                                            </div><span class="ProgressCircle__text">0%</span>
+                                                        </div>
+                                                        <p class="ProgressCircle__label">Completed</p>
+                                                    </div>
+                                                    <div class="ProgressCircle">
+                                                        <div class="ProgressCircle__progress-container">
+                                                            <div class="ProgressCircle__wrapper">
+                                                                <div class="ProgressCircle__half-circle left-side"
+                                                                    style="transform: rotate(0.869565deg);"></div>
+                                                                <div class="ProgressCircle__half-circle right-side"
+                                                                    style="display: none;"></div>
+                                                            </div><span class="ProgressCircle__text">1/414</span>
+                                                        </div>
+                                                        <p class="ProgressCircle__label">Exercises done</p>
+                                                    </div><a class="TrackInfo__details" href="/course/A07">Track
+                                                        details</a><a class="TrackInfo__continue-button button--primary"
+                                                        href="/course/A07" tabindex="0">Continue</a>
+                                                    <div style="display: none;"><span>FIXME</span><a
+                                                            class="button--primary">Buy now</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+
+
+
+
+                                    </div>
+                                </div>
+                                <div class="MyTracks__item"><button class="MyTracks__heading"><svg role="img"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            class="MyTracks__heading-icon icon icon--ico_arrow_small_bottom">
+                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_arrow_small_bottom"></use>
+                                        </svg>Other available tracks&nbsp;<span
+                                            class="MyTracks__heading--gray">(3)</span></button>
+                                    <div class="MyTracks__other-list">
+                                        <div class="OtherTracksList__wrapper"><a class="OtherTracksList__item"
+                                                href="/track/python-for-data-science">Python for Data Science<svg
+                                                    role="img" xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                    class="OtherTracksList__item-icon icon icon--ico_arrow_small_bottom">
+                                                    <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_arrow_small_bottom">
+                                                    </use>
+                                                </svg></a><a class="OtherTracksList__item"
+                                                href="/track/python-basics">Python Basics<svg role="img"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                    class="OtherTracksList__item-icon icon icon--ico_arrow_small_bottom">
+                                                    <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_arrow_small_bottom">
+                                                    </use>
+                                                </svg></a><a class="OtherTracksList__item"
+                                                href="/track/data-processing-with-python">Data
+                                                Processing with Python<svg role="img" xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                    class="OtherTracksList__item-icon icon icon--ico_arrow_small_bottom">
+                                                    <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_arrow_small_bottom">
+                                                    </use>
+                                                </svg></a></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="MyCourses" style="display:visible">
+                                <div class="MyCourses__item"><button class="MyCourses__heading"><svg role="img"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            class="MyCourses__heading-icon icon icon--ico_arrow_small_bottom">
+                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_arrow_small_bottom"></use>
+                                        </svg>My courses&nbsp;<span class="MyCourses__heading--gray">(1)</span></button>
+                                    <div class="">
+                                        <div class="CourseInfo">
+                                            <div class="CourseInfo__left-wing">
+                                                <p class="CourseInfo__name">Python Basics. Part 1</p>
+                                                <p class="CourseInfo__start-date">Started: 2021-04-06 05:56</p>
+                                                <div class="ProgressBar">
+                                                    <div class="ProgressBar__inner">
+                                                        <div class="ProgressBar__part">
+                                                            <div class="ProgressBar__part-inner">
+                                                                <div class="ProgressBar__progress" style="width: 0%;">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="CourseInfo__right-side-wrapper">
+                                                <div class="CourseInfo__actions"><button
+                                                        class="CourseInfo__actions-item small-link"><svg role="img"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            class=" icon icon--ico_star_empty">
+                                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_star_empty">
+                                                            </use>
+                                                        </svg>&nbsp; Rate</button><button
+                                                        class="CourseInfo__actions-item small-link"><svg role="img"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            class=" icon icon--ico_thumb-up">
+                                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_thumb-up">
+                                                            </use>
+                                                        </svg>&nbsp; Recommend</button><button
+                                                        class="CourseInfo__actions-item CourseInfo__disabled small-link"><svg
+                                                            role="img" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            class=" icon icon--ico_reset">
+                                                            <use xlink:href="/lpy/21.2.0/img/sprite.svg#ico_reset">
+                                                            </use>
+                                                        </svg>&nbsp; Reset this course</button></div>
+                                                <div class="CourseInfo__right-wing"><button
+                                                        class="CourseInfo__certificate-button button--ghost"
+                                                        disabled="">get certificate</button>
+                                                    <div class="ProgressCircle">
+                                                        <div class="ProgressCircle__progress-container">
+                                                            <div class="ProgressCircle__wrapper">
+                                                                <div class="ProgressCircle__half-circle left-side"
+                                                                    style="transform: rotate(0deg);">
+                                                                </div>
+                                                                <div class="ProgressCircle__half-circle right-side"
+                                                                    style="display: none;"></div>
+                                                            </div><span class="ProgressCircle__text">0%</span>
+                                                        </div>
+                                                        <p class="ProgressCircle__label">Completed</p>
+                                                    </div>
+                                                    <div class="ProgressCircle">
+                                                        <div class="ProgressCircle__progress-container">
+                                                            <div class="ProgressCircle__wrapper">
+                                                                <div class="ProgressCircle__half-circle left-side"
+                                                                    style="transform: rotate(0deg);">
+                                                                </div>
+                                                                <div class="ProgressCircle__half-circle right-side"
+                                                                    style="display: none;"></div>
+                                                            </div><span class="ProgressCircle__text">0/95</span>
+                                                        </div>
+                                                        <p class="ProgressCircle__label">Exercises done</p>
+                                                    </div><a class="CourseInfo__details"
+                                                        href="/course/A01">Course details</a><a
+                                                        class="CourseInfo__continue-button button--primary" href="/course/A01"
+                                                        tabindex="0">Continue</a>
+                                                    <div style="display: none;"><a class="button--primary"></a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="button--to-top sticky hidden" href="#">
+            <svg width="12px" height="13px" role="img" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" class="icon icon--to-top">
+
+                <use xlink:href="/lpy/21.2.0/img/sprite.svg#arrow_top"></use>
+            </svg>
+        </a>
+
+
+    </div>
+    <footer class="footer">
+
+    </footer>
+
+</body>
+
+</html>

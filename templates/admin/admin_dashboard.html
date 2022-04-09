@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+ 
+<html class="no-js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dashboard</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/icon" href="https://eduninja.eduninja.com/admin/dashboard" id="favicon">
+
+    <link href="./Dashboard_files/css" rel="stylesheet" type="text/css">
+    <link href="/static/admin/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/admin/css/vendor.css" media="all">
+
+    <link rel="stylesheet" href="/static/admin/css/otp.css">
+
+    <link rel="stylesheet" href="/static/admin/css/main.css">
+    <link rel="stylesheet" href="/static/admin/css/mediamanager.css">
+    <link rel="stylesheet" href="/static/admin/css/mediamanagervendor.css">
+
+    <link rel="stylesheet" href="/static/admin/css/eduninjaredactor.css">
+ 
+
+    <!-- Intercom -->
+
+    <script type="text/javascript">
+      var APP_ID = "ld90ekxs";
+      (function () {
+        var w = window;
+        var ic = w.Intercom;
+        if (typeof ic === "function") {
+          ic("reattach_activator");
+          ic("update", intercomSettings);
+        } else {
+          var d = document;
+          var i = function () {
+            i.c(arguments);
+          };
+          i.q = [];
+          i.c = function (args) {
+            i.q.push(args);
+          };
+          w.Intercom = i;
+
+          function l() {
+            var s = d.createElement("script");
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://widget.intercom.io/widget/" + APP_ID;
+            var x = d.getElementsByTagName("script")[0];
+            x.parentNode.insertBefore(s, x);
+          }
+          if (w.attachEvent) {
+            w.attachEvent("onload", l);
+          } else {
+            w.addEventListener("load", l, false);
+          }
+        }
+      })();
+    </script>
+
+    <script type="text/x-mathjax-config;executed=true">
+      MathJax.Hub.Config({
+        showProcessingMessages: false,
+        tex2jax: {
+          inlineMath: [ ["\\(","\\)"] ],
+          displayMath: [ ["\\[","\\]"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script type="text/javascript" src="/static/admin/MathJax.js.download"></script><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style>
+  <script src="/static/admin/jquery.mousewheel.min.js.download"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><script src="/static/admin/js/jquery.mousewheel.min.js(1).download"></script><script src="/static/admin/js/jquery.mousewheel.min.js(2).download"></script></head>
+
+  <body data-new-gr-c-s-check-loaded="14.988.0" data-gr-ext-installed=""><div id="MathJax_Message" style="display: none;"></div><div id="MathJax_Message" style="display: none;"></div><div id="MathJax_Message" style="display: none;"></div>
+    <div id="mediaManagerV1"></div>
+    <div class="wrapper" id="root_wrap">
+      <div id="js-navbar"><div><div class="navbar-fixed-top">
+  <div id="admin-notification"></div>
+  <nav class="navbar navbar-default lyst-navbar dashboard_navbar hidden-xs">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jf-admin-navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div>
+          <a class="navbar-brand navbarSchool" href="https://eduninja.eduninja.com/admin/dashboard" style="font-weight: 600;">eduninja</a>
+          <a href="https://eduninja.eduninja.com/learn" target="_blank" style="text-decoration: none;">
+            <button type="button" class="btn btn-default lr-btn-default navbar-btn view-student margin-left-15" style="margin-top: 11px;">View As Learner</button>
+          </a>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse" id="jf-admin-navbar">
+        <ul class="nav navbar-nav navbar-right short-links dashboard-navbar-nav">
+          
+          <li id="register-webinar" data-original-title="Register for eduninja live demo" data-container="body" data-toggle="tooltip" data-placement="bottom">
+            
+          </li>
+          <li id="upgrade-plan">
+            
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <div class="img-rounded shortcut-add-img"></div> <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:void(0);" id="create-course"> Create Course</a></li>
+              <li><a href="javascript:void(0);" id="create-quiz"> Create Mock test</a></li>
+              <li><a href="javascript:void(0);" id="create-bundle"> Create Bundle</a></li>
+              <li><a href="javascript:void(0);" id="create-test-series"> Create Test Series </a></li>
+              <li><a href="javascript:void(0);" id="create-question-pool"> Create Question Pool </a></li>
+              <li><a href="javascript:void(0);" id="create-learner"> Create Learner</a></li>
+            </ul>
+          </li>
+          <li class="whats-new-icon" title="Whats New" id="whats_new">
+            <span id="admin_nofication"><span id="HW_badge_cont" class="HW_badge_cont HW_visible" style=""><span id="HW_badge" class="HW_badge HW_visible HW_animated" style="" data-count-unseen="3">3</span></span></span>
+          </li>
+          <li class="support-icon" title="support">
+            <a href="http://support.eduninja.com/" target="_blank" title="Support"></a>
+          </li>
+          <li class="dropdown open">
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="padding-left:0;">
+              <div class="img-rounded profile-img"></div>
+              <span class="caret"></span>
+            </a>
+
+            <ul class="dropdown-menu dropmenu-profile">
+              <li><a href="javascript:void(0);" id="go-settings"><i class="fa fa-cog" style="padding-right:5px"></i>
+                  Settings for eduninja</a></li>
+              <li><a href="javascript:void(0);" id="update-pack"><span style="margin-left: 20px;"> Change
+                    Pack</span></a></li>
+              <li role="separator" class="divider"></li>
+
+              <li id="logout"><a href="javascript:void(0);"><i class="fa fa-key" style="padding-right:5px"></i> Log
+                  Out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="navbar navbar-default lyst-navbar dashboard_navbar visible-xs" id="mobile_nav">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jf-admin-xs-navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="">
+          <a class="navbar-brand navbarSchool" href="https://eduninja.eduninja.com/admin/dashboard" style="font-weight: 600;">eduninja</a>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse" id="jf-admin-xs-navbar">
+
+        <ul class="nav navbar-nav navbar-right short-links mb-links">
+          <li><a href="javascript:void(0);" class="rt_dashboard">Dashboard</a></li>
+            <li><a href="javascript:void(0);" id="upgrade-plan">Upgrade</a></li>
+            <li><a href="javascript:void(0);" id="update-pack"><span> Change Pack</span></a></li>
+          
+          <li title="Whats new">
+            <a href="http://whatsnew.eduninja.com/" title="Whats new" target="_blank">Whats New</a>
+          </li>
+          <li title="support">
+            <a href="http://support.eduninja.com/" target="_blank" title="Support">Support</a>
+          </li>
+          <li id="logout"><a href="javascript:void(0);"><i class="fa fa-key" style="padding-right:5px"></i> Log Out</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+</div>
+<div id="modalContainer"></div>
+<div id="create-course-modal"><div><div class="modal fade" id="addLessonCourseModal">
+  <div class="modal-dialog setting-modal-dialog" style="width:40% !important; margin-top: 50px !important;">
+    <div class="modal-content lr-modal-content">
+      
+      <div class="modal-header setting-modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h4 class="modal-title" id="js-create-title">Create New</h4>
+      </div>
+
+      <div class="modal-body setting-modal-body">
+        <p id="courseCreate-error" style="disply: none; color: #f56161; font-weight: 600; text-align: center"></p>
+        
+        <div class="form-group">
+          <label style="margin-top: 5px;">Title</label>
+          <span style="color: #66686b; font-weight: 400; font-size: 13px;">(max 60 characters)</span>
+          <input class="form-control" id="courseFocus" maxlength="60" placeholder="Enter Name" size="60" style="border-radius: 2px;margin: 0px" type="text">
+        </div>
+        
+        <div class="form-group js-course-selection-div">
+          <label style="margin-top: 5px;">Content Type</label>
+          <select class="form-control" id="courseType">
+            <option value="1">Create Course</option>
+            <option value="2">Create Mock-test</option>
+            <option value="3">Create Bundle</option>
+            <option value="4">Create Test Series</option>
+          </select>
+        </div>
+        
+        <label style="margin-top: 5px;">Price</label>
+
+        <div class="input-group">
+          <span class="input-group-addon" style="border-radius: 2px; border-right:none; border-top-right-radius: 0; border-bottom-right-radius: 0"><i class="fa fa-inr"></i></span>
+
+          <input class="form-control" id="lesson_course_price" maxlength="20" placeholder="Price" size="20" style="border-radius: 2px; margin: 0px; border-top-left-radius: 0; border-bottom-left-radius:0" type="number" value="0">
+        </div>
+
+        <div style="margin-top:5px">
+          <input type="checkbox" id="freeCourse"> 
+          <label for="freeCourse">Make It Free</label>
+        </div>
+        
+        <div id="showEncrypt" style="margin-top: 20px;" class="enc-tooltip-top">
+          <input type="checkbox" id="checkEncrypt" value="">
+          <label for="checkEncrypt" style="width: 250px;margin-bottom: 10px;"> Make It Encrypted <img src="/static/admin/jf_enabled_encrypt.png" style=" width: 15px; margin-top: 0px;"> <img id="xyz" src="/static/admin/images/jf_questio_mark.svg" style="width: 14px; margin-top: -3px; background: hsl(0, 0%, 28%); border-radius: 50%; padding: 2px;" data-toggle="tooltip" data-placement="top" title="" data-original-title="Encryption protects your online content from data piracy."></label>
+          <p style="color:#f56161;">Encrypted content cannot be accessed through <span style="font-weight: 600;">iOS-based browsers</span>.</p>
+        </div>
+
+      </div>
+
+      <div class="modal-footer setting-modal-footer">
+        <div class="row">
+          <div class="col-md-3" style="text-align: left">
+            <img alt="Studentdf" src="/static/admin/jf_studentdf.png" style="margin: -15px -15px -32px -15px; width: 59px;">
+          </div>
+          <div class="col-md-9">
+            <button style="margin-right: 12px; text-transform: uppercase" type="button" data-dismiss="modal" class="btn lr-small-btn-template setting-modal-cancle-btn">Cancel</button>
+          <button style="text-transform: uppercase" type="button" id="saveCourse" class="btn lr-small-btn-template lr-btn-success setting-model-success-btn" data-loading-text="Creating...">Create</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="js-unencrypted-alert">
+  <div class="modal-dialog setting-modal-dialog" style="width:40% !important; margin-top: 50px !important;">
+    <div class="modal-content lr-modal-content">
+      
+      <div class="modal-header setting-modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h4 class="modal-title" id="js-create-title">alert</h4>
+      </div>
+
+      <div class="modal-body setting-modal-body">
+        <p>You are about to create unencrypted content. Are you sure you want to continue?</p>
+      
+      </div>
+
+      <div class="modal-footer setting-modal-footer">
+        <div class="row">
+          <div class="col-md-3" style="text-align: left">
+            <img alt="Studentdf" src="/static/admin/jf_studentdf.png" style="margin: -15px -15px -32px -15px; width: 59px;">
+          </div>
+          <div class="col-md-9">
+            <button style="margin-right: 12px; text-transform: uppercase" type="button" id="js-unencrypted-cancel" data-dismiss="modal" class="btn lr-small-btn-template setting-modal-cancle-btn">Cancel</button>
+          <button style="text-transform: uppercase" type="button" id="js-unencrypted-continue" data-dismiss="modal" class="btn lr-small-btn-template lr-btn-success setting-model-success-btn">Continue</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div id="js-quiz-template" class="modal fade" style="overflow-y: hidden;">
+  <div class="modal-dialog setting-modal-dialog" style="width: 82% !important; margin-top: 50px !important;">
+    <div class="modal-content lr-modal-content">
+      <div class="modal-header setting-modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h4 class="modal-title">SELECT QUIZ TEMPLATE</h4>
+      </div>
+      <div class="modal-body setting-modal-body" style="padding: 0">
+        
+        <div class="row">
+          <div class="col-md-12">
+            <div style="font-family: &#39;Gotham A&#39;,&#39;Gotham B&#39;,sans-serif;">
+              <div class="template-side-pannel">
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="1">GENERAL</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="32">PRACTICE QUIZ</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="2">CAT</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="4">UPSC PAPER 1</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="5">UPSC PAPER 2</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="33">CSAT</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="6">IIT-JEE (Main) Paper-1</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="7">IIT JEE ADV</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="8">SSC CGL Tier-I</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="23">SSC CGL Tier-II PAPER-I</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="24">SSC CGL Tier-II PAPER-II</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="25">SSC CGL Tier-II PAPER-III</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="26">SSC CGL Tier-II PAPER-IV</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="9">SSC Combined Higher Secondary Level  Tier-I</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="10">IBPS CLERKS V - Preliminary</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="11">IBPS CLERKS V - Main</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="12">IBPS CLERKS VI - Preliminary</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="13">IBPS CLERKS VI - Main</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="14">IBPS PO V - Preliminary</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="14">IBPS PO V - Main</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="16">IBPS PO VI - Preliminary</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="17">IBPS PO VI - Main</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="27">IBPS PO VII - Preliminary</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="28">IBPS PO VII - Main</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="29">CLAT</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="30">EAMCET Engineering</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="31">EAMCET Agriculture &amp; Medical</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="34">NEET MDS</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="18">GATE</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="19">GATE GG</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="20">GATE XE</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="21">GATE XL</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="3">GMAT</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="22">GRE</label>
+                  </div>
+                  <div class="radio">
+                    <label class="template-radio-btn"><input type="radio" name="quiz_template" value="35">NMAT</label>
+                  </div>
+              </div>
+              <div class="template-content" id="js-template-content" style="">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer setting-modal-footer">
+          <button type="button" id="js-default-quiz-create" class="btn btn-link" data-loading-text="Skipping..." style="margin-right: 12px; color: #3a9bd5;">Skip</button>
+          <button style="margin-right: 12px; text-transform: uppercase; padding: 4px 22px; width: inherit;" type="button" data-dismiss="modal" class="btn lr-small-btn-template setting-modal-cancle-btn">Cancel</button>
+          <button style="text-transform: uppercase; color: #fff;" type="button" id="js-quiz-create" class="btn lr-small-btn-template lr-btn-success" data-loading-text="Creating...">create</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div></div>
+<div id="create-pool-div"><div><div class="modal fade" id="js-create-pool-modal">
+  <div class="modal-dialog section-edit-modal">
+    <div class="modal-content">
+      <div class="modal-header section-edit-modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h4 class="modal-title">Create Pool</h4>
+      </div>
+      <div class="modal-body section-edit-modal-body" style="padding: 15px 25px">
+        <p style="color: #787878; font-size: 16px; margin: 0;">Pool Title</p>
+        <input id="pool-title" type="text" class="form-control" maxlength="60" style="border-radius: 2px; color: hsl(0, 0%, 52%); font-size: 13px; height: 35px; margin: 15px 0;">
+        <p class="js-pool-title-error" style="color:#f56161; font-weight: 600; margin: 0;"></p>
+      </div>
+      <div class="modal-footer section-edit-modal-footer" style="padding: 15px 25px">
+        <button style="margin-right: 12px;" type="button" data-dismiss="modal" class="btn lr-small-btn-template setting-modal-cancle-btn ">Cancel</button>
+        <button type="button" id="js-create-pool" class="btn lr-small-btn-template lr-btn-error setting-modal-conform-btn" data-loading-text="Creating...">Create</button>
+      </div>
+    </div>
+  </div>
+</div></div></div></div></div>
+      <div id="js-sidebar"><div><nav id="sidebar" class="sidebar_wrap lr-sidebar mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar" style="overflow: visible;"><div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: 952px;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr"><div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: 544px;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container" style="position: relative; top: -50px; left: 0px;" dir="ltr"><div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: 952px;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+  <div class="sidebar-header">
+    <div class="admin-sidebar-profile">
+      <div class="text-center hidden-md">
+        <img src="/static/admin/images/jf_default_photo.svg" class="admin-image img-circle mCS_img_loaded" alt="Profile">
+        <div class="user-text"></div>
+      </div>
+    </div>
+  </div>
+
+  <ul class="list-unstyled components sidebar_menu">
+    <li class="active">
+      <a href="javascript:void(0);" id="dashboard" data-id="dashboard">Dashboard</a>
+    </li>
+    <li class="js-default-open-products">
+      <a href="https://eduninja.eduninja.com/admin/dashboard#homeSubmenu" data-toggle="collapse" aria-expanded="true" id="product-submenu">products </a>
+      <ul class="list-unstyled sidebar_submenu collapse" id="homeSubmenu" aria-expanded="false" style="height: 0px;">
+        <li><a href="/eduninja/platform/admin/courseBuilder" data-id="courses">Courses </a></li>
+        <li><a href="javascript:void(0);" data-id="mock-tests">Mock-Tests</a></li>
+        <li><a href="javascript:void(0);" data-id="bundles">Bundles </a></li>
+        <li><a href="javascript:void(0);" data-id="test-series">Test Series </a> </li>
+        <li><a href="https://eduninja.eduninja.com/admin-v3/tags">Tags</a> </li>
+      </ul>
+    </li>
+    <li>
+      <a href="javascript:void(0);" data-id="question-pool">Question Pool</a>
+    </li>
+    <li><a href="https://eduninja.eduninja.com/admin/reports">Reports</a></li>
+    <li>
+      
+      <ul class="collapse list-unstyled sidebar_submenu" id="homeSubmenu1">
+        <li><a href="https://eduninja.eduninja.com/admin/messenger" data-link="1">Messenger <span class="label lr-label lr-label-info">Beta</span></a></li>
+        <li>
+          <a href="https://eduninja.eduninja.com/admin-v3/newsfeed" data-link="1">Newsfeed</a>
+        </li>
+        <li><a href="https://eduninja.eduninja.com/admin/smart-coupons" data-link="1">Smart Coupons</a></li>
+        <li><a href="https://eduninja.eduninja.com/admin-v3/referral-code" data-link="1">Referral Code</a></li>
+        <li><a href="https://eduninja.eduninja.com/admin-v3/wallet" data-link="1">Wallet</a></li>
+        <li><a href="https://eduninja.eduninja.com/admin-v3/integrations" data-link="1">App Integrations</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <ul class="collapse list-unstyled sidebar_submenu" id="homeSubmenu5">
+        <li><a href="https://eduninja.eduninja.com/admin/site" target="_blank">Website Builder</a></li>
+        <li><a href="https://eduninja.eduninja.com/admin-v3/copytext-editor" data-link="1">Text Editor</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="https://eduninja.eduninja.com/admin/dashboard#homeSubmenu3" data-toggle="collapse" aria-expanded="false" id="manage-submenu">Manage</a>
+      <ul class="collapse list-unstyled sidebar_submenu" id="homeSubmenu3">
+        <li><a href="javascript:void(0);" data-id="reviews">Reviews</a></li>
+        <li><a href="https://eduninja.eduninja.com/admin-v3/discussions">Add course</a></li>
+        <li><a href="javascript:void(0);" data-id="answer-review">update Course</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="https://eduninja.eduninja.com/admin/dashboard#homeSubmenu4" data-toggle="collapse" aria-expanded="false" id="manage-learners">Users</a>
+      <ul class="collapse list-unstyled sidebar_submenu" id="homeSubmenu4">
+        <li><a href="https://eduninja.eduninja.com/admin/learners" data-link="1">Add users</a></li>
+      </ul>
+    </li>
+  </ul>
+
+
+  <ul class="list-unstyled components lr-sidebar_menu">
+    <li>
+      <a href="javascript:void(0);" data-id="get-started">Get-started 
+        <span><i class="fa fa-circle fa-circle--sm" title="Steps Remaining"></i></span>
+        </a>
+    </li>
+    <li>
+      <a href="javascript:void(0);" data-id="add-ons">Add-ons</a>
+    </li>
+    <li>
+      <a href="javascript:void(0);" data-id="settings-beta">Settings <span class="label lr-label lr-label-info">New</span></a>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <img src="/static/admin/images/jf-eduninja-logo.svg" class="img-responsive eduninja-brand mCS_img_loaded">
+  </div>
+
+</div></div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 479px; height: 0px; top: 0px; display: block; max-height: 773.286px;"><div class="mCSB_dragger_bar" style="line-height: 479px;"></div><div class="mCSB_draggerRail"></div></div></div></div></div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position:absolute;"><div class="mCSB_dragger_bar"></div><div class="mCSB_draggerRail"></div></div></div></div></div></div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position:absolute;"><div class="mCSB_dragger_bar"></div><div class="mCSB_draggerRail"></div></div></div></div></div></nav></div></div>
+      <div id="content"><div><div id="settingsWrapper">
+  <div id="js-dashboard-content" class="padding-15px">
+    <div class="onboarding_alert visible-xs">
+      <div class="alert alert-warning">
+        We recommend you to use Desktop version of chrome browser for better experience.
+      </div>
+    </div>
+    <div class="text-center">
+      <p class="sub-main-header">Welcome, <span class="clr-green-medium">eduninja</span></p>
+    </div>
+    
+    <div class="cards-container padding-5px-b kpi-stats" id="institute-stats">
+      <div class="stats-table-style">
+        <table class="table stats-table">
+          <tbody>
+            <tr>
+
+              <td class="" scope="col" data-original-title="0 Total orders" data-container="body" data-toggle="tooltip" data-placement="bottom">
+              <a href="https://eduninja.eduninja.com/admin/reports/sales/finances"> <p class="stats-title clr-green-dashboard"><i class="fa fa-inr"></i> 0</p>
+              <p class="stats-sub">Total sales</p>
+              </a></td>
+
+
+              <td scope="col" data-original-title="Courses: 0, Mock-Tests: 0, Bundles: 0" data-container="body" data-toggle="tooltip" data-placement="bottom">
+              <a href="javascript:void(0);"><p class="stats-title">0</p>
+              <p class="stats-sub">Total products <span class="bg_question"></span></p></a>
+              </td>
+
+
+      
+              <td scope="col" class="borderless" title="Go To Learners">
+                <a href="https://eduninja.eduninja.com/admin/reports/learners"><p class="stats-title">0</p>
+                <p class="stats-sub">Total learners</p>
+              </a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <div id="graphs-render"><div><div class="dashboard_cards">
+  <div class="flex-container">
+    
+    <div class="flex-item flex-item-left ">
+      <div class="cards-container">
+        <p class="card-heading" title="Sales of last 0 months">Sales <span class="card-sub-heading">(0 months)</span> <span class="learn-more"><a href="https://blog.eduninja.com/profitable-course-ideas/" target="_blank">Learn more</a></span></p>
+        <p class="tab-heading-desc"></p>
+        <div class="empty-graph-screen">
+          <img src="/static/admin/images/jf_empty_sales.svg"> 
+          <p>You have not started selling yet. Create a course/ mock-test and start selling today.</p>
+          <p>To know how to create a course/ mock-tests <a href="http://support.eduninja.com/video-tutorial/courses-5-videos/how-to-create-a-course-video" target="_blank"><u>click here</u></a></p>
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="flex-item flex-item-right ">
+      <div class="cards-container">
+        <p class="card-heading" title="Your Top selling Products">5 Top Selling Products <span class="learn-more"><a href="http://support.eduninja.com/manage-your-course" target="_blank">Learn more</a></span></p>
+        <p class="tab-heading-desc"></p>
+        <div class="empty-graph-screen">
+          <img src="/static/admin/images/jf_empty_courses.svg">
+          <p><span id="create_course"><a href="javascript:void(0);"><u>Create</u></a></span> atleast five products to get insights</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flex-item flex-item-left">
+      <div class="cards-container">
+        <p class="card-heading" title="Monthly Active Users : Learners who logged in atleast once a month">Learners <span class="card-sub-heading">(0 months)</span> <span class="learn-more"><a href="https://blog.eduninja.com/teach-online-5-secrets-must-know/" target="_blank">Learn more</a></span></p>
+        <p class="tab-heading-desc"></p>
+        <div class="empty-graph-screen">
+          <img src="/static/admin/images/jf_empty_learners.svg">
+          <p>You haven't added any learner to your school yet.</p>
+          <p> To know how to add learners <a href="http://support.eduninja.com/manage-your-learners/add-learners/add-new-learners-to-a-course-or-test-or-bundle" target="_blank"><u>click here</u></a></p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flex-item flex-item-right">
+      <div class="cards-container ">
+        <p class="card-heading" title="This month order status">Orders  <span class="learn-more" title="Month to date"></span></p>
+        <p class="tab-heading-desc"></p>
+        <div class="empty-graph-screen">
+          <img src="/static/admin/images/jf_empty_orders.svg">
+          <p>You haven't sold any course or mock-tests this month.</p>
+          <p>To know how to market and sell your products <a href="https://blog.eduninja.com/profitable-course-ideas/" target="_blank">
+            <u>click here</u></a></p>
+        </div>
+      </div>
+    </div>
+
+  <div>
+</div></div></div></div></div>
+  
+    <div class="cards-container hidden-xs" style="padding:10px">  
+      <div class="form-inline">
+        <div class="btn-group lr-btn-group" data-toggle="buttons">
+          <label class="btn btn-default active">
+          <input type="radio" name="device_type" id="0" checked=""> All
+          </label>
+          <label class="btn btn-default">
+          <input type="radio" name="device_type" id="4"> Web
+          </label>
+          <label class="btn btn-default">
+          <input type="radio" name="device_type" id="1"> Android
+          </label>
+          <label class="btn btn-default">
+          <input type="radio" name="device_type" id="2"> iOS
+          </label>
+        </div>
+        <div class="form-group has-feedback has-feedback-left pull-right">
+          <i class="form-control-feedback glyphicon glyphicon-calendar"></i>
+          <input type="text" name="daterange_analytics" class="form-control" size="30" style="height: 30px;">
+        </div>
+      </div>
+    </div>
+    
+   <div id="analytics_render"><div><div class="dashboard_cards">
+  <div class="flex-container">
+    
+    <div class="flex-item flex-item-left">
+      <div class="cards-container">
+        <p class="card-heading">App Analytics <span id="analytics_desc" title="" data-toggle="popover" data-trigger="hover" data-original-title="Analytics"><i class="fa fa-question-circle" aria-hidden="true"></i></span>
+          <span class="card-sub-heading">(7  Days)</span>
+        </p>
+        <p class="tab-heading-desc"></p>
+        <div class="graphStats-table-style" id="sales-empty">
+          <table class="table stats-table">
+            <tbody>
+              <tr>
+                <td scope="col">
+                  <p class="header-stats">0</p>
+                  <p class="stats-sub">App Opens</p>
+                </td>
+                <td scope="col" title="Offline Invite">
+                  <p class="header-stats">0 <span class="card-sub-heading"> Minutes</span></p>
+                  <p class="stats-sub">Time In App / Days</p>
+                </td>
+              </tr>
+              <tr>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="graphs-container" id="analytics-graph" data-highcharts-chart="0" style="overflow: hidden;"><div id="highcharts-u47ziwm-0" dir="ltr" class="highcharts-container " style="position: relative; overflow: hidden; width: 883px; height: 300px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" class="highcharts-root" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="883" height="300" viewBox="0 0 883 300"><desc>Created with Highcharts 7.2.2</desc><defs><clippath id="highcharts-u47ziwm-1-"><rect x="0" y="0" width="763" height="212" fill="none"></rect></clippath></defs><rect fill="#ffffff" class="highcharts-background" x="0" y="0" width="883" height="300" rx="0" ry="0"></rect><rect fill="none" class="highcharts-plot-background" x="60" y="51" width="763" height="212"></rect><g class="highcharts-grid highcharts-xaxis-grid" data-z-index="1"><path fill="none" data-z-index="1" class="highcharts-grid-line" d="M 168.5 51 L 168.5 263" opacity="1"></path><path fill="none" data-z-index="1" class="highcharts-grid-line" d="M 277.5 51 L 277.5 263" opacity="1"></path><path fill="none" data-z-index="1" class="highcharts-grid-line" d="M 386.5 51 L 386.5 263" opacity="1"></path><path fill="none" data-z-index="1" class="highcharts-grid-line" d="M 495.5 51 L 495.5 263" opacity="1"></path><path fill="none" data-z-index="1" class="highcharts-grid-line" d="M 604.5 51 L 604.5 263" opacity="1"></path><path fill="none" data-z-index="1" class="highcharts-grid-line" d="M 713.5 51 L 713.5 263" opacity="1"></path><path fill="none" data-z-index="1" class="highcharts-grid-line" d="M 822.5 51 L 822.5 263" opacity="1"></path><path fill="none" data-z-index="1" class="highcharts-grid-line" d="M 59.5 51 L 59.5 263" opacity="1"></path></g><g class="highcharts-grid highcharts-yaxis-grid highcharts-color-0" data-z-index="1"><path fill="none" stroke="#f5f5f5" stroke-width="1" data-z-index="1" class="highcharts-grid-line" d="M 60 263.5 L 823 263.5" opacity="1"></path><path fill="none" stroke="#f5f5f5" stroke-width="1" data-z-index="1" class="highcharts-grid-line" d="M 60 192.5 L 823 192.5" opacity="1"></path><path fill="none" stroke="#f5f5f5" stroke-width="1" data-z-index="1" class="highcharts-grid-line" d="M 60 122.5 L 823 122.5" opacity="1"></path><path fill="none" stroke="#f5f5f5" stroke-width="1" data-z-index="1" class="highcharts-grid-line" d="M 60 50.5 L 823 50.5" opacity="1"></path></g><g class="highcharts-grid highcharts-yaxis-grid" data-z-index="1"><path fill="none" stroke="#f5f5f5" stroke-width="1" data-z-index="1" class="highcharts-grid-line" d="M 60 263.5 L 823 263.5" opacity="1"></path><path fill="none" stroke="#f5f5f5" stroke-width="1" data-z-index="1" class="highcharts-grid-line" d="M 60 192.5 L 823 192.5" opacity="1"></path><path fill="none" stroke="#f5f5f5" stroke-width="1" data-z-index="1" class="highcharts-grid-line" d="M 60 122.5 L 823 122.5" opacity="1"></path><path fill="none" stroke="#f5f5f5" stroke-width="1" data-z-index="1" class="highcharts-grid-line" d="M 60 50.5 L 823 50.5" opacity="1"></path></g><rect fill="none" class="highcharts-plot-border" data-z-index="1" x="60" y="51" width="763" height="212"></rect><g class="highcharts-axis highcharts-xaxis" data-z-index="2"><path fill="none" class="highcharts-axis-line" stroke="#ccd6eb" stroke-width="1" data-z-index="7" d="M 60 263.5 L 823 263.5"></path></g><g class="highcharts-axis highcharts-yaxis highcharts-color-0" data-z-index="2"><text x="26" data-z-index="7" text-anchor="middle" transform="translate(0,0) rotate(270 26 157)" class="highcharts-axis-title" style="color:#666666;fill:#666666;" y="157"><tspan>App Opens</tspan></text><path fill="none" class="highcharts-axis-line" data-z-index="7" d="M 60 51 L 60 263"></path></g><g class="highcharts-axis highcharts-yaxis" data-z-index="2"><text x="857" data-z-index="7" text-anchor="middle" transform="translate(0,0) rotate(90 857 157)" class="highcharts-axis-title" style="color:#666666;fill:#666666;" y="157"><tspan>Time In App (Minutes)</tspan></text><path fill="none" class="highcharts-axis-line" data-z-index="7" d="M 823 51 L 823 263"></path></g><g class="highcharts-series-group" data-z-index="3"><g data-z-index="0.1" class="highcharts-series highcharts-series-0 highcharts-area-series" transform="translate(60,51) scale(1 1)" clip-path="url(#highcharts-u47ziwm-1-)"><path fill="rgba(163,208,132,0.1)" d="M 54.5 212 L 163.5 212 L 272.5 212 L 381.5 212 L 490.5 212 L 599.5 212 L 708.5 212 L 708.5 212 L 599.5 212 L 490.5 212 L 381.5 212 L 272.5 212 L 163.5 212 L 54.5 212" class="highcharts-area" data-z-index="0"></path><path fill="none" d="M 54.5 212 L 163.5 212 L 272.5 212 L 381.5 212 L 490.5 212 L 599.5 212 L 708.5 212" class="highcharts-graph" data-z-index="1" stroke="rgba(163, 208, 132,0.8)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path><path fill="none" d="M 44.5 212 L 54.5 212 L 163.5 212 L 272.5 212 L 381.5 212 L 490.5 212 L 599.5 212 L 708.5 212 L 718.5 212" visibility="visible" data-z-index="2" class="highcharts-tracker-line" stroke-linejoin="round" stroke="rgba(192,192,192,0.0001)" stroke-width="22"></path></g><g data-z-index="0.1" class="highcharts-markers highcharts-series-0 highcharts-area-series highcharts-tracker" transform="translate(60,51) scale(1 1)"></g><g data-z-index="0.1" class="highcharts-series highcharts-series-1 highcharts-area-series highcharts-color-0" transform="translate(60,51) scale(1 1)" clip-path="url(#highcharts-u47ziwm-1-)"><path fill="rgba(124,181,236,0.1)" d="M 54.5 212 L 163.5 212 L 272.5 212 L 381.5 212 L 490.5 212 L 599.5 212 L 708.5 212 L 708.5 212 L 599.5 212 L 490.5 212 L 381.5 212 L 272.5 212 L 163.5 212 L 54.5 212" class="highcharts-area" data-z-index="0"></path><path fill="none" d="M 54.5 212 L 163.5 212 L 272.5 212 L 381.5 212 L 490.5 212 L 599.5 212 L 708.5 212" class="highcharts-graph" data-z-index="1" stroke="#7cb5ec" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path><path fill="none" d="M 44.5 212 L 54.5 212 L 163.5 212 L 272.5 212 L 381.5 212 L 490.5 212 L 599.5 212 L 708.5 212 L 718.5 212" visibility="visible" data-z-index="2" class="highcharts-tracker-line" stroke-linejoin="round" stroke="rgba(192,192,192,0.0001)" stroke-width="22"></path></g><g data-z-index="0.1" class="highcharts-markers highcharts-series-1 highcharts-area-series highcharts-color-0 highcharts-tracker" transform="translate(60,51) scale(1 1)"></g></g><text x="442" text-anchor="middle" class="highcharts-title" data-z-index="4" style="color:#333333;font-size:18px;fill:#333333;" y="24"></text><text x="442" text-anchor="middle" class="highcharts-subtitle" data-z-index="4" style="color:#666666;fill:#666666;" y="24"></text><text x="10" text-anchor="start" class="highcharts-caption" data-z-index="4" style="color:#666666;fill:#666666;" y="297"></text><g class="highcharts-legend" data-z-index="7" transform="translate(656,10)"><rect fill="none" class="highcharts-legend-box" rx="0" ry="0" x="0" y="0" width="217" height="29" visibility="visible"></rect><g data-z-index="1"><g><g class="highcharts-legend-item highcharts-area-series highcharts-color-undefined highcharts-series-0" data-z-index="1" transform="translate(8,3)"><rect x="2" y="4" width="12" height="12" fill="rgba(163, 208, 132,0.8)" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g><g class="highcharts-legend-item highcharts-area-series highcharts-color-0 highcharts-series-1" data-z-index="1" transform="translate(115,3)"><rect x="2" y="4" width="12" height="12" fill="#7cb5ec" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g></g></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" data-z-index="7"><text x="114.5" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="middle" transform="translate(0,0)" y="282" opacity="1"><tspan>12th Dec 20</tspan></text><text x="223.5" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="middle" transform="translate(0,0)" y="282" opacity="1"><tspan>13th Dec 20</tspan></text><text x="332.5" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="middle" transform="translate(0,0)" y="282" opacity="1"><tspan>14th Dec 20</tspan></text><text x="441.5" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="middle" transform="translate(0,0)" y="282" opacity="1"><tspan>15th Dec 20</tspan></text><text x="550.5" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="middle" transform="translate(0,0)" y="282" opacity="1"><tspan>16th Dec 20</tspan></text><text x="659.5" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="middle" transform="translate(0,0)" y="282" opacity="1"><tspan>17th Dec 20</tspan></text><text x="768.5" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="middle" transform="translate(0,0)" y="282" opacity="1"><tspan>18th Dec 20</tspan></text></g><g class="highcharts-axis-labels highcharts-yaxis-labels highcharts-color-0" data-z-index="7"><text x="45" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="end" transform="translate(0,0)" y="267" opacity="1">0</text><text x="45" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="end" transform="translate(0,0)" y="196" opacity="1">1</text><text x="45" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="end" transform="translate(0,0)" y="126" opacity="1">2</text><text x="45" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="end" transform="translate(0,0)" y="55" opacity="1">3</text></g><g class="highcharts-axis-labels highcharts-yaxis-labels" data-z-index="7"><text x="838" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="start" transform="translate(0,0)" y="267" opacity="1">0</text><text x="838" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="start" transform="translate(0,0)" y="196" opacity="1">1</text><text x="838" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="start" transform="translate(0,0)" y="126" opacity="1">2</text><text x="838" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="start" transform="translate(0,0)" y="55" opacity="1">3</text></g></svg><div class="highcharts-legend" style="position: absolute; left: 656px; top: 10px; opacity: 1;"><div style="position: absolute; left: 0px; top: 0px; opacity: 1;"><div style="position: absolute; left: 0px; top: 0px; opacity: 1;"><div class="highcharts-legend-item highcharts-area-series highcharts-color-undefined highcharts-series-0" style="position: absolute; left: 8px; top: 3px; opacity: 1;"><span data-z-index="2" style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 12px; white-space: nowrap; color: rgb(51, 51, 51); cursor: pointer; font-weight: bold; text-overflow: ellipsis; overflow: hidden; margin-left: 0px; margin-top: 0px; left: 21px; top: 3px; fill: rgb(51, 51, 51);">App Opens</span></div><div class="highcharts-legend-item highcharts-area-series highcharts-color-0 highcharts-series-1" style="position: absolute; left: 115px; top: 3px; opacity: 1;"><span data-z-index="2" style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 12px; white-space: nowrap; color: rgb(51, 51, 51); cursor: pointer; font-weight: bold; text-overflow: ellipsis; overflow: hidden; margin-left: 0px; margin-top: 0px; left: 21px; top: 3px; fill: rgb(51, 51, 51);">Time In App</span></div></div></div></div></div></div>
+        <span class="card-bottom-note"></span> 
+      </div>
+    </div>
+    
+    <div class="flex-item flex-item-right">
+      <div class="cards-container">
+        <p class="card-heading" title="Unique App Opens">Unique App Opens <span id="unique_desc" data-toggle="popover" data-trigger="hover" data-original-title="" title=""><i class="fa fa-question-circle" aria-hidden="true"></i></span>
+          <span class="card-sub-heading">(7 Days)</span>
+        </p>
+        <p class="tab-heading-desc"></p>
+        
+        <div class="graphStats-table-style">
+          <table class="table stats-table">
+            <tbody>
+              <tr>
+                <td scope="col">
+                  <p class="header-stats">0</p>
+                  <p class="stats-sub">Unique App Opens</p>
+                </td>
+                <td scope="col">
+                  <p class="header-stats">0</p>
+                  <p class="stats-sub">Avg, Unique App Opens/  Day</p>
+                </td>
+              </tr>
+              <tr>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="graphs-container" id="unique-graph" data-highcharts-chart="1" style="overflow: hidden;"><div id="highcharts-u47ziwm-20" dir="ltr" class="highcharts-container " style="position: relative; overflow: hidden; width: 569px; height: 300px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" class="highcharts-root" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="569" height="300" viewBox="0 0 569 300"><desc>Created with Highcharts 7.2.2</desc><defs><clippath id="highcharts-u47ziwm-21-"><rect x="0" y="0" width="499" height="170" fill="none"></rect></clippath></defs><rect fill="#ffffff" class="highcharts-background" x="0" y="0" width="569" height="300" rx="0" ry="0"></rect><rect fill="none" class="highcharts-plot-background" x="60" y="51" width="499" height="170"></rect><g class="highcharts-grid highcharts-xaxis-grid" data-z-index="1"><path fill="none" data-z-index="1" class="highcharts-grid-line" d="M 130.5 51 L 130.5 221" opacity="1"></path><path fill="none" data-z-index="1" class="highcharts-grid-line" d="M 202.5 51 L 202.5 221" opacity="1"></path><path fill="none" data-z-index="1" class="highcharts-grid-line" d="M 273.5 51 L 273.5 221" opacity="1"></path><path fill="none" data-z-index="1" class="highcharts-grid-line" d="M 344.5 51 L 344.5 221" opacity="1"></path><path fill="none" data-z-index="1" class="highcharts-grid-line" d="M 415.5 51 L 415.5 221" opacity="1"></path><path fill="none" data-z-index="1" class="highcharts-grid-line" d="M 487.5 51 L 487.5 221" opacity="1"></path><path fill="none" data-z-index="1" class="highcharts-grid-line" d="M 558.5 51 L 558.5 221" opacity="1"></path><path fill="none" data-z-index="1" class="highcharts-grid-line" d="M 59.5 51 L 59.5 221" opacity="1"></path></g><g class="highcharts-grid highcharts-yaxis-grid" data-z-index="1"><path fill="none" stroke="#f5f5f5" stroke-width="1" data-z-index="1" class="highcharts-grid-line" d="M 60 136.5 L 559 136.5" opacity="1"></path></g><rect fill="none" class="highcharts-plot-border" data-z-index="1" x="60" y="51" width="499" height="170"></rect><g class="highcharts-axis highcharts-xaxis" data-z-index="2"><path fill="none" class="highcharts-axis-line" stroke="#ccd6eb" stroke-width="1" data-z-index="7" d="M 60 221.5 L 559 221.5"></path></g><g class="highcharts-axis highcharts-yaxis" data-z-index="2"><text x="26" data-z-index="7" text-anchor="middle" transform="translate(0,0) rotate(270 26 136)" class="highcharts-axis-title" style="color:#666666;fill:#666666;" y="136"><tspan>Unique App Open</tspan></text><path fill="none" class="highcharts-axis-line" data-z-index="7" d="M 60 51 L 60 221"></path></g><g class="highcharts-series-group" data-z-index="3"><g data-z-index="0.1" class="highcharts-series highcharts-series-0 highcharts-area-series" transform="translate(60,51) scale(1 1)" clip-path="url(#highcharts-u47ziwm-21-)"><path fill="rgba(170,0,255,0.1)" d="M 35.642857142857 85 L 106.92857142857 85 L 178.21428571429 85 L 249.5 85 L 320.78571428571 85 L 392.07142857143 85 L 463.35714285714 85 L 463.35714285714 85 L 392.07142857143 85 L 320.78571428571 85 L 249.5 85 L 178.21428571429 85 L 106.92857142857 85 L 35.642857142857 85" class="highcharts-area" data-z-index="0"></path><path fill="none" d="M 35.642857142857 85 L 106.92857142857 85 L 178.21428571429 85 L 249.5 85 L 320.78571428571 85 L 392.07142857143 85 L 463.35714285714 85" class="highcharts-graph" data-z-index="1" stroke="rgba(170, 0, 255, 0.6)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path><path fill="none" d="M 25.642857142856997 85 L 35.642857142857 85 L 106.92857142857 85 L 178.21428571429 85 L 249.5 85 L 320.78571428571 85 L 392.07142857143 85 L 463.35714285714 85 L 473.35714285714 85" visibility="visible" data-z-index="2" class="highcharts-tracker-line" stroke-linejoin="round" stroke="rgba(192,192,192,0.0001)" stroke-width="22"></path></g><g data-z-index="0.1" class="highcharts-markers highcharts-series-0 highcharts-area-series highcharts-tracker" transform="translate(60,51) scale(1 1)"></g></g><text x="285" text-anchor="middle" class="highcharts-title" data-z-index="4" style="color:#333333;font-size:18px;fill:#333333;" y="24"></text><text x="285" text-anchor="middle" class="highcharts-subtitle" data-z-index="4" style="color:#666666;fill:#666666;" y="24"></text><text x="10" text-anchor="start" class="highcharts-caption" data-z-index="4" style="color:#666666;fill:#666666;" y="297"></text><g class="highcharts-legend" data-z-index="7" transform="translate(410,10)"><rect fill="none" class="highcharts-legend-box" rx="0" ry="0" x="0" y="0" width="149" height="29" visibility="visible"></rect><g data-z-index="1"><g><g class="highcharts-legend-item highcharts-area-series highcharts-color-undefined highcharts-series-0" data-z-index="1" transform="translate(8,3)"><rect x="2" y="4" width="12" height="12" fill="rgba(170, 0, 255, 0.6)" rx="6" ry="6" class="highcharts-point" data-z-index="3"></rect></g></g></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" data-z-index="7"><text x="98.23558200720353" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="end" transform="translate(0,0) rotate(-45 98.23558200720353 237)" y="237" opacity="1"><tspan>12th Dec 20</tspan></text><text x="169.52129629292355" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="end" transform="translate(0,0) rotate(-45 169.52129629292355 237)" y="237" opacity="1"><tspan>13th Dec 20</tspan></text><text x="240.8070105786335" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="end" transform="translate(0,0) rotate(-45 240.8070105786335 237)" y="237" opacity="1"><tspan>14th Dec 20</tspan></text><text x="312.0927248643535" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="end" transform="translate(0,0) rotate(-45 312.0927248643535 237)" y="237" opacity="1"><tspan>15th Dec 20</tspan></text><text x="383.3784391500635" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="end" transform="translate(0,0) rotate(-45 383.3784391500635 237)" y="237" opacity="1"><tspan>16th Dec 20</tspan></text><text x="454.6641534357835" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="end" transform="translate(0,0) rotate(-45 454.6641534357835 237)" y="237" opacity="1"><tspan>17th Dec 20</tspan></text><text x="525.9498677214935" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="end" transform="translate(0,0) rotate(-45 525.9498677214935 237)" y="237" opacity="1"><tspan>18th Dec 20</tspan></text></g><g class="highcharts-axis-labels highcharts-yaxis-labels" data-z-index="7"><text x="45" style="color:#848484;cursor:default;font-size:11px;fill:#848484;" text-anchor="end" transform="translate(0,0)" y="140" opacity="1">0</text></g></svg><div class="highcharts-legend" style="position: absolute; left: 410px; top: 10px; opacity: 1;"><div style="position: absolute; left: 0px; top: 0px; opacity: 1;"><div style="position: absolute; left: 0px; top: 0px; opacity: 1;"><div class="highcharts-legend-item highcharts-area-series highcharts-color-undefined highcharts-series-0" style="position: absolute; left: 8px; top: 3px; opacity: 1;"><span data-z-index="2" style="position: absolute; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif; font-size: 12px; white-space: nowrap; color: rgb(51, 51, 51); cursor: pointer; font-weight: bold; text-overflow: ellipsis; overflow: hidden; margin-left: 0px; margin-top: 0px; left: 21px; top: 3px; fill: rgb(51, 51, 51);"><span title="">Unique App Opens</span></span></div></div></div></div></div></div>
+        <span class="card-bottom-note"></span> 
+      </div>
+    </div>
+    
+  <div>
+</div></div></div></div></div>
+ 
+    <div>
+      <p class="note-style margin-left-20"><span data-original-title="December 19th 2020, 10:24 pm" data-container="body" data-toggle="tooltip" data-placement="top">*Last updated : 7 minutes ago</span> <span class="bg_question" data-original-title="Dashboard data will be updated once in a day" data-container="body" data-toggle="tooltip" data-placement="right"></span></p>
+    </div>
+  </div>
+</div>
+
+</div></div>
+    </div>
+
+    <div class="modal fade" id="confirmMessageModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              ×
+            </button>
+            <h4 class="modal-title">Changes</h4>
+          </div>
+
+          <div class="modal-body">
+            <p id="confirm-msg">You have successfully saved changes.</p>
+            <p id="confirm-msg1"></p>
+            <p id="confirm-msg2"></p>
+          </div>
+
+          <div class="modal-footer">
+            <div class="text-center">
+              <button type="button" class="btn btn-success lr-btn-success" data-dismiss="modal">
+                Okay
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="errorMessageModal" tabindex="-1" role="dialog" aria-labelledby="confirmMessageModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              ×
+            </button>
+            <h4 class="modal-title">Alert!</h4>
+          </div>
+
+          <div class="modal-body">
+            <p id="error-msg"></p>
+          </div>
+
+          <div class="modal-footer">
+            <div class="text-center">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">
+                Okay
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="upgrade-mobile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              ×
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Mobile Apps Request</h4>
+          </div>
+          <div class="modal-body">
+            <p class="body-content">
+              You have not yet subscribed to this app plan.
+            </p>
+            <div class="form-group">
+              <label for="c-contact">Your contact number</label>
+              <div class="">
+                <input type="text" class="form-control" id="c-mobile" maxlength="20" placeholder="contact Number" value="">
+              </div>
+            </div>
+            <a href="https://eduninja.eduninja.com/mobileAppLandingPage" target="_blank" title="Upgrade to mobile apps" class="upgrade-text">Read more about apps
+            </a>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              Cancel
+            </button>
+            <button type="button" class="btn btn-success" id="request-demo">
+              Request for App
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="uploadingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog lastQustion-modal-dialog-custom">
+        <div class="modal-content lastQustion-modal-content-custom" style="width: 500px">
+          <div class="modal-body lastQustion-modal-body-custom">
+            <p class="noActionModal-msg" style="text-align: start; color: #47506e; font-weight: 600" id="uploadingFileTitle"></p>
+          </div>
+
+          <div class="progress" style="margin: 0 15px 20px">
+            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+          </div>
+
+          <div>
+            <p class="noActionModal-msg" style="text-align: start; padding-top: 0px; margin: 0 15px 20px" id="uploadingStatusMsg"></p>
+          </div>
+
+          <div class="modal-footer lastQustion-modal-footer-custom">
+            <center>
+              <button type="button" class="btn btn-success" data-dismiss="modal" id="uploadingModalOk" style="padding: 6px 18px">
+                ok
+              </button>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/admin/js/vendor.js.download"></script>
+
+    <script src="/static/admin/js/eduninjaredactor.js.download"></script>
+    <!-- <script src="/lib/redactor/scripts/eduninjaredactor.js?version=2012170632"></script> -->
+
+    <script src="/static/admin/checkout.js.download"></script><div class="razorpay-container" style="z-index: 1000000000; position: fixed; top: 0px; display: none; left: 0px; height: 100%; width: 100%; backface-visibility: hidden; overflow-y: visible;"><style>@keyframes rzp-rot{to{transform: rotate(360deg);}}@-webkit-keyframes rzp-rot{to{-webkit-transform: rotate(360deg);}}</style><div class="razorpay-backdrop" style="min-height: 100%; transition: all 0.3s ease-out 0s; position: fixed; top: 0px; left: 0px; width: 100%; height: 100%;"><span style="text-decoration: none; background: rgb(214, 68, 68); border: 1px dashed white; padding: 3px; opacity: 0; transform: rotate(45deg); transition: opacity 0.3s ease-in 0s; font-family: lato, ubuntu, helvetica, sans-serif; color: white; position: absolute; width: 200px; text-align: center; right: -50px; top: 50px;">Test Mode</span></div><iframe style="opacity: 1; height: 100%; position: relative; background: none; display: block; border: 0 none transparent; margin: 0px; padding: 0px; z-index: 2;" allowtransparency="true" frameborder="0" width="100%" height="100%" allowpaymentrequest="true" src="/static/admin/public.html" class="razorpay-checkout-frame"></iframe></div><div class="razorpay-container" style="z-index: 1000000000; position: fixed; top: 0px; display: none; left: 0px; height: 100%; width: 100%; backface-visibility: hidden; overflow-y: visible;"><style>@keyframes rzp-rot{to{transform: rotate(360deg);}}@-webkit-keyframes rzp-rot{to{-webkit-transform: rotate(360deg);}}</style><div class="razorpay-backdrop" style="min-height: 100%; transition: all 0.3s ease-out 0s; position: fixed; top: 0px; left: 0px; width: 100%; height: 100%;"><span style="text-decoration: none; background: rgb(214, 68, 68); border: 1px dashed white; padding: 3px; opacity: 0; transform: rotate(45deg); transition: opacity 0.3s ease-in 0s; font-family: lato, ubuntu, helvetica, sans-serif; color: white; position: absolute; width: 200px; text-align: center; right: -50px; top: 50px;">Test Mode</span></div><iframe style="opacity: 1; height: 100%; position: relative; background: none; display: block; border: 0 none transparent; margin: 0px; padding: 0px; z-index: 2;" allowtransparency="true" frameborder="0" width="100%" height="100%" allowpaymentrequest="true" src="/static/admin/public(1).html" class="razorpay-checkout-frame"></iframe></div><div class="razorpay-container" style="z-index: 1000000000; position: fixed; top: 0px; display: none; left: 0px; height: 100%; width: 100%; backface-visibility: hidden; overflow-y: visible;"><style>@keyframes rzp-rot{to{transform: rotate(360deg);}}@-webkit-keyframes rzp-rot{to{-webkit-transform: rotate(360deg);}}</style><div class="razorpay-backdrop" style="min-height: 100%; transition: all 0.3s ease-out 0s; position: fixed; top: 0px; left: 0px; width: 100%; height: 100%;"><span style="text-decoration: none; background: rgb(214, 68, 68); border: 1px dashed white; padding: 3px; opacity: 0; transform: rotate(45deg); transition: opacity 0.3s ease-in 0s; font-family: lato, ubuntu, helvetica, sans-serif; color: white; position: absolute; width: 200px; text-align: center; right: -50px; top: 50px;">Test Mode</span></div><iframe style="opacity: 1; height: 100%; position: relative; background: none; display: block; border: 0 none transparent; margin: 0px; padding: 0px; z-index: 2;" allowtransparency="true" frameborder="0" width="100%" height="100%" allowpaymentrequest="true" src="/static/admin/public(2).html" class="razorpay-checkout-frame"></iframe></div>
+    <script src="/static/admin/checkout.js(1).download"></script>
+
+    <!-- Test templates data -->
+    <script src="/static/admin/js/quiz_template_data.js.download"></script>
+    <!-- <script src="scripts/quiz_template_data.js?version=2012170632"></script> -->
+
+    <!-- countries and states -->
+    <script src="/static/admin/js/iso-3166-2.min.js.download"></script>
+
+    <script src="/static/admin/js/controller.js.download"></script>
+
+    <script src="/static/admin/js/widget.js.download"></script>
+    <script src="/static/admin/js/mediamanager.js.download"></script>
+  
+<script src="/static/admin/js/main.js.download"></script><style id="HW_styles_cont">.HW_badge_cont {
+  visibility: hidden;
+  pointer-events: none;
+  display: block;
+  cursor: pointer;
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.HW_absolute {
+  position: absolute !important;
+}
+
+.HW_badge_cont.HW_visible {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.HW_badge {
+  display: block;
+  border-radius: 20px;
+  background: #CD4B5B;
+  height: 16px;
+  width: 16px;
+  color: #fff;
+  text-align: center;
+  line-height: 16px;
+  font-size: 11px;
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  opacity: 0;
+  will-change: scale;
+  transform: scale(0);
+  transition: all 0.3s;
+}
+
+.HW_top {
+  top: -16px;
+}
+
+.HW_bottom {
+  bottom: -16px;
+}
+
+.HW_left {
+  left: -16px;
+}
+
+.HW_right {
+  right: -16px;
+}
+
+.HW_center, .HW_vcenter {
+  left: 50%;
+  margin-left: -16px;
+}
+
+.HW_center, .HW_hcenter {
+  top: 50%;
+  margin-top: -16px;
+}
+
+.HW_badge.HW_softHidden {
+  background: #d4d4d4;
+  opacity: 1;
+  transform: scale(0.6);
+}
+
+.HW_badge.HW_hidden {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.HW_badge.HW_visible {
+  opacity: 1;
+  transform: scale(1.0);
+}
+
+.HW_frame_cont {
+  pointer-events: none;
+  border-radius: 4px;
+  box-shadow: 0 0 1px rgba(99, 114, 130, 0.32), 0 8px 16px rgba(27, 39, 51, 0.08);
+  background: #fff;
+  border: none;
+  position: fixed;
+  top: -900em;
+  z-index: 2147483647;
+  width: 340px;
+  height: 0;
+  opacity: 0;
+  will-change: height, margin-top, opacity;
+  margin-top: -10px;
+  transition: margin-top 0.15s ease-out, opacity 0.1s ease-out;
+  overflow: hidden;
+}
+
+.HW_frame_cont.HW_visible {
+  opacity: 1;
+  pointer-events: auto;
+  margin-top: 0px;
+}
+
+.HW_frame_cont.HW_visible.HW_bottom {
+  transition: margin-top 0.15s ease-out, opacity 0.1s ease-out, height 0.3s ease-out;
+}
+
+.HW_frame {
+  background: #fff;
+  border: none;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+  position: relative;
+  z-index: 2147483647;
+}
+
+.HW_frame_cont.HW_embed {
+  position: static;
+  margin-top: 0;
+}
+
+.HW_notransition {
+  transition: none !important;
+}</style><div id="HW_frame_cont" class="HW_frame_cont HW_bottom" data-account="JrZL0J" style="height: 388px;"><iframe id="HW_frame" class="HW_frame" src="/static/admin/JrZL0J.html" sandbox="allow-same-origin allow-scripts allow-top-navigation allow-popups allow-forms allow-popups-to-escape-sandbox" tabindex="-1" aria-hidden="true" style="height: 388px;"></iframe></div><div class="date-picker-wrapper no-gap two-months" unselectable="on" style="display: none; top: 1142px; left: 1334px; user-select: none;"><div class="drp_top-bar"><div class="normal-top"><span class="selection-top">Selected: </span> <b class="start-day">...</b> <span class="separator-day"> to </span> <b class="end-day">...</b> <i class="selected-days">(<span class="selected-days-num">3</span> Days)</i></div><div class="error-top">error</div><div class="default-top">Please select a date range</div><input type="button" class="apply-btn disabled hide lr-button-success" value="Close"></div><div class="month-wrapper" style="width: 427px;">   <table class="month1" cellspacing="0" border="0" cellpadding="0">       <thead>           <tr class="caption">               <th>                   <span class="prev">&lt;                   </span>               </th>               <th colspan="5" class="month-name"><div class="select-wrapper"><select class="month" name="month"></select>undefined</div> <div class="month-element">2020</div></th>               <th><span class="next">&gt;</span>               </th>           </tr>           <tr class="week-name"><th>su</th><th>mo</th><th>tu</th><th>we</th><th>th</th><th>fr</th><th>sa</th>       </tr></thead>       <tbody><tr><td><div time="1604250089295" data-tooltip="" class="day toMonth  invalid ">1</div></td><td><div time="1604336489295" data-tooltip="" class="day toMonth  invalid ">2</div></td><td><div time="1604422889295" data-tooltip="" class="day toMonth  invalid ">3</div></td><td><div time="1604509289295" data-tooltip="" class="day toMonth  invalid ">4</div></td><td><div time="1604595689295" data-tooltip="" class="day toMonth  invalid ">5</div></td><td><div time="1604682089295" data-tooltip="" class="day toMonth  invalid ">6</div></td><td><div time="1604768489295" data-tooltip="" class="day toMonth  invalid ">7</div></td></tr><tr><td><div time="1604854889295" data-tooltip="" class="day toMonth  invalid ">8</div></td><td><div time="1604941289295" data-tooltip="" class="day toMonth  invalid ">9</div></td><td><div time="1605027689295" data-tooltip="" class="day toMonth  invalid ">10</div></td><td><div time="1605114089295" data-tooltip="" class="day toMonth  invalid ">11</div></td><td><div time="1605200489295" data-tooltip="" class="day toMonth  invalid ">12</div></td><td><div time="1605286889295" data-tooltip="" class="day toMonth  invalid ">13</div></td><td><div time="1605373289295" data-tooltip="" class="day toMonth  invalid ">14</div></td></tr><tr><td><div time="1605459689295" data-tooltip="" class="day toMonth  invalid ">15</div></td><td><div time="1605546089295" data-tooltip="" class="day toMonth  invalid ">16</div></td><td><div time="1605632489295" data-tooltip="" class="day toMonth  invalid ">17</div></td><td><div time="1605718889295" data-tooltip="" class="day toMonth  invalid ">18</div></td><td><div time="1605805289295" data-tooltip="" class="day toMonth  invalid ">19</div></td><td><div time="1605891689295" data-tooltip="" class="day toMonth  invalid ">20</div></td><td><div time="1605978089295" data-tooltip="" class="day toMonth  invalid ">21</div></td></tr><tr><td><div time="1606064489295" data-tooltip="" class="day toMonth  invalid ">22</div></td><td><div time="1606150889295" data-tooltip="" class="day toMonth  invalid ">23</div></td><td><div time="1606237289295" data-tooltip="" class="day toMonth  invalid ">24</div></td><td><div time="1606323689295" data-tooltip="" class="day toMonth  invalid ">25</div></td><td><div time="1606410089295" data-tooltip="" class="day toMonth  invalid ">26</div></td><td><div time="1606496489295" data-tooltip="" class="day toMonth  invalid ">27</div></td><td><div time="1606582889295" data-tooltip="" class="day toMonth  invalid ">28</div></td></tr><tr><td><div time="1606669289295" data-tooltip="" class="day toMonth  invalid ">29</div></td><td><div time="1606755689295" data-tooltip="" class="day toMonth  invalid ">30</div></td><td><div time="1606842089295" data-tooltip="" class="day nextMonth  invalid ">1</div></td><td><div time="1606928489295" data-tooltip="" class="day nextMonth  invalid ">2</div></td><td><div time="1607014889295" data-tooltip="" class="day nextMonth  invalid ">3</div></td><td><div time="1607101289295" data-tooltip="" class="day nextMonth  invalid ">4</div></td><td><div time="1607187689295" data-tooltip="" class="day nextMonth  invalid ">5</div></td></tr></tbody>   </table><div class="gap" style="visibility: hidden; height: 10px;"><div class="gap-top-mask"></div><div class="gap-bottom-mask"></div><div class="gap-lines"><div class="gap-line"><div class="gap-1"></div><div class="gap-2"></div><div class="gap-3"></div></div><div class="gap-line"><div class="gap-1"></div><div class="gap-2"></div><div class="gap-3"></div></div><div class="gap-line"><div class="gap-1"></div><div class="gap-2"></div><div class="gap-3"></div></div><div class="gap-line"><div class="gap-1"></div><div class="gap-2"></div><div class="gap-3"></div></div><div class="gap-line"><div class="gap-1"></div><div class="gap-2"></div><div class="gap-3"></div></div><div class="gap-line"><div class="gap-1"></div><div class="gap-2"></div><div class="gap-3"></div></div><div class="gap-line"><div class="gap-1"></div><div class="gap-2"></div><div class="gap-3"></div></div><div class="gap-line"><div class="gap-1"></div><div class="gap-2"></div><div class="gap-3"></div></div><div class="gap-line"><div class="gap-1"></div><div class="gap-2"></div><div class="gap-3"></div></div><div class="gap-line"><div class="gap-1"></div><div class="gap-2"></div><div class="gap-3"></div></div><div class="gap-line"><div class="gap-1"></div><div class="gap-2"></div><div class="gap-3"></div></div><div class="gap-line"><div class="gap-1"></div><div class="gap-2"></div><div class="gap-3"></div></div><div class="gap-line"><div class="gap-1"></div><div class="gap-2"></div><div class="gap-3"></div></div><div class="gap-line"><div class="gap-1"></div><div class="gap-2"></div><div class="gap-3"></div></div><div class="gap-line"><div class="gap-1"></div><div class="gap-2"></div><div class="gap-3"></div></div><div class="gap-line"><div class="gap-1"></div><div class="gap-2"></div><div class="gap-3"></div></div><div class="gap-line"><div class="gap-1"></div><div class="gap-2"></div><div class="gap-3"></div></div><div class="gap-line"><div class="gap-1"></div><div class="gap-2"></div><div class="gap-3"></div></div><div class="gap-line"><div class="gap-1"></div><div class="gap-2"></div><div class="gap-3"></div></div><div class="gap-line"><div class="gap-1"></div><div class="gap-2"></div><div class="gap-3"></div></div></div></div><table class="month2" cellspacing="0" border="0" cellpadding="0">   <thead>   <tr class="caption">       <th><span class="prev">&lt;</span>       </th>       <th colspan="5" class="month-name"><div class="select-wrapper"><select class="month" name="month"><option value="0">january</option><option value="1">february</option><option value="2">march</option><option value="3">april</option><option value="4">may</option><option value="5">june</option><option value="6">july</option><option value="7">august</option><option value="8">september</option><option value="9">october</option><option value="10">november</option><option value="11" selected="">december</option></select>december</div> <div class="select-wrapper"><select class="year" name="year"></select>undefined</div></th>       <th>           <span class="next">&gt;</span>       </th>   </tr>   <tr class="week-name"><th>su</th><th>mo</th><th>tu</th><th>we</th><th>th</th><th>fr</th><th>sa</th>   </tr></thead>   <tbody><tr><td><div time="1606669289295" data-tooltip="" class="day lastMonth  invalid ">29</div></td><td><div time="1606755689295" data-tooltip="" class="day lastMonth  invalid ">30</div></td><td><div time="1606842089295" data-tooltip="" class="day toMonth  invalid ">1</div></td><td><div time="1606928489295" data-tooltip="" class="day toMonth  invalid ">2</div></td><td><div time="1607014889295" data-tooltip="" class="day toMonth  invalid ">3</div></td><td><div time="1607101289295" data-tooltip="" class="day toMonth  invalid ">4</div></td><td><div time="1607187689295" data-tooltip="" class="day toMonth  invalid ">5</div></td></tr><tr><td><div time="1607274089295" data-tooltip="" class="day toMonth  invalid ">6</div></td><td><div time="1607360489295" data-tooltip="" class="day toMonth  invalid ">7</div></td><td><div time="1607446889295" data-tooltip="" class="day toMonth  invalid ">8</div></td><td><div time="1607533289295" data-tooltip="" class="day toMonth  invalid ">9</div></td><td><div time="1607619689295" data-tooltip="" class="day toMonth  invalid ">10</div></td><td><div time="1607706089295" data-tooltip="" class="day toMonth  invalid ">11</div></td><td><div time="1607792489295" data-tooltip="" class="day toMonth  invalid ">12</div></td></tr><tr><td><div time="1607878889295" data-tooltip="" class="day toMonth  invalid ">13</div></td><td><div time="1607965289295" data-tooltip="" class="day toMonth  invalid ">14</div></td><td><div time="1608051689295" data-tooltip="" class="day toMonth  invalid ">15</div></td><td><div time="1608138089295" data-tooltip="" class="day toMonth  invalid ">16</div></td><td><div time="1608224489295" data-tooltip="" class="day toMonth  invalid ">17</div></td><td><div time="1608310889295" data-tooltip="" class="day toMonth  invalid ">18</div></td><td><div time="1608397289295" data-tooltip="" class="day toMonth  invalid real-today">19</div></td></tr><tr><td><div time="1608483689295" data-tooltip="" class="day toMonth  invalid ">20</div></td><td><div time="1608570089295" data-tooltip="" class="day toMonth  invalid ">21</div></td><td><div time="1608656489295" data-tooltip="" class="day toMonth  invalid ">22</div></td><td><div time="1608742889295" data-tooltip="" class="day toMonth  invalid ">23</div></td><td><div time="1608829289295" data-tooltip="" class="day toMonth  invalid ">24</div></td><td><div time="1608915689295" data-tooltip="" class="day toMonth  invalid ">25</div></td><td><div time="1609002089295" data-tooltip="" class="day toMonth  invalid ">26</div></td></tr><tr><td><div time="1609088489295" data-tooltip="" class="day toMonth  invalid ">27</div></td><td><div time="1609174889295" data-tooltip="" class="day toMonth  invalid ">28</div></td><td><div time="1609261289295" data-tooltip="" class="day toMonth  invalid ">29</div></td><td><div time="1609347689295" data-tooltip="" class="day toMonth  invalid ">30</div></td><td><div time="1609434089295" data-tooltip="" class="day toMonth  invalid ">31</div></td><td><div time="1609520489295" data-tooltip="" class="day nextMonth  invalid ">1</div></td><td><div time="1609606889295" data-tooltip="" class="day nextMonth  invalid ">2</div></td></tr></tbody></table><div class="dp-clearfix"></div><div class="time"><div class="time1"></div><div class="time2"></div></div><div class="dp-clearfix"></div></div><div class="footer"><div class="shortcuts"><b>Shortcuts</b>&nbsp;<span class="prev-buttons">Previous <a href="javascript:;" shortcut="prev,week">Week</a> <a href="javascript:;" shortcut="prev,month">Month</a></span>&nbsp;<span class="custom-shortcut"><a href="javascript:;" shortcut="custom">this month</a></span></div></div><div class="date-range-length-tip"></div></div><link media="all" rel="stylesheet" href="/static/admin/css/headway-animate.css"><iframe id="intercom-frame" style="position: absolute !important; opacity: 0 !important; width: 1px !important; height: 1px !important; top: 0 !important; left: 0 !important; border: none !important; display: block !important; z-index: -1 !important; pointer-events: none;" aria-hidden="true" tabindex="-1" title="Intercom" src="/static/admin/saved_resource.html"></iframe></body></html>

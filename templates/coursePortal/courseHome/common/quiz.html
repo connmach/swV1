@@ -1,0 +1,252 @@
+{% extends "coursePortal/courseHome/common/baseTaskTemp.html" %}
+{% block title %} the_title {% endblock %}
+
+    <link  rel="stylesheet" type="text/css" href="/static/mcqv2.0/css/style.css">
+ 
+        {% block body %}
+  <div id="EndQuiz" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Result</h4>
+          </div>
+          <div class="modal-body">
+
+            <span>
+              <p id="quizResult"></p>
+            </span>
+            <span>Description
+              <p id="quizDesc"></p>
+            </span>
+            <span>
+              <p id="quizUserMsg"></p>
+            </span>
+
+          </div>
+          <div class="modal-footer">
+            <button id="close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+	
+ 
+  <div class="row h-100">
+
+
+   <div class="pl-0 h-100 pb-5 overflow-scroll position-relative">
+
+                    <div class="p-3">
+                        <div class="bg-light p-3">
+                            <div class="text-center">
+                                <h5 class="my-3">PLEASE ANSWER QUESTIONS BELOW</h5>
+                            </div>
+                              <div class="card py-4 mb-4" id= "quizContainer">  							
+                              </div> 
+                        </div>
+                    </div>
+                    <div class="col-12 button-container">
+                        <style>
+                            .button-container {
+                                position: fixed;
+                                bottom: 0;
+                                background: white;
+                                padding: 10px;
+                                box-shadow: 0px 0px 15px -3px #00000054;
+                                width: inherit;
+                                max-width: inherit;
+                                display: flex;
+                                justify-content: flex-end;
+                            }
+                        </style>
+
+                        <button id="submitQuiz" class="btn btn-dark">Submit</button>
+
+
+                    </div>
+ </div>
+ 
+
+</div>
+    
+  <script>
+  var quizContainer=document.getElementById("quizContainer") 
+  var myQuestions = [
+      {
+          question: 'What is the value of the expression 10/2?',
+          answers: {
+              a: '3',
+              b: '5',
+              c: '115'
+          },
+          correctAnswer: 'b'
+      }
+ 
+  ];
+
+$(document).ready(function () {
+     $('#close').click(function () {
+ 
+  })
+ 
+    //console.log('{{taskId}}'+ '{{userId}}'+ '{{courseId}}'+ ans+'{{moduleId}}'+ "checkMCQ")
+     $('#submitQuiz').click(function () {
+       alert("open")  
+       ans=getResults(myQuestions , quizContainer)
+       console.log("show ans" + ans)
+       console.log('{{taskId}}'+ '{{userId}}'+ '{{courseId}}'+ ans+'{{moduleId}}'+ "checkMCQ")
+
+   //    MCQChecker(quizNo, userId, courseId, ans, action)
+      // MCQChecker('{{taskId}}', '{{userId}}', '{{courseId}}','{{moduleId}}', ans, "checkMCQ")
+  })
+  })
+
+  function showQuestions(questions, quizContainer){
+      // we'll need a place to store the output and the answer choices
+      var output = [];
+      var answers;
+     console.log("show questions")
+      // for each question...
+      for(var i=0; i<questions.length; i++){
+          
+          // first reset the list of answers
+          answers = [];
+  
+          // for each available answer to this question...
+          for(letter in questions[i].answers){
+  
+              // ...add an html radio button
+           answers.push('<div class="form-check mb-3"><label class="form-check-label">'
+                        + '<input type="radio" class="form-check-input" name="question'+i+'" value="'+letter+'">'
+                        + letter + ':'
+                        + questions[i].answers[letter]
+                        + '</label>' 
+                        + '</div>'
+              );
+          }
+  
+          // add this question and its answers to the output
+          output.push(
+              '<div class="card py-4 mb-4"><div class="question px-4 border-bottom"><p>' + questions[i].question + '</p></div>'
+              + '<div   class="answers px-4 pt-3">' + answers.join('') + '</div></div>'
+          );
+      }
+  
+      // finally combine our output list into one string of html and put it on the page
+      quizContainer.innerHTML = output.join('');
+  }
+
+ showQuestions(myQuestions , quizContainer)
+  function getResults(questions, quizContainer){
+      
+      // gather answer containers from our quiz
+      var answerContainers = quizContainer.querySelectorAll('.answers');
+      
+      // keep track of user's answers
+      var userAnswer = '';
+      var numCorrect = 0;
+      var ans={}
+
+      for(var i=0; i<questions.length; i++){
+          // find selected answer
+          ans[i+1] = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+          console.debug(answerContainers[i]) 
+          console.debug(answerContainers[i].querySelector('input[name=question'+i+']:checked')) 
+           
+      }
+      console.log("answer: " + ans) 
+      return ans
+  }
+  function MCQChecker(taskId , userId, courseId,moduleId, ans, action) {
+
+   console.log("---------------------update learning history" + userId +"//"+ courseId +"//"+ taskId +"//"+ moduleId ) 
+
+    console.log("TestChecker called for " + taskId )
+    console.log("TestChecker ans " + ans)
+    console.log("TestChecker ans " + ans)
+
+    platformServiceURL = "api/v1/platformServices"
+    quizServiceURL = "quizRepo"
+
+    quizPlatformServURL = getPlatformServiceHost() + "/" + platformServiceURL + "/" + quizServiceURL + "/"
+
+    console.log("Quiz Test URL:" + quizPlatformServURL)
+    quizCheckjsonData = JSON.stringify({
+      "userId": userId,
+      "courseId": courseId,
+      "quizId": taskId ,
+      "ans": ans,
+      "TaskAction": action
+    })
+    console.log("Quiz Test jsondata:" + quizCheckjsonData)
+
+    $.ajax({
+      type: 'POST',
+      url: quizPlatformServURL,
+      data: quizCheckjsonData,
+      contentType: "application/json"
+    })
+      .done(function (data) {
+
+        quizResult = JSON.parse(data);
+
+        if (quizResult.execStatus == "error") {
+
+
+        } else {
+
+          console.log("update learning history- tasksstatus " + quizResult.result)
+          if (quizResult.result== "done") {
+            console.log("---------------------update learning history" + userId +"//"+ courseId +"//"+ taskId +"//"+ moduleId ) 
+            next(userId, courseId, taskId , moduleId)
+          }
+
+          console.log("--------Quiz Result---")
+          console.log("Result:" + quizResult.result)
+          console.log("Result:" + quizResult.Answer)
+          console.log("Result:" + quizResult.AnsDesc)
+
+          $("#quizResult").html(quizResult.Answer);
+          $("#quizDesc").html(quizResult.AnsDesc);
+          $("#quizUserMsg").html(quizResult.userMsg);
+
+
+
+          $("#EndQuiz").modal("show");
+
+        }
+
+
+        return;
+
+      }).fail(function (data) {
+
+        alert("error******** while reading file  in sandbox");
+        console.log("error******** while reading file in sandbox" + JSON.stringify(data))
+        return null;
+
+      }).always(function () {
+
+
+        console.log("Quiz MCQ check  webservice call finished")
+
+      });
+
+  }
+
+
+
+</script>
+    <!-- Bootstrap JavaScript -->
+    <script src="/static/common//static/common/js/jquery-3.2.1.slim.min.js"></script>
+    <script src="/static/common/js/popper.min.js"></script>
+    <script src="/static/common/js/bootstrap.min.js"></script>
+  
+         {% endblock %}  
+      
+   
+

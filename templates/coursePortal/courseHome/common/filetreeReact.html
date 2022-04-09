@@ -1,0 +1,112 @@
+<div class="west" id="fileTree" style="width:200px;">
+
+
+    <script src="/static/web/test/js/tree.js"></script>
+	<link rel="stylesheet" href="/static/web/test/css/treejs.css" id="treejs_styles">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+ <script>
+    console.log("fileTree enter")
+    function changeIcons(){
+
+        view.changeOption("leaf_icon", '<i class="fas fa-file"></i>');
+    view.changeOption("parent_icon", '<i class="fas fa-folder"></i>');
+
+    TreeConfig.open_icon = '<i class="fas fa-angle-down"></i>';
+    TreeConfig.close_icon = '<i class="fas fa-angle-right"></i>';
+
+
+    view.reload();
+}
+
+    function toggleCustomIcon(n){
+if(n == true){
+        root.changeOption("icon", '<i class="fas fa-code-branch"></i>');
+}else{
+        root.changeOption("icon", undefined);
+}
+
+    view.reload();
+}
+</script>
+
+<style media="screen">\
+* {
+	box-sizing: border-box;
+	/*position: relative;*/
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+}
+
+header h1 {
+	margin: 1em;
+	display: block;
+	text-align: center;
+	font-size: 3rem;
+	color: #fff;
+}
+
+header {
+	padding: 5px;
+	margin-bottom: 1em;
+	background-color: #159957;
+	background-image: -webkit-linear-gradient(30deg, #155799, #159957);
+	background-image: -o-linear-gradient(30deg, #155799, #159957);
+	background-image: linear-gradient(120deg, #155799, #159957);
+}
+
+main {
+	margin: 0 1em;
+	text-align: center;
+}
+
+#container {
+	width: 200px;
+	border: 1px solid #ccc;
+	margin: 0 auto;
+	margin-bottom: 1em;
+}
+
+.btn {
+	display: inline-block;
+	color: #fff;
+	padding: 10px 20px;
+	background-color: #159957;
+	background-image: -webkit-linear-gradient(30deg, #155799, #159957);
+	background-image: -o-linear-gradient(30deg, #155799, #159957);
+	background-image: linear-gradient(120deg, #155799, #159957);
+	border-color: #fff3;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 0.3rem;
+	transition: background-image 0.2s;
+	text-decoration: none !important;
+	margin-bottom: 10px;
+}
+
+.btn:hover {
+	background-image: -webkit-linear-gradient(30deg, #155799, #5b9915);
+	background-image: -o-linear-gradient(30deg, #155799, #5b9915);
+	background-image: linear-gradient(120deg, #155799, #5b9915);
+}
+
+#description {
+	margin-top: 1em;
+}
+
+a {
+	color: #0085fc;
+}
+
+</style><style>div#fileTree {
+	border: solid 1px;
+	border-color: #e4e4e6;
+}
+
+</style>
+   <div id="container"></div>
+</div>

@@ -1,0 +1,535 @@
+<html>
+    <head>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+            <script src="/bootstrap.min.js">
+        </script>
+        <script src="/static/js/1.12.4/jquery-ui.js"></script>
+        <link rel="icon" href="/static/images/sw.ico" />
+        <link rel="stylesheet" type="text/css" href="/static/common/css/oneweb.css" />
+        <link rel="stylesheet" type="text/css" href="/static/common/css/course.css" />
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="/static/common/css/bootstrap.min.css" />
+        <link href="fontawesome/css/all.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/static/common/css/components.css" />
+        <link rel="stylesheet" href="/static/common/css/style.css" />
+        <script src="/static/js/custom.js"></script>
+        <link rel="stylesheet" type="text/css" href="/static/css/course/oneweb.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/course/Exercise.css" />
+        <script src="/static/js/custom.js"></script>
+        <style type="text/css">
+            @import url(//fonts.googleapis.com/css?family=Open + Sans:200italic, 300italic, 400italic, 500italic, 600italic, 700italic, 800italic, 900italic, 200, 300, 400, 500, 600, 700, 800);
+        </style>
+
+    <style>
+        #articles_h1 {
+            padding: 2em 30px;
+        }
+
+        #articles_content {
+            padding-top: 30px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    </style>
+    <style type="text/css" media="all">
+
+        ol, ul {
+            list-style: none;
+        }
+
+        strong {
+            font-weight: 700;
+        }
+
+        #frame {
+            max-width: 620px;
+            width: auto;
+            border: 1px solid #ccc;
+            background: #fff;
+            padding: 10px;
+            margin: 3px;
+        }
+
+        h1 {
+            font: normal bold 2em/1.8em "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-align: left;
+            border-bottom: 1px solid #999;
+            padding: 0;
+            width: auto
+        }
+
+        h2 {
+            font: italic bold 1.3em/1.2em "Helvetica Neue", Helvetica, Arial, sans-serif;
+            padding: 0;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        p.pager {
+            margin: 5px 0 5px;
+            font: bold 1em/1em "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: #999;
+        }
+
+        img.question-image {
+            display: block;
+            max-width: 250px;
+            margin: 10px auto;
+            border: 1px solid #ccc;
+            width: 100%;
+            height: auto;
+        }
+
+        #choice-block {
+            display: block;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #submitbutton {
+            background: #5a6b8c;
+        }
+
+        #submitbutton:hover {
+            background: #7b8da6;
+        }
+
+        #explanation {
+            margin: 0 auto;
+            padding: 20px;
+            width: 75%;
+        }
+
+        .choice-box {
+            width: 40px;
+            display: block;
+            text-align: center;
+            margin: 22px 35px auto;
+            padding: 10px 0;
+            border: 1px solid #666;
+            cursor: pointer;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+    </style>
+
+    <title>SocialWings</title>
+    <script>
+
+        var myObj = {
+            "TaskList": [{
+                "qn": "1",
+                "QnDesc": "The string \"word\" is defined as follows word=\"Power\"<br/>The \"word\" can be printed in all uppercase letters by?",
+                "type": "mulitple",
+                "ans": "AB",
+                "options": ["print(word.uppercase())", "print(word.upper())", "print(upper(word))", "None of these"]
+            }, {
+                "qn": "2",
+                "QnDesc": "what is the output when running the below code?<br/><br/>            def processString(str):<br/>             return str[:1].upper() + str[1:]<br/>           <br/>         out=processString(\"ranDoM\") <br/>         print(\"Processed string \",out)<br/>?",
+                "type": "single",
+                "ans": "A",
+                "options": ["Processed string  rANDOM", "Processed string  RanDoM", "error in python syntax", "None of these"]
+            }, {
+                "qn": "3",
+                "QnDesc": "What is the output when running the below code?<br/><br/>num = 3<br/>tempStr=\"Welcome\"<br/><br/>print(tempStr * num)<br/>?",
+                "type": "mulitple",
+                "ans": "A",
+                "options": ["welcome3", "error", "welcomewelcomewelcome", "None of these"]
+            }, {
+                "qn": "4",
+                "QnDesc": "What is the output when running the below code?<br/><br/>games = [\"softball\", \"vollyball\", \"golf\"] print(\"|\".join(games))?",
+                "type": "mulitple",
+                "ans": "A",
+                "options": ["[\"softball\",\"vollyball\", \"golf\"]", "softball|vollyball|golf", "softball|vollyball|golf|", "None of these"]
+            }]
+        }
+        var qnIndex = 0
+        var ans = {}
+        var picked = null
+        $(document).ready(function () {
+
+         //   $("#StartQuiz").modal("show");
+
+            //   $(".main-part").toggleClass("opened");
+
+
+        });
+
+        function StartQuiz() {
+
+
+            var count = ""
+            console.log(count)
+            init()
+            setTime()
+
+            setupButtons()
+            /******* No need to edit below this line *********/
+            var currentquestion = 0,
+                score = 0,
+                submt = true,
+                picked;
+            loadFlag = false;
+            baseUrl =
+                //loadQnAns();
+                console.log("add to console ");
+            discussState = true;
+            //var myObj = { "status": "OK", "TaskId": "A11_2", "NxtQn": "not linked", "topicDesc": "We need to select studentId from students table", "instruction": "<p>Good! Let's move on to selection of specific data from a table. <b>Students</b></p> \n<p>Students table sample data as belwo .</p> \n<pre>Students Id , Students Name, Students marks<br/> A12 Jacob Geroge 450<br/> A13 Paula  Geroge 150<br/> A14 Guru murthy 530</pre> \n<p>This line of code:</p> \n \n<p>The  below statement select the students name from the students table <code>select students name from students</code> :</p> \n< ", "exercise": "\n<p>Modify the query to select students Id from students table:</p>\n<pre>A12<br/>A13<br/>A14<br/></pre>", "section": "Python Basics" };
+
+
+            $("#currentQn").html(myObj.TaskId)
+            NxtQn = myObj.NxtQn
+            NxtQnURL = "/course/A01/module/M001/" + NxtQn
+            $("#nextEx").attr("href", NxtQnURL)
+            $("#courseSummmary").html(myObj.topicDesc)
+            $("#instruction_container").html(myObj.instruction);
+            $("#content_container").html(myObj.exercise);
+            $('.west').show();
+            console.log("add to console " + myObj.topicDesc);
+            // reading from learning history below details
+            // score, section, exercise
+            //1. complete all the section which are done by changing class .done
+            // making the tick mark
+            //spinner while submitting the exercise
+            showtime()
+        }
+
+        function init() {
+
+
+            //    alert("Quiz Start" + ans[qnIndex])
+            //  $(document.createElement('ul')).attr('id', 'choice-block').appendTo('#frame');
+            addQuestion(qnIndex)
+            addChoices(qnIndex)
+            qnIndex + 1
+        }
+
+        function setupButtons() {
+            $('.choice').on('mouseover', function () {
+                $(this).css({
+                    'background-color': '#e1e1e1'
+                });
+            });
+            $('.choice').on('mouseout', function () {
+                $(this).css({
+                    'background-color': '#fff'
+                });
+            })
+            $('.choice').on('click', function () {
+                picked = $(this).attr('data-index');
+                $('.choice').removeAttr('style').off('mouseout mouseover');
+                $(this).css({
+                    'border-color': '#222',
+                    'font-weight': 700,
+                    'background-color': '#c1c1c1'
+                });
+            })
+        }
+
+        function addChoices(qnIndex) {
+            //var options= ['A', 'B', 'C', 'D']
+            $('#choice-block').empty();
+            console.log(qnIndex)
+            var len = myObj.TaskList[qnIndex].options.length
+            //table =document.createElement('table',{"id":'choice-block'})
+            row = document.createElement('tr').append('choice-block')
+            // var table =  document.getElementById("")
+            for (i = 0; i < len; i++) {
+                var newRowContent = "<tr><td" + " data-index=" + i + " class='choice choice-box'><input type=\"checkbox\" id=\"" + "12" + "\" value=\"" + "chkboxValue" + "\"></td><td id=Tag" + i + ">Test</td></tr>";
+                $(newRowContent).appendTo($("#choice-block"));
+                var row = document.createElement('tr').append("choice-block")
+                $("#Tag" + i).text(myObj.TaskList[qnIndex].options[i]);
+
+            }
+            setupButtons()
+        }
+
+        function addQuestion(qnIndex) {
+            $("#instruction_container").html(myObj.TaskList[qnIndex].QnDesc);
+
+        }
+
+        function setTime() {
+            document.createElement('timer')
+            let timer = document.getElementById("timer");
+            secondsLeft = 330
+            //displayQuestions();
+            let timerInterval = setInterval(function () {
+                secondsLeft--;
+                //timer.textContent = "";
+                //timer.textContent = "Time: " + secondsLeft;
+                if (secondsLeft <= 0 || qnIndex === myObj.TaskList.length) {
+                    //clearInterval(timerInterval);
+                    //captureUserScore();
+                    //     alert("Time over")
+                }
+            }, 10);
+        }
+
+        function loadNextQn() {
+
+            if (qnIndex + 1 == myObj.TaskList.length) {
+                ans[qnIndex + 1] = picked
+
+
+                submit()
+            } else {
+
+
+                ans[qnIndex + 1] = picked
+
+                for (i = 0; i < ans.length; i++)
+                    alert("Submit the Quiz" + ans[i])
+
+                qnIndex = qnIndex + 1
+                picked = null
+                //addQuestion(qnIndex)
+                addChoices(qnIndex)
+            }
+
+        }
+
+
+        function submit() {
+           console.debug("Submit")
+           evaluate();
+           return;
+
+                  // needs to be removed  
+            ans[qnIndex + 1] = picked
+
+            for (i = 0; i < Object.keys(ans).length; i++)
+                   alert("Submit the Quiz" + ans[i])
+                console.log("data" + 'hk01_3', 'guest', ans)
+            ans=getResults(myQuestions , quizContainer)
+            MCQChecker('hk01_3', 'guest', "A01", ans, "checkTest")
+
+            alert("End of quiz")
+        }
+
+        function MCQChecker(quizNo, userId, courseId, ans, action) {
+
+            console.log("TestChecker called for " + quizNo)
+            console.log("TestChecker ans " + ans)
+            platformServiceURL = "api/v1/platformServices"
+            quizServiceURL = "quizRepo"
+
+            quizPlatformServURL = getPlatformServiceHost() + "/" + platformServiceURL + "/" + quizServiceURL + "/"
+
+            console.log("Quiz Test URL:" + quizPlatformServURL)
+            quizCheckjsonData = JSON.stringify({
+                "userId": userId,
+                "courseId": courseId,
+                "quizId": quizNo,
+                "ans": ans,
+                "TaskAction": action
+            })
+
+            console.log("Quiz Test jsondata:" + quizCheckjsonData)
+
+            $.ajax({
+                type: 'POST',
+                url: quizPlatformServURL,
+                data: quizCheckjsonData,
+                contentType: "application/json"
+            })
+                .done(function (data) {
+                    var quizResult = JSON.parse(data);
+
+                    if (quizResult.execStatus == "error") {
+
+
+                    } else {
+                        if (quizResult.TasksStatus == true) {
+                            $(".nextEx").css("display", "");
+                            console.log("execOut" + quizResult.result)
+                        }
+                        for (i = 0; i < Object.keys(quizResult.result).length; i++) {
+                            console.log(" Quiz" + Object.keys(quizResult.result).length)
+                            console.log("Submit the Quiz" + quizResult.result['1'])
+                        }
+                        console.log("--------Quiz Result---")
+                        console.log("Result:" + quizResult.result)
+                    }
+                    console.log("Answer:" + quizResult.Answer)
+                    $("#quizResult").html(quizResult.Answer);
+                    $("#CorrectAnswer").html(quizResult.correctAnsCnt);
+                    $("#WrongAnswer").html(quizResult.wrongAnsCnt);
+                    $("#quizUserMsg").html(quizResult.userMsg);
+
+
+                    $("#EndQuiz").modal("show");
+
+
+                    return quizResult;
+
+                }).fail(function (data) {
+
+                alert("error******** while reading file  in sandbox");
+                console.log("error******** while reading file in sandbox" + JSON.stringify(data))
+                return null;
+
+            }).always(function () {
+
+
+                console.log("Quiz TestChecker  webservice call finished")
+
+            });
+
+        }
+
+    </script>
+    <script>
+        totalsec = 10
+
+        function starttime() {
+            showtime();
+        }
+
+        function showtime() {
+
+            // 1 seconde eraf
+            totalsec--;
+
+            var min = parseInt(totalsec / 60, 10);
+            var sec = totalsec - (min * 60);
+
+
+            console.log(min + ' :' + sec)
+            if (parseInt(sec) > 0) {
+                document.getElementById("showtime").innerHTML = "Your Left Time is :" + min + " Minutes :" + sec + " Seconds";
+                tim = setTimeout("showtime()", 1000);
+            } else {
+                if (parseInt(sec) == 0) {
+                    document.getElementById("showtime").innerHTML = "Your Left Time is :" + min + " Minutes :" + sec + " Seconds";
+                    if (parseInt(min) == 0) {
+                        clearTimeout(tim);
+                        alert("Time Up");
+
+
+                    } else {
+                        document.getElementById("showtime").innerHTML = "Your Left Time is :" + min + " Minutes :" + sec + " Seconds";
+                        tim = setTimeout("showtime()", 1000);
+                    }
+                }
+
+            }
+        }
+
+        function EndExam() {
+
+ 
+           upsertLh('{{userId}}','{{courseId}}','{{quizId}}',"LH")
+
+
+            location.href = "Loginpage.htm";
+        }
+    </script>
+ 
+    {% include 'coursePortal/courseHome/common/headerQuizTest.html' %}
+</head>
+
+
+<body class="light wide python exercise-screen ScrollAreaConfig--19 ScrollAreaConfig--active"
+      data-new-gr-c-s-check-loaded="14.1014.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="14.996.0" style="">
+
+<div class="container-fluid p-0 overflow-hidden">
+
+
+    <div id="content_wrapper" style="margin-top:80px" class="content-container">
+
+        <!--        <div id="StartQuiz" class="modal fade" role="dialog" style="display: none;">-->
+        <!--            <div class="modal-dialog">-->
+
+        <!--                &lt;!&ndash; Modal content&ndash;&gt;-->
+        <!--                <div class="modal-content">-->
+        <!--                    <div class="modal-header">-->
+        <!--                        <button type="button" class="close" data-dismiss="modal">×</button>-->
+        <!--                        <h4 class="modal-title"></h4>-->
+        <!--                    </div>-->
+        <!--                    <div class="modal-body">-->
+        <!--                        <p>Begin Python Basics</p>-->
+        <!--                    </div>-->
+        <!--                    <div class="modal-footer">-->
+        <!--                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="StartQuiz()">-->
+        <!--                            StartQuiz-->
+        <!--                        </button>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+
+        <!--            </div>-->
+        <!--        </div>-->
+
+        <!--        <div id="EndQuiz" class="modal fade" role="dialog">-->
+        <!--            <style>-->
+        <!--                .result {-->
+        <!--                    width: 500px;-->
+        <!--                    margin: 50px auto 20px;-->
+        <!--                    border: 1px solid #00979d;-->
+        <!--                    padding: 40px;-->
+        <!--                    text-align: center;-->
+        <!--                    background: #FFF;-->
+        <!--                    font-family: 'Typonine Light', sans-serif;-->
+        <!--                }-->
+        <!--            </style>-->
+        <!--            <div class="modal-dialog">-->
+
+        <!--                &lt;!&ndash; Modal content&ndash;&gt;-->
+        <!--                <div class="modal-content">-->
+
+        <!--                    <div class="result">-->
+        <!--                        <div class="modal-header">-->
+        <!--                            <button type="button" class="close" data-dismiss="modal">X</button>-->
+        <!--                            <h4 class="modal-title">Result</h4>-->
+        <!--                        </div>-->
+        <!--                        <img src="./MCQ_V0.1_files/certification_fail.png">-->
+        <!--                        <div class="score">-->
+        <!--                            You Score: 1/5-->
+        <!--                        </div>-->
+        <!--                        <div class="modal-footer">-->
+        <!--                            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="backToCourse()">-->
+        <!--                                End-->
+        <!--                                Quiz-->
+        <!--                            </button>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+
+        <!--                </div>-->
+
+        <!--            </div>-->
+        <!--        </div>-->
+
+
+        <div id="content">
+
+            {% block body %} {% endblock %}
+ 
+
+
+        </div>
+        <!--        <div class="loader-wrapper"><img src="./MCQ_V0.1_files/ajax-loader.gif"></div>-->
+    </div>
+
+    <!--    <div id="footer_wrapper">-->
+    <!--        <div id="footer"></div>-->
+    <!--    </div>-->
+</div>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/common/css/bootstrap.min.css">
+    <link href="fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/common/css/components.css">
+    <link rel="stylesheet" href="/static/common/css/style.css">
+    <script src="/static/js/gd.js"></script>
+    <script src="/static/js/lh.js"></script>
+    <script src="/static/js/resultFormatting.js"></script>
+
+
+</body>
+
+</html>

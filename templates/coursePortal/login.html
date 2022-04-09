@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/common/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/common/fontawesome/css/all.css">
+    <link rel="stylesheet" href="/static/common/css/components.css">
+    <link rel="stylesheet" href="/static/common/css/style.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <title>SocialWings</title>
+</head>
+
+<body>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0&appId=831034017556272&autoLogAppEvents=1"
+        nonce="cNPuf99B"></script>
+
+
+    <div class="container-fluid">
+        <div class="row h-100vh login-page">
+            <div class="align-items-center col-lg-6 d-flex justify-content-end pl-lg-0 position-relative">
+                <img src="/static/common/img/bg.png" class="img-fluid login-img" alt="#">
+                <div class="login-hero-text py-4 pr-md-10">
+                    <p class="fs-6 fs-lg-3x font-weight-bold login-border">Welcome to <br> <span
+                            class="fs-9 fs-lg-4x">Social Wings</span></p>
+                    <p class="fs-2 fs-lg-8 font-weight-bold">Let's get you <br> geared up!</p>
+                </div>
+            </div>
+            <div class="align-items-center col-lg-6 d-flex justify-content-center">
+                <div class="col-10">
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="fb-login-button" data-width="" data-size="large"
+                                data-button-type="continue_with" data-layout="default" data-auto-logout-link="false"
+                                data-use-continue-as="false">
+                                                  <div class="col-md-3">
+                                                       <fb:login-button onlogin="Log.info.bind('onlogin callback')">
+                                                        </fb:login-button>
+
+
+                                    <a   href="/course/fb/login" role="button"
+                                        style="text-transform:none">
+                                      
+        
+                                    </a>
+                                </div>          
+
+                             </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="g-signin2" data-onsuccess="onSignIn">
+                                <div class="col-md-3">
+                                    <a class="btn btn-outline-dark" href="/course/google/login" role="button"
+                                        style="text-transform:none">
+                                        <img width="20px" style="margin-bottom:3px; margin-right:5px"
+                                            alt="Google sign-in"
+                                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                                        Login with Google
+                                    </a>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <p class="or-line mt-4">OR</p>
+
+                    <form method="post" accept-charset="UTF-8" action="/course/login">
+                        <div class="form-group c-input-1">
+                            <label for="userName">Username</label>
+                            <input type="text" class="form-control" name="email" id="email" required
+                                value="guest@eduninja.com">
+                        </div>
+                        <div class="form-group c-input-1">
+                            <label for="passWord">Password</label>
+                            <input type="password" class="form-control" name="password" id="password" required
+                                value="guest">
+                        </div>
+                        <a href="">Forgot Password?</a>
+                         <br>  
+                         <span style="color:red">{{msg}} </span>
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <button class="btn c-btn-2 btn-block">SIGN IN</button>
+                            </div>
+                        </div>
+                        <a href="dashboard.html" class="text-center d-block mt-4">Not a member yet? <span
+                                class="text-dark">Sign up</span></a>
+                    </form>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="/static/common/js/jquery-3.2.1.slim.min.js"></script>
+    <script src="/static/common/js/popper.min.js"></script>
+    <script src="/static/common/js/bootstrap.min.js"></script>
+</body>
+
+</html>

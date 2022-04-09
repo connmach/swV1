@@ -1,0 +1,248 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Python Basics. Part 1</title>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <link rel="stylesheet" type="text/css" href="/static/common/css/oneweb.css" />
+        <link rel="stylesheet" type="text/css" href="/static/common/css/course.css" />
+ 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/common/css/bootstrap.min.css">
+    <link href="fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/common/css/components.css">
+    <link rel="stylesheet" href="/static/common/css/style.css">
+        <!-- @app.route('/course/<cid>/modules/<mid>'-->
+        <script>
+            function moduleCall(no,type="task") {
+                
+               if(type=="task"){ 
+                 location.href = "/course/A01/modules/M00" + no;
+               }else
+                 location.href = "/course/A01/quiz/qz00" + no;
+
+            }
+        </script>
+        <script>
+            //(12) ["guest", "A01", "M001", "SC01", "A01_2", 30, "link1", "04", 3, "inprogress", 30, 20]
+            var myObj = {{courseDetails | safe}}
+ 
+            $(document).ready(function() {
+                //jsonData = JSON.stringify({ "courseId":courseId, "completedQn":"1" })
+                //action="update"
+               //  learningHistoryServices(userId,courseId,action,jsonData )
+            	$("#currentQn").html(myObj.TaskId)
+            	completedQnCnt = myObj[8]
+     
+
+            	// reading from learning history below details
+            	// score, section, exercise
+            	//1. complete all the section which are done by changing class .done
+            	// making the tick mark
+            	//spinner while submitting the exercise
+                // updateStatusFlags()
+                //  load the question
+
+            });
+        </script>
+    </head>
+
+    <body class="light theme_one" data-new-gr-c-s-check-loaded="14.997.0" data-gr-ext-installed="">
+        <div id="header_wrapper">
+            <div id="header">
+                <div class="header__all">
+                    <div class="header__content">
+                        <div class="header__top">
+                            <div class="profile">
+                                <button class="hamburger">Menu</button>
+                                <div class="hmenu">
+                                    <ul>
+                                        <li class="hmenu_item">
+                                            <div class="hmenu">
+                                                <ul>
+                                                    <li class="hmenu_item"><a href="/courses">test1</a></li>
+                                                    <li class="hmenu_item"><a href=" ">3</a></li>
+                                                    <li class="hmenu_item"><a href=" ">4</a></li>
+                                                    <li class="hmenu_item"><a href=" ">5</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="hmenu_item my_profile">
+                                            <div class="hmenu">
+                                                <ul>
+                                                    <li class="hmenu_item hmenu_item--isDropdownMenu">
+                                                        <span>
+                                                            <span class="imgWrapper">
+                                                                <span class="img"><img alt="" src='/static/images/user.png' /></span>
+                                                            </span>
+                                                            <span class="text"><span class="commonText">My profile </span><span class="fullName"></span></span>
+                                                        </span>
+                                                        <div class="menu">
+                                                            <ul>
+                                          
+                                                                <li>
+                                                                    <a href="/course/profile" id="btn13"><span>My Profile</span></a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="/course/MyCourses" id="btn14"><span>My courses</span></a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="change-email-notifications" id="btn15"><span>Email notifications</span></a>
+                                                                </li>
+
+                                                                <li></li>
+                                                                <li>
+                                                                    <a id="btn17" href="/course/logout"><span>Log out</span></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header__main">
+                            <div class="header-layout theme_one">
+                                <div class="header-layout__main">
+                                    <div class="header-slogan">
+                                        <h1>Python Basics. Part 1</h1>
+                                        <p class="lead">Learn the basics of Python, show off your new skills on your resume, and accelerate your career!</p>
+                                        <div class="buttons" onclick="moduleCall(1)">
+                                            <span class="progress">
+                                                <span class="label">Progress: </span><span class="bar"><span class="bar__percent" style="width: 0%;"></span>
+                                                      <span class="bar__free" style="width: 30%;">
+                                                      </span>
+                                                </span>
+                                                <span class="percentage partial"><span class="percentage__progress">0</span>% completed</span>
+                                                 <span>{{courseDetails[8]}} of 95 exercises done</span>
+                                            </span>
+                                        </div>
+ 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="content_wrapper">
+            <div id="content">
+                <div class="section">
+                    <div class="section__content">
+                        <div class="row">
+                            <div class="col_8"></div>
+                            <div class="col_4">
+                                <div class="floatingElement" style="margin-top: -1507px; width: 302px;">
+                                    <div class="box floatingMenuBox"></div>
+                                </div>
+                                <div id="marketing-slots-div-id "></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section section--dark">
+                    <div class="section__content">
+                        <div class="row">
+                            <div class="col_8">
+ 
+                                <div class="box box--progress">
+                                    <div>
+                                        <div class="content">
+                                            <div>
+                                                <span class="progress">
+                                                    <span class="label">Progress: </span><span class="bar"><span class="bar__percent" style="width: 4%;"></span></span>
+                                                    <span class="percentage partial"><span class="percentage__progress">4</span>% completed</span> <span>4 of 95 exercises done</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box box--course-part" id="part-1 ">
+                                    <div>
+                                        <div class="content">
+                                            <div>
+                                                <div class="part">
+                                                    <div class="content" id="part-pointer-1 ">
+                                                        <h3>1. Your first python programs</h3>
+                                                        <p class="description">Take your first step into the world of programming.</p>
+                                                    </div>
+
+                                                    <div class="manage">
+                                                        <div class="buttons" onclick="moduleCall(1) "><span class="go-to-exercise-btn button flat">Start</span></div>
+                                                        <div id="progress-part-1000115-div-id ">
+                                                            <p class="percentage_completed">
+                                                                <span class="percentage partial"><span class="percentage__progress">10%</span>% completed</span> <span>0 of 2 exercises </span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box box--course-part" id="part-2 ">
+                                    <div>
+                                        <div class="content">
+                                            <div>
+                                                <div class="part">
+                                                    <div class="content" id="part-pointer-1 ">
+                                                        <h3>2. Writing reusable code</h3>
+                                                        <p class="description">Discover how to write your own functions and use them later multiple times.</p>
+                                                    </div>
+
+                                                    <div class="manage">
+                                                        <div class="buttons" onclick="moduleCall(2) "><span class="go-to-exercise-btn button flat">Start</span></div>
+                                                        <div id="progress-part-1000115-div-id ">
+                                                            <p class="percentage_completed">
+                                                                <span class="percentage partial"><span class="percentage__progress">10%</span>% completed</span> <span>0 of 3 exercises </span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box box--course-part" id="part-3 ">
+                                    <div>
+                                        <div class="content">
+                                            <div>
+                                                <div class="part">
+                                                    <div class="content" id="part-pointer-1 ">
+                                                        <h3>5. Quiz</h3>
+                                                        <p class="description">Check your knowledge in this final part of the course!</p>
+                                                    </div>
+
+                                                    <div class="manage">
+                                                        <div id="quizModule" class="buttons" onclick="moduleCall(1,'Quiz') "><span class="go-to-exercise-btn button flat">Start</span></div>
+                                                        <div id="progress-part-1000115-div-id ">
+                                                            <p class="percentage_completed">
+                                                                <span class="percentage partial"><span class="percentage__progress">10%</span>% completed</span> <span>0 of 3 exercises </span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<!-- Bootstrap JavaScript -->
+<script src="/static/common//static/common/js/jquery-3.2.1.slim.min.js"></script>
+<script src="/static/common/js/popper.min.js"></script>
+<script src="/static/common/js/bootstrap.min.js"></script>
+
+    </body>
+</html>

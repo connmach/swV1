@@ -1,0 +1,70 @@
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/common/css/bootstrap.min.css">
+    <link href="/static/common/fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/common/css/components.css">
+    <link rel="stylesheet" href="/static/common/css/style.css">
+ 
+<script>
+   $(document).ready(function () {
+
+      $(' #logout').click(function () {
+        window.location.href = "/course/logout";	
+
+      })
+
+})
+</script>
+<nav>
+    <div class="main-header-container">
+        <div class="main-header container-fluid fl-te-c">
+            <input id="toggle" type="checkbox">
+
+            <div class="logo">
+            <span id="window" class="name empty-0"></span>
+                <a href="/course/home">
+                    SOCIAL<span class="font-weight-bold text-c">BLOCKS</span>
+                </a>
+
+                <label for="toggle" class="hamburger">
+                    <div class="top-bun"></div>
+                    <div class="meat"></div>
+                    <div class="bottom-bun"></div>
+                </label>
+            </div>
+
+            <div class="nav-list">
+                <ul class="d-flex align-items-center">
+                    <li>
+                        <a href="/course/home">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="/course/MyCourses">Courses</a>
+                    </li>
+                    <li>
+                        <a href="/course/MyTests">Tests</a>
+                    </li>
+                    <li>
+                        <a href="/course/blog">Blogs</a>
+                    </li>
+                </ul>
+            </div>
+ 
+            <div class="ml-lg-auto align-c">
+                  <a class="fs-3" href=""><i class="fa fa-bell"></i></a>	
+ 
+                <div class="d-inline-block fs-2 ml-3">
+                    <div class="dropdown-toggle align-c" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <a class="fs-3 ml-5" href=""><i class="fa fa-user-circle "></i></a></i><span class="fs--1 ml-2">guest</span>
+                    </div>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item" type="button">User</button>
+                        <button id="logout" class="dropdown-item" type="button">Log Out</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</nav>
+ 

@@ -1,0 +1,535 @@
+<html>
+<head>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <link rel="icon" href="/static/images/sw.ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="/static/js/custom.js"></script>
+  <link rel="stylesheet" type="text/css" href="/static/common/css/oneweb.css">
+  <link rel="stylesheet" type="text/css" href="/static/common/css/Exercise.css">
+
+  <style type="text/css">
+    @import url(//fonts.googleapis.com/css?family=Open+Sans:200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic,200,300,400,500,600,700,800);
+  </style>
+
+  <title>SocialWings</title>
+</head>
+
+<script>
+
+  var myObj = {{ json | safe}}
+  var quizResult = ""
+  var qnIndex = 0
+  var ans = {}
+  var picked = null
+  $(document).ready(function () {
+
+
+    $('#courseSummmary').click(function () {
+      $(".main-part").toggleClass("opened");
+    })
+    $('#section-1-header').click(function () {
+      let item = $(this).siblings('#section-1-list').first();
+      item.slideToggle();
+    })
+    $('#section-2-header').click(function () {
+      let item = $(this).siblings('#section-2-list').first();
+      item.slideToggle();
+    })
+    $('#section-3-header').click(function () {
+      let item = $(this).siblings('#section-3-list').first();
+      item.slideToggle();
+    })
+    $('#section-4-header').click(function () {
+      let item = $(this).siblings('#section-4-list').first();
+      item.slideToggle();
+    })
+    $('#section-5-header').click(function () {
+      let item = $(this).siblings('#section-5-list').first();
+      item.slideToggle();
+    })
+
+
+    StartQuiz()
+
+
+
+  });
+  function StartQuiz() {
+
+
+
+    var count = "{{solTokens}}"
+    console.log(count)
+    init()
+    setTime()
+
+    setupButtons()
+    /******* No need to edit below this line *********/
+    var currentquestion = 0,
+      score = 0,
+      submt = true,
+      picked;
+    loadFlag = false;
+    baseUrl =
+      //loadQnAns();
+      console.log("add to console ");
+    discussState = true;
+    //var myObj = { "status": "OK", "TaskId": "A11_2", "NxtQn": "not linked", "topicDesc": "We need to select studentId from students table", "instruction": "<p>Good! Let's move on to selection of specific data from a table. <b>Students</b></p> \n<p>Students table sample data as belwo .</p> \n<pre>Students Id , Students Name, Students marks<br/> A12 Jacob Geroge 450<br/> A13 Paula  Geroge 150<br/> A14 Guru murthy 530</pre> \n<p>This line of code:</p> \n \n<p>The  below statement select the students name from the students table <code>select students name from students</code> :</p> \n< ", "exercise": "\n<p>Modify the query to select students Id from students table:</p>\n<pre>A12<br/>A13<br/>A14<br/></pre>", "section": "Python Basics" };
+
+
+
+
+    $("#currentQn").html(myObj.TaskId)
+    NxtQn = myObj.NxtQn
+    NxtQnURL = "/course/A01/module/M001/" + NxtQn
+    $("#nextEx").attr("href", NxtQnURL)
+    $("#courseSummmary").html(myObj.topicDesc)
+    $("#instruction_container").html(myObj.instruction);
+    $("#content_container").html(myObj.exercise);
+    $('.west').show();
+    console.log("add to console " + myObj.topicDesc);
+    // reading from learning history below details
+    // score, section, exercise   
+    //1. complete all the section which are done by changing class .done
+    // making the tick mark
+    //spinner while submitting the exercise
+
+  }
+  function init() {
+
+    //  $(document.createElement('ul')).attr('id', 'choice-block').appendTo('#frame');
+    addQuestion(qnIndex)
+    addChoices(qnIndex)
+    qnIndex + 1
+  }
+
+  function setupButtons() {
+    $('.choice').on('mouseover', function () {
+      $(this).css({
+        'background-color': '#e1e1e1'
+      });
+    });
+    $('.choice').on('mouseout', function () {
+      $(this).css({
+        'background-color': '#fff'
+      });
+    })
+    $('.choice').on('click', function () {
+      picked = $(this).attr('data-index');
+      console.debug("choice selected" +picked  ) 
+      $('.choice').removeAttr('style').off('mouseout mouseover');
+      $(this).css({
+        'border-color': '#222',
+        'font-weight': 700,
+        'background-color': '#c1c1c1'
+      });
+    })
+  }
+
+  function addChoices(qnIndex) {
+    //var options= ['A', 'B', 'C', 'D']
+    $('#choice-block').empty();
+    console.log(qnIndex)
+    var len = myObj.TaskList[qnIndex].options.length
+    //table =document.createElement('table',{"id":'choice-block'}) 
+    row = document.createElement('tr').append('choice-block')
+    // var table =  document.getElementById("")    
+    for (i = 0; i < len; i++) {
+      var newRowContent = "<tr><td" + " data-index=" + i + " class='choice choice-box'><input type=\"checkbox\" id=\"" + "12" + "\" value=\"" + "chkboxValue" + "\"></td><td id=Tag" + i + ">Test</td></tr>";
+      $(newRowContent).appendTo($("#choice-block"));
+      var row = document.createElement('tr').append("choice-block")
+      $("#Tag" + i).text(myObj.TaskList[qnIndex].options[i]);
+
+    }
+    setupButtons()
+  }
+
+  function addQuestion(qnIndex) {
+    $("#instruction_container").html(myObj.TaskList[qnIndex].QnDesc);
+
+  }
+
+  function setTime() {
+    document.createElement('timer')
+    let timer = document.getElementById("timer");
+    secondsLeft = 30
+    //displayQuestions();
+    let timerInterval = setInterval(function () {
+      secondsLeft--;
+      //timer.textContent = "";
+      //timer.textContent = "Time: " + secondsLeft;
+      if (secondsLeft <= 0 || qnIndex === myObj.TaskList.length) {
+        //clearInterval(timerInterval);
+        //captureUserScore(); 
+        //     alert("Time over")
+      }
+    }, 10);
+  }
+
+  function loadNextQn() {
+
+    if (qnIndex + 1 == myObj.TaskList.length) {
+      ans[qnIndex + 1] = picked
+      submit()
+    } else {
+
+
+      ans[qnIndex + 1] = picked
+
+      for (i = 0; i < ans.length; i++)
+        alert("Submit the Quiz" + ans[i])
+
+      qnIndex = qnIndex + 1
+      picked = null
+      //addQuestion(qnIndex)
+      addChoices(qnIndex)
+    }
+
+  }
+
+
+
+  function submit() {
+    ans[qnIndex + 1] = picked
+    alert(ans[qnIndex + 1])
+
+    for (i = 0; i < Object.keys(ans).length; i++)
+      //   alert("Submit the Quiz" + ans[i])
+      console.log("data" + '{{quizId}}', '{{userId}}', ans)
+    MCQChecker('{{taskId}}', '{{userId}}', "A01", ans, "checkMCQ")
+
+  }
+
+  function MCQChecker(quizNo, userId, courseId, ans, action) {
+
+    console.log("TestChecker called for " + quizNo)
+    console.log("TestChecker ans " + ans)
+    platformServiceURL = "api/v1/platformServices"
+    quizServiceURL = "quizRepo"
+    quizPlatformServURL = getPlatformServiceHost() + "/" + platformServiceURL + "/" + quizServiceURL + "/"
+    console.log("Quiz Test URL:" + quizPlatformServURL)
+
+    quizCheckjsonData = JSON.stringify({
+      "userId": userId,
+      "courseId": courseId,
+      "quizId": quizNo,
+      "ans": ans,
+      "TaskAction": action
+    })
+
+    console.log("Quiz Test jsondata:" + quizCheckjsonData)
+
+    $.ajax({
+      type: 'POST',
+      url: quizPlatformServURL,
+      data: quizCheckjsonData,
+      contentType: "application/json"
+    })
+      .done(function (data) {
+        quizResult = JSON.parse(data);
+        if (quizResult.execStatus == "error") {
+
+        } else {
+          if (quizResult.TasksStatus == true) {
+            $(".nextEx").css("display", "");
+            console.log("execOut" + quizResult.result)
+          }
+          console.log("--------Quiz Result---")
+          console.log("Result:" + quizResult.result)
+          console.log("Result:" + quizResult.Answer)
+          console.log("Result:" + quizResult.AnsDesc)
+          $("#quizResult").html(quizResult.Answer);
+          $("#quizDesc").html(quizResult.AnsDesc);
+          $("#quizUserMsg").html(quizResult.userMsg);
+          $("#EndQuiz").modal("show");
+        }
+       return;
+      }).fail(function (data) {
+        alert("error******** while reading file  in sandbox");
+        console.log("error******** while reading file in sandbox" + JSON.stringify(data))
+        return null;
+      }).always(function () {
+            console.log("Quiz MCQ check  webservice call finished")
+      });
+
+  }
+
+  function backToCourse() {
+    window.location.href = "/course/A01";
+  }
+
+</script>
+
+
+<body class="light wide python exercise-screen ScrollAreaConfig--19 ScrollAreaConfig--active"
+  data-new-gr-c-s-check-loaded="14.996.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="14.996.0">
+
+
+
+
+  <div id="header_wrapper">
+    <div id="header">
+      <div class="header__decor"> <span id="courseId"></span> <span id="currentQn"></span> <span id="nxtQn"></span>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="header__all">
+        <div class="header__content">
+          <div class="header__top">
+            <div class="hmenu mainmenu">
+              <div class="hmenu_item">
+                <a class="title" href=""></a>
+              </div>
+            </div>
+            <div class="profile">
+              <button class="hamburger">Menu</button>
+              <div class="hmenu">
+                <ul>
+                  <li class="hmenu_item">
+                    <div class="hmenu"></div>
+                  </li>
+                  <li class="hmenu_item my_profile">
+                    <div class="hmenu">
+                      <ul>
+                        <li class="hmenu_item hmenu_item--isDropdownMenu"><span><span class="imgWrapper"><span
+                                class="img"><img alt="" src="/static/images/user.png"></span></span><span
+                              class="text"><span class="commonText">My profile
+                              </span><span id="name" class="fullName">{{userId}}</span></span>
+                          </span>
+                          <div class="menu">
+                            <ul>
+                              <li><a id="recommend_app_id"><span>Recommend us</span></a>
+                                <script type="text/javascript">
+                                </script>
+                                <script type="text/javascript">
+                                </script>
+                              </li>
+                              <li><a href="  my-profile" id="btn13"><span>My
+                                    Profile</span></a>
+                                <script type="text/javascript">
+                                </script>
+                              </li>
+                              <li><a href="  my-courses" id="btn14"><span>My
+                                    courses</span></a>
+                                <script type="text/javascript">
+                                </script>
+                              </li>
+                              <li><a href="  change-email-notifications" id="btn15"><span>Email notifications</span></a>
+                                <script type="text/javascript">
+                                </script>
+                              </li>
+                              <li><a href="  purchase-history" id="btn16"><span>Purchase
+                                    history</span></a>
+                                <script type="text/javascript">
+                                </script>
+                              </li>
+                              <li></li>
+                              <li><a id="btn17" href="/logout"><span>Log out</span></a>
+                                <script type="text/javascript">
+                                </script>
+                                <script type="text/javascript">
+                                </script>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="header__main">
+            <div class="exercise-header">
+              <div class="navi-return-div"> <a href="/course/A01">Back to course details</a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="content_wrapper" style="padding-top: 11px;">
+
+
+
+    <div id="EndQuiz" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+
+
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Result</h4>
+          </div>
+          <div class="modal-body">
+
+            <span>
+              <p id="quizResult"></p>
+            </span>
+            <span>Description
+              <p id="quizDesc"></p>
+            </span>
+            <span>
+              <p id="quizUserMsg"></p>
+            </span>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div id="content">
+      <link href="/static/css/recurly.css" rel="stylesheet" type="text/css">
+      <div class="main-divs">
+        <div class="east" id="east-panel" max-width="30%">
+          <div class="side-bar">
+            <ul class="header">
+              <li class="discuss"> <span>
+                  <span class="img"></span>Questions</span>
+              </li>
+              <li class="articles"> <span>
+                  <span class="img"></span>File Tree</span>
+              </li>
+              <li class="datasets"> <span>
+                  <span class="img"></span>MyCourses</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="west slideClose" style="width: 531px;">
+          <div class="main-part">
+            <div class="navi-exercise-num-div" id="navi-exercise-id" title="input() function"> <span id="num"
+                class="num"> </span> <span id="courseSummmary" class="name">Basic Python</span> </div>
+            <div class="content">
+              <div id="sections-div" class="ScrollArea">
+                <div class="ScrollArea__wrapper">
+                  <div class="ScrollArea__content">
+                    <div class="section" id="section-1">
+                      <div class="header" id="section-1-header">Introduction</div>
+                      <div class="section-exercise-list" id="section-1-list">
+                        <div class="section-exercise" id="section-1-exercise-1">
+                          <a href="/course/A01/module/M001/A01_1"> <span>1.
+                              Welcome to our course</span> </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="section" id="section-2">
+                      <div class="header" id="section-2-header">Print function</div>
+                      <div class="section-exercise-list" id="section-2-list">
+                        <div class="section-exercise done" id="section-2-exercise-1">
+                          <a href="/course/A01/module/M001/A01_2"> <span>2. Hello
+                              World</span> </a>
+                        </div>
+                        <div class="section-exercise" id="section-2-exercise-2">
+                          <a href="/course/A01/module/M001/A01_3"> <span>3. Hello World
+                              explained</span> </a>
+                        </div>
+                        <div class="section-exercise" id="section-2-exercise-3">
+                          <a href="/course/A01/module/M001/A01_4"> <span>4. Escaping
+                              single quotation marks and apostrophes</span> </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="section" id="section-3">
+                      <div class="header" id="section-3-header">Variables</div>
+                      <div class="section-exercise-list" id="section-3-list">
+                        <div class="section-exercise" id="section-3-exercise-1">
+                          <a href="/course/A01/module/M001/A01_5"> <span>5. Creating
+                              variables</span> </a>
+                        </div>
+                        <div class="section-exercise" id="section-3-exercise-2">
+                          <a href="/course/A01/module/M001/A01_6"> <span>6. Assigning new
+                              values to variables</span> </a>
+                        </div>
+                        <div class="section-exercise" id="section-3-exercise-3">
+                          <a href="/course/A01/module/M001/A01_7"> <span>7. Undefined
+                              variables</span> </a>
+                        </div>
+                        <div class="section-exercise" id="section-3-exercise-4">
+                          <a href="/course/A01/module/M001/A01_8"> <span>8. Integers,
+                              strings, and floats</span> </a>
+                        </div>
+                        <div class="section-exercise" id="section-3-exercise-4">
+                          <a href="/course/A01/module/M001/A01_9"> <span>9. quiz</span> </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="scroll hscroll"> <span class="scroll__thumb" style="left: 0%; width: 100%;"></span> </div>
+                  <div class="scroll vscroll"> <span class="scroll__thumb" style="top: 0%; height: 100.106%;"></span>
+                  </div>
+                </div>
+              </div>
+              <div id="left-div" class="ScrollArea">
+                <div class="ScrollArea__wrapper">
+                  <div class="ScrollArea__content">
+                    <div class="instruction-div">
+                      <div class="header">
+                        <h2>Instruction</h2>
+                      </div>
+                      <div class="content formatted" id="instruction_container"> </div>
+
+                    </div>
+                  </div>
+                  <div class="scroll hscroll"> <span class="scroll__thumb" style="left: 0%; width: 100%;"></span> </div>
+                  <div class="scroll vscroll"> <span class="scroll__thumb" style="top: 0%; height: 100.106%;"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="banner-part"></div>
+        </div>
+        <!-- some issue in the 	 div-->
+        <div class="hdivider ui-draggable ui-draggable-handle" id="hdivider" style="left: 796px;">
+          <div></div>
+        </div> {% block body %} {% endblock %}
+        <div class="east" id="east-panel" max-width="30%" style="width:171px;">
+          <div class="side-bar">
+            <ul class="header">
+              <li class="discuss"> <span>
+                  <span class="img"></span>Discuss</span>
+              </li>
+              <li class="articles"> <span>
+                  <span class="img"></span>Related articles</span>
+              </li>
+              <li class="datasets"> <span>
+                  <span class="img"></span>Datasets</span>
+              </li>
+            </ul>
+            <div class="section" id="articles" style="display: none;">
+              <div class="header">
+                <h2 id="articles_h1">Related articles</h2>
+              </div>
+              <div id="articles_content" class="content">
+                <div>
+                  <p></p>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+ 
+      </div>
+      <div class="loader-wrapper"> <img src="static/images/ajax-loader.gif"> </div>
+    </div>
+  </div>
+  <div id="footer_wrapper">
+    <div id="footer"></div>
+  </div>
+</body>
+
+</html>

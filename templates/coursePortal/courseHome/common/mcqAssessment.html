@@ -1,0 +1,491 @@
+{% extends "coursePortal/courseHome/common/base_quizAssessment.html" %}
+{% block title %} the_title {% endblock %}
+
+{% block body %}
+ <script>
+   var myQuestions={{questionList|safe}}
+   totalsec=40
+   function starttime() {
+      showtime();
+       }
+
+
+
+    function showtime() {
+    
+    // 1 seconde eraf
+    totalsec--;
+    
+    var min = parseInt(totalsec / 60, 10);
+    var sec = totalsec - (min * 60);
+    
+    
+     console.log(min + ' :' + sec)
+      if (parseInt(sec) > 0) {
+      // <span class="fs--1 ml-2 font-weight-bold">#HH# hour #MM# mins</span></a>
+        document.getElementById("showtime").innerHTML = "Your Left Time is :" + min + " Minutes :" + sec + " Seconds";
+        tim = setTimeout("showtime()", 1000);
+      } else {
+        if (parseInt(sec) == 0) {
+          document.getElementById("showtime").innerHTML = "Your Left Time is :" + min + " Minutes :" + sec + " Seconds";
+          if (parseInt(min) == 0) {
+             clearTimeout(tim);
+             alert("Time Up");
+             EndExam()
+          } else {
+             document.getElementById("showtime").innerHTML = "Your Left Time is :" + min + " Minutes :" + sec + " Seconds";
+             tim = setTimeout("showtime()", 1000);
+          }
+        }
+      }
+    }
+
+    function showQuestionAnswered() {
+
+    totalsec--;
+    var min = parseInt(totalsec / 60, 10);
+    var sec = totalsec - (min * 60);
+    
+    
+     console.log(min + ' :' + sec)
+      if (parseInt(sec) > 0) {
+
+        document.getElementById("showtime").innerHTML = "Your Left Time is :" + min + " Minutes :" + sec + " Seconds";
+        tim = setTimeout("showtime()", 1000);
+      } else {
+        if (parseInt(sec) == 0) {
+          document.getElementById("showtime").innerHTML = "Your Left Time is :" + min + " Minutes :" + sec + " Seconds";
+          if (parseInt(min) == 0) {
+            clearTimeout(tim);
+            alert("Time Up");
+          } else {
+            document.getElementById("showtime").innerHTML = "Your Left Time is :" + min + " Minutes :" + sec + " Seconds";
+            tim = setTimeout("showtime()", 1000);
+          }
+        }
+
+      }
+    }
+    function EndExam() {
+      evaluate();
+    //  location.href = "{{homeTestPage}}";
+    }
+    function evaluate() {
+     ans= getResults(myQuestions, quizContainer);
+     MCQChecker("All",'{{userId}}','{{quizId}}',"*",ans,"checkMCQTest")
+    }
+  function MCQChecker(id , userId, testId,moduleId, ans, action) {
+
+   console.log("---------------------update learning history"+id +"//" + userId +"//"+ testId+"//"+ ans+"//"+ action) 
+ 
+
+    platformServiceURL = "api/v1/platformServices"
+    quizServiceURL = "quizRepo"
+
+    quizPlatformServURL = getPlatformServiceHost() + "/" + platformServiceURL + "/" + quizServiceURL + "/"
+
+    console.log("Quiz Test URL:" + quizPlatformServURL)
+    quizCheckjsonData = JSON.stringify({
+      "userId": userId,
+      "testId": id,
+      "quizId": testId,
+      "ans": ans,
+      "TaskAction": action
+    })
+    console.log("Quiz Test jsondata:" + quizCheckjsonData)
+
+    $.ajax({
+      type: 'POST',
+      url: quizPlatformServURL,
+      data: quizCheckjsonData,
+      contentType: "application/json"
+    })
+      .done(function (data) {
+
+        quizAssmntResult = JSON.parse(data);
+
+        if (quizAssmntResult .execStatus == "error") {
+
+
+        } else {
+
+          console.log("update learning history- tasksstatus " + quizResult.result)
+         /* if (quizResult.result== "done") {
+            console.log("---------------------update learning history" + userId +"//"+ courseId +"//"+ taskId +"//"+ moduleId ) 
+            next(userId, courseId, taskId , moduleId)
+          }*/
+
+          //console.log("--------Quiz Result---")
+        //  console.log("Result:" + quizResult.result)
+        //  console.log("Result:" + quizResult.Answer)
+        //  console.log("Result:" + quizResult.AnsDesc)
+
+        //  $("#quizResult").html(quizResult.Answer);
+        //  $("#quizDesc").html(quizResult.AnsDesc);
+        //  $("#quizUserMsg").html(quizResult.userMsg);
+//
+
+
+          $("#EndQuiz").modal("show");
+
+        }
+
+
+        return;
+
+      }).fail(function (data) {
+
+        alert("error******** while reading file  in sandbox");
+        console.log("error******** while reading file in sandbox" + JSON.stringify(data))
+        return null;
+
+      }).always(function () {
+
+
+        console.log("Quiz MCQ Test grading  webservice call finished")
+
+      });
+
+  }
+
+
+
+
+
+
+
+
+</script>
+   
+<div class="row h-100">
+  <div class="col-4 pr-0 h-100 overflow-scroll">
+      <div class="west">
+          <div class="main-part opened">
+              <div class="navi-exercise-num-div" id="navi-exercise-id" title="input() function"><span id="num" class="num"> </span>
+                  <span id="courseSummmary" class="name">Basic Python</span></div>
+              <div class="content">
+                  <div id="sections-div" class="ScrollArea">
+                      <div class="">
+                          <div class="">
+                              <!--                                            removed class ScrollArea__content-->
+                              <div class="section" id="section-1">
+                                  <div class="header" id="section-1-header">Python</div>
+                                  <div class="section-exercise-list" id="section-1-list" style="display: block;">
+                                      <div class="section-exercise" id="section-1-exercise-1">
+
+                                          <a href="#">
+                                              <span onclick="$('.question')[0].focus()">1.Python_1 </span>
+                                          </a>
+                                      </div>
+                                      <div class="section-exercise" id="section-1-exercise-2">
+                                          <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_3">
+                                              <span>2.Python_2</span>
+                                          </a>
+                                      </div>
+                                      <div class="section-exercise" id="section-1-exercise-3">
+                                          <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_4">
+                                              <span>3.Python_3</span>
+                                          </a>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="section" id="section-2">
+                                  <div class="header" id="section-2-header">Unix</div>
+                                  <div class="section-exercise-list" id="section-2-list" style="display: block;">
+                                      <div class="section-exercise done" id="section-2-exercise-1">
+                                          <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_2">
+                                              <span>1.Unix_1 </span>
+                                          </a>
+                                      </div>
+                                      <div class="section-exercise" id="section-2-exercise-2">
+                                          <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_3">
+                                              <span>2.Unix_2</span>
+                                          </a>
+                                      </div>
+                                      <div class="section-exercise" id="section-2-exercise-3">
+                                          <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_4">
+                                              <span>3.Unix_3</span>
+                                          </a>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="section" id="section-3">
+                                  <div class="header" id="section-3-header">HTML_CSS</div>
+                                  <div class="section-exercise-list" id="section-3-list" style="display: block;">
+                                      <div class="section-exercise" id="section-3-exercise-1">
+                                          <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_5">
+                                              <span>1. HTML_CSS_1 </span>
+                                          </a>
+                                      </div>
+                                      <div class="section-exercise" id="section-3-exercise-2">
+                                          <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_6">
+                                              <span>2. HTML_CSS_2</span>
+                                          </a>
+                                      </div>
+                                      <div class="section-exercise" id="section-3-exercise-3">
+                                          <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_7">
+                                              <span>3. HTML_CSS_3</span>
+                                          </a>
+                                      </div>
+                                      <div class="section-exercise" id="section-3-exercise-4">
+                                          <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_8">
+                                              <span>4. HTML_CSS_4</span>
+                                          </a>
+                                      </div>
+                                      <div class="section-exercise" id="section-3-exercise-4">
+                                          <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_9">
+                                              <span>5. HTML_CSS_5</span>
+                                          </a>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="section" id="section-4">
+                              <div class="header" id="section-3-header">ReactJs</div>
+                              <div class="section-exercise-list" id="section-3-list" style="display: block;">
+                                  <div class="section-exercise" id="section-3-exercise-1">
+                                      <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_5">
+                                          <span>1. ReactJs_1 </span>
+                                      </a>
+                                  </div>
+                                  <div class="section-exercise" id="section-3-exercise-2">
+                                      <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_6">
+                                          <span>2. ReactJs_2</span>
+                                      </a>
+                                  </div>
+                                  <div class="section-exercise" id="section-3-exercise-3">
+                                      <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_7">
+                                          <span>3. ReactJs_3</span>
+                                      </a>
+                                  </div>
+                                  <div class="section-exercise" id="section-3-exercise-4">
+                                      <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_8">
+                                          <span>4. ReactJs_4</span>
+                                      </a>
+                                  </div>
+                                  <div class="section-exercise" id="section-3-exercise-4">
+                                      <a href="http://192.46.208.71:9085/course/A01/module/M001/A01_9">
+                                          <span>5. ReactJs_5</span>
+                                      </a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="scroll hscroll"><span class="scroll__thumb" style="left: 0%; width: 100%;"></span></div>
+                      <div class="scroll vscroll"><span class="scroll__thumb" style="top: 0%; height: 100.106%;"></span></div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+
+   <div class="col-8 pl-0 h-100 pb-5 overflow-scroll position-relative">
+
+                    <div class="p-3">
+                        <div class="bg-light p-3">
+                            <div class="text-center">
+                                <h5 class="my-3">PLEASE ANSWER QUESTIONS BELOW</h5>
+                            </div>
+                            <div id="quizContainer" >
+             
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="col-12 button-container">
+                        <style>
+                            .button-container {
+                                position: fixed;
+                                bottom: 0;
+                                background: white;
+                                padding: 10px;
+                                box-shadow: 0px 0px 15px -3px #00000054;
+                                width: inherit;
+                                max-width: inherit;
+                                display: flex;
+                                justify-content: flex-end;
+                            }
+                        </style>
+                        <button id="submit" class="btn btn-dark">Submit</button>
+                    </div>
+                 </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+
+
+      starttime()
+     $('#submit').click(function () {
+      EndExam()
+
+   
+  })
+  })
+  
+  
+ 
+  /*var myQuestions = [
+      {
+          question: "What is 10/2?",
+          answers: {
+              a: '3',
+              b: '5',
+              c: '115'
+          },
+          correctAnswer: 'b'
+      },
+      {
+          question: "What is 30/3?",
+          answers: {
+              a: '3',
+              b: '5',
+              c: '10'
+          },
+          correctAnswer: 'c'
+      }
+  ];*/
+   var questionsSection = [
+      {
+          section: "Python",
+          questions: ["python1","python2","python3","python4"]
+      },
+      {
+          section: "React",
+          questions: ["react1","react2","react3","react4"]
+      }
+  ];
+        
+    function createAllSection(questionSection, sectionContainer){
+      for(var i=0; i<questions.length; i++){
+
+      }
+    }
+    function makeitdone(id){
+           console.log(document.getElementById(id))   
+           document.getElementById(id).classList.add('done');
+
+    }
+
+    function createSection(questionSection, sectionContainer){
+      // we'll need a place to store the output and the answer choices
+      var output = [];
+      var answers;
+     console.log("show questions")
+      // for each question...
+      for(var i=0; i<questions.length; i++){
+          
+          // first reset the list of answers
+          answers = [];
+  
+          // for each available answer to this question...
+          for(letter in questions[i].answers){
+           var letter ="a"
+              // ...add an html radio button
+           answers.push(
+                  ' <div class="form-check mb-3"><label>'
+                      + '<input type="radio" class="form-check-input" name="question'+i+'" value="'+questions[i].Option1+'">'
+                      + letter + ': '
+                      + questions[i].Option1
+                  + '</label></div>'
+              );
+          }
+  
+          // add this question and its answers to the output
+          output.push(
+              '<div class="question px-4 border-bottom"><p>' + questions[i].QuizDesc+ '</p></div>'
+              + '<div   class="answers px-4 pt-3">' + answers.join('') + '</div>'
+          );
+      }
+  
+      // finally combine our output list into one string of html and put it on the page
+      quizContainer.innerHTML = output.join('');
+  }
+  
+  function showQuestions(input, quizContainer){
+      // we'll need a place to store the output and the answer choices
+      var output = [];
+      var answers;
+    // questionObject=json.parse(questions ) 
+     var questions=input['quizR']
+     console.log("show questions" +input['quizR'][0]['QuizDesc'] )
+      // for each question...
+
+      for(var i=0; i<questions.length; i++){
+          
+          // first reset the list of answers
+          answers = [];
+  
+          // for each available answer to this question...
+          for(letter in questions[i].answers){
+  
+              // ...add an html radio button
+           answers.push('<div class="form-check mb-3"><label>'
+                        +'<input type="radio" onclick="makeitdone(\'section-1-exercise-1\')" class="form-check-input" name="question'+i+'" value="a">'
+                        +  'a)'
+                        + questions[i].option1
+                        + '</label>' 
+                        + '</div>');
+           answers.push('<div class="form-check mb-3"><label>'
+                        + '<input type="radio" class="form-check-input" name="question'+i+'" value="b">'
+                        +  'b)'
+                        +  questions[i].option2
+                        + '</label>' 
+                        + '</div>');
+           answers.push('<div class="form-check mb-3"><label>'
+                        + '<input type="radio" class="form-check-input" name="question'+i+'" value="c">'
+                        + 'c)'
+                        +  questions[i].option3
+                        + '</label>' 
+                        + '</div>');
+           answers.push('<div class="form-check mb-3"><label>'
+                        + '<input type="radio" class="form-check-input" name="question'+i+'" value="d">'
+                        + 'd)'
+                        +  questions[i].option4
+                        + '</label>' 
+                        + '</div>');
+          }
+  
+          // add this question and its answers to the output
+          output.push('<div class="question px-4 border-bottom" tabindex="'+i+'"><p>'+ questions[i]['QuizId'] +" " +  questions[i]['QuizDesc'] + '</p></div>'
+                       + '<div   class="answers px-4 pt-3">' + answers.join('') + '</div>');
+      }
+  
+      // finally combine our output list into one string of html and put it on the page
+      quizContainer.innerHTML = output.join('');
+  }
+  
+  function getResults(){
+      var questions=myQuestions['quizR']
+      // gather answer containers from our quiz
+      var quizContainer=document.getElementById("quizContainer") 
+      var answerContainers = quizContainer.querySelectorAll('.answers');
+      console.log(answerContainers )  
+      console.debug(answerContainers[0]) 
+      console.debug(answerContainers[0].querySelector('input[name=question0]:checked')) 
+      // keep track of user's answers
+      var userAnswer = '';
+      var numCorrect = 0;
+      var ans=[]
+      // for each question...
+      for(var i=0; i<questions.length; i++){
+          // find selected answer
+          ans[i] = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+       console.log(ans[i]) 
+          console.debug(answerContainers[i]) 
+          console.debug(answerContainers[i].querySelector('input[name=question'+i+']:checked')) 
+
+      }
+      console.log("output") 
+      console.log(ans) 
+      return ans
+  }
+  
+  showQuestions(myQuestions, quizContainer);
+
+  </script>
+  
+{% endblock %}

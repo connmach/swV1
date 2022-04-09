@@ -1,0 +1,64 @@
+{% extends "coursePortal/courseHome/common/baseTask.html" %}
+{% block title %} the_title {% endblock %}
+
+{% block body %}
+
+<div class="at-west" style="min-width:60%">
+
+<style>
+.center{
+    max-width: 700px;
+    margin-left: 5px;
+    margin-right: 2px;
+    margin-top:10px;
+
+    margin-bottom:10px;
+}
+
+.lesson-recap{
+    border: solid 1px;
+    margin-left: 30px;
+    margin-top:100px;
+
+
+}
+</style>
+    <div class="center" id="center-panel">
+
+      <style>course-lesson{display:block}#course-lesson-description{color:var(--p-color);font-size:16px;line-height:30px;margin-bottom:90px;margin-top:25px}.course-lesson-blurred{filter:blur(2px);pointer-events:none;-moz-user-select:none;-webkit-user-select:none;user-select:none}#course-lesson-description code:not([class]){font-family:var(--font-code)!important;white-space:pre-wrap!important;word-break:keep-all!important;background-color:rgba(96,125,139,.2);padding:3px 0;border-radius:3px}#course-lesson-description p,#course-lesson-description ul{color:var(--p-color)}#course-lesson-description hr{border-color:transparent;height:1px;background-color:var(--p-color);margin:40px 0;transform:scaleY(.3)}#course-lesson-description a{color:var(--primary);font-weight:550}#course-lesson-description table td{padding:5px 15px}#course-lesson-description img{max-width:100%}#course-lesson-description h2{font-size:22px}#course-lesson-description h3{font-size:18px}#course-lesson-description h1,#course-lesson-description h2{margin-top:50px}#course-lesson-description h3,#course-lesson-description h4,#course-lesson-description h5,#course-lesson-description h6{margin-top:30px}#course-lesson-description iframe{max-width:100%}#course-lesson-description code{font-family:var(--font-code)!important;white-space:pre-wrap!important;word-break:keep-all!important}#course-lesson-title{margin-top:0;margin-bottom:0}#course-lesson-description .lesson-recap{border:2px solid var(--primary);letter-spacing:.05px;padding:15px;border-radius:3px;margin-top:30px}#course-lesson-description .lesson-recap h2{margin-top:10px;color:var(--primary)}#course-lesson-last-updated{color:var(--p-color);font-size:12px;opacity:.8;margin-top:15px}#course-lesson-skip-container{float:right}.already-user-container{display:flex;margin-bottom:10px}.already-user-login{margin-left:10px;position:relative;top:10px;--app-button-height:34px}</style>
+
+
+<div style="text-align: center">
+<video style=" max-height: 1000px;max-width: 1200px;border: 1px solid #ececec; border-radius: 3px"   controls="" loop="" playsinline="">
+<source src="/static/video/v001.mp4" type="video/mp4">
+</video>
+</div>
+
+
+<div class="lesson-recap"><div class="suggested-code-highlight suggested-code-highlight-recap"><img src="/assets/note_add.svg" width="20" height="20" class="code-save code-save-recap"></div>
+<h2>Recap</h2>
+<ul>
+<li>React is a JavaScript library for building User Interfaces.</li>
+<li>React is only responsible for the <strong>View</strong> layer.</li>
+<li>React is not a framework.</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>
+<div class="hdivider ui-draggable ui-draggable-handle" id="hdivider2"
+    style="display: none; left: 1552.99px;">
+    <div></div>
+</div>
+
+{% endblock %}

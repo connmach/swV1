@@ -3,6 +3,17 @@
 .ui-helper-hidden {
   display: none;
 }
+.LearningPathProgress{
+    position: absolute;
+     bottom: 0;
+    background: #3e3e3e;
+    width: 10px;
+    top: 730px;
+    left: 185px;
+    height: 1800px;
+}
+}
+
 .ui-helper-hidden-accessible {
   border: 0;
   clip: rect(0 0 0 0);
@@ -1642,6 +1653,12 @@ body.theme_seven #header .header__all {
 .row {
   margin: 0 -15px;
 }
+.rowSpecial {
+  margin: 0 -15px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
 .row::before {
   content: "";
   clear: both;

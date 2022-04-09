@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>SocialWing</title>
+		<link href="/static/blocks/css/reset.css" rel="stylesheet" />
+		<link href="/static/blocks/css/common.css" rel="stylesheet" />
+		<link href="/static/blocks/css/mycss.css" rel="stylesheet" />
+		<link href="/static/blocks/css/game.css" rel="stylesheet" />
+		<link href="/static/blocks/css/dialog.css" rel="stylesheet" />
+	                     <script src="/static/blocks/blockly/blockly_compressed.js"></script>
+                                          <script src="/static/blocks/blockly/blocks_compressed.js"></script>
+                                          <script src="/static/blocks/blockly/msg/en.js"></script>
+                                          <script src="/static/blocks/blockly/javascript_compressed.js"></script>		
+		<script type="text/javascript" src="/static/blocks/blockly/blockly_uncompressed.js"></script>
+	 	<!-- Custom blocks -->
+		<script type="text/javascript" src="/static/blocks/js/blocks/action.js"></script>
+		<script type="text/javascript" src="/static/blocks/js//blocks/brush.js"></script>
+		<!-- End difine blocks -->
+
+	 
+		<script type="text/javascript" src="/static/blocks/generators/JavaScript/action.js"></script>
+		<script type="text/javascript" src="/static/blocks/generators/JavaScript/brush.js"></script>
+		<!-- End generating code from blocks -->
+ 
+
+		<!-- Begin syntax hightlight -->
+		<link rel="stylesheet" href="/static/blocks/js/prettify/prettify.css" />
+		<script type="text/javascript" src="/static/blocks/js/prettify/prettify.js"></script>
+		<!-- End syntax hightlight -->
+
+		<script src="/static/blocks/js/lib/jquery.min.js"></script>
+		<script src="/static/blocks/js/lib/TweenMax.min.js"></script>
+	 
+
+		<!-- JS-Interpreter -->
+		<script type="text/javascript" src="/static/blocks/js/lib/acorn_interpreter.js"></script>
+
+	 
+
+	 
+        
+	</head>
+<script>
+
+</script>
+<style>
+      html, body {
+        background-color: #fff;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: 100%;
+      }
+      .blocklySvg {
+        height: 100%;
+        width: 100%;
+      }
+#blocklyDiv{
+    width: 500px;
+    height: 500px;
+    display: block;
+}
+</style>
+	<body onload="init()">		<div class="toolbar">
+			<div id="top_tool">
+				<div id="logo_img">
+					<img src="/static/blocks/img/logo.png"  style="height:60%; margin-left:15%;margin-top:3%;"/>
+				</div>
+				<div id="nav">
+					<div class="nav-menu">
+					<a href="/course/home" target="_blank"  id="html_index">首页</a>
+					<a href="Selectgame.html" target="_blank" class="current" id="html_game">游戏</a>
+					<a href="aboutus.html" target="_blank" id="html_about">关于我们</a>
+					</div>
+					<div class="nav-current"></div>
+				</div>
+			</div>
+ 
+		</div>
+	 
+  <div id="blocklyDiv"></div>
+ <div class = "container">
+    <div id="game-canvas"></div>
+
+    <div class="game-edit">
+      <button id="button_run" onclick="run_code()">
+        Run Code Block
+      </button>
+      <button id="button_reset" onclick="reset_car()">
+        Reset Car
+      </button>
+      <div id="blockly_editor">
+
+
+
+  <xml id="toolbox" style="display: none">
+ 
+    <block type="actor_move_forward"></block>
+    <block type="actor_jump_forward"></block>
+    <block type="actor_turn"></block>
+    <block type="controls_repeat_ext"></block>
+    <block type="math_number"></block>
+ 
+
+  </xml>
+ <div class="toolbox">
+ <div/>
+
+ <div id="textarea1>
+ <div/>
+
+
+
+  
+      </div>
+    </div>
+ 
+
+  <div/>
+  <!--script src="/static/trialBlock/js/build.js"></script-->
+ 
+		<div class="layer"></div>
+
+		<div id="popover" class="popover">
+			<img src="/static/blocks/img/carrot.png">
+			<p>提示</p>
+			<button>降低难度</button>
+		</div>
+
+	<div class="footer">
+	                   Copyright © SocialWing Inc,All Right Reserved
+	</div>
+	<script type="text/javascript" src="/static/blocks/js/btn.js"></script>
+                                     <script type="text/javascript" src="/static/blocks/js/page.js"></script>
+	</body>
+
+<script>
+ 
+ function init(){
+
+
+
+ 
+ 
+
+         /**
+         * Left turn arrow to be appended to messages.
+         */
+         LEFT_TURN = ' \u21BA';
+         /**
+         * Left turn arrow to be appended to messages.
+         */
+         RIGHT_TURN = ' \u21BB';
+
+        Blockly.Blocks['actor_move_forward'] = {
+        init: function() {
+        this.appendDummyInput()
+        .appendField("move forward")
+        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"], ["3","3"]]), "actor_move_forward_distance");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip('');
+        this.setHelpUrl('');
+     }
+    };
+    Blockly.Blocks['actor_jump_forward'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField("jump forward")
+            .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"], ["3","3"]]), "actor_jump_forward_distance");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+   };
+   Blockly.Blocks['actor_turn'] = {
+    /**
+     * Block for turning left or right.
+     * @this Blockly.Block
+     */
+    init: function() {
+        var DIRECTIONS =
+            [['turn left', 'turnLeft'],
+             ['turn right', 'turnRight']];
+        // Append arrows to direction messages.
+        DIRECTIONS[0][0] += LEFT_TURN;
+        DIRECTIONS[1][0] += RIGHT_TURN;
+        console.log(DIRECTIONS);
+        this.setColour(230);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown(DIRECTIONS), 'actor_turn_direction');
+        this.setPreviousStatement(true,null);
+        this.setNextStatement(true,null);
+        this.setTooltip('');
+        this.setHelpUrl('');
+    }
+   };
+            Blockly.inject('blocklyDiv', {toolbox: document.getElementById('toolbox'),scrollbars: false}); 
+}
+function run_code(){
+ var code = Blockly.JavaScript.workspaceToCode();
+  document.getElementById('textarea1').value = code;
+
+}
+ 
+</script>
+
+
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/static/js/1.12.4/jquery-ui.js"></script>
+
+<link rel="icon" href="/static/images/sw.ico">
+
+
+
+<script src="/static/js/custom.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="/static/css/oneweb.css">
+<link rel="stylesheet" type="text/css" href="/static/css/Exercise.css">
+
+
+
+<title>EduNinja</title>
+</head>
+
+<body class="light wide python exercise-screen ScrollAreaConfig--19 ScrollAreaConfig--active">
+    <script>
+
+
+        $(document).ready(function () {
+            loadFlag = false;
+            baseUrl =
+                //loadQnAns();
+                console.log("add to console ");
+
+
+            var myObj = {{ json| safe }};
+        $("#currentQn").html(myObj.TaskId)
+        NxtQn = myObj.NxtQn
+        NxtQnURL = "/course/cs003/module/M001/" + NxtQn
+        $("#nextEx").attr("href", NxtQnURL)
+        $("#courseSummmary").html(myObj.topicDesc)
+        $("#instruction_container").html(myObj.instruction);
+        $("#content_container").html(myObj.exercise);
+
+
+        console.log("add to console " + myObj.topicDesc);
+        // reading from learning history below details
+        // score, section, exercise   
+        //1. complete all the section which are done by changing class .done
+        // making the tick mark
+        //spinner while submitting the exercise
+
+        $('#courseSummmary').click(function () {
+            $(".main-part").toggleClass("opened");
+
+        })
+        $('#section-1-header').click(function () {
+            let item = $(this).siblings('#section-1-list').first();
+            item.slideToggle();
+        })
+
+        $('#section-2-header').click(function () {
+            let item = $(this).siblings('#section-2-list').first();
+            item.slideToggle();
+        })
+
+        $('#section-3-header').click(function () {
+            let item = $(this).siblings('#section-3-list').first();
+            item.slideToggle();
+        })
+        $('#section-4-header').click(function () {
+            let item = $(this).siblings('#section-4-list').first();
+            item.slideToggle();
+        })
+
+        $('#section-5-header').click(function () {
+            let item = $(this).siblings('#section-5-list').first();
+            item.slideToggle();
+        })
+    
+      
+        });
+        function loadQnAns() {
+
+
+
+            //check if session exist
+            // check learning history   
+            // make all the sections done
+            // addtotalquestion current question
+            // current course
+
+            qno = 'A11_2'
+            alert("load question")
+            // var qrepo = qRepocall(qno)
+            // console.log("***********reloadoutput" + qrepo);
+            editor.setValue('select * from students;');
+
+        }
+
+    </script>
+    <div id="header_wrapper">
+        <div id="header">
+            <div class="header__decor">
+                <span id="courseId">SQL</span>
+                <span id="currentQn"></span>
+                <span id="nxtQn"></span>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="header__all">
+                <div class="header__content">
+                    <div class="header__top">
+                        <div class="hmenu mainmenu">
+                            <div class="hmenu_item"><a class="title" href=""></a> </div>
+                        </div>
+                        <div class="profile">
+                            <button class="hamburger">Menu</button>
+                            <div class="hmenu">
+                                <ul>
+                                    <li class="hmenu_item">
+                                        <div class="hmenu">
+
+                                        </div>
+                                    </li>
+                                    <li class="hmenu_item my_profile">
+                                        <div class="hmenu">
+                                            <ul>
+                                                <li class="hmenu_item hmenu_item--isDropdownMenu"><span><span
+                                                            class="imgWrapper"><span class="img"><img alt=""
+                                                                    src="/static/images/user.png&quot;"></span></span><span
+                                                            class="text"><span class="commonText">My profile
+                                                            </span><span class="fullName">Guest</span></span>
+                                                    </span>
+                                                    <div class="menu">
+                                                        <ul>
+                                                            <li><a id="recommend_app_id"><span>Recommend us</span></a>
+                                                                <script type="text/javascript">
+																//	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","recommend_app_id","epoint.ow.Utils.buttonDefaultsHandler",null);},90,null);
+                                                                </script>
+                                                                <script type="text/javascript">
+																//	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","recommend_app_id","SqlAcademy.Modals.openAppRecommendationModal");epoint.ow.Utils.bindEvent("click","recommend_app_id","SqlAcademy.Util.clickTrack","Recommendation form");},null,null);
+                                                                </script>
+                                                            </li>
+                                                            <li><a href="  my-profile" id="btn13"><span>My
+                                                                        Profile</span></a>
+                                                                <script type="text/javascript">
+																//	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","btn13","epoint.ow.Utils.buttonDefaultsHandler",null);},90,null);
+                                                                </script>
+                                                            </li>
+                                                            <li><a href="  my-courses" id="btn14"><span>My
+                                                                        courses</span></a>
+                                                                <script type="text/javascript">
+																//	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","btn14","epoint.ow.Utils.buttonDefaultsHandler",null);},90,null);
+                                                                </script>
+                                                            </li>
+                                                            <li><a href="  change-email-notifications"
+                                                                    id="btn15"><span>Email notifications</span></a>
+                                                                <script type="text/javascript">
+																//	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","btn15","epoint.ow.Utils.buttonDefaultsHandler",null);},90,null);
+                                                                </script>
+                                                            </li>
+                                                            <li><a href="  purchase-history" id="btn16"><span>Purchase
+                                                                        history</span></a>
+                                                                <script type="text/javascript">
+																//	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","btn16","epoint.ow.Utils.buttonDefaultsHandler",null);},90,null);
+                                                                </script>
+                                                            </li>
+                                                            <li></li>
+                                                            <li><a id="btn17" href="/logout"><span>Log out</span></a>
+                                                                <script type="text/javascript">
+																//	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","btn17","epoint.ow.Utils.buttonDefaultsHandler",null);},90,null);
+                                                                </script>
+                                                                <script type="text/javascript">
+																//	oneweb.DocumentReadyManager.addOnewebAction(function() {epoint.ow.Utils.bindEvent("click","btn17","SqlAcademy.Util.clearSessionStorageAndLogout");},null,null);
+                                                                </script>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header__main">
+                        <div class="exercise-header">
+                            <div class="navi-return-div">
+                                <a href="/course/cs003">Back to
+                                    course details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="content_wrapper" style="padding-top: 61px;">
+        <div id="content">
+
+            <link href="/static/css/recurly.css" rel="stylesheet" type="text/css">
+            <div class="main-divs">
+                <div class="west" style="width: 796px;">
+                    <div class="main-part">
+                        <div class="navi-exercise-num-div" id="navi-exercise-id" title="input() function">
+                            <span id="num" class="num">18/22 </span>
+                            <span id="courseSummmary" class="name">SQL Basic course</span>
+                        </div>
+                        <div class="content">
+                            <div id="sections-div" class="ScrollArea">
+                                <div class="ScrollArea__wrapper">
+                                    <div class="ScrollArea__content">
+                                        <div class="section" id="section-1">
+                                            <div class="header" id="section-1-header">Introduction</div>
+                                            <div class="section-exercise-list" id="section-1-list">
+                                                <div class="section-exercise" id="section-1-exercise-1">
+                                                    <a href="/course/cs003/module/M001/video/A11_1">
+                                                        <span>1.
+                                                            Welcome to our course</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="section" id="section-2">
+                                            <div class="header" id="section-2-header">The Selection Table operation
+                                            </div>
+                                            <div class="section-exercise-list" id="section-2-list">
+                                                <div class="section-exercise done" id="section-2-exercise-1">
+                                                    <a href="/course/cs003/module/M001/qn/A11_2">
+                                                        <span>2.SELECTing single columns</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-2-exercise-2">
+                                                    <a href="/course/cs003/module/M001/qn/A11_3">
+                                                        <span>3.SELECTing mulitple columns </span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-2-exercise-3">
+                                                    <a href="/course/cs003/module/M001/qn/A11_4">
+                                                        <span>4.Select DISTINCT columns</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="section" id="section-3">
+                                            <div class="header" id="section-3-header">Filtering rows</div>
+                                            <div class="section-exercise-list" id="section-3-list">
+                                                <div class="section-exercise" id="section-3-exercise-1">
+                                                    <a href="/course/cs003/module/M001/qn/A11_5">
+                                                        <span>5.simple filtering of rows</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-3-exercise-2">
+                                                    <a href="/course/cs003/module/M001/qn/A11_6">
+                                                        <span>6. simple filtering of text</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-3-exercise-3">
+                                                    <a href="/course/cs003/module/M001/qn/A11_7">
+                                                        <span>7. where AND</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-3-exercise-4">
+                                                    <a href="/course/cs003/module/M001/qn/A11_8">
+                                                        <span>8. where AND OR</span>
+                                                    </a>
+                                                </div>
+                                                <div class="section-exercise" id="section-3-exercise-4">
+                                                    <a href="/course/cs003/module/M001/quiz/A11_1">
+                                                        <span>9. quiz</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="scroll hscroll">
+                                        <span class="scroll__thumb" style="left: 0%; width: 100%;"></span>
+                                    </div>
+                                    <div class="scroll vscroll">
+                                        <span class="scroll__thumb" style="top: 0%; height: 100.106%;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="left-div" class="ScrollArea">
+                                <div class="ScrollArea__wrapper">
+                                    <div class="ScrollArea__content">
+                                        <div class="instruction-div">
+                                            <div class="header">
+                                                <h2>Instruction</h2>
+                                            </div>
+                                            <div class="content formatted" id="instruction_container"></div>
+                                        </div>
+                                        <div class="content-hints-div">
+                                            <div class="header">
+                                                <h2>Exercise</h2>
+                                            </div>
+                                            <div class="content formatted">
+                                                <div id="content_container"></div>
+                                                <div class="hints-div">
+                                                    <div class="header" id="hints-id">
+                                                        <h3>Stuck? Here's a hint!</h3>
+                                                    </div>
+                                                    <div class="content" id="hint_container">Use
+                                                        <code>input(...)</code> to get the values from the user.
+                                                        Finally, use
+                                                        <code>print</code> to show the following sentence:
+
+                                                        <p></p>
+                                                        <pre>Hello {name}</pre>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="scroll hscroll">
+                                        <span class="scroll__thumb" style="left: 0%; width: 100%;"></span>
+                                    </div>
+                                    <div class="scroll vscroll">
+                                        <span class="scroll__thumb" style="top: 0%; height: 100.106%;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner-part"></div>
+                </div>
+                <!-- some issue in the next div-->
+
+  
+                {% block body %}
+                {% endblock %}  
+
+                <div class="east" id="east-panel" max-width="30%">
+                    <div class="side-bar">
+                        <ul class="header">
+                            <li class="discuss">
+                                <span>
+                                    <span class="img"></span>Discuss
+                                </span>
+                            </li>
+                            <li class="articles">
+                                <span>
+                                    <span class="img"></span>Related articles
+                                </span>
+                            </li>
+                            <li class="datasets">
+                                <span>
+                                    <span class="img"></span>Datasets
+                                </span>
+                            </li>
+                        </ul>
+                        <div class="section" id="articles" style="display: flex;">
+                            <div class="header">
+                                <h2 id="articles_h1">Related articles</h2>
+                            </div>
+                            <div id="articles_content" class="content">
+                                <div>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="loader-wrapper">
+                <img src="static/images/ajax-loader.gif">
+            </div>
+        </div>
+    </div>
+    
+    <div id="footer_wrapper">
+        <div id="footer"></div>
+    </div>
+
+</body>
+
+</html>

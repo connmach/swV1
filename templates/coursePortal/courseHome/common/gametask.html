@@ -1,0 +1,291 @@
+{% extends "coursePortal/courseHome/common/baseGameTask1.html" %}
+{% block body %}
+<script>
+    language = "{{language}}";
+</script>
+
+  <link rel="stylesheet" href="/static/gameTask/codeGameUI.css">
+{% if language=="web" %}
+<link rel="stylesheet" href="https://codemirror.net/lib/codemirror.css" />
+<link rel="stylesheet" href="https://codemirror.net/theme/3024-day.css" />
+<script src="https://codemirror.net/lib/codemirror.js"></script>
+<script src="https://codemirror.net/addon/edit/matchbrackets.js"></script>
+<script src="https://codemirror.net/addon/edit/continuecomment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.21.0/addon/runmode/colorize.min.js"></script>
+<script src="https://codemirror.net/mode/xml/xml.js"></script>
+<script src="https://codemirror.net/mode/javascript/javascript.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.21.0/mode/htmlmixed/htmlmixed.min.js"></script>
+<script src="https://codemirror.net/addon/hint/show-hint.js"></script>
+<script src="https://codemirror.net/addon/hint/javascript-hint.js "></script>
+<script src="/static/codemirror/lib/xml.js"></script>
+<script src="/static/codemirror/lib/javascript.js"></script>
+<script src="/static/codemirror/lib/css.js"></script>
+<script src="/static/codemirror/lib/closetag.js"></script>
+
+<link rel="stylesheet" href="https://codemirror.net/addon/hint/show-hint.css" />
+<link rel="stylesheet" href="https://codemirror.net/addon/hint/show-hint.css" />
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/dracula.min.css" />
+<link rel="stylesheet" href="static/codemirror/python/css/dracula.css" />
+<link rel="stylesheet" href="/static/codemirror/lib/twilight.css" />
+{% endif %}
+{% if language == "react" %}
+<link rel="stylesheet" href="https://codemirror.net/lib/codemirror.css" />
+<link rel="stylesheet" href="https://codemirror.net/theme/3024-day.css" />
+<script src="https://codemirror.net/lib/codemirror.js"></script>
+<script src="https://codemirror.net/addon/edit/matchbrackets.js"></script>
+<script src="https://codemirror.net/addon/edit/continuecomment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.21.0/addon/runmode/colorize.min.js"></script>
+<script src="https://codemirror.net/mode/xml/xml.js"></script>
+<script src="https://codemirror.net/mode/javascript/javascript.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.21.0/mode/htmlmixed/htmlmixed.min.js"></script>
+<script src="https://codemirror.net/addon/hint/show-hint.js"></script>
+<script src="https://codemirror.net/addon/hint/javascript-hint.js "></script>
+<script src="/static/codemirror/lib/xml.js"></script>
+<script src="/static/codemirror/lib/javascript.js"></script>
+<script src="/static/codemirror/lib/css.js"></script>
+<script src="/static/codemirror/lib/closetag.js"></script>
+<link rel="stylesheet" href="https://codemirror.net/addon/hint/show-hint.css" />
+<link rel="stylesheet" href="https://codemirror.net/addon/hint/show-hint.css" />
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/dracula.min.css" />
+<link rel="stylesheet" href="static/codemirror/python/css/dracula.css" />
+<link rel="stylesheet" href="/static/codemirror/lib/twilight.css" />
+{% endif %}
+
+{% if language == "python" %}
+<link rel="stylesheet" href="https://codemirror.net/lib/codemirror.css" />
+<link rel="stylesheet" href="https://codemirror.net/theme/3024-day.css" />
+<script src="https://codemirror.net/lib/codemirror.js"></script>
+<script src="https://codemirror.net/addon/edit/matchbrackets.js"></script>
+<script src="https://codemirror.net/addon/edit/continuecomment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.21.0/addon/runmode/colorize.min.js"></script>
+<script src="https://codemirror.net/mode/xml/xml.js"></script>
+<script src="https://codemirror.net/mode/javascript/javascript.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.21.0/mode/htmlmixed/htmlmixed.min.js"></script>
+<script src="https://codemirror.net/addon/hint/show-hint.js"></script>
+<script src="https://codemirror.net/addon/hint/javascript-hint.js "></script>
+<script src="/static/codemirror/lib/xml.js"></script>
+<script src="/static/codemirror/lib/javascript.js"></script>
+<script src="/static/codemirror/lib/css.js"></script>
+<script src="/static/codemirror/lib/closetag.js"></script>
+<link rel="stylesheet" href="https://codemirror.net/addon/hint/show-hint.css" />
+<link rel="stylesheet" href="https://codemirror.net/addon/hint/show-hint.css" />
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/dracula.min.css" />
+<link rel="stylesheet" href="/static/codemirror/python/css/dracula.css" />
+{% endif %}
+
+<div class="center" id="center-panel">
+    <div class="ConsoleEditor" style="max-height: 100%;">
+        <div class="console-div" style="height: 90%;width:100%">
+            
+            <div class="codeGame-control-code-container">
+                <div style="position: relative" class="codeGame-control-code-header">
+                    <pre>Editor</pre>
+                    <div id="codeGame-button-clear" class="trash"></div>
+                    <div class="trashnote">Clear code</div>
+                    <div class="circle"></div>
+                </div>
+    id="dropBox3"
+    
+                <div id="codeGame-control-code-sequence" class="codeGame codeGame-control-code-sequence">
+                    <div id="61fca1a9-d15a-44e3-826b-da9055910a5b" ondrop="drop(event)"
+                        ondragover="allowDrop(event)"class="button forward" draggable="true"></div>
+                    <div class="button placeholder" ></div>
+                    <div class="button placeholder"></div>
+                </div>
+                <div id="codeGame-control-actions" class="codeGame-control-code-actions">
+                    <div class="codeGame codeGame-control-buttons">
+                        <div style="" id="codeGame-button-forward" onclick="edit()" draggable="true" ondragstart="drag(event)" class="button forward" draggable="true">
+                           var countOfBirds= <input spellcheck="false" class="editablesection" onkeypress="checkKey(event)"
+                                oninput="writinginput(this, 1)" maxlength="5" style="width: 54px;">
+                            <p style="display:none"> &lt;h1&gt; flappybird &lt;/h1&gt;</p>
+                        </div>
+                        <div style="/* display: none; */" id="codeGame-button-left" class="button left"
+                            draggable="true">
+                           int countOfBirds= <input spellcheck="false" class="editablesection" onkeypress="checkKey(event)"
+                                oninput="writinginput(this, 1)" maxlength="5" style="width: 54px;">
+                        </div>
+                        <div style="/* display: none; */color: red;" id="codeGame-button-right" class="button right"
+                            draggable="true">
+                           countOfBirds= <input spellcheck="false" class="editablesection" onkeypress="checkKey(event)"
+                                oninput="writinginput(this, 1)" maxlength="5" style="width: 54px;">
+                        </div>
+                        <div style="/* display: none; */" id="codeGame-button-use" class="button use"
+                            draggable="true"></div>
+                        <div style="display: none;" id="codeGame-button-loop" class="button loop" draggable="true">
+                        </div>
+                    </div>
+                    <div class="codeGame codeGame-control-execute">
+                        <button id="codeGame-button-runsequence" class="execute"></button>  
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="footer"> 
+                 <div class="buttons">
+                     <a id="submit" class="button primary" title="Control+Enter" > Submit </a>
+                </div>
+            </div>          
+        </div>
+    </div>
+</div>
+
+<script>
+ 
+
+    let editor = null;
+
+    function htmlDecode(input) {
+        var doc = new DOMParser().parseFromString(input, "text/html");
+        return doc.documentElement.textContent;
+    }
+    // probably load flag need to be deleted
+    loadFlag = false;
+    console.log("start flag" + loadFlag);
+    var mime = "text/x-mysql";
+    if (loadFlag == false) {
+        var mypre = document.getElementById("editor");
+        console.log("start" + mypre);
+        mypre.innerHTML = "";
+
+        lang = "{{language}}";
+        console.log("Language :-" + lang);
+        if (lang == "python") {
+            editor = new CodeMirror.fromTextArea(document.getElementById("editor"), {
+                mode: {
+                    name: "python",
+                    version: 3,
+                    singleLineStringErrors: false,
+                },
+                lineWrapping: false,
+                parserfile: ["/static/codemirror/python/js/parsepython.js"],
+                stylesheet: "/static/codemirror/python/css/pythoncolors.css",
+                textWrapping: false,
+                path: "/static/codemirror/js/",
+                lineNumbers: true,
+                textWrapping: false,
+                indentUnit: 4,
+                indentWithTabs: true,
+                smartIndent: true,
+                matchBrackets: true,
+                autofocus: true,
+                extraKeys: {
+                    "Ctrl-Space": "autocomplete"
+                },
+
+            });
+        } else if (lang == "react" || lang == "web") {
+            editor = new CodeMirror.fromTextArea(document.getElementById("editor"), {
+                mode: "javascript",
+                theme: "twilight",
+                lineWrapping: false,
+                path: "/static/js/",
+                lineNumbers: true,
+                textWrapping: false,
+                indentUnit: 2,
+                indentWithTabs: true,
+                smartIndent: true,
+                matchBrackets: true,
+                autofocus: true,
+                extraKeys: {
+                    "Ctrl-Space": "autocomplete"
+                },
+            });
+        }
+
+        loadFlag = true;
+        inputcode = `{{code}}`;
+        console.log(htmlDecode(inputcode));
+        editor.setValue(htmlDecode(inputcode));
+        editor.on("blur", function () {
+            $(".CodeMirror-cursors").css("visibility", "visible");
+        });
+        editor.focus();
+        editor.setCursor({
+            line: 1,
+            ch: 5
+        });
+        var setheight = $(".console-div").height() > "500" ? "380x" : "380px";
+        $(".console-div").css({
+            height: setheight,
+        });
+        var setheight = $(".result-div").height() > "500" ? "590px" : "590px";
+        $(".result-div").css({
+            height: setheight,
+        });
+    }
+
+    $('#browserContent').hide();
+
+    $("#tab1").click(function () {
+        $("#tab1").toggleClass("selected");
+        $('#browserContent').hide();
+        $('#editorContent').show();
+    })
+
+    $("#tab2").click(function () {
+        $("#tab2").toggleClass("selected");
+        $('#browserContent').show();
+        $('#editorContent').hide();
+
+    })
+
+
+
+</script>
+
+<script src="/static/web/js/webtask.js"> < /script> 
+        < script type = "text/javascript" >
+            window.onload = function() {
+                console.log("loading filetree " + "{{userId}}" + "/ / " + "{{courseId}}")
+            };
+
+    var count = 1;
+    var src = ["app.js"]
+    var public = ["index.html"]
+    var static = ["app.css"]
+    var root = new TreeNode("Project");
+    var n1 = new TreeNode("public");
+    var n11 = new TreeNode("index.html");
+    var n2 = new TreeNode("static");
+    var n3 = new TreeNode("src");
+    var n4 = new TreeNode("package.json");
+    var n31 = new TreeNode("app.css");
+
+
+    var n33 = new TreeNode("app.js");
+
+    root.addChild(n1);
+    root.addChild(n2);
+    root.addChild(n3);
+    root.addChild(n4);
+    n1.addChild(n11);
+    n2.addChild(n31);
+    n3.addChild(n33);
+    //n3.setEnabled(false);
+
+    var view = new TreeView(root, "#container", editor, "{{userId}}", "{{courseId}}");
+    changeIcons()
+
+</script>
+
+<style>
+    .resizer {
+        background-color: #cbd5e0;
+        cursor: ew-resize;
+        height: 100%;
+        width: 2px;
+    }
+</style>
+
+{% endblock body %}
