@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Flappy Bird</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" charset="utf-8"></script>
+  </head>
+<script>
+document.addEventListener('DOMContentLoaded' , () => {
+    const bird = document.querySelector('.bird')
+    const gameDisplay = document.querySelector('.game-container')
+    const ground = document.querySelector('.ground-moving')
+
+    let birdLeft = 220
+    let birdBottom = 100
+    let gravity = 3
+    let isGameOver = false
+    let gap = 430
+
+
+    function startGame() {
+        birdBottom = gravity
+        bird.style.bottom = birdBottom + 'px'
+        bird.style.left = birdLeft + 'px'
+    }
+  
+ 
+
+   // How to define jump funciton 
+   // declare variable
+    function jump() {
+        if (birdBottom < 500) birdBottom += 350
+        bird.style.bottom = birdBottom + 'px'
+        console.log(birdBottom)
+    }
+
+
+
+
+ 
+    function generateObstacle() {
+        let obstacleLeft = 500
+        let randomHeight = Math.random() * 60
+        let obstacleBottom = randomHeight
+        const obstacle = document.createElement('div')
+        const topObstacle = document.createElement('div')
+        if (!isGameOver) {
+            obstacle.classList.add('obstacle')
+            topObstacle.classList.add('topObstacle')
+        }
+        gameDisplay.appendChild(obstacle)
+        gameDisplay.appendChild(topObstacle)
+        obstacle.style.left = obstacleLeft + 'px'
+        topObstacle.style.left = obstacleLeft + 'px'
+        obstacle.style.bottom = obstacleBottom + 'px'
+        topObstacle.style.bottom = obstacleBottom + gap + 'px'
+
+        function moveObstacle() {
+            obstacleLeft -=2
+            obstacle.style.left = obstacleLeft + 'px'
+            topObstacle.style.left = obstacleLeft + 'px'
+
+            if (obstacleLeft === -60) {
+                clearInterval(timerId)
+                gameDisplay.removeChild(obstacle)
+                gameDisplay.removeChild(topObstacle)
+            }
+            if (
+                obstacleLeft > 200 && obstacleLeft < 280 && birdLeft === 220 &&
+                (birdBottom < obstacleBottom + 153 || birdBottom > obstacleBottom + gap -200)||
+                birdBottom === 0 
+                ) {
+                //gameOver()
+                //clearInterval(timerId)
+            }
+        }
+        let timerId = setInterval(moveObstacle, 20) 
+        if (!isGameOver) setTimeout(generateObstacle, 3000)
+
+    }
+    generateObstacle()
+
+
+ 
+
+
+})
+
+</script>
+
+<style>
+body {
+    display: flex;
+}
+
+.game-container {
+    width: 500px;
+    height: 730px;
+    position: absolute;
+    left: 80px;
+}
+
+.border-left {
+    width: 80px;
+    height: 790px;
+    position:  absolute;
+    background-color: white;
+    z-index: +2;
+}
+
+.border-right {
+    width: 80px;
+    height: 790px;
+    position: absolute;
+    background-color: white;
+    z-index: +2;
+    left: 580px;
+}
+
+.border-top {
+    width: 660px;
+    height: 50px;
+    position:  absolute;
+    background-color: white;
+    z-index: +2;
+    top: -50px;
+}
+
+.sky {
+    background-image: url('fb-game-background.png');
+    width: 500px;
+    height: 580px;
+    position: absolute;
+}
+
+.ground {
+    background-image: url('bottom-background.png');
+    width: 500px;
+    height: 150px;
+    position: absolute;
+    top: 580px;
+    z-index: +1;
+}
+
+.bird {
+    background-image: url('flappy-bird.png');
+    position: absolute;
+    width: 60px;
+    height: 45px;
+    left: 220px;
+    bottom: 100px;
+}
+
+.obstacle {
+    background-image: url('flappybird-pipe.png');
+    width: 60px;
+    height: 300px;
+    position: absolute;
+}
+
+.topObstacle {
+    background-image: url('flappybird-pipe.png');
+    transform: rotate(180deg);
+    width: 60px;
+    height: 300px;
+    position: absolute;
+}
+
+@keyframes slideright {
+    from {
+        background-position: 10000%;
+    }
+    to {
+        background-position: 0%;
+    }
+  }
+  
+  @-webkit-keyframes slideright {
+    from {
+        background-position: 10000%;
+    }
+    to {
+        background-position: 0%;
+    }
+  }
+
+  .ground-container {
+      height: 150px;
+      width: 580px;
+      left: 80px;
+      position:  absolute;
+  }
+  
+  .ground-moving {
+    position: absolute;
+    top: 580px;
+    height: 150px;
+    background-image: url('bottom-background.png');
+    background-repeat: repeat-x;
+    animation: slideright 100s infinite linear;
+    -webkit-animation: slideright 100s infinite linear;
+    width: 100%;
+    z-index: +1;
+  }
+
+
+
+  </style
+
+
+  <body>
+
+  <div class="border-left"></div>
+  <div class="game-container">
+      <div class="border-top"></div>
+      <div class="sky">
+          <div class="bird"></div>
+      </div>
+  </div>
+  <div class="ground-container">
+    <div class="ground-moving"></div>
+  </div>
+  <div class="border-right"></div>
+
+  </body>
+</html>

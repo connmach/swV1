@@ -1,0 +1,50 @@
+html {
+    font-size: 14px;
+}
+
+.nav-item {
+    font-size: 1.5rem;
+}
+
+.nav-item span {
+    font-size: 0.9rem;
+}
+
+.navbar {
+    height: 9vh;
+}
+
+.content-container {
+    height: 91vh;
+}
+
+.overflow-scroll {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    min-height: 0;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(241, 241, 241, 0);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #aca8b3;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
