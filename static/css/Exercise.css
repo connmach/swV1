@@ -4260,7 +4260,7 @@ BODY.dark #header .hmenu .hmenu_item > A {
   padding: 10px 40px 0 10px;
   min-height: 63px;
   background: none;
-  background: linear-gradient(42deg, #c045a0 0%, #c045a0 30%, #8622c2 80%);
+  background: linear-gradient(42deg, #E4F9F4 0%, #e4f9f4 30%, #91C7B1 80%);
 }
 #header .hmenu .hmenu_item > A.title {
   margin: 0;

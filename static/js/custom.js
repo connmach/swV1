@@ -1,6 +1,20 @@
 
-//var  port = "5022"
-var  port = "5000"
+var  port = "5022"
+//var  port = "5000"
+function getPlatformServiceHost() {
+//    hostip = "http://192.46.208.71"
+     hostip = "https://socialblocks.in/ps"
+
+    delim_period = ":"
+    delim_slash = "/"
+
+
+//    hostname = hostip + delim_period + port 
+     hostname = hostip  
+
+    return hostname
+}
+
  
 
 function  saveFile(contents,fileName,userId,courseId ){
@@ -27,7 +41,7 @@ function  saveFile(contents,fileName,userId,courseId ){
             console.log("fileService response" + JSON.stringify(data))
             add_To_Console("fileService successful")
             var myObj = JSON.parse(data);
-            console.log("file serivce Contents Obj" + myObj.Contents) 
+            console.log("file serivce Contents Obj" + myObj .Contents) 
             editor.setValue(myObj .Contents) 
                 
         }
@@ -106,15 +120,6 @@ function dragstart(e) {
     alert("drag")
 }
 
-function getPlatformServiceHost() {
-    hostip = "http://192.46.208.71"
-    delim_period = ":"
-    delim_slash = "/"
-
-
-    hostname = hostip + delim_period + port 
-    return hostname
-}
 
 function getScractchpad(courseId) {
     hostip = "http://192.46.208.71"
@@ -151,16 +156,16 @@ function add_Result_To_Console(text) {
 
 function add_To_Console(text) {
 
-    console.log("add to console " + text);
-    var resultPyOut = document.getElementById("resultIframe");
+  // // console.log("add to console " + text);
+  //  var resultPyOut = document.getElementById("resultIframe");
 
-    var tag = document.createElement("pre");
-    for (i = 0; i < text.length; i++) {
-        var textNode = document.createTextNode(text[i]);
+ //   var tag = document.createElement("pre");
+  //  for (i = 0; i < text.length; i++) {
+  /*      var textNode = document.createTextNode(text[i]);
         tag.appendChild(textNode);
         console.log("add to console " + text[i]);
     }
-    resultPyOut.appendChild(tag);
+    resultPyOut.appendChild(tag);*/
 }
 
 function clearConsole() {
@@ -171,7 +176,8 @@ function clearConsole() {
 }
 //runinSandbox(tokens[0],courseTitle)
 
-function checkServices(userId) {
+//function checkServices(userId) {
+function checkServices(serviceName) {
 
     status = "Success"
     var qnmap = {
@@ -183,10 +189,20 @@ function checkServices(userId) {
         "CP0102": 3
     }
     //session should have current question
-    platformServiceURL = "/api/v1/platformServices/"
-    checkServiceURL = "ServiceCheck/"
+    if (serviceName=="grading"){ 
+       platformServiceURL = "/api/v1/gradingServices/"  
+       checkServiceURL = "ServiceCheck/"
+    } 
+    else if(serviceName=="ps"){ 
+       platformServiceURL = "/api/v1/platformServices/"
+       checkServiceURL = "ServiceCheck/"
+    }
+    else if(serviceName=="jobservices"){ 
+       platformServiceURL = "/api/v1/jobService/"  
+       checkServiceURL = "ServiceCheck/"
+    }
     healthCheckURL = getPlatformServiceHost() + platformServiceURL + checkServiceURL
-    jsonData = JSON.stringify({ "userId": userId, "service": "platform servcies" })
+    jsonData = JSON.stringify({ "userId": "guest", "service": "Service URL "+ platformServiceURL  })
 
     $.ajax({
         type: 'POST',
@@ -212,7 +228,7 @@ function checkServices(userId) {
         status = "fail"
     }).always(function () {
 
-        alert(status)
+        alert(status + serviceName)
         console.log("healthCheck finished")
     });
 
@@ -635,43 +651,6 @@ function writeTestResult(myObj,status){
     }
        
     writeResultConsole(myObj)
-
-}
-
-function updateStatusFlags(userId,moduleId,  courseId,TaskId,) {
-
-// update learning history
-// read Learninghistory
-jsonData = JSON.stringify({ "courseId":courseId, "completedQn":"1" })
-action="update"
-
-learningHistoryServices(userId,moduleId,courseId,TaskId,action,jsonData )
-
-//
-var completedQnArr= [1,2,3];
-var completedSectArr=[1,2];
- for(let i=0;i<TaskId;i++)
-   updateStatusQn(i)
-
- completedSectArr.forEach(updateSectionStatus);
-  item="#section-1-exercise-1"
-  updateStatusQn(item)
-
- }
- 
-function updateStatusQn(item,index=0){
-       
-        console.log("sec sts" + item)
-        tempItem =   "#section-2-exercise-" + item.toString()
-        $(tempItem ).addClass('done')
-
-}
-
-function updateSectionStatus(item,index=0){
-       
-        console.log("sec sts" + item)
-        tempItem =   "#section-" + item.toString()
-        $(tempItem).addClass('done')
 
 }
 
